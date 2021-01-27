@@ -1,0 +1,7 @@
+
+###Linux
+ls -s /gdrive/Emacs/.emacs.d ~/.emacs.d
+
+
+###Windows
+mklink /J C:\Users\TobyR\AppData\Roaming\.emacs.d G:\Emacs\.emacs.d 
