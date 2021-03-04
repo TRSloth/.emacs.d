@@ -1,0 +1,8 @@
+# Build and Release Folders
+auto-save-list/
+file-backups/
+bookmarks
+bookmarks.emacs
+org-roam.db
+recentf
+recentf~
