@@ -6,3 +6,8 @@ bookmarks.emacs
 org-roam.db
 recentf
 recentf~
+<<<<<<< HEAD
+=======
+.#bookmarks
+network-security.data
+>>>>>>> b01aef6 (Lots of Changes)
