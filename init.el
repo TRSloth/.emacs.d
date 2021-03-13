@@ -151,6 +151,8 @@
 (setq-default TeX-master nil) ; Query for master file.
 
 
+
+
 (with-eval-after-load 'ox-latex ; add cls files
    (add-to-list 'org-latex-classes
                 '("mitthesis"
@@ -210,6 +212,16 @@ document. Addtionally, it sorts all acronyms in the list."
 (global-set-key (kbd "C-c n f") #'counsel-find-file)
 (global-set-key (kbd "C-c n t") #'delete-file)
 
+(defun org-noter-insert-selected-text-inside-note-content ()
+  (interactive)
+  (progn (setq currenb (buffer-name))
+		 (org-noter-insert-precise-note)
+		 (set-buffer currenb)
+		 (org-noter-insert-note)
+		 (org-noter-quote) ) )
+
+(define-key pdf-view-mode-map (kbd "y") 'org-noter-insert-selected-text-inside-note-content)
+
 ;;; Quick access to init
 (defun other-find-org-file ()
   "Org-roam-find-file', in another window."
@@ -233,8 +245,8 @@ document. Addtionally, it sorts all acronyms in the list."
 ;; Font
 ;; If you want to know how to correct specify a font in Windows,
 ;; invoke `eval-last-sexp' for (w32-select-font)
-(set-face-attribute 'default nil :font "DejaVu Sans Mono-12")
-;;(set-face-attribute 'default nil :font "dubai-12")
+;;(set-face-attribute 'default nil :font "DejaVu Sans Mono-12")
+(set-face-attribute 'default nil :font "dubai-12")
 ;;(set-face-attribute 'default nil  :font "courier-12")
 
 
@@ -253,15 +265,15 @@ document. Addtionally, it sorts all acronyms in the list."
 
 ;; Add Counsel and Swiper search functions
 (global-set-key (kbd "C-c f r") #'counsel-recentf)
-(global-set-key (kbd "C-c C-s") #'swiper)
+(global-set-key (kbd "C-f") #'swiper)
 
 ;; Replace default "M-x" and "C-x C-f" with Counsel version
 (global-set-key (kbd "M-x") #'counsel-M-x)
 (global-set-key (kbd "C-x C-f") #'counsel-find-file)
 
 ;; Optionally, you can replace these default functions with Counsel version, too
-;;(global-set-key (kbd "C-h f") 'counsel-describe-function)
-;;(global-set-key (kbd "C-h v") 'counsel-describe-variable)
+(global-set-key (kbd "C-h f") 'counsel-describe-function)
+(global-set-key (kbd "C-h v") 'counsel-describe-variable)
 
 
 ;; Olivetti- Keep off for now
@@ -377,13 +389,13 @@ document. Addtionally, it sorts all acronyms in the list."
 (global-set-key "\M-v" 'yank-pop)
 (global-set-key "\C-w" 'kill-ring-save)
 (global-set-key "\M-w" 'kill-region)
-(global-set-key "\C-ck" #'cua-mode)
+(global-set-key "\C-c k" #'cua-mode)
 
 ;;;Wrap search is nothing found
 ;; Prevents issue where you have to press backspace twice when
 ;; trying to remove the first character that fails a search
 
-(global-set-key (kbd "C-f") 'isearch-forward) 
+(global-set-key (kbd "C-C C-f") 'isearch-forward) 
 (define-key isearch-mode-map "\C-f" 'isearch-repeat-forward)
 
 ;(add-hook 'isearch-mode-hook (lambda () (define-key isearch-mode-map (kbd "C-f") 'isearch-repeat-forward)))
@@ -398,10 +410,6 @@ document. Addtionally, it sorts all acronyms in the list."
     (isearch-repeat (if isearch-forward 'forward))
     (ad-enable-advice 'isearch-search 'after 'isearch-no-fail)
     (ad-activate 'isearch-search)))
-
-
-
-
 
 ;;;Paused window 
 (defadvice pop-to-buffer (before cancel-other-window first)
@@ -429,3 +437,13 @@ document. Addtionally, it sorts all acronyms in the list."
 (global-set-key (kbd "S-C-<right>") 'enlarge-window-horizontally)
 (global-set-key (kbd "S-C-<down>") 'shrink-window)
 (global-set-key (kbd "S-C-<up>") 'enlarge-window)
+
+
+
+(add-hook 'after-init-hook 'pdf-tools-install)
+ ;; open pdfs scaled to fit page
+; (setq-default pdf-view-display-size 'fit-page)
+ ;; automatically annotate highlights
+ (setq pdf-annot-activate-created-annotations t)
+ ;; use normal isearch
+ ;(define-key pdf-view (kbd "C-s") 'isearch-forward)
