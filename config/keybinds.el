@@ -59,7 +59,7 @@
 (global-set-key (kbd "C-c n f") #'counsel-find-file)
 (global-set-key (kbd "C-h f") 'counsel-describe-function)
 (global-set-key (kbd "C-h v") 'counsel-describe-variable)
-(global-set-key (kbd "C-c f r") #'counsel-recentf)
+(global-set-key (kbd "C-c M-f") #'counsel-recentf)
 (global-set-key (kbd "C-f") #'swiper)
 (global-set-key (kbd "C-C C-f") 'isearch-forward) ; just in case its still needed(pdf-viewer etc)
 ;;; Paste bin for regualterly used strings
