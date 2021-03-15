@@ -180,15 +180,13 @@
 ;; see org-ref for use of these variables
 (setq org-ref-bibliography-notes "~/entropy/notes/"
       org-ref-default-bibliography '("~/entropy/roam.bib")
-      org-ref-pdf-directory '("~/Library/Papers/"
-        "~/Library/Standards/" "~/Library/Misc/" "~/Library/CSUG/"))
+      org-ref-pdf-directory '("~/Library/"))
 (require 'org-ref)
 
 ;;;; Helm-bibtex ;;;; https://github.com/tmalsburg/helm-bibtex
 
 (setq bibtex-completion-bibliography '("~/entropy/roam.bib")
-      bibtex-completion-library-path '("~/Library/Papers"
-        "~/Library/Standards" "~/Library/Misc"  "~/Library/CSUG" "~/Library/Books")
+      bibtex-completion-library-path '("~/Library")
       bibtex-completion-notes-path "~/entropy/notes")
 
 (setq bibtex-completion-pdf-field "File");; location of pdf may be specified in a field "File" the even allows for supplementry material to be stored e.g. "File = {:/path/to/article.pdf:PDF;:/path/to/supplementary_materials.pdf:PDF}"
