@@ -62,7 +62,10 @@ document. Addtionally, it sorts all acronyms in the list."
   (find-file-other-window user-init-file))
 
 
-
+;;;Paused window from https://stackoverflow.com/a/5182111
+(defadvice pop-to-buffer (before cancel-other-window first)
+  (ad-set-arg 1 nil))
+(ad-activate 'pop-to-buffer)
 (defun toggle-window-dedicated ()
   "Toggle whether the current active window is dedicated or not"
   (interactive)

@@ -74,12 +74,6 @@
 
 ;------------------------------ Adding paths -------------------------------
 
-;;; ------Adding load path-------
-;; Allows librarys to be added by me ;;; not in use
-;(add-to-list 'load-path "~/.emacs.d/lisp/")
-;(let ((default-directory  "~/.emacs.d/lisp/"))
-;  (normal-top-level-add-to-load-path '("."))
-;  (normal-top-level-add-subdirs-to-load-path))
 
 (setq backup-directory-alist 
   '(("." . "~/.emacs.d/file-backups")))
@@ -130,40 +124,7 @@
 (setq enable-recursive-minibuffers t)
 (setq initial-major-mode 'org-mode)
 (setq latex-run-command "pdflatex")
-(add-hook 'LaTeX-mode-hook (lambda ()
-                 (push 
-                  '("Latex_outdir" "%`pdflatex --output-directory=/tmp %(mode)%' %t" 
-                TeX-run-TeX nil (latex-mode doctex-mode) 
-                :help "Run pdflatex with output in /tmp")
-                  TeX-command-list)))
 
-(with-eval-after-load 'ox-latex ; add cls files
-   (add-to-list 'org-latex-classes
-                '("mitthesis"
-                  "\\documentclass{mitthesis}"
-                  ("\\chapter{%s}" . "\\chapter*{%s}")
-                  ("\\section{%s}" . "\\section*{%s}")
-                  ("\\subsection{%s}" . "\\subsection*{%s}")
-                  ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))))
-(with-eval-after-load 'ox-latex ; add cls files
-   (add-to-list 'org-latex-classes
-                '("tobysanswers"
-                  "\\documentclass{tobysanswers}"
-                  ("\\chapter{%s}" . "\\chapter*{%s}")
-                  ("\\section{%s}" . "\\section*{%s}")
-                  ("\\subsection{%s}" . "\\subsection*{%s}")
-                  ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))))
-
-
-;;; ------Themeing----- ;;;
-;; Fonts
-;;(set-face-attribute 'default nil :font "DejaVu Sans Mono-12")
-(set-face-attribute 'default nil :font "dubai-12")
-;;(set-face-attribute 'default nil  :font "courier-12")
-;; Automatically load the theme you like
-;; I am using modus-operandi (light theme) here
-;; There is also modus-vivendi (dark theme)
-;;(load-theme 'modus-operandi)
 ;;----- Asthetic options ----- ;;
 
 (setq-default word-wrap t)
@@ -181,7 +142,7 @@
 (setq org-ref-bibliography-notes "~/entropy/notes/"
       org-ref-default-bibliography '("~/entropy/roam.bib")
       org-ref-pdf-directory '("~/gdrive/Library/"))
-(require 'org-ref)
+;(require 'org-ref)
 
 ;;;; Helm-bibtex ;;;; https://github.com/tmalsburg/helm-bibtex
 
@@ -202,7 +163,7 @@
 
 
 ;;;; ORB - org-roam-bibtex setup
-(require 'org-roam-bibtex)
+;(require 'org-roam-bibtex)
 (add-hook 'after-init-hook #'org-roam-bibtex-mode)
 (autoload 'helm-bibtex "helm-bibtex" "" t);;no idea where this came from or what it does
 ;;;Paused window 
@@ -213,6 +174,45 @@
 
  (setq pdf-annot-activate-created-annotations t)
 
+
+(add-hook 'LaTeX-mode-hook (lambda ()
+                 (push 
+                  '("Latex_outdir" "%`pdflatex --output-directory=/tmp %(mode)%' %t" 
+                TeX-run-TeX nil (latex-mode doctex-mode) 
+                :help "Run pdflatex with output in /tmp")
+                  TeX-command-list)))
+
+;;; ------Themeing----- ;;;
+;; Fonts
+(set-face-attribute 'default nil :font "DejaVu Sans-12")
+;;(set-face-attribute 'default nil :font "dubai-12")
+;;(set-face-attribute 'default nil  :font "courier-12")
+;; Theme
+;;(load-theme 'modus-operandi)
+;;(load-theme 'modus-vivendi)
+
+;;;--------Custom Latex Classes------;;;
+
+(with-eval-after-load 'ox-latex ; add cls files
+   (add-to-list 'org-latex-classes
+                '("mitthesis"
+                  "\\documentclass{mitthesis}"
+                  ("\\chapter{%s}" . "\\chapter*{%s}")
+                  ("\\section{%s}" . "\\section*{%s}")
+                  ("\\subsection{%s}" . "\\subsection*{%s}")
+                  ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))))
+(with-eval-after-load 'ox-latex
+   (add-to-list 'org-latex-classes
+                '("tobysanswers"
+                  "\\documentclass{tobysanswers}"
+                  ("\\chapter{%s}" . "\\chapter*{%s}")
+                  ("\\section{%s}" . "\\section*{%s}")
+                  ("\\subsection{%s}" . "\\subsection*{%s}")
+                  ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))))
+
+(require 'org-ref)
+(require 'org-roam-bibtex)
 (require 'helm-config)
+
 (load "~/.emacs.d/config/commands.el")
 (load "~/.emacs.d/config/keybinds.el")
