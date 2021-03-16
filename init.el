@@ -87,7 +87,7 @@
 ;;; ------Link files in Linux -----
 (when (string-equal system-type "gnu/linux")
 (setq user-emacs-directory "/home/chaos/.emacs.d/")
-(setq default-directory "/home/chaos")
+(setq default-directory "~/gdrive")
 (setenv "HOME" "/home/chaos"))
 
 ;;; ------Link files in Windows-----
