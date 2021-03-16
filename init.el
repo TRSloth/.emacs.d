@@ -9,7 +9,7 @@
  ;; If there is more than one, they won't work right.
  '(TeX-macro-global
    '("c:/texlive/2020/texmf-var/tex/" "c:/texlive/texmf-local/tex/" "c:/texlive/texmf-local/bibtex/bst/" "c:/texlive/2020/texmf-dist/tex/" "c:/texlive/2020/texmf-dist/bibtex/bst/"))
- '(TeX-macro-private '("g:/Library/Latex/"))
+ '(TeX-macro-private '("~/gdrive/Library/Latex/"))
  '(auto-save-list-file-prefix "~/.emacs.d/auto-save-list/.saves-")
  '(auto-save-visited-mode t)
  '(blink-cursor-mode nil)
@@ -93,7 +93,7 @@
 ;;; ------Link files in Windows-----
 (when (string-equal system-type "windows-nt")
 (setq user-emacs-directory "g:/.emacs.d/") ;;needs to be g
-(setq default-directory "~")
+(setq default-directory "~/gdrive")
 (setenv "HOME" "G:") ;;needs to be g
 ;;; ------Find linux functions in windows-----  
   (add-to-list 'exec-path "~/.emacs.d/addons-win") ;; sqllite3.exe for use by org-roam
@@ -180,14 +180,13 @@
 ;; see org-ref for use of these variables
 (setq org-ref-bibliography-notes "~/entropy/notes/"
       org-ref-default-bibliography '("~/entropy/roam.bib")
-      org-ref-pdf-directory '("~/Library/"))
+      org-ref-pdf-directory '("~/gdrive/Library/"))
 (require 'org-ref)
 
 ;;;; Helm-bibtex ;;;; https://github.com/tmalsburg/helm-bibtex
 
 (setq bibtex-completion-bibliography '("~/entropy/roam.bib")
-      bibtex-completion-library-path '("~/Library")
-      bibtex-completion-notes-path "~/entropy/notes")
+      bibtex-completion-library-path '("~/gdrive/Library"))
 
 (setq bibtex-completion-pdf-field "File");; location of pdf may be specified in a field "File" the even allows for supplementry material to be stored e.g. "File = {:/path/to/article.pdf:PDF;:/path/to/supplementary_materials.pdf:PDF}"
 (setq bibtex-completion-pdf-extension '(".pdf" ".pptx" ".docx"));;file types to recognise
