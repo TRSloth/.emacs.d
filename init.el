@@ -51,7 +51,7 @@
      ("" "acronym" t nil)))
  '(org-latex-pdf-process '("latexmk -shell-escape -bibtex -f -pdf %f"))
  '(org-noter-always-create-frame nil)
- '(org-roam-directory "g:/entropy/")
+ '(org-roam-directory "~/entropy/")
  '(org-startup-folded nil)
  '(org-startup-with-inline-images t)
  '(org-superstar-headline-bullets-list '(9673 9675 9671 10047))
@@ -86,9 +86,9 @@
 
 ;;; ------Link files in Linux -----
 (when (string-equal system-type "gnu/linux")
-(setq user-emacs-directory "/gdrive/.emacs.d/")
-(setq default-directory "/gdrive")
-(setenv "HOME" "/gdrive"))
+(setq user-emacs-directory "/home/chaos/.emacs.d/")
+(setq default-directory "/home/chaos")
+(setenv "HOME" "/home/chaos"))
 
 ;;; ------Link files in Windows-----
 (when (string-equal system-type "windows-nt")

@@ -10,3 +10,5 @@ recentf~
 network-security.data
 .#init.el
 image-dired/.image-dired_db
+elpa/archives/
+elpa/gnupg/
