@@ -75,9 +75,6 @@
 ;------------------------------ Adding paths -------------------------------
 
 
-(setq backup-directory-alist 
-  '(("." . "~/.emacs.d/file-backups")))
-
 ;;; ------Link files in Linux -----
 (when (string-equal system-type "gnu/linux")
 (setq user-emacs-directory "/home/chaos/.emacs.d/")
@@ -133,21 +130,7 @@
 
 ;-----------------Bibleography funcs ----------------------
 
-;;;; Org ref ;;;; https://github.com/jkitchin/org-ref
-
-(setq reftex-default-bibliography '("~/entropy/roam.bib"))
 (setq org-latex-pdf-process (list "latexmk -shell-escape -bibtex -f -pdf %f")); "If you plan to build PDF files via LaTeX you need to make sure that org-latex-pdf-process is set to process the bibliography (using bibtex or biblatex). Here is one example of how to do that (see ./org-ref.org::*LaTeX export for other alternatives)."
-
-;; see org-ref for use of these variables
-(setq org-ref-bibliography-notes "~/entropy/notes/"
-      org-ref-default-bibliography '("~/entropy/roam.bib")
-      org-ref-pdf-directory '("~/gdrive/Library/"))
-;(require 'org-ref)
-
-;;;; Helm-bibtex ;;;; https://github.com/tmalsburg/helm-bibtex
-
-(setq bibtex-completion-bibliography '("~/entropy/roam.bib")
-      bibtex-completion-library-path '("~/gdrive/Library"))
 
 (setq bibtex-completion-pdf-field "File");; location of pdf may be specified in a field "File" the even allows for supplementry material to be stored e.g. "File = {:/path/to/article.pdf:PDF;:/path/to/supplementary_materials.pdf:PDF}"
 (setq bibtex-completion-pdf-extension '(".pdf" ".pptx" ".docx"));;file types to recognise
@@ -174,6 +157,52 @@
 
  (setq pdf-annot-activate-created-annotations t)
 
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;-----General options-----;;
+(setq org-roam-db-update-method 'immediate)
+(setq TeX-PDF-mode t)
+(setq TeX-auto-save t)
+(setq TeX-parse-self t)
+(setq-default TeX-master nil)
+(setq ivy-use-virtual-buffers t)
+(setq enable-recursive-minibuffers t)
+(setq initial-major-mode 'org-mode)
+(setq latex-run-command "pdflatex")
+(setq pop-up-windows nil)
+(setq safe-local-variable-values '((TeX-master . master)))
+(setq scroll-bar-mode nil)
+(setq tool-bar-mode nil)
+(setq tooltip-mode nil)
+(setq version-control t)
+(setq word-wrap t)
+
+;;----- Asthetic options ----;;
+(setq-default word-wrap t)
+(setq-default line-spacing 0)
+(setq x-underline-at-descent-line t)
+(setq backup-directory-alist "~/.emacs.d/file-backups")
+
+;;----- Bibtex options ----- ;;
+
+(setq reftex-default-bibliography '("~/entropy/roam.bib"))
+(setq org-ref-bibliography-notes "~/entropy/notes/"
+      org-ref-default-bibliography '("~/entropy/roam.bib")
+      org-ref-pdf-directory '("~/gdrive/Library/"))
+(setq bibtex-completion-bibliography '("~/entropy/roam.bib")
+      bibtex-completion-library-path '("~/gdrive/Library"))
+
+(setq bibtex-completion-pdf-extension '(".pdf" ".pptx" ".docx"));;file types to recognise
+(setq bibtex-completion-pdf-open-function  (lambda (fpath)   (start-process "open" "*open*" "open" fpath)))
+(setq bibtex-completion-additional-search-fields '(keywords));Allows for search bib by keyword
+(setq bibtex-completion-pdf-symbol "$(O'|(B") ;appears if pdf exists
+(setq bibtex-completion-notes-symbol "$,2%N(B") ;appears if notes exist
+(setq pdf-annot-activate-created-annotations t)
+(setq org-latex-pdf-process (list "latexmk -shell-escape -bibtex -f -pdf %f")); "If you plan to build PDF files via LaTeX you need to make sure that org-latex-pdf-process is set to process the bibliography (using bibtex or biblatex). Here is one example of how to do that (see ./org-ref.org::*LaTeX export for other alternatives)."
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (add-hook 'LaTeX-mode-hook (lambda ()
                  (push 
