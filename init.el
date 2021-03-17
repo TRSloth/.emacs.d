@@ -103,16 +103,6 @@
 
 ;---------Activate options-------
 
-;-----------------Bibleography funcs ----------------------
-
-(setq org-latex-pdf-process (list "latexmk -shell-escape -bibtex -f -pdf %f")); "If you plan to build PDF files via LaTeX you need to make sure that org-latex-pdf-process is set to process the bibliography (using bibtex or biblatex). Here is one example of how to do that (see ./org-ref.org::*LaTeX export for other alternatives)."
-
-(setq bibtex-completion-pdf-field "File");; location of pdf may be specified in a field "File" the even allows for supplementry material to be stored e.g. "File = {:/path/to/article.pdf:PDF;:/path/to/supplementary_materials.pdf:PDF}"
-(setq bibtex-completion-pdf-extension '(".pdf" ".pptx" ".docx"));;file types to recognise
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 (add-hook 'after-init-hook 'org-roam-mode)
 (add-hook 'after-init-hook 'pdf-tools-install)
 (add-hook 'after-init-hook #'org-roam-bibtex-mode)
@@ -122,8 +112,6 @@
 (autoload 'helm-bibtex "helm-bibtex" "" t);;no idea where this came from or what it does
 (put 'set-goal-column 'disabled nil)
 (ivy-mode 1)
-
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -143,7 +131,6 @@
 (setq tool-bar-mode nil)
 (setq tooltip-mode nil)
 (setq version-control t)
-(setq word-wrap t);;;;;;;;;;;;;;;
 
 ;;----- Asthetic options ----;;
 (setq-default word-wrap t);;;;;;;;;;;;;;;;;;;;;;;
@@ -154,9 +141,9 @@
 ;;----- Bibtex options ----- ;;
 
 (setq reftex-default-bibliography '("~/entropy/roam.bib"))
-(setq org-ref-bibliography-notes "~/entropy/notes/"
-      org-ref-default-bibliography '("~/entropy/roam.bib")
-      org-ref-pdf-directory '("~/gdrive/Library/"))(setq bibtex-completion-bibliography '("~/entropy/roam.bib")
+(setq org-ref-default-bibliography '("~/entropy/roam.bib")
+      org-ref-pdf-directory '("~/gdrive/Library/"))
+(setq bibtex-completion-bibliography '("~/entropy/roam.bib")
       bibtex-completion-library-path '("~/gdrive/Library"))
 
 (setq bibtex-completion-pdf-extension '(".pdf" ".pptx" ".docx"));;file types to recognise
