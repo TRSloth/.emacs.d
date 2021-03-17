@@ -30,6 +30,8 @@
   (let ((org-roam-find-file-function #'find-file-other-window))
     (apply #'org-roam-find-file args)))
 
+
+; Add acronym from current position https://florian.adamsky.it/2018/03/09/emacs-add-acronyms.html 
 (defun fa/add-latex-acronym (region-beg region-end)
   "This function reads the written out form of an acronym via the
 minibuffer and adds it to the acronym list in a latex

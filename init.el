@@ -12,9 +12,7 @@
  '(TeX-macro-private '("~/gdrive/Library/Latex/"))
  '(auto-save-list-file-prefix "~/.emacs.d/auto-save-list/.saves-")
  '(auto-save-visited-mode t)
- '(blink-cursor-mode nil)
  '(current-language-environment "UTF-8")
- '(cursor-type 'bar)
  '(custom-safe-themes t)
  '(delete-old-versions t)
  '(delete-selection-mode t)
@@ -26,10 +24,7 @@
    '("png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "pbm" "pgm" "ppm" "pnm" "svg" "pdf" "bmp"))
  '(inhibit-startup-screen t)
  '(menu-bar-mode t)
- '(org-ellipsis "$(O#/(B")
  '(org-hide-block-startup nil)
- '(org-hide-leading-stars t)
- '(org-image-actual-width '(600))
  '(org-latex-default-packages-alist
    '(("AUTO" "inputenc" t
       ("pdflatex"))
@@ -50,20 +45,10 @@
      ("" "biblatex" t nil)
      ("" "acronym" t nil)))
  '(org-latex-pdf-process '("latexmk -shell-escape -bibtex -f -pdf %f"))
- '(org-noter-always-create-frame nil)
  '(org-roam-directory "~/entropy/")
- '(org-startup-folded nil)
- '(org-startup-with-inline-images t)
- '(org-superstar-headline-bullets-list '(9673 9675 9671 10047))
  '(package-selected-packages
    '(org-noter-pdftools org-noter org-roam-bibtex ivy-bibtex org-ref bibtex-completion latex-preview-pane yasnippet pdf-tools auctex org-superstar org-download counsel swiper ivy modus-vivendi-theme modus-operandi-theme org-roam))
- '(pop-up-windows nil)
- '(safe-local-variable-values '((TeX-master . master)))
- '(scroll-bar-mode nil)
- '(tool-bar-mode nil)
- '(tooltip-mode t)
- '(version-control t)
- '(word-wrap t))
+ '(safe-local-variable-values '((TeX-master . master))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -74,7 +59,6 @@
 
 ;------------------------------ Adding paths -------------------------------
 
-
 ;;; ------Link files in Linux -----
 (when (string-equal system-type "gnu/linux")
 (setq user-emacs-directory "/home/chaos/.emacs.d/")
@@ -102,7 +86,6 @@
 ;---------End Paths --------------------
 
 ;---------Activate options-------
-
 (add-hook 'after-init-hook 'org-roam-mode)
 (add-hook 'after-init-hook 'pdf-tools-install)
 (add-hook 'after-init-hook #'org-roam-bibtex-mode)
@@ -113,30 +96,14 @@
 (put 'set-goal-column 'disabled nil)
 (ivy-mode 1)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 ;;-----General options-----;;
 (setq org-roam-db-update-method 'immediate)
-(setq TeX-PDF-mode t)
-(setq TeX-auto-save t)
-(setq TeX-parse-self t)
-(setq-default TeX-master nil)
 (setq ivy-use-virtual-buffers t)
 (setq enable-recursive-minibuffers t)
 (setq initial-major-mode 'org-mode)
-(setq latex-run-command "pdflatex")
-(setq pop-up-windows nil)
-(setq safe-local-variable-values '((TeX-master . master)))
-(setq scroll-bar-mode nil)
-(setq tool-bar-mode nil)
-(setq tooltip-mode nil)
 (setq version-control t)
-
-;;----- Asthetic options ----;;
-(setq-default word-wrap t);;;;;;;;;;;;;;;;;;;;;;;
-(setq-default line-spacing 0);;;;;;;;;;;;;
-(setq x-underline-at-descent-line t);;;;;;;;;;;;;;
-(setq backup-directory-alist "~/.emacs.d/file-backups")
+(setq backup-directory-alist 
+  '(("." . "~/.emacs.d/file-backups")))
 
 ;;----- Bibtex options ----- ;;
 
@@ -148,12 +115,15 @@
 (setq bibtex-completion-pdf-extension '(".pdf" ".pptx" ".docx"));;file types to recognise
 (setq bibtex-completion-pdf-open-function  (lambda (fpath)   (start-process "open" "*open*" "open" fpath)))
 (setq bibtex-completion-additional-search-fields '(keywords));Allows for search bib by keyword
-(setq bibtex-completion-pdf-symbol "$(O'|(B") ;appears if pdf exists
-(setq bibtex-completion-notes-symbol "$,2%N(B") ;appears if notes exist
-(setq pdf-annot-activate-created-annotations t)
-(setq org-latex-pdf-process (list "latexmk -shell-escape -bibtex -f -pdf %f")); "If you plan to build PDF files via LaTeX you need to make sure that org-latex-pdf-process is set to process the bibliography (using bibtex or biblatex). Here is one example of how to do that (see ./org-ref.org::*LaTeX export for other alternatives)."
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;----- Latex options ----- ;;
+(setq TeX-PDF-mode t)
+(setq TeX-auto-save t)
+(setq TeX-parse-self t)
+(setq-default TeX-master nil)
+(setq latex-run-command "pdflatex")
+(setq safe-local-variable-values '((TeX-master . master)))
+(setq org-latex-pdf-process (list "latexmk -shell-escape -bibtex -f -pdf %f")); "If you plan to build PDF files via LaTeX you need to make sure that org-latex-pdf-process is set to process the bibliography (using bibtex or biblatex). Here is one example of how to do that (see ./org-ref.org::*LaTeX export for other alternatives)."
 
 (add-hook 'LaTeX-mode-hook (lambda ()
                  (push 
@@ -161,15 +131,6 @@
                 TeX-run-TeX nil (latex-mode doctex-mode) 
                 :help "Run pdflatex with output in /tmp")
                   TeX-command-list)))
-
-;;; ------Themeing----- ;;;
-;; Fonts
-(set-face-attribute 'default nil :font "DejaVu Sans-12")
-;;(set-face-attribute 'default nil :font "dubai-12")
-;;(set-face-attribute 'default nil  :font "courier-12")
-;; Theme
-;;(load-theme 'modus-operandi)
-;;(load-theme 'modus-vivendi)
 
 ;;;--------Custom Latex Classes------;;;
 
@@ -189,6 +150,8 @@
                   ("\\section{%s}" . "\\section*{%s}")
                   ("\\subsection{%s}" . "\\subsection*{%s}")
                   ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))))
+
+(load "~/.emacs.d/config/aesthetics.el")
 
 (require 'org-ref)
 (require 'org-roam-bibtex)
