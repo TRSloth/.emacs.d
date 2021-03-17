@@ -135,29 +135,9 @@
 (setq bibtex-completion-pdf-field "File");; location of pdf may be specified in a field "File" the even allows for supplementry material to be stored e.g. "File = {:/path/to/article.pdf:PDF;:/path/to/supplementary_materials.pdf:PDF}"
 (setq bibtex-completion-pdf-extension '(".pdf" ".pptx" ".docx"));;file types to recognise
 
-;; open pdf with system pdf viewer (works on mac)
-(setq bibtex-completion-pdf-open-function
-  (lambda (fpath)
-    (start-process "open" "*open*" "open" fpath)))
 
-(setq bibtex-completion-additional-search-fields '(keywords));Allows for search bib by keyword
-(setq bibtex-completion-pdf-symbol "$(O'|(B") ;appears if pdf exists
-(setq bibtex-completion-notes-symbol "$,2%N(B") ;appears if notes exist
-
-
-;;;; ORB - org-roam-bibtex setup
-;(require 'org-roam-bibtex)
 (add-hook 'after-init-hook #'org-roam-bibtex-mode)
 (autoload 'helm-bibtex "helm-bibtex" "" t);;no idea where this came from or what it does
-;;;Paused window 
-(defadvice pop-to-buffer (before cancel-other-window first)
-  (ad-set-arg 1 nil))
-(ad-activate 'pop-to-buffer)
-
-
- (setq pdf-annot-activate-created-annotations t)
-
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
