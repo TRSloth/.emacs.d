@@ -141,11 +141,10 @@
 ;;----- Bibtex options ----- ;;
 
 (setq reftex-default-bibliography '("~/entropy/roam.bib"))
-(setq org-ref-default-bibliography '("~/entropy/roam.bib")
-      org-ref-pdf-directory '("~/gdrive/Library/"))
-(setq bibtex-completion-bibliography '("~/entropy/roam.bib")
-      bibtex-completion-library-path '("~/gdrive/Library"))
-
+(setq org-ref-default-bibliography '("~/entropy/roam.bib"))
+(setq bibtex-completion-bibliography '("~/entropy/roam.bib"))
+(setq org-ref-pdf-directory '("~/gdrive/Library/"))
+(setq bibtex-completion-library-path '("~/gdrive/Library"))
 (setq bibtex-completion-pdf-extension '(".pdf" ".pptx" ".docx"));;file types to recognise
 (setq bibtex-completion-pdf-open-function  (lambda (fpath)   (start-process "open" "*open*" "open" fpath)))
 (setq bibtex-completion-additional-search-fields '(keywords));Allows for search bib by keyword
