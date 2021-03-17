@@ -103,31 +103,6 @@
 
 ;---------Activate options-------
 
-(setq TeX-PDF-mode t)                         ; compile with PDFLaTeX by default
-(add-hook 'TeX-mode-hook 'TeX-fold-mode)      ; auto-activate TeX-fold-mode
-(add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)  ; auto-activate math mode
-(setq TeX-auto-save t)
-(setq TeX-parse-self t)
-(setq-default TeX-master nil)
-(add-hook 'after-init-hook 'org-roam-mode)
-(add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
-;; Recommendation for Windows users for performance
-;; https://github.com/org-roam/org-roam/issues/1289#issuecomment-744046148
-(setq org-roam-db-update-method 'immediate)
-(ivy-mode 1)
-(setq ivy-use-virtual-buffers t)
-(put 'set-goal-column 'disabled nil)
-(add-hook 'after-init-hook 'pdf-tools-install)
-(setq enable-recursive-minibuffers t)
-(setq initial-major-mode 'org-mode)
-(setq latex-run-command "pdflatex")
-
-;;----- Asthetic options ----- ;;
-
-(setq-default word-wrap t)
-(setq-default line-spacing 0)
-(setq x-underline-at-descent-line t)
-
 ;-----------------Bibleography funcs ----------------------
 
 (setq org-latex-pdf-process (list "latexmk -shell-escape -bibtex -f -pdf %f")); "If you plan to build PDF files via LaTeX you need to make sure that org-latex-pdf-process is set to process the bibliography (using bibtex or biblatex). Here is one example of how to do that (see ./org-ref.org::*LaTeX export for other alternatives)."
@@ -136,8 +111,19 @@
 (setq bibtex-completion-pdf-extension '(".pdf" ".pptx" ".docx"));;file types to recognise
 
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(add-hook 'after-init-hook 'org-roam-mode)
+(add-hook 'after-init-hook 'pdf-tools-install)
 (add-hook 'after-init-hook #'org-roam-bibtex-mode)
+(add-hook 'TeX-mode-hook 'TeX-fold-mode)      ; auto-activate TeX-fold-mode
+(add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)  ; auto-activate math mode
+(add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
 (autoload 'helm-bibtex "helm-bibtex" "" t);;no idea where this came from or what it does
+(put 'set-goal-column 'disabled nil)
+(ivy-mode 1)
+
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -157,12 +143,12 @@
 (setq tool-bar-mode nil)
 (setq tooltip-mode nil)
 (setq version-control t)
-(setq word-wrap t)
+(setq word-wrap t);;;;;;;;;;;;;;;
 
 ;;----- Asthetic options ----;;
-(setq-default word-wrap t)
-(setq-default line-spacing 0)
-(setq x-underline-at-descent-line t)
+(setq-default word-wrap t);;;;;;;;;;;;;;;;;;;;;;;
+(setq-default line-spacing 0);;;;;;;;;;;;;
+(setq x-underline-at-descent-line t);;;;;;;;;;;;;;
 (setq backup-directory-alist "~/.emacs.d/file-backups")
 
 ;;----- Bibtex options ----- ;;
@@ -170,8 +156,7 @@
 (setq reftex-default-bibliography '("~/entropy/roam.bib"))
 (setq org-ref-bibliography-notes "~/entropy/notes/"
       org-ref-default-bibliography '("~/entropy/roam.bib")
-      org-ref-pdf-directory '("~/gdrive/Library/"))
-(setq bibtex-completion-bibliography '("~/entropy/roam.bib")
+      org-ref-pdf-directory '("~/gdrive/Library/"))(setq bibtex-completion-bibliography '("~/entropy/roam.bib")
       bibtex-completion-library-path '("~/gdrive/Library"))
 
 (setq bibtex-completion-pdf-extension '(".pdf" ".pptx" ".docx"));;file types to recognise
