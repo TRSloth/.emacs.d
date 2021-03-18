@@ -1,0 +1,55 @@
+;; -*- mode: emacs-lisp; lexical-binding:t; coding: utf-8-emacs; -*-
+;; --------------------------------------------------------------------------
+;; Desktop File for Emacs
+;; --------------------------------------------------------------------------
+;; Created Thu Mar 18 02:23:05 2021
+;; Desktop file format version 208
+;; Emacs version 27.1
+
+;; Global section:
+(setq desktop-saved-frameset [frameset 1 (24658 47497 654094 0) (desktop . "208") "TobyR@Tobys-Probook" nil nil ((((minibuffer . t) (undecorated) (skip-taskbar) (font . "-outline-Dubai-normal-normal-normal-sans-16-*-*-*-p-*-iso8859-1") (border-width . 0) (internal-border-width . 0) (right-divider-width . 0) (bottom-divider-width . 0) (vertical-scroll-bars . right) (horizontal-scroll-bars) (foreground-color . "#ffffff") (background-color . "#000000") (mouse-color . "black") (border-color . "black") (screen-gamma) (line-spacing) (left-fringe . 8) (right-fringe . 8) (no-focus-on-map) (no-accept-focus) (no-special-glyphs) (alpha) (menu-bar-lines . 1) (tab-bar-lines . 0) (height . 53) (tool-bar-lines . 0) (title) (icon-type) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 8) (scroll-bar-height . 16) (fullscreen) (z-group) (visibility . t) (display-type . color) (background-mode . dark) (cursor-color . "#ffffff") (environment) (last-focus-update . t) (frameset--id . "B907-7781-F11A-67BF") (frameset--mini t . t) (width . 104) (modeline . t) (unsplittable) (left . 1712) (top . 0) (icon-name) (display . "w32") (explicit-name) (tool-bar-position . top)) ((min-height . 8) (min-width . 10) (min-height-ignore . 6) (min-width-ignore . 5) (min-height-safe . 2) (min-width-safe . 2) (min-pixel-height . 208) (min-pixel-width . 80) (min-pixel-height-ignore . 156) (min-pixel-width-ignore . 40) (min-pixel-height-safe . 52) (min-pixel-width-safe . 16)) vc (pixel-width . 856) (pixel-height . 1274) (total-width . 107) (total-height . 49) (normal-height . 1.0) (normal-width . 1.0) (combination-limit) (leaf (pixel-width . 856) (pixel-height . 629) (total-width . 107) (total-height . 24) (normal-height . 0.5) (normal-width . 1.0) (buffer "init.el" (selected . t) (hscroll . 0) (fringes 8 8 nil nil) (margins nil) (scroll-bars nil 1 t nil 0 t nil) (vscroll . 0) (dedicated) (point . 5599) (start . 4704)) (prev-buffers ("init.el" 1308 1590) ("20210315211257-iy3501_cw2.org" 1123 1828))) (leaf (last . t) (pixel-width . 856) (pixel-height . 645) (total-width . 107) (total-height . 25) (normal-height . 0.5) (normal-width . 1.0) (buffer "Lecture5-IncidentManagement.org" (selected) (hscroll . 0) (fringes 8 8 nil nil) (margins nil) (scroll-bars nil 1 t nil 0 t nil) (vscroll . 0) (dedicated . t) (point . 145) (start . 1)) (prev-buffers ("Lecture5-IncidentManagement.org" 1 135)))))])
+(setq desktop-missing-file-warning nil)
+(setq tags-file-name nil)
+(setq tags-table-list nil)
+(setq search-ring nil)
+(setq regexp-search-ring '("company" "desktop"))
+(setq register-alist nil)
+(setq file-name-history nil)
+
+;; Buffer section -- buffers listed in same order as in buffer list:
+(desktop-create-buffer 208
+  "c:/Users/TobyR/AppData/Roaming/.emacs.d/init.el"
+  "init.el"
+  'emacs-lisp-mode
+  '(visual-line-mode eldoc-mode ivy-mode org-roam-mode org-roam-bibtex-mode TeX-PDF-mode)
+  5599
+  '(5478 nil)
+  nil
+  nil
+  '((buffer-display-time 24658 47491 985693 0) (buffer-file-coding-system . prefer-utf-8-dos) (truncate-lines))
+  '((mark-ring (4628 4795 4833 4950 4949 4678 4629 874 2219 4800 4677 4726 4927 4677 5010 5072))))
+
+(desktop-create-buffer 208
+  "g:/entropy/CSUG/IY3501-SM/Lectures/Lecture5-IncidentManagement.org"
+  "Lecture5-IncidentManagement.org"
+  'org-mode
+  '(visual-line-mode ivy-mode org-roam-mode org-roam-bibtex-mode TeX-PDF-mode)
+  145
+  '(135 nil)
+  nil
+  nil
+  '((buffer-display-time 24658 47491 985693 0) (buffer-file-coding-system . undecided-dos) (truncate-lines))
+  '((mark-ring (136 136 136 145 145 145 145))))
+
+(desktop-create-buffer 208
+  "g:/entropy/20210315211257-iy3501_cw2.org"
+  "20210315211257-iy3501_cw2.org"
+  'org-mode
+  '(visual-line-mode ivy-mode org-roam-mode org-roam-bibtex-mode TeX-PDF-mode)
+  1828
+  '(1712 nil)
+  nil
+  nil
+  '((buffer-display-time 24658 46279 830890 0) (buffer-file-coding-system . utf-8-dos) (truncate-lines))
+  '((mark-ring nil)))
+

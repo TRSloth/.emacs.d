@@ -1,11 +1,12 @@
 ;;; ------Themeing----- ;;;
 ;; Fonts
-;;(set-face-attribute 'default nil :font "DejaVu Sans-12")
+;;(set-face-attribute 'default nil :font "DejaVu Sans-12")b
 (set-face-attribute 'default nil :font "dubai-12")
 ;;(set-face-attribute 'default nil  :font "courier-12")
 ;; Theme
-(load-theme 'modus-operandi)
-;;(load-theme 'modus-vivendi)
+;;(load-theme 'modus-operandi)
+(load-theme 'modus-vivendi)
+;(dolist (theme custom-enabled-themes)  (disable-theme theme))
 
 (setq bibtex-completion-pdf-symbol "⌘") ;appears if pdf exists
 (setq bibtex-completion-notes-symbol "✎") ;appears if notes exist
@@ -19,6 +20,7 @@
 (tool-bar-mode -1)
 (menu-bar-mode 1)
 (toggle-scroll-bar 1)
+(display-time-mode 1)
 (setq-default  cursor-type 'bar)
 (set-cursor-color "#ffffff") 
 (setq blink-cursor-mode nil)

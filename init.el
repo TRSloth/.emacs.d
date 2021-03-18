@@ -47,7 +47,7 @@
  '(org-latex-pdf-process '("latexmk -shell-escape -bibtex -f -pdf %f"))
  '(org-roam-directory "~/entropy/")
  '(package-selected-packages
-   '(org-noter-pdftools org-noter org-roam-bibtex ivy-bibtex org-ref bibtex-completion latex-preview-pane yasnippet pdf-tools auctex org-superstar org-download counsel swiper ivy modus-vivendi-theme modus-operandi-theme org-roam))
+   '(company-bibtex company-auctex company desktop+ graphviz-dot-mode org-noter-pdftools org-noter org-roam-bibtex ivy-bibtex org-ref bibtex-completion latex-preview-pane yasnippet pdf-tools auctex org-superstar org-download counsel swiper ivy modus-vivendi-theme modus-operandi-theme org-roam))
  '(safe-local-variable-values '((TeX-master . master))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -70,6 +70,7 @@
 (setq user-emacs-directory "g:/.emacs.d/") ;;needs to be g
 (setq default-directory "~/gdrive")
 (setenv "HOME" "G:") ;;needs to be g
+(setq org-roam-graph-executable "~/.emacs.d/addons-win/Graphviz/bin/dot.exe")
 ;;; ------Find linux functions in windows-----  
   (add-to-list 'exec-path "~/.emacs.d/addons-win") ;; sqllite3.exe for use by org-roam
   (setenv "PATH"
@@ -95,18 +96,27 @@
 (autoload 'helm-bibtex "helm-bibtex" "" t);;no idea where this came from or what it does
 (put 'set-goal-column 'disabled nil)
 (ivy-mode 1)
-
+(desktop-save-mode 1)
+(set-language-environment "UTF-8")
 ;;-----General options-----;;
 (setq org-roam-db-update-method 'immediate)
 (setq ivy-use-virtual-buffers t)
 (setq enable-recursive-minibuffers t)
 (setq initial-major-mode 'org-mode)
 (setq version-control t)
-(setq backup-directory-alist 
-  '(("." . "~/.emacs.d/file-backups")))
+(setq backup-directory-alist  '(("." . "~/.emacs.d/file-backups")))
+(setq org-roam-graph-viewer nil) 
+;(setq org-roam-graph-viewer #'eww-open-file)
+(setq org-roam-db-gc-threshold most-positive-fixnum)
+
+(add-hook 'after-init-hook 'global-company-mode)
+(require 'company-auctex)
+(company-auctex-init)
+(require 'company-bibtex)
+(add-to-list 'company-backends 'company-bibtex)
 
 ;;----- Bibtex options ----- ;;
-
+(setq company-bibtex-bibliography '("~/entropy/roam.bib"))
 (setq reftex-default-bibliography '("~/entropy/roam.bib"))
 (setq org-ref-default-bibliography '("~/entropy/roam.bib"))
 (setq bibtex-completion-bibliography '("~/entropy/roam.bib"))
@@ -115,7 +125,9 @@
 (setq bibtex-completion-pdf-extension '(".pdf" ".pptx" ".docx"));;file types to recognise
 (setq bibtex-completion-pdf-open-function  (lambda (fpath)   (start-process "open" "*open*" "open" fpath)))
 (setq bibtex-completion-additional-search-fields '(keywords));Allows for search bib by keyword
-
+(add-hook 'org-mode-hook
+          (lambda ()
+            (set (make-local-variable 'company-backends) '(company-capf))))
 ;;----- Latex options ----- ;;
 (setq TeX-PDF-mode t)
 (setq TeX-auto-save t)
