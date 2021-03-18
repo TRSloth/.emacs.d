@@ -2,12 +2,12 @@
 ;; --------------------------------------------------------------------------
 ;; Desktop File for Emacs
 ;; --------------------------------------------------------------------------
-;; Created Thu Mar 18 01:19:14 2021
+;; Created Thu Mar 18 12:49:12 2021
 ;; Desktop file format version 208
 ;; Emacs version 27.1
 
 ;; Global section:
-(setq desktop-saved-frameset [frameset 1 (24658 43666 258041 0) (desktop . "208") "TobyR@Tobys-Probook" nil nil ((((minibuffer . t) (undecorated) (skip-taskbar) (font . "-outline-Dubai-normal-normal-normal-sans-16-*-*-*-p-*-iso8859-1") (border-width . 0) (internal-border-width . 0) (right-divider-width . 0) (bottom-divider-width . 0) (vertical-scroll-bars . right) (horizontal-scroll-bars) (foreground-color . "#ffffff") (background-color . "#000000") (mouse-color . "black") (border-color . "black") (screen-gamma) (line-spacing) (left-fringe . 8) (right-fringe . 8) (no-focus-on-map) (no-accept-focus) (no-special-glyphs) (alpha) (menu-bar-lines . 1) (tab-bar-lines . 0) (height . 53) (tool-bar-lines . 0) (title) (icon-type) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 8) (scroll-bar-height . 16) (fullscreen) (z-group) (visibility . t) (display-type . color) (background-mode . dark) (cursor-color . "#ffffff") (environment) (last-focus-update . t) (frameset--id . "B907-7781-F11A-67BF") (frameset--mini t . t) (width . 134) (modeline . t) (unsplittable) (left . 1835) (top . 1) (icon-name) (display . "w32") (explicit-name) (tool-bar-position . top)) ((min-height . 4) (min-width . 10) (min-height-ignore . 3) (min-width-ignore . 5) (min-height-safe . 1) (min-width-safe . 2) (min-pixel-height . 104) (min-pixel-width . 80) (min-pixel-height-ignore . 78) (min-pixel-width-ignore . 40) (min-pixel-height-safe . 26) (min-pixel-width-safe . 16)) leaf (pixel-width . 1101) (pixel-height . 1363) (total-width . 137) (total-height . 52) (normal-height . 1.0) (normal-width . 1.0) (buffer "*Compile-Log*" (selected . t) (hscroll . 0) (fringes 8 8 nil nil) (margins nil) (scroll-bars nil 1 t nil 0 t nil) (vscroll . 0) (dedicated) (point . 214) (start . 1)) (prev-buffers ("*Help*" 1 1) ("*Packages*" 81735 83675) ("*info*" 119870 120479) ("*scratch*" 1 1))))])
+(setq desktop-saved-frameset [frameset 1 (24659 19528 583419 0) (desktop . "208") "TobyR@TOBYS-PROBOOK" nil nil ((((minibuffer . t) (undecorated) (skip-taskbar) (font . "-outline-Dubai-normal-normal-normal-sans-20-*-*-*-p-*-iso8859-1") (border-width . 0) (internal-border-width . 0) (right-divider-width . 0) (bottom-divider-width . 0) (vertical-scroll-bars . right) (horizontal-scroll-bars) (foreground-color . "#ffffff") (background-color . "#000000") (mouse-color . "black") (border-color . "black") (screen-gamma) (line-spacing) (left-fringe . 8) (right-fringe . 8) (no-focus-on-map) (no-accept-focus) (no-special-glyphs) (alpha) (menu-bar-lines . 1) (tab-bar-lines . 0) (height . 53) (tool-bar-lines . 0) (title) (icon-type) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 8) (scroll-bar-height . 16) (fullscreen) (z-group) (visibility . t) (display-type . color) (background-mode . dark) (cursor-color . "#ffffff") (environment) (last-focus-update) (frameset--id . "B907-7781-F11A-67BF") (frameset--mini t . t) (modeline . t) (unsplittable) (icon-name) (display . "w32") (explicit-name) (tool-bar-position . top) (width . 134) (left . 1835) (top . 1)) ((min-height . 4) (min-width . 10) (min-height-ignore . 3) (min-width-ignore . 5) (min-height-safe . 1) (min-width-safe . 2) (min-pixel-height . 128) (min-pixel-width . 110) (min-pixel-height-ignore . 96) (min-pixel-width-ignore . 55) (min-pixel-height-safe . 32) (min-pixel-width-safe . 22)) leaf (pixel-width . 1498) (pixel-height . 1664) (total-width . 136) (total-height . 52) (normal-height . 1.0) (normal-width . 1.0) (buffer "*scratch*" (selected . t) (hscroll . 0) (fringes 8 8 nil nil) (margins nil) (scroll-bars nil 1 t nil 0 t nil) (vscroll . 0) (dedicated) (point . 1) (start . 1)) (prev-buffers ("*scratch*" 1 1))))])
 (setq desktop-missing-file-warning nil)
 (setq tags-file-name nil)
 (setq tags-table-list nil)
@@ -21,11 +21,11 @@
   nil
   "*info*"
   'Info-mode
-  '(visual-line-mode ivy-mode org-roam-mode org-roam-bibtex-mode)
+  '(visual-line-mode ivy-mode TeX-PDF-mode company-mode org-roam-mode org-roam-bibtex-mode)
   120479
   '(nil nil)
   t
   '("c:/My Program Files/Emacs/share/info/efaq" "Packages that do not come with Emacs" nil)
-  '((tab-width . 8) (buffer-display-time 24658 43280 122698 0) (buffer-file-coding-system . utf-8-unix) (case-fold-search . t) (truncate-lines))
+  '((tab-width . 8) (buffer-display-time 24659 17660 504127 0) (buffer-file-coding-system . utf-8-unix) (case-fold-search . t) (truncate-lines))
   '((mark-ring nil)))
 

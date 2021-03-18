@@ -1,0 +1,19 @@
+;; -*- mode: emacs-lisp; lexical-binding:t; coding: utf-8-emacs; -*-
+;; --------------------------------------------------------------------------
+;; Desktop File for Emacs
+;; --------------------------------------------------------------------------
+;; Created Thu Mar 18 12:37:30 2021
+;; Desktop file format version 208
+;; Emacs version 27.1
+
+;; Global section:
+(setq desktop-saved-frameset [frameset 1 (24659 18826 117886 0) (desktop . "208") "TobyR@TOBYS-PROBOOK" nil nil ((((minibuffer . t) (undecorated) (skip-taskbar) (font . "-outline-Dubai-normal-normal-normal-sans-20-*-*-*-p-*-iso8859-1") (border-width . 0) (internal-border-width . 0) (right-divider-width . 0) (bottom-divider-width . 0) (vertical-scroll-bars . right) (horizontal-scroll-bars) (foreground-color . "#ffffff") (background-color . "#000000") (mouse-color . "black") (border-color . "black") (screen-gamma) (line-spacing) (left-fringe . 8) (right-fringe . 8) (no-focus-on-map) (no-accept-focus) (no-special-glyphs) (alpha) (menu-bar-lines . 1) (tab-bar-lines . 0) (height . 31) (tool-bar-lines . 0) (title) (icon-type) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 10) (scroll-bar-height . 20) (fullscreen) (z-group) (visibility . t) (display-type . color) (background-mode . dark) (cursor-color . "#ffffff") (environment) (last-focus-update . t) (frameset--id . "F248-2F6A-8D4A-2D56") (frameset--mini t . t) (width . 84) (modeline . t) (unsplittable) (left . 950) (top . 0) (icon-name) (display . "w32") (explicit-name) (tool-bar-position . top)) ((min-height . 4) (min-width . 10) (min-height-ignore . 3) (min-width-ignore . 5) (min-height-safe . 1) (min-width-safe . 2) (min-pixel-height . 128) (min-pixel-width . 110) (min-pixel-height-ignore . 96) (min-pixel-width-ignore . 55) (min-pixel-height-safe . 32) (min-pixel-width-safe . 22)) leaf (pixel-width . 958) (pixel-height . 988) (total-width . 87) (total-height . 30) (normal-height . 1.0) (normal-width . 1.0) (buffer "*scratch*" (selected . t) (hscroll . 0) (fringes 8 8 nil nil) (margins nil) (scroll-bars nil 1 t nil 0 t nil) (vscroll . 0) (dedicated) (point . 145) (start . 1))))])
+(setq desktop-missing-file-warning nil)
+(setq tags-file-name nil)
+(setq tags-table-list nil)
+(setq search-ring nil)
+(setq regexp-search-ring nil)
+(setq register-alist nil)
+(setq file-name-history '(#("g:/.emacs.d/desktops/" 0 21 (ivy-index 0))))
+
+;; Buffer section -- buffers listed in same order as in buffer list:

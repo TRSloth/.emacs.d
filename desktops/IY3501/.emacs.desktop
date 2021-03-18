@@ -2,54 +2,258 @@
 ;; --------------------------------------------------------------------------
 ;; Desktop File for Emacs
 ;; --------------------------------------------------------------------------
-;; Created Thu Mar 18 02:23:05 2021
+;; Created Thu Mar 18 04:15:02 2021
 ;; Desktop file format version 208
 ;; Emacs version 27.1
 
 ;; Global section:
-(setq desktop-saved-frameset [frameset 1 (24658 47497 654094 0) (desktop . "208") "TobyR@Tobys-Probook" nil nil ((((minibuffer . t) (undecorated) (skip-taskbar) (font . "-outline-Dubai-normal-normal-normal-sans-16-*-*-*-p-*-iso8859-1") (border-width . 0) (internal-border-width . 0) (right-divider-width . 0) (bottom-divider-width . 0) (vertical-scroll-bars . right) (horizontal-scroll-bars) (foreground-color . "#ffffff") (background-color . "#000000") (mouse-color . "black") (border-color . "black") (screen-gamma) (line-spacing) (left-fringe . 8) (right-fringe . 8) (no-focus-on-map) (no-accept-focus) (no-special-glyphs) (alpha) (menu-bar-lines . 1) (tab-bar-lines . 0) (height . 53) (tool-bar-lines . 0) (title) (icon-type) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 8) (scroll-bar-height . 16) (fullscreen) (z-group) (visibility . t) (display-type . color) (background-mode . dark) (cursor-color . "#ffffff") (environment) (last-focus-update . t) (frameset--id . "B907-7781-F11A-67BF") (frameset--mini t . t) (width . 104) (modeline . t) (unsplittable) (left . 1712) (top . 0) (icon-name) (display . "w32") (explicit-name) (tool-bar-position . top)) ((min-height . 8) (min-width . 10) (min-height-ignore . 6) (min-width-ignore . 5) (min-height-safe . 2) (min-width-safe . 2) (min-pixel-height . 208) (min-pixel-width . 80) (min-pixel-height-ignore . 156) (min-pixel-width-ignore . 40) (min-pixel-height-safe . 52) (min-pixel-width-safe . 16)) vc (pixel-width . 856) (pixel-height . 1274) (total-width . 107) (total-height . 49) (normal-height . 1.0) (normal-width . 1.0) (combination-limit) (leaf (pixel-width . 856) (pixel-height . 629) (total-width . 107) (total-height . 24) (normal-height . 0.5) (normal-width . 1.0) (buffer "init.el" (selected . t) (hscroll . 0) (fringes 8 8 nil nil) (margins nil) (scroll-bars nil 1 t nil 0 t nil) (vscroll . 0) (dedicated) (point . 5599) (start . 4704)) (prev-buffers ("init.el" 1308 1590) ("20210315211257-iy3501_cw2.org" 1123 1828))) (leaf (last . t) (pixel-width . 856) (pixel-height . 645) (total-width . 107) (total-height . 25) (normal-height . 0.5) (normal-width . 1.0) (buffer "Lecture5-IncidentManagement.org" (selected) (hscroll . 0) (fringes 8 8 nil nil) (margins nil) (scroll-bars nil 1 t nil 0 t nil) (vscroll . 0) (dedicated . t) (point . 145) (start . 1)) (prev-buffers ("Lecture5-IncidentManagement.org" 1 135)))))])
+(setq desktop-saved-frameset [frameset 1 (24658 54214 194637 0) (desktop . "208") "TobyR@Tobys-Probook" nil nil ((((minibuffer . t) (undecorated) (skip-taskbar) (font . "-outline-Dubai-normal-normal-normal-sans-16-*-*-*-p-*-iso8859-1") (border-width . 0) (internal-border-width . 0) (right-divider-width . 0) (bottom-divider-width . 0) (vertical-scroll-bars . right) (horizontal-scroll-bars) (foreground-color . "#ffffff") (background-color . "#000000") (mouse-color . "black") (border-color . "black") (screen-gamma) (line-spacing) (left-fringe . 8) (right-fringe . 8) (no-focus-on-map) (no-accept-focus) (no-special-glyphs) (alpha) (menu-bar-lines . 1) (tab-bar-lines . 0) (height . 53) (tool-bar-lines . 0) (title) (icon-type) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 8) (scroll-bar-height . 16) (fullscreen) (z-group) (visibility . t) (display-type . color) (background-mode . dark) (cursor-color . "#ffffff") (environment) (last-focus-update . t) (frameset--id . "5819-F225-C079-2C78") (frameset--mini t . t) (width . 211) (modeline . t) (unsplittable) (left . 852) (top . 0) (icon-name) (display . "w32") (explicit-name) (tool-bar-position . top)) ((min-height . 4) (min-width . 10) (min-height-ignore . 3) (min-width-ignore . 5) (min-height-safe . 1) (min-width-safe . 2) (min-pixel-height . 104) (min-pixel-width . 80) (min-pixel-height-ignore . 78) (min-pixel-width-ignore . 40) (min-pixel-height-safe . 26) (min-pixel-width-safe . 16)) leaf (pixel-width . 1718) (pixel-height . 1105) (total-width . 214) (total-height . 43) (normal-height . 1.0) (normal-width . 1.0) (buffer "*Help*" (selected . t) (hscroll . 0) (fringes 8 8 nil nil) (margins nil) (scroll-bars nil 1 t nil 0 t nil) (vscroll . 0) (dedicated) (point . 1) (start . 1)) (prev-buffers ("*Help*" 1 1) ("*Packages*" 322113 325181) ("20210308215507-bluetooth_pairing.org" 1 461) ("2009.11776.org" 1 1) ("*Compile-Log*" 911 1708) ("*Countdown*" 1 15) ("20210313205640-physical_layer.org" 1 1) ("20210119123846-bluetooth.org" 1 1295) ("BS_ISO-IEC_27002-2017.org" 1 480) ("20210308190123-protocol_layers.org" 1 238) ("20210217210950-regression.org" 1 1) ("20210119122218-cryptography.org" 1 319) ("*Backtrace*" 1 1205) ("20210218152551-risk.org" 1 2167) ("init.el" 4426 4899) ("*scratch*" 1 145))))])
 (setq desktop-missing-file-warning nil)
 (setq tags-file-name nil)
 (setq tags-table-list nil)
 (setq search-ring nil)
-(setq regexp-search-ring '("company" "desktop"))
+(setq regexp-search-ring '("count" "pomo" "org-roam" "company" "desktop"))
 (setq register-alist nil)
-(setq file-name-history nil)
+(setq file-name-history '("c:/Windows/system32/org-protocol:/roam-file?file=g:/entropy/Emac-commands.org" "c:/Windows/system32/test.txt"))
 
 ;; Buffer section -- buffers listed in same order as in buffer list:
+(desktop-create-buffer 208
+  "g:/entropy/20210308215507-bluetooth_pairing.org"
+  "20210308215507-bluetooth_pairing.org"
+  'org-mode
+  '(visual-line-mode ivy-mode TeX-PDF-mode company-mode org-roam-mode org-roam-bibtex-mode org-roam-server-mode)
+  461
+  '(212 nil)
+  nil
+  nil
+  '((buffer-display-time 24658 53600 607200 0) (buffer-file-coding-system . undecided-dos) (truncate-lines))
+  '((mark-ring (282 338 142 142 142 345 461))))
+
+(desktop-create-buffer 208
+  nil
+  "*Compile-Log*"
+  'compilation-mode
+  '(visual-line-mode ivy-mode TeX-PDF-mode company-mode org-roam-mode org-roam-bibtex-mode org-roam-server-mode)
+  1708
+  '(1841 nil)
+  t
+  '(:command nil :dir nil)
+  '((buffer-display-time 24658 53468 387634 0) (buffer-file-coding-system . undecided-dos) (truncate-lines))
+  '((mark-ring (1708))))
+
 (desktop-create-buffer 208
   "c:/Users/TobyR/AppData/Roaming/.emacs.d/init.el"
   "init.el"
   'emacs-lisp-mode
-  '(visual-line-mode eldoc-mode ivy-mode org-roam-mode org-roam-bibtex-mode TeX-PDF-mode)
-  5599
-  '(5478 nil)
+  '(visual-line-mode eldoc-mode ivy-mode TeX-PDF-mode company-mode org-roam-mode org-roam-bibtex-mode org-roam-server-mode)
+  8002
+  '(7883 nil)
   nil
   nil
-  '((buffer-display-time 24658 47491 985693 0) (buffer-file-coding-system . prefer-utf-8-dos) (truncate-lines))
-  '((mark-ring (4628 4795 4833 4950 4949 4678 4629 874 2219 4800 4677 4726 4927 4677 5010 5072))))
+  '((buffer-display-time 24658 53388 191002 0) (buffer-file-coding-system . prefer-utf-8-dos) (truncate-lines))
+  '((mark-ring (8049 8026 5467 5497 8002 4901 4860 6145 6245 6901 6703 4899 5499 5438 4929 8002))))
 
 (desktop-create-buffer 208
-  "g:/entropy/CSUG/IY3501-SM/Lectures/Lecture5-IncidentManagement.org"
-  "Lecture5-IncidentManagement.org"
+  "g:/entropy/20210307150048-bluetooth_classic.org"
+  "20210307150048-bluetooth_classic.org"
   'org-mode
-  '(visual-line-mode ivy-mode org-roam-mode org-roam-bibtex-mode TeX-PDF-mode)
-  145
-  '(135 nil)
+  '(visual-line-mode ivy-mode TeX-PDF-mode company-mode org-roam-mode org-roam-bibtex-mode org-roam-server-mode)
+  27
+  '(27 nil)
   nil
   nil
-  '((buffer-display-time 24658 47491 985693 0) (buffer-file-coding-system . undecided-dos) (truncate-lines))
-  '((mark-ring (136 136 136 145 145 145 145))))
-
-(desktop-create-buffer 208
-  "g:/entropy/20210315211257-iy3501_cw2.org"
-  "20210315211257-iy3501_cw2.org"
-  'org-mode
-  '(visual-line-mode ivy-mode org-roam-mode org-roam-bibtex-mode TeX-PDF-mode)
-  1828
-  '(1712 nil)
-  nil
-  nil
-  '((buffer-display-time 24658 46279 830890 0) (buffer-file-coding-system . utf-8-dos) (truncate-lines))
+  '((buffer-display-time 24658 52997 736026 0) (buffer-file-coding-system . undecided-dos) (truncate-lines))
   '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "g:/entropy/Papers/2009.11776.org"
+  "2009.11776.org"
+  'org-mode
+  '(visual-line-mode ivy-mode TeX-PDF-mode company-mode org-roam-mode org-roam-bibtex-mode org-roam-server-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-display-time 24658 53597 166029 0) (buffer-file-coding-system . undecided-dos) (truncate-lines))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "g:/entropy/20210307143940-ble.org"
+  "20210307143940-ble.org"
+  'org-mode
+  '(visual-line-mode ivy-mode TeX-PDF-mode company-mode org-roam-mode org-roam-bibtex-mode org-roam-server-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-display-time 24658 52122 476379 0) (buffer-file-coding-system . undecided-dos) (truncate-lines))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "g:/entropy/20210307150257-just_works_ble.org"
+  "20210307150257-just_works_ble.org"
+  'org-mode
+  '(visual-line-mode ivy-mode TeX-PDF-mode company-mode org-roam-mode org-roam-bibtex-mode org-roam-server-mode)
+  246
+  '(246 nil)
+  nil
+  nil
+  '((buffer-display-time 24658 52094 436622 0) (buffer-file-coding-system . undecided-dos) (truncate-lines))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "g:/entropy/20210313205640-physical_layer.org"
+  "20210313205640-physical_layer.org"
+  'org-mode
+  '(visual-line-mode ivy-mode TeX-PDF-mode company-mode org-roam-mode org-roam-bibtex-mode org-roam-server-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-display-time 24658 51673 996450 0) (buffer-file-coding-system . undecided-dos) (truncate-lines))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "g:/entropy/20210119123846-bluetooth.org"
+  "20210119123846-bluetooth.org"
+  'org-mode
+  '(visual-line-mode ivy-mode TeX-PDF-mode company-mode org-roam-mode org-roam-bibtex-mode org-roam-server-mode)
+  1295
+  '(1295 nil)
+  nil
+  nil
+  '((buffer-display-time 24658 51671 78791 0) (buffer-file-coding-system . undecided-dos) (truncate-lines))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "g:/entropy/20210308190123-protocol_layers.org"
+  "20210308190123-protocol_layers.org"
+  'org-mode
+  '(visual-line-mode ivy-mode TeX-PDF-mode company-mode org-roam-mode org-roam-bibtex-mode org-roam-server-mode)
+  238
+  '(25 nil)
+  nil
+  nil
+  '((buffer-display-time 24658 51041 70250 0) (buffer-file-coding-system . undecided-dos) (truncate-lines))
+  '((mark-ring (238 238))))
+
+(desktop-create-buffer 208
+  "g:/entropy/Standards/ISO_IEC_27000/BS_ISO-IEC_27002-2017.org"
+  "BS_ISO-IEC_27002-2017.org"
+  'org-mode
+  '(visual-line-mode ivy-mode TeX-PDF-mode company-mode org-roam-mode org-roam-bibtex-mode org-roam-server-mode)
+  480
+  '(97 nil)
+  nil
+  nil
+  '((buffer-display-time 24658 51043 346781 0) (buffer-file-coding-system . undecided-dos) (truncate-lines))
+  '((mark-ring (480))))
+
+(desktop-create-buffer 208
+  "g:/entropy/Standards/ISO_IEC_27000/20210303222347-iso_iec_27014.org"
+  "20210303222347-iso_iec_27014.org"
+  'org-mode
+  '(visual-line-mode ivy-mode TeX-PDF-mode company-mode org-roam-mode org-roam-bibtex-mode org-roam-server-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-display-time 24658 50796 551584 0) (buffer-file-coding-system . undecided-dos) (truncate-lines))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "g:/entropy/Standards/ISO_IEC_27000/20210303183609-iso_iec_27000_series.org"
+  "20210303183609-iso_iec_27000_series.org"
+  'org-mode
+  '(visual-line-mode ivy-mode TeX-PDF-mode company-mode org-roam-mode org-roam-bibtex-mode org-roam-server-mode)
+  982
+  '(982 nil)
+  nil
+  nil
+  '((buffer-display-time 24658 50718 741482 0) (buffer-file-coding-system . undecided-dos) (truncate-lines))
+  '((mark-ring (982))))
+
+(desktop-create-buffer 208
+  "g:/entropy/20210217210950-regression.org"
+  "20210217210950-regression.org"
+  'org-mode
+  '(visual-line-mode ivy-mode TeX-PDF-mode company-mode org-roam-mode org-roam-bibtex-mode org-roam-server-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-display-time 24658 50700 839198 0) (buffer-file-coding-system . undecided-dos) (truncate-lines))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "g:/entropy/20210217210402-linear_regression.org"
+  "20210217210402-linear_regression.org"
+  'org-mode
+  '(visual-line-mode ivy-mode TeX-PDF-mode company-mode org-roam-mode org-roam-bibtex-mode org-roam-server-mode)
+  165
+  '(165 nil)
+  nil
+  nil
+  '((buffer-display-time 24658 50700 684369 0) (buffer-file-coding-system . undecided-dos) (truncate-lines))
+  '((mark-ring (165))))
+
+(desktop-create-buffer 208
+  "g:/entropy/20210119122218-cryptography.org"
+  "20210119122218-cryptography.org"
+  'org-mode
+  '(visual-line-mode ivy-mode TeX-PDF-mode company-mode org-roam-mode org-roam-bibtex-mode org-roam-server-mode)
+  319
+  '(318 nil)
+  nil
+  nil
+  '((buffer-display-time 24658 50691 472702 0) (buffer-file-coding-system . undecided-dos) (truncate-lines))
+  '((mark-ring (319))))
+
+(desktop-create-buffer 208
+  "g:/entropy/20210217113932-musings.org"
+  "20210217113932-musings.org"
+  'org-mode
+  '(visual-line-mode ivy-mode TeX-PDF-mode company-mode org-roam-mode org-roam-bibtex-mode org-roam-server-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-display-time 24658 50691 211962 0) (buffer-file-coding-system . undecided-dos) (truncate-lines))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "g:/entropy/Emac-commands.org"
+  "Emac-commands.org"
+  'org-mode
+  '(visual-line-mode ivy-mode TeX-PDF-mode company-mode org-roam-mode org-roam-bibtex-mode org-roam-server-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-display-time 24658 50488 308220 0) (buffer-file-coding-system . undecided-dos) (truncate-lines))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "c:/Users/TobyR/AppData/Local/Temp/graph.g3UTpY.svg"
+  "graph.g3UTpY.svg"
+  'image-mode
+  '(visual-line-mode ivy-mode TeX-PDF-mode company-mode org-roam-mode org-roam-bibtex-mode org-roam-server-mode)
+  600845
+  '(600845 nil)
+  nil
+  nil
+  '((buffer-display-time 24658 49557 348409 0) (buffer-file-coding-system . utf-8-dos) (truncate-lines . t))
+  '((mark-ring (600845))))
+
+(desktop-create-buffer 208
+  "g:/entropy/20210218152551-risk.org"
+  "20210218152551-risk.org"
+  'org-mode
+  '(visual-line-mode ivy-mode TeX-PDF-mode company-mode org-roam-mode org-roam-bibtex-mode org-roam-server-mode)
+  2167
+  '(2167 t)
+  nil
+  nil
+  '((buffer-display-time 24658 48086 78544 0) (buffer-file-coding-system . undecided-dos) (truncate-lines))
+  '((mark-ring (2167))))
 

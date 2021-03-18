@@ -47,7 +47,7 @@
  '(org-latex-pdf-process '("latexmk -shell-escape -bibtex -f -pdf %f"))
  '(org-roam-directory "~/entropy/")
  '(package-selected-packages
-   '(company-bibtex company-auctex company desktop+ graphviz-dot-mode org-noter-pdftools org-noter org-roam-bibtex ivy-bibtex org-ref bibtex-completion latex-preview-pane yasnippet pdf-tools auctex org-superstar org-download counsel swiper ivy modus-vivendi-theme modus-operandi-theme org-roam))
+   '(org-kindle countdown egg-timer org-pomodoro org-roam-server company-bibtex company-auctex company desktop+ graphviz-dot-mode org-noter-pdftools org-noter org-roam-bibtex ivy-bibtex org-ref bibtex-completion latex-preview-pane yasnippet pdf-tools auctex org-superstar org-download counsel swiper ivy modus-vivendi-theme modus-operandi-theme org-roam))
  '(safe-local-variable-values '((TeX-master . master))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -114,6 +114,25 @@
 (company-auctex-init)
 (require 'company-bibtex)
 (add-to-list 'company-backends 'company-bibtex)
+(setq org-roam-completion-everywhere t)
+
+(require 'org-protocol) ;https://github.com/nobiot/Zero-to-Emacs-and-Org-roam/blob/main/90.org-protocol.md
+(require 'org-roam-protocol)
+(use-package org-roam-server
+  :ensure t
+  :config
+  (setq org-roam-server-host "127.0.0.1"
+        org-roam-server-port 8080
+        org-roam-server-authenticate nil
+        org-roam-server-export-inline-images t
+        org-roam-server-serve-files nil
+        org-roam-server-served-file-extensions '("pdf" "mp4" "ogv")
+        org-roam-server-network-poll t
+        org-roam-server-network-arrows nil
+        org-roam-server-network-label-truncate t
+        org-roam-server-network-label-truncate-length 60
+        org-roam-server-network-label-wrap-length 20))
+
 
 ;;----- Bibtex options ----- ;;
 (setq company-bibtex-bibliography '("~/entropy/roam.bib"))
@@ -125,9 +144,7 @@
 (setq bibtex-completion-pdf-extension '(".pdf" ".pptx" ".docx"));;file types to recognise
 (setq bibtex-completion-pdf-open-function  (lambda (fpath)   (start-process "open" "*open*" "open" fpath)))
 (setq bibtex-completion-additional-search-fields '(keywords));Allows for search bib by keyword
-(add-hook 'org-mode-hook
-          (lambda ()
-            (set (make-local-variable 'company-backends) '(company-capf))))
+
 ;;----- Latex options ----- ;;
 (setq TeX-PDF-mode t)
 (setq TeX-auto-save t)
@@ -164,10 +181,12 @@
                   ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))))
 
 (load "~/.emacs.d/config/aesthetics.el")
-
+(require 'egg-timer)
+;(global-set-key (kbd "C-s-a") #'egg-timer-schedule)
 (require 'org-ref)
 (require 'org-roam-bibtex)
 (require 'helm-config)
+
 
 (load "~/.emacs.d/config/commands.el")
 (load "~/.emacs.d/config/keybinds.el")
