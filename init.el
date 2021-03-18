@@ -45,7 +45,6 @@
      ("" "biblatex" t nil)
      ("" "acronym" t nil)))
  '(org-latex-pdf-process '("latexmk -shell-escape -bibtex -f -pdf %f"))
- '(org-roam-directory "~/entropy/")
  '(package-selected-packages
    '(org-kindle countdown egg-timer org-pomodoro org-roam-server company-bibtex company-auctex company desktop+ graphviz-dot-mode org-noter-pdftools org-noter org-roam-bibtex ivy-bibtex org-ref bibtex-completion latex-preview-pane yasnippet pdf-tools auctex org-superstar org-download counsel swiper ivy modus-vivendi-theme modus-operandi-theme org-roam))
  '(safe-local-variable-values '((TeX-master . master))))
@@ -87,34 +86,102 @@
 ;---------End Paths --------------------
 
 ;---------Activate options-------
-(add-hook 'after-init-hook 'org-roam-mode)
-(add-hook 'after-init-hook 'pdf-tools-install)
-(add-hook 'after-init-hook #'org-roam-bibtex-mode)
-(add-hook 'TeX-mode-hook 'TeX-fold-mode)      ; auto-activate TeX-fold-mode
-(add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)  ; auto-activate math mode
-(add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
-(autoload 'helm-bibtex "helm-bibtex" "" t);;no idea where this came from or what it does
-(put 'set-goal-column 'disabled nil)
-(ivy-mode 1)
-(desktop-save-mode 1)
-(set-language-environment "UTF-8")
-;;-----General options-----;;
-(setq org-roam-db-update-method 'immediate)
-(setq ivy-use-virtual-buffers t)
-(setq enable-recursive-minibuffers t)
-(setq initial-major-mode 'org-mode)
-(setq version-control t)
-(setq backup-directory-alist  '(("." . "~/.emacs.d/file-backups")))
-(setq org-roam-graph-viewer nil) 
-;(setq org-roam-graph-viewer #'eww-open-file)
-(setq org-roam-db-gc-threshold most-positive-fixnum)
+;-------Started replacing with use package-----
+
+(use-package swiper
+   :ensure t
+ :config
+ (global-set-key "\C-f" 'swiper))
+
+ (use-package counsel
+   :ensure t
+   :config
+   (global-set-key (kbd "M-x") 'counsel-M-x)
+   (global-set-key (kbd "C-x C-f") 'counsel-find-file)
+   (global-set-key (kbd "C-h f") 'counsel-describe-function)
+   (global-set-key (kbd "C-h v") 'counsel-describe-variable)
+(global-set-key (kbd "C-c M-f") #'counsel-recentf))
+
+(use-package helm-bibtex
+  :ensure t
+  :init
+ (autoload 'helm-bibtex "helm-bibtex" "" t)
+  :config
+  (require 'helm)
+  (setq bibtex-completion-bibliography '("~/entropy/roam.bib"))
+ :bind (:map helm-command-map
+              (("C-c h b" . helm-bibtex)
+("C-c h B" . helm-bibtex-with-local-bibliography)
+("C-c h n" . helm-bibtex-with-notes)
+("C-c h h" . helm-resume))
+))
+
+(use-package org-roam
+      :ensure t
+      :init
+      (setq org-roam-db-update-method 'immediate)
+      (setq org-roam-completion-everywhere t)
+      (setq org-roam-db-gc-threshold most-positive-fixnum)
+      (setq org-roam-graph-viewer nil) 
+      :hook
+      (after-init . org-roam-mode)
+      :custom
+      (org-roam-directory "~/entropy/")
+      :bind (:map org-roam-mode-map
+              ;(("C-c n l" . org-roam)
+              (("C-c n /" . org-roam-find-file)
+              ; ("C-c n g" . org-roam-graph)
+              ( "C-c n r" . org-roam-buffer-toggle-display))
+              :map org-mode-map
+              (("C-c n i" . org-roam-insert))
+              (("C-c n I" . org-roam-insert-immediate))
+              (("C-c n b" . org-roam-switch-to-buffer))
+              (("C-c n d" . org-roam-find-directory))
+))
+
+(use-package org-roam-bibtex
+  :after org-roam
+  :hook (org-roam-mode . org-roam-bibtex-mode)
+  :config
+  (require 'org-ref)) ; optional: if Org Ref is not loaded anywhere else, load it here
+
+(use-package company
+  :ensure t
+  :config
+  (setq company-idle-delay 0.5)
+  (setq company-show-numbers t)
+  (setq company-tooltip-limit 10)
+  (setq company-minimum-prefix-length 2)
+  (setq company-tooltip-align-annotations t)
+  ;; invert the navigation direction if the the completion popup-isearch-match
+  ;; is displayed on top (happens near the bottom of windows)
+  (setq company-tooltip-flip-when-above t)
+  (global-company-mode))
 
 (add-hook 'after-init-hook 'global-company-mode)
 (require 'company-auctex)
 (company-auctex-init)
 (require 'company-bibtex)
 (add-to-list 'company-backends 'company-bibtex)
-(setq org-roam-completion-everywhere t)
+
+;-------End Replacing with use-package
+(add-hook 'after-init-hook 'pdf-tools-install)
+;(add-hook 'after-init-hook #'org-roam-bibtex-mode)
+(add-hook 'TeX-mode-hook 'TeX-fold-mode)      ; auto-activate TeX-fold-mode
+(add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)  ; auto-activate math mode
+(add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
+;(autoload 'helm-bibtex "helm-bibtex" "" t);;no idea where this came from or what it does
+(put 'set-goal-column 'disabled nil)
+(ivy-mode 1)
+(desktop-save-mode 1)
+(set-language-environment "UTF-8")
+;;-----General options-----;;
+;(setq org-roam-db-update-method 'immediate)
+(setq ivy-use-virtual-buffers t)
+(setq enable-recursive-minibuffers t)
+(setq initial-major-mode 'org-mode)
+(setq version-control t)
+(setq backup-directory-alist  '(("." . "~/.emacs.d/file-backups")))
 
 (require 'org-protocol) ;https://github.com/nobiot/Zero-to-Emacs-and-Org-roam/blob/main/90.org-protocol.md
 (require 'org-roam-protocol)
@@ -138,7 +205,7 @@
 (setq company-bibtex-bibliography '("~/entropy/roam.bib"))
 (setq reftex-default-bibliography '("~/entropy/roam.bib"))
 (setq org-ref-default-bibliography '("~/entropy/roam.bib"))
-(setq bibtex-completion-bibliography '("~/entropy/roam.bib"))
+;(setq bibtex-completion-bibliography '("~/entropy/roam.bib"))
 (setq org-ref-pdf-directory '("~/gdrive/Library/"))
 (setq bibtex-completion-library-path '("~/gdrive/Library"))
 (setq bibtex-completion-pdf-extension '(".pdf" ".pptx" ".docx"));;file types to recognise
@@ -182,10 +249,6 @@
 
 (load "~/.emacs.d/config/aesthetics.el")
 (require 'egg-timer)
-;(global-set-key (kbd "C-s-a") #'egg-timer-schedule)
-(require 'org-ref)
-(require 'org-roam-bibtex)
-(require 'helm-config)
 
 
 (load "~/.emacs.d/config/commands.el")

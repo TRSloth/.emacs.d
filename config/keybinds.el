@@ -18,23 +18,13 @@
   '(define-key LaTeX-mode-map (kbd "C-c a c") 'fa/add-latex-acronym))
 (eval-after-load "org"
   '(define-key org-mode-map (kbd "C-c a c") 'fa/add-latex-acronym))
-(define-key helm-command-map "b" 'helm-bibtex)
-(define-key helm-command-map "B" 'helm-bibtex-with-local-bibliography)
-(define-key helm-command-map "n" 'helm-bibtex-with-notes)
-(define-key helm-command-map "h" 'helm-resume)
+
 
 
 ;;; Globally defined keys
-(global-set-key (kbd "C-c h") 'helm-command-prefix)
 (global-set-key (kbd "C-c l p") #'latex-preview-pane-mode)
 (global-set-key (kbd "C-c c") #'org-ref-helm-insert-cite-link)
-(global-set-key (kbd "C-c n r") #'org-roam-buffer-toggle-display)
-(global-set-key (kbd "C-c n i") #'org-roam-insert)
-(global-set-key (kbd "C-c n u") #'org-roam-insert-immediate)
-(global-set-key (kbd "C-c n .") #'org-roam-find-file-other-window)
-(global-set-key (kbd "C-c n /") #'org-roam-find-file)
-(global-set-key (kbd "C-c n b") #'org-roam-switch-to-buffer)
-(global-set-key (kbd "C-c n d") #'org-roam-find-directory)
+(global-set-key (kbd "C-c n .") #'org-roam-find-file-other-window);todo add func to map?
 (global-set-key (kbd "C-c n l") #'org-insert-link-global)
 (global-set-key (kbd "C-c n o") #'org-noter)
 (global-set-key (kbd "C-c n c") #'orb-insert);make note for a citations
@@ -53,14 +43,7 @@
 (global-set-key (kbd "S-C-<down>") 'shrink-window)
 (global-set-key (kbd "S-C-<up>") 'enlarge-window)
 
-;; Replace defaults with Counsel and swiper versions
-(global-set-key (kbd "M-x") #'counsel-M-x)
-(global-set-key (kbd "C-x C-f") #'counsel-find-file)
-(global-set-key (kbd "C-c n f") #'counsel-find-file)
-(global-set-key (kbd "C-h f") 'counsel-describe-function)
-(global-set-key (kbd "C-h v") 'counsel-describe-variable)
-(global-set-key (kbd "C-c M-f") #'counsel-recentf)
-(global-set-key (kbd "C-f") #'swiper)
+
 (global-set-key (kbd "C-C C-f") 'isearch-forward) ; just in case its still needed(pdf-viewer etc)
 ;;; Paste bin for regualterly used strings
 (global-set-key (kbd "C-c a a") "#+roam_alias: ")
