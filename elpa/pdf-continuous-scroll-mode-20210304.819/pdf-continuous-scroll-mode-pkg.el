@@ -1,0 +1,2 @@
+;;; Generated package description from g:/.emacs.d/elpa/pdf-continuous-scroll-mode-20210304.819/pdf-continuous-scroll-mode.el  -*- no-byte-compile: t -*-
+(define-package "pdf-continuous-scroll-mode" "20210304.819" "Continuous scroll minor mode for pdf-tools" '((emacs "27.1")) :authors '(("Daniel Laurens Nicolai" . "dalanicolai@gmail.com")) :maintainer '("Daniel Laurens Nicolai" . "dalanicolai@gmail.com") :keywords '("pdf-tools") :url "https://github.com/dalanicolai/pdf-continuous-scroll-mode.el")

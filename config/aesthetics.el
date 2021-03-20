@@ -21,6 +21,7 @@
 (menu-bar-mode 1)
 (toggle-scroll-bar 1)
 (display-time-mode 1)
+(display-battery-mode 1)
 (setq-default  cursor-type 'bar)
 (set-cursor-color "#ffffff") 
 (setq blink-cursor-mode nil)

@@ -8,8 +8,7 @@
 ;;; Minor mode keymaps
 (define-key isearch-mode-map [remap isearch-delete-char] 'isearch-del-char)
 (define-key isearch-mode-map "\C-f" 'isearch-repeat-forward); remap to fix issue fixed by above
- ; (define-key pdf-view (kbd "C-s") 'isearch-forward) ;counsel search not work in pdf view
-; (define-key pdf-view-mode-map (kbd "y") 'org-noter-insert-selected-text-inside-note-content)
+
 
 ;------------------------------------------------------------------------------------------
 
@@ -38,10 +37,10 @@
 (global-set-key "\C-c k" #'cua-mode)
 (global-set-key (kbd "C-z") 'undo) ;Emacs default is bound to hide Emacs.
 ;;; change window size
-(global-set-key (kbd "S-C-<left>") 'shrink-window-horizontally)
-(global-set-key (kbd "S-C-<right>") 'enlarge-window-horizontally)
-(global-set-key (kbd "S-C-<down>") 'shrink-window)
-(global-set-key (kbd "S-C-<up>") 'enlarge-window)
+(global-set-key (kbd "M-C-<left>") 'shrink-window-horizontally)
+(global-set-key (kbd "M-C-<right>") 'enlarge-window-horizontally)
+(global-set-key (kbd "M-C-<down>") 'shrink-window)
+(global-set-key (kbd "M-C-<up>") 'enlarge-window)
 
 
 (global-set-key (kbd "C-C C-f") 'isearch-forward) ; just in case its still needed(pdf-viewer etc)

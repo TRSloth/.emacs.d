@@ -16,6 +16,7 @@
  '(custom-safe-themes t)
  '(delete-old-versions t)
  '(delete-selection-mode t)
+ '(desktop-path '("~/.emacs.d/desktops"))
  '(doc-view-continuous t)
  '(doc-view-scale-internally nil)
  '(electric-indent-mode nil)
@@ -46,7 +47,8 @@
      ("" "acronym" t nil)))
  '(org-latex-pdf-process '("latexmk -shell-escape -bibtex -f -pdf %f"))
  '(package-selected-packages
-   '(org-kindle countdown egg-timer org-pomodoro org-roam-server company-bibtex company-auctex company desktop+ graphviz-dot-mode org-noter-pdftools org-noter org-roam-bibtex ivy-bibtex org-ref bibtex-completion latex-preview-pane yasnippet pdf-tools auctex org-superstar org-download counsel swiper ivy modus-vivendi-theme modus-operandi-theme org-roam))
+   '(poly-markdown poly-org polymode org-brain pdf-continuous-scroll-mode quelpa-use-package quelpa helm-org-rifle buffer-move dired-open org-kindle countdown egg-timer org-pomodoro org-roam-server company-bibtex company-auctex company desktop+ graphviz-dot-mode org-noter-pdftools org-noter org-roam-bibtex ivy-bibtex org-ref bibtex-completion latex-preview-pane yasnippet pdf-tools auctex org-superstar org-download counsel swiper ivy modus-vivendi-theme modus-operandi-theme org-roam))
+ '(quelpa-upgrade-p t)
  '(safe-local-variable-values '((TeX-master . master))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -70,6 +72,7 @@
 (setq default-directory "~/gdrive")
 (setenv "HOME" "G:") ;;needs to be g
 (setq org-roam-graph-executable "~/.emacs.d/addons-win/Graphviz/bin/dot.exe")
+(setq desktop+-base-dir "~/.emacs.d/desktops/" )
 ;;; ------Find linux functions in windows-----  
   (add-to-list 'exec-path "~/.emacs.d/addons-win") ;; sqllite3.exe for use by org-roam
   (setenv "PATH"
@@ -87,7 +90,7 @@
 
 ;---------Activate options-------
 ;-------Started replacing with use package-----
-
+(setq org-directory "~/entropy/")
 (use-package swiper
    :ensure t
  :config
@@ -109,12 +112,10 @@
   :config
   (require 'helm)
   (setq bibtex-completion-bibliography '("~/entropy/roam.bib"))
- :bind (:map helm-command-map
-              (("C-c h b" . helm-bibtex)
+ :bind (("C-c h b" . helm-bibtex)
 ("C-c h B" . helm-bibtex-with-local-bibliography)
 ("C-c h n" . helm-bibtex-with-notes)
-("C-c h h" . helm-resume))
-))
+("C-c h h" . helm-resume)))
 
 (use-package org-roam
       :ensure t
@@ -164,8 +165,30 @@
 (require 'company-bibtex)
 (add-to-list 'company-backends 'company-bibtex)
 
+
+(use-package pdf-tools
+  :ensure t
+  :pin melpa
+  :defer t
+  :magic ("%PDF" . pdf-view-mode)
+  :config
+  (pdf-tools-install)
+ ; (define-key pdf-view (kbd "C-f") 'isearch-forward) ;counsel search not work in pdf view)
+ :bind (:map pdf-view-mode-map
+              (("C-f" . isearch-forward))
+))
+
+
+;;-----Org-download-----;
+
+(require 'org-download)
+
+;; Drag-and-drop to `dired`
+(add-hook 'dired-mode-hook 'org-download-enable)
+(setq-default org-download-image-dir "~/gdrive/Library/img/misc/")
+
 ;-------End Replacing with use-package
-(add-hook 'after-init-hook 'pdf-tools-install)
+;(add-hook 'after-init-hook 'pdf-tools-install)
 ;(add-hook 'after-init-hook #'org-roam-bibtex-mode)
 (add-hook 'TeX-mode-hook 'TeX-fold-mode)      ; auto-activate TeX-fold-mode
 (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)  ; auto-activate math mode
@@ -173,7 +196,7 @@
 ;(autoload 'helm-bibtex "helm-bibtex" "" t);;no idea where this came from or what it does
 (put 'set-goal-column 'disabled nil)
 (ivy-mode 1)
-(desktop-save-mode 1)
+(desktop-save-mode -1)
 (set-language-environment "UTF-8")
 ;;-----General options-----;;
 ;(setq org-roam-db-update-method 'immediate)
@@ -212,6 +235,14 @@
 (setq bibtex-completion-pdf-open-function  (lambda (fpath)   (start-process "open" "*open*" "open" fpath)))
 (setq bibtex-completion-additional-search-fields '(keywords));Allows for search bib by keyword
 
+;;------Other------;;;
+(require 'buffer-move)
+
+(global-set-key (kbd "<C-S-up>")     'buf-move-up)
+(global-set-key (kbd "<C-S-down>")   'buf-move-down)
+(global-set-key (kbd "<C-S-left>")   'buf-move-left)
+(global-set-key (kbd "<C-S-right>")  'buf-move-right)
+
 ;;----- Latex options ----- ;;
 (setq TeX-PDF-mode t)
 (setq TeX-auto-save t)
@@ -246,10 +277,81 @@
                   ("\\section{%s}" . "\\section*{%s}")
                   ("\\subsection{%s}" . "\\subsection*{%s}")
                   ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))))
+(with-eval-after-load 'ox-latex
+   (add-to-list 'org-latex-classes
+                '("final_report"
+                  "\\documentclass{final_report}"
+                  ("\\chapter{%s}" . "\\chapter*{%s}")
+                  ("\\section{%s}" . "\\section*{%s}")
+                  ("\\subsection{%s}" . "\\subsection*{%s}")
+                  ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))))
 
-(load "~/.emacs.d/config/aesthetics.el")
+
+(setq orb-preformat-keywords
+   '(("citekey" . "=key=") "title" "url" "file" "author-or-editor" "keywords"))
+
+(setq orb-templates
+      '(("r" "ref" plain (function org-roam-capture--get-point)
+         ""
+         :file-name "${citekey}"
+         :head "#+TITLE: ${citekey}: ${title}\n#+ROAM_KEY: ${ref}
+#+roam_alias: 
+#+roam_tags: 
+* ${title}
+:PROPERTIES:
+:Custom_ID: ${citekey}
+:URL: ${url}
+:AUTHOR: ${author-or-editor}
+:NOTER_DOCUMENT: ${file}:
+:END:
+- keywords :: ${keywords}
+")))
+
+
 (require 'egg-timer)
 
 
+(setq quelpa-upgrade-interval 7);auto upgrade quelpa files every days
+(add-hook #'after-init-hook #'quelpa-upgrade-all-maybe)
+(quelpa
+ '(quelpa-use-package
+   :fetcher git
+   :url "https://github.com/quelpa/quelpa-use-package.git"))
+(setq use-package-always-ensure t)
+(require 'quelpa-use-package)
+
+(add-hook 'pdf-view-mode-hook 'pdf-continuous-scroll-mode)
+(require 'helm-org-rifle)
+
+
+
+
+;;;---org-brain----;
+
+(use-package org-brain :ensure t
+  :init
+  (setq org-brain-path "~/entropy/brain")
+  :config
+  (bind-key "C-c b" 'org-brain-prefix-map org-mode-map)
+  (setq org-id-track-globally t)
+  (setq org-id-locations-file "~/.emacs.d/.org-id-locations")
+  (add-hook 'before-save-hook #'org-brain-ensure-ids-in-buffer)
+  (push '("b" "Brain" plain (function org-brain-goto-end)
+          "* %i%?" :empty-lines 1)
+        org-capture-templates)
+  (setq org-brain-visualize-default-choices 'all)
+  (setq org-brain-title-max-length 12)
+  (setq org-brain-include-file-entries nil
+        org-brain-file-entries-use-title nil))
+
+;; Allows you to edit entries directly from org-brain-visualize
+(use-package polymode
+  :config
+  (add-hook 'org-brain-visualize-mode-hook #'org-brain-polymode)
+(with-eval-after-load "polymode"
+  (define-hostmode org-brain-poly-hostmode
+    :mode 'org-brain-visualize-mode)))
+
+(load "~/.emacs.d/config/aesthetics.el")
 (load "~/.emacs.d/config/commands.el")
 (load "~/.emacs.d/config/keybinds.el")
