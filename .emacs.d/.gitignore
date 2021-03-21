@@ -1,0 +1,7 @@
+# .gitignore
+##################
+#ignore all except what I specify
+*
+!.gitignore
+!README.md
+!init.el
