@@ -1,6 +1,0 @@
-(setq org-directory "~/entropy/")
-(setq org-hide-leading-stars t)
-(setq org-ellipsis "⤵")
-(setq org-image-actual-width '(600))(setq org-hide-leading-stars t)
-(setq org-ellipsis "⤵")
-(setq org-image-actual-width '(600))
