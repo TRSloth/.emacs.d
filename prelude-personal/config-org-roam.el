@@ -1,3 +1,4 @@
+;https://github.com/org-roam/org-roam
 (use-package org-roam
   :ensure t
   :init
@@ -21,3 +22,11 @@
   :config
   (setq org-roam-db-update-method 'immediate)
  )
+
+;https://github.com/org-roam/org-roam-bibtex
+(use-package org-roam-bibtex
+  :ensure t
+  :after org-roam
+  :hook (org-roam-mode . org-roam-bibtex-mode)
+  :config
+  (require 'org-ref))
