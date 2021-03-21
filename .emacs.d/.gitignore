@@ -2,11 +2,12 @@
 ##################
 #ignore all except what I specify
 *
-!.gitignore
-!README.md
+!/.gitignore ;imported pacakges contained gitignores
+!/README.md ;imported packages contained readmes
 !init.el
 !custom.el
 !my-paths.el
+!aesthetics.el
 !*/
 !win/*.exe
 !win/Graphviz/*

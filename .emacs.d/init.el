@@ -2,6 +2,7 @@
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 (load "~/.emacs.d/my-paths.el")
+(load "~/.emacs.d/aesthetics.el")
 
 ;;; Use-Package config and auto-package-update
 
@@ -18,6 +19,35 @@
   (setq auto-package-update-delete-old-versions t)
   (setq auto-package-update-hide-results t)
   (auto-package-update-maybe))
+
+
+;;;Startup options
+(set-language-environment "UTF-8")
+(put 'set-goal-column 'disabled nil)
+(setq version-control t)
+(setq backup-directory-alist  '(("." . "~/.emacs.d/file-backups")))
+(setq initial-major-mode 'org-mode)
+
+
+;;;General Global keymaps
+
+; Copy paste remaps
+(global-set-key "\C-v" 'clipboard-yank)
+(global-set-key "\M-v" 'yank-pop)
+(global-set-key "\C-w" 'kill-ring-save)
+(global-set-key "\M-w" 'kill-region)
+(global-set-key "\C-c k" #'cua-mode)
+
+; Other general maps
+(global-set-key (kbd "C-z") 'undo) ;Emacs default is bound to hide Emacs.
+(global-set-key (kbd "C-c n t") #'delete-file)
+
+; change window size
+(global-set-key (kbd "M-C-<left>") 'shrink-window-horizontally)
+(global-set-key (kbd "M-C-<right>") 'enlarge-window-horizontally)
+(global-set-key (kbd "M-C-<down>") 'shrink-window)
+(global-set-key (kbd "M-C-<up>") 'enlarge-window)
+(global-set-key (kbd "C-C C-s") 'isearch-forward)
 
 
 ;;; Files to keep further installs tidy
@@ -41,7 +71,7 @@
 ;;; was swiper and counsel for navigation
 
 (use-package swiper-helm
-   :ensure t
+ :ensure t
  :config
  (global-set-key "\C-f" 'swiper))
 
@@ -63,3 +93,144 @@
 ;   (global-set-key (kbd "C-c M-f") 'counsel-recentf))
 
 
+;;; improvements to isearch
+;;; used when swiper can't be (inside pdf's etc)
+;Wrap search if command not found
+
+;Source: https://stackoverflow.com/a/36707038
+(define-key isearch-mode-map [remap isearch-delete-char] 'isearch-del-char)
+
+(defadvice isearch-search (after isearch-no-fail activate)
+  (unless isearch-success
+    (ad-disable-advice 'isearch-search 'after 'isearch-no-fail)
+    (ad-activate 'isearch-search)
+    (isearch-repeat (if isearch-forward 'forward))
+    (ad-enable-advice 'isearch-search 'after 'isearch-no-fail)
+    (ad-activate 'isearch-search)))
+
+(define-key isearch-mode-map "\C-f" 'isearch-repeat-forward); remap
+
+
+;;; org-config
+
+(setq org-directory "~/entropy/")
+(setq org-hide-leading-stars t)
+(setq org-ellipsis "⤵")
+(setq org-image-actual-width '(600))
+
+
+(use-package org-download
+  :ensure t
+  :hook (dired-mode-hook . org-download-enable)
+  :config
+  (setq-default org-download-image-dir "~/gdrive/Library/img/misc/")
+)
+
+
+ ;https://github.com/weirdNox/org-noter
+(use-package org-noter
+  :ensure t
+  :after org-mode
+  :hook (org-mode . org-noter)
+  :bind(("C-c n o" . org-noter));make notes with place pdf
+  :config
+  (setq org-noter-always-create-frame nil))
+
+
+;;; Org-roam config
+
+;https://github.com/org-roam/org-roam
+(use-package org-roam
+  :ensure t
+  :init
+  (setq org-roam-db-update-method 'immediate)
+  (setq org-roam-completion-everywhere t)
+  (setq org-roam-db-gc-threshold most-positive-fixnum)
+  (setq org-roam-graph-viewer nil)
+  :hook
+  (after-init . org-roam-mode)
+  :custom
+  (org-roam-directory "~/entropy/")
+  :bind (:map org-roam-mode-map
+              (("C-c n /" . org-roam-find-file)
+               ( "C-c n r" . org-roam-buffer-toggle-display))
+              :map org-mode-map
+              ("C-c n i" . org-roam-insert)
+              ("C-c n I" . org-roam-insert-immediate)
+              ("C-c n b" . org-roam-switch-to-buffer)
+              ("C-c n d" . org-roam-find-directory)
+              )
+  :config
+  (setq org-roam-db-update-method 'immediate)
+  )
+
+;https://github.com/org-roam/org-roam-server
+;Install guide
+;https://github.com/nobiot/Zero-to-Emacs-and-Org-roam/blob/main/90.org-protocol.md
+(use-package org-roam-server
+  :ensure t
+  :config
+  (setq org-roam-server-host "127.0.0.1"
+        org-roam-server-port 8080
+        org-roam-server-authenticate nil
+        org-roam-server-export-inline-images t
+        org-roam-server-serve-files nil
+        org-roam-server-served-file-extensions '("pdf" "mp4" "ogv")
+        org-roam-server-network-poll t
+        org-roam-server-network-arrows nil
+        org-roam-server-network-label-truncate t
+        org-roam-server-network-label-truncate-length 60
+        org-roam-server-network-label-wrap-length 20))
+
+
+;;; Bibtex config
+
+;https://github.com/org-roam/org-roam-bibtex
+(use-package org-roam-bibtex
+  :ensure t
+  :after org-roam
+  :hook (org-roam-mode . org-roam-bibtex-mode)
+  :config
+  (require 'org-ref)
+:bind (("C-c n c" . orb-insert));make notes on citations
+)
+
+;https://github.com/jkitchin/org-ref
+(use-package org-ref
+  :ensure t
+  :init
+  (setq org-ref-pdf-directory "~/gdrive/Library/")
+  (setq org-ref-default-bibliography "~/entropy/roam.bib")
+  :bind (("C-c c" . org-ref-helm-insert-cite-link))
+  )
+
+;https://github.com/tmalsburg/helm-bibtex
+(use-package helm-bibtex
+  :ensure t
+  :init
+  (autoload 'helm-bibtex "helm-bibtex" "" t)
+  :config
+  (require 'helm)
+  (setq bibtex-completion-bibliography '("~/entropy/roam.bib"))
+  :bind (("C-c h b" . helm-bibtex)
+         ("C-c h B" . helm-bibtex-with-local-bibliography)
+         ("C-c h n" . helm-bibtex-with-notes)
+         ("C-c h h" . helm-resume))
+)
+
+
+;;; pdf tools
+(use-package pdf-tools
+  :ensure t
+  :pin melpa
+  :defer t
+  :magic ("%PDF" . pdf-view-mode)
+  :config
+  (pdf-tools-install)
+  (setq pdf-annot-activate-created-annotations t)
+  :bind (:map pdf-view-mode-map
+              (("C-f" . isearch-forward))
+))
+
+
+
