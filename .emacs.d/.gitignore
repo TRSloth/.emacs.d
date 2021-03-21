@@ -5,8 +5,11 @@
 !.gitignore
 !README.md
 !init.el
+!my-paths.el
 !*/
+!win/*.exe
+!win/Graphviz/*
 !*/bind-key*/
-!*/use-package*/
 !*/bind-key*/bind-key*.el #dependancy of use-package
+!*/use-package*/
 !*/use-package*/use-package*.el
