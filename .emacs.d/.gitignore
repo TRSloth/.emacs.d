@@ -5,14 +5,8 @@
 !.gitignore
 !README.md
 !init.el
-#bind-key: dependancy of use-package
-#!\\[^\\]*\\bind-key[^\\]*\\bind-key[\s\S]*.el
-#!\\[^\\]*\\use-package[^\\]*\\use-package[\s\S]*.el
-#!**/bind-key**/bind-key**.el
-#!elpa/use-package*/use-package*.el
-
 !*/
 !*/bind-key*/
 !*/use-package*/
-!*/bind-key*/bind-key*.el
+!*/bind-key*/bind-key*.el #dependancy of use-package
 !*/use-package*/use-package*.el
