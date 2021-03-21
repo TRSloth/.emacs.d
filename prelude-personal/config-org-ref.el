@@ -2,7 +2,7 @@
 (use-package org-ref
   :ensure t
   :init
-  (setq org-ref-pdf-directory '("~/gdrive/Library/"))
-  (setq org-ref-default-bibliography '("~/entropy/roam.bib"))
+  (setq org-ref-pdf-directory "~/gdrive/Library/")
+  (setq org-ref-default-bibliography "~/entropy/roam.bib")
   :bind (("C-c c" . org-ref-helm-insert-cite-link))
 )
