@@ -5,6 +5,7 @@
 !.gitignore
 !README.md
 !init.el
+!custom.el
 !my-paths.el
 !*/
 !win/*.exe
