@@ -9,6 +9,7 @@
   (setq user-emacs-directory "g:/.emacs.d/") ;;needs to specify full-path
   (setq default-directory "~/gdrive")
   (setenv "HOME" "G:")
+  (setq org-roam-graph-executable "~/.emacs.d/personal/win/Graphviz/bin/dot.exe")
 ;;; ------Find linux functions in windows-----
   (add-to-list 'exec-path "~/.emacs.d/personal/win") ;; for any additional files needed by windows
   (setenv "PATH"
