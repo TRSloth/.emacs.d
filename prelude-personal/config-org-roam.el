@@ -29,4 +29,6 @@
   :after org-roam
   :hook (org-roam-mode . org-roam-bibtex-mode)
   :config
-  (require 'org-ref))
+  (require 'org-ref)
+:bind (("C-c n c" . orb-insert));make notes on citations
+)
