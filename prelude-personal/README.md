@@ -29,7 +29,8 @@ To use My Emacs Prelude Config, follow these steps:
 2. Type "C:\Program Files\Emacs\bin\runemacs.exe"
 3. Press enter.
 4. Press <Alt>+x and type "package-install" RET "use-package" RET
-5. Done, all other packages should be installed by use-pacakge :)
+5. Press <Ctrl>-x <Ctrl>-f and navigate to ~\.emacs.d\personal\.dir-locals.el and add your values.
+6. Done, all other packages should be installed by use-package :)
 ```
 
 ## Contributors
