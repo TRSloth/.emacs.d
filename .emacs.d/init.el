@@ -117,7 +117,8 @@
 (setq org-hide-leading-stars t)
 (setq org-ellipsis "⤵")
 (setq org-image-actual-width '(600))
-
+(setq org-startup-folded nil)
+(setq org-startup-with-inline-images t)
 
 (use-package org-download
   :ensure t
@@ -125,6 +126,16 @@
   :config
   (setq-default org-download-image-dir "~/gdrive/Library/img/misc/")
 )
+
+;https://github.com/integral-dw/org-superstar-mode
+(use-package org-superstar
+  :ensure t
+  :after org-mode
+  :config
+  (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
+  ;(setq org-superstar-headline-bullets-list '(9673 9675 9671 10047))
+  )
+  
 
 
  ;https://github.com/weirdNox/org-noter
@@ -235,4 +246,19 @@
 ))
 
 
+
+;;;Toggle window dedicated
+;https://github.com/emacsorphanage/dedicated/blob/master/dedicated.el
+(use-package dedicated
+  :ensure t
+  :bind (("C-s" . dedicated-mode))
+  )
 
+(use-package buffer-move
+  :ensure t
+  :config
+  (global-set-key (kbd "<C-S-up>")     'buf-move-up)
+(global-set-key (kbd "<C-S-down>")   'buf-move-down)
+(global-set-key (kbd "<C-S-left>")   'buf-move-left)
+(global-set-key (kbd "<C-S-right>")  'buf-move-right)
+)
