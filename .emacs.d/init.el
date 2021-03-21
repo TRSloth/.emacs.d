@@ -212,6 +212,8 @@
   :config
   (require 'helm)
   (setq bibtex-completion-bibliography '("~/entropy/roam.bib"))
+  (setq bibtex-completion-pdf-symbol "⌘") ;appears if pdf exists
+ (setq bibtex-completion-notes-symbol "✎") ;appears if notes exist
   :bind (("C-c h b" . helm-bibtex)
          ("C-c h B" . helm-bibtex-with-local-bibliography)
          ("C-c h n" . helm-bibtex-with-notes)
