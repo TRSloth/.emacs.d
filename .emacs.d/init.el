@@ -67,30 +67,45 @@
   (setq page-break-lines-mode 1))
 
 
-;;; swiper-helm and counsel for navigation
-;;; was swiper and counsel for navigation
+;;; navigation -currently using ivy
 
-(use-package swiper-helm
+;https://github.com/abo-abo/swiper
+(use-package ivy
+  :ensure t
+  :config
+  (ivy-mode)
+ (setq ivy-use-virtual-buffers t)
+ (setq enable-recursive-minibuffers t)
+ (setq ivy-use-selectable-prompt t)
+ (global-set-key (kbd "C-c C-r") 'ivy-resume)
+)
+  
+;https://github.com/abo-abo/swiper
+(use-package swiper;-helm ;uncomment helm for helm version
  :ensure t
  :config
  (global-set-key "\C-f" 'swiper))
 
-(use-package helm
-  :ensure t
-  :config
-  (global-set-key (kbd "M-x") #'helm-M-x)
-  (global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
-  (global-set-key (kbd "C-x C-f") #'helm-find-files)
-  (setq helm-mode 1))
+;;;helm-alternative
+;Advantages: is a buffer(appears where you call it), shows recently used
+;Disadvantages bloated, couldn't figure roam autocomplete
+;; (use-package helm 
+;;   :ensure t
+;;   :config
+;;   (global-set-key (kbd "M-x") #'helm-M-x)
+;;   (global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
+;;   (global-set-key (kbd "C-x C-f") #'helm-find-files)
+;;   )
 
 (use-package counsel
    :ensure t
-;   :config
-;   (global-set-key (kbd "M-x") 'counsel-M-x)
-;   (global-set-key (kbd "C-x C-f") 'counsel-find-file)
-;   (global-set-key (kbd "C-h f") 'counsel-describe-function);use helm-apropos C-X c a
-;   (global-set-key (kbd "C-h v") 'counsel-describe-variable)
-;  (global-set-key (kbd "C-c M-f") 'counsel-recentf)
+   :config
+  (global-set-key (kbd "M-x") 'counsel-M-x)
+    (global-set-key (kbd "C-x C-f") 'counsel-find-file)
+    (global-set-key (kbd "C-h f") 'counsel-describe-function)
+    (global-set-key (kbd "C-x c a") 'counsel-apropos)
+   (global-set-key (kbd "C-h v") 'counsel-describe-variable)
+  (global-set-key (kbd "C-c M-f") 'counsel-recentf)
 )
 
 ;;; improvements to isearch
