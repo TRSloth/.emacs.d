@@ -83,15 +83,15 @@
   (global-set-key (kbd "C-x C-f") #'helm-find-files)
   (setq helm-mode 1))
 
-; (use-package counsel
-;   :ensure t
+(use-package counsel
+   :ensure t
 ;   :config
 ;   (global-set-key (kbd "M-x") 'counsel-M-x)
 ;   (global-set-key (kbd "C-x C-f") 'counsel-find-file)
 ;   (global-set-key (kbd "C-h f") 'counsel-describe-function);use helm-apropos C-X c a
 ;   (global-set-key (kbd "C-h v") 'counsel-describe-variable)
-;   (global-set-key (kbd "C-c M-f") 'counsel-recentf))
-
+;  (global-set-key (kbd "C-c M-f") 'counsel-recentf)
+)
 
 ;;; improvements to isearch
 ;;; used when swiper can't be (inside pdf's etc)
@@ -112,13 +112,17 @@
 
 
 ;;; org-config
-
-(setq org-directory "~/entropy/")
-(setq org-hide-leading-stars t)
-(setq org-ellipsis "⤵")
-(setq org-image-actual-width '(600))
-(setq org-startup-folded nil)
-(setq org-startup-with-inline-images t)
+(use-package org
+  :mode (("\\.org$" . org-mode))
+  :ensure t
+  :config(progn
+  (setq org-directory "~/entropy/")
+  (setq org-hide-leading-stars t)
+  (setq org-ellipsis "⤵")
+  (setq org-image-actual-width '(600))
+  (setq org-startup-folded nil)
+  (setq org-startup-with-inline-images t))
+  )
 
 (use-package org-download
   :ensure t
@@ -130,22 +134,21 @@
 ;https://github.com/integral-dw/org-superstar-mode
 (use-package org-superstar
   :ensure t
-  :after org-mode
-  :config
+  :after org
+  :init
   (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
-  ;(setq org-superstar-headline-bullets-list '(9673 9675 9671 10047))
+  (setq org-superstar-headline-bullets-list '(9673 9675 9671 10047))
   )
-  
-
 
  ;https://github.com/weirdNox/org-noter
 (use-package org-noter
   :ensure t
-  :after org-mode
-  :hook (org-mode . org-noter)
+  :after org
+  :hook (org-mode-hook . org-noter)
   :bind(("C-c n o" . org-noter));make notes with place pdf
   :config
-  (setq org-noter-always-create-frame nil))
+  (setq org-noter-always-create-frame nil)
+    (require 'org-noter-pdftools))
 
 
 ;;; Org-roam config
@@ -171,8 +174,6 @@
               ("C-c n b" . org-roam-switch-to-buffer)
               ("C-c n d" . org-roam-find-directory)
               )
-  :config
-  (setq org-roam-db-update-method 'immediate)
   )
 
 ;https://github.com/org-roam/org-roam-server
@@ -199,8 +200,8 @@
 ;https://github.com/org-roam/org-roam-bibtex
 (use-package org-roam-bibtex
   :ensure t
-  :after org-roam
-  :hook (org-roam-mode . org-roam-bibtex-mode)
+  :after org
+  :hook (org-mode-hook . org-roam-bibtex-mode)
   :config
   (require 'org-ref)
 :bind (("C-c n c" . orb-insert));make notes on citations
@@ -241,10 +242,48 @@
   :config
   (pdf-tools-install)
   (setq pdf-annot-activate-created-annotations t)
+  (load "~/.emacs.d/pdf-continuos-scroll-mode.el")
+(add-hook 'pdf-view-mode-hook 'pdf-continuous-scroll-mode);this can be installed and auto-updated with quelpa but that took too long to configure last time.
   :bind (:map pdf-view-mode-map
               (("C-f" . isearch-forward))
-))
+	      ))
+; This is pretty much a copy from the git page
+;https://github.com/fuxialexander/org-pdftools/tree/a5b61bca3f8c91b0859bb0df1a929f9a31a57b99
+(use-package org-pdftools
+  :hook (org-mode . org-pdftools-setup-link))
 
+(use-package org-noter-pdftools
+  :after org-noter
+  :config
+  ;; Add a function to ensure precise note is inserted
+  (defun org-noter-pdftools-insert-precise-note (&optional toggle-no-questions)
+    (interactive "P")
+    (org-noter--with-valid-session
+     (let ((org-noter-insert-note-no-questions (if toggle-no-questions
+                                                   (not org-noter-insert-note-no-questions)
+                                                 org-noter-insert-note-no-questions))
+           (org-pdftools-use-isearch-link t)
+           (org-pdftools-use-freestyle-annot t))
+       (org-noter-insert-note (org-noter--get-precise-info)))))
+
+  ;; fix https://github.com/weirdNox/org-noter/pull/93/commits/f8349ae7575e599f375de1be6be2d0d5de4e6cbf
+  (defun org-noter-set-start-location (&optional arg)
+    "When opening a session with this document, go to the current location.
+With a prefix ARG, remove start location."
+    (interactive "P")
+    (org-noter--with-valid-session
+     (let ((inhibit-read-only t)
+           (ast (org-noter--parse-root))
+           (location (org-noter--doc-approx-location (when (called-interactively-p 'any) 'interactive))))
+       (with-current-buffer (org-noter--session-notes-buffer session)
+         (org-with-wide-buffer
+          (goto-char (org-element-property :begin ast))
+          (if arg
+              (org-entry-delete nil org-noter-property-note-location)
+            (org-entry-put nil org-noter-property-note-location
+                           (org-noter--pretty-print-location location))))))))
+  (with-eval-after-load 'pdf-annot
+    (add-hook 'pdf-annot-activate-handler-functions #'org-noter-pdftools-jump-to-note)))
 
 
 ;;;Toggle window dedicated
@@ -262,3 +301,26 @@
 (global-set-key (kbd "<C-S-left>")   'buf-move-left)
 (global-set-key (kbd "<C-S-right>")  'buf-move-right)
 )
+
+
+;;; Company autocomplete
+
+(use-package company
+  :ensure t
+  :config
+  (setq company-idle-delay 0.5)
+  (setq company-show-numbers t)
+  (setq company-tooltip-limit 10)
+  (setq company-minimum-prefix-length 2)
+  (setq company-tooltip-align-annotations t)
+  ;; invert the navigation direction if the the completion popup-isearch-match
+  ;; is displayed on top (happens near the bottom of windows)
+  (setq company-tooltip-flip-when-above t)
+  (global-company-mode))
+
+
+(use-package tex
+  :defer t
+  :ensure auctex
+  :config
+  (setq TeX-auto-save t))
