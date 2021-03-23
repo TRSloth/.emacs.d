@@ -192,6 +192,7 @@
               ("C-c n I" . org-roam-insert-immediate)
               ("C-c n b" . org-roam-switch-to-buffer)
               ("C-c n d" . org-roam-find-directory)
+              ("C-c a c" . fa/add-latex-acronym)
               )
   )
 
@@ -367,6 +368,7 @@ With a prefix ARG, remove start location."
   :defer t
   :ensure auctex
   :config
+  (setq define-key LaTeX-mode-map (kbd "C-c a c") 'fa/add-latex-acronym)
    (setq TeX-macro-global
    '("c:/texlive/2020/texmf-var/tex/" "c:/texlive/texmf-local/tex/" "c:/texlive/texmf-local/bibtex/bst/" "c:/texlive/2020/texmf-dist/tex/" "c:/texlive/2020/texmf-dist/bibtex/bst/"))
   (add-hook 'TeX-mode-hook 'TeX-fold-mode)      ; auto-activate TeX-fold-mode
@@ -429,3 +431,28 @@ With a prefix ARG, remove start location."
                   ("\\section{%s}" . "\\section*{%s}")
                   ("\\subsection{%s}" . "\\subsection*{%s}")
                   ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))))
+
+
+; Add acronym from current position https://florian.adamsky.it/2018/03/09/emacs-add-acronyms.html 
+(defun fa/add-latex-acronym (region-beg region-end)
+  "This function reads the written out form of an acronym via the
+minibuffer and adds it to the acronym list in a latex
+document. Addtionally, it sorts all acronyms in the list."
+  (interactive "r")
+  (save-excursion
+    (let ((acronym
+           (if (region-active-p)
+               (buffer-substring region-beg region-end)
+             (read-from-minibuffer "Acronym: ")))
+          (full-name (read-from-minibuffer "Full Name: ")))
+      (beginning-of-buffer)
+      (if (search-forward "\\begin{acronym}" nil t)
+          (progn
+            (deactivate-mark)
+            (open-line 1)
+            (forward-line 1)
+            (insert (concat "  \\acro{" acronym "}{" full-name "}"))
+            (beginning-of-line)
+            (sort-lines nil (point) (search-forward "\\end{acronym}" nil nil)))
+        (user-error "No acronym environment found")))))
+
