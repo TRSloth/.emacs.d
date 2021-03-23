@@ -25,6 +25,7 @@
 
 
 ;;;Startup options
+(setq debug-on-error t)
 (set-language-environment "UTF-8")
 (put 'set-goal-column 'disabled nil)
 (setq version-control t)
@@ -220,6 +221,7 @@
   :ensure t
   :after org
   :hook (org-mode-hook . org-roam-bibtex-mode)
+  :hook (after-init . org-roam-bibtex-mode)
   :config
   (require 'org-ref)
   (setq orb-preformat-keywords
@@ -247,7 +249,7 @@
 ;https://github.com/jkitchin/org-ref
 (use-package org-ref
   :ensure t
-   :hook (org-mode . org-ref)
+   :hook (org-mode-hook . org-ref)
   :init
   (setq org-ref-pdf-directory "~/gdrive/Library/")
   (setq org-ref-default-bibliography "~/entropy/roam.bib")
