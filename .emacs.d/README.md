@@ -26,13 +26,15 @@ To use My Emacs Config, follow these steps:
 1. Press <Win>+R
 2. Type "C:\Program Files\Emacs\bin\runemacs.exe"
 3. Press enter.
-4. Done, all packages should be installed by use-package :)
+4. Use-package will start installing things: Go make a cup of tea/coffee
+5. Delete org-brain.elc (in .emacs.d/elpa/org-brain-xxxx/), this fixes a [known issue](https://github.com/Kungsgeten/org-brain/issues/320)
+6. Re-open emacs and your done :)
 ```
 
 ## Contributors
 
 Thanks all the people who provided the guides howto's and software to make building a config that works for me possible, to name a few:
-
+* If I've copied any code from anywhere I've linked to it directly above the code in a comment
 * [@nobiot](https://github.com/nobiot) 🐛 [Zero-to-Emacs-and-Org-Roam](https://github.com/nobiot/Zero-to-Emacs-and-Org-roam)
 * [@scottydocs](https://github.com/scottydocs) 📖
 
