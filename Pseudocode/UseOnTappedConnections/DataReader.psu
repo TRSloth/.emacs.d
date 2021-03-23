@@ -1,5 +1,0 @@
-DataReader(TappedConnection)
-    unstructuredFile = ReadStream(TappedConnection)
-    type = DetectType(unstructuredFile)
-    stucturedFile = ConvertType(unstructuredFile, type) //Where ConvertType(file_to_convert, target_format).
-    return SaveFile(structuredFile, dateTime+structuredFile.name) //Where SaveFile(file_to_save, filename) and returns path to saved file.

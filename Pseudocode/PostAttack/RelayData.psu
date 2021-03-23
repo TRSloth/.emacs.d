@@ -1,4 +1,0 @@
-RelayData(file)
-    connection = OpenNetworkConnection(savedConnections)
-    Post(file, connection, targetIP)
-    return
