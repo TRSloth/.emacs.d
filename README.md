@@ -1,9 +1,6 @@
 # My Emacs Config
 
-My Emacs Config allows you to view my notes as I see then.
-
-My notes should be fairly self-evident though I use a range of Emacs tools and packages to give them structure and help form ideas in my brain.  This config will allow you to see my notes as I see them(with any luck).
-
+Emacs Config preconfigured for org-roam(including server), org-brain, pdftools and a range of bibleography and note-taking tools.
 
 ## Prerequisites
 
