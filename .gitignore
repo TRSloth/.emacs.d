@@ -11,3 +11,4 @@
 !*/
 !win/*.exe
 !win/Graphviz/*
+!win/org-protocols.reg

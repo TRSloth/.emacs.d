@@ -21,7 +21,8 @@ mklink /J C:\Users\<YourName>\AppData\Roaming\.emacs.d C:\path\to\this\repo
 2. Type `"C:\Program Files\Emacs\bin\runemacs.exe"` + RET 
 4. Use-package will start installing things: Go make a cup of tea/coffee
 5. Delete org-brain.elc (in .emacs.d/elpa/org-brain-xxxx/), this fixes a [known issue](https://github.com/Kungsgeten/org-brain/issues/320)
-6. Done :)
+6. Right-click and select edit on `.emacs.d/win/org-protocols.reg` and check the path is correct then double-click the program to run. 
+7. Done :)
 
 ### Linux:
 1. Create a symlink from where emacs expects to find this file to where you've placed it, or move to the correct location.
