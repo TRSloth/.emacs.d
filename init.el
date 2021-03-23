@@ -118,7 +118,7 @@
 ;Advantages: is a buffer(appears where you call it), shows recently used
 ;Disadvantages bloated, couldn't figure roam autocomplete
 (use-package helm
-  :disable 
+  :disabled
   :ensure t
   :config
   (global-set-key (kbd "M-x") #'helm-M-x)
