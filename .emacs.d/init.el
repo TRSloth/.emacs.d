@@ -1,18 +1,21 @@
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
-(load "~/.emacs.d/my-paths.el")
-(load "~/.emacs.d/aesthetics.el")
-
-;;; Use-Package config and auto-package-update
 
+
+;;; use-package install
 ;https://github.com/jwiegley/use-package
 (when (not (package-installed-p 'use-package))
   (package-refresh-contents)
   (package-install 'use-package))
-(setq use-package-always-ensure t);install not already installed packages
+(setq use-package-always-ensure t);always install not already installed packages
+
+;;;load other lisp
+(load "~/.emacs.d/my-paths.el")
+(load "~/.emacs.d/aesthetics.el")
 
-
+
+;;;auto-package-update
 (use-package auto-package-update
   :ensure t
   :config
