@@ -10,26 +10,32 @@ My notes should be fairly self-evident though I use a range of Emacs tools and p
 Before you begin, ensure you have met the following requirements:
 <!--- These are just example requirements. Add, duplicate or remove as required --->
 * You have installed the latest version of [Emacs](https://www.gnu.org/software/emacs/)
-* You have a Windows 10 (64bit) machine. I've also done built some of the configuration for Linux though this is incomplete, so I can't guarentee it will work.
+* Windows 10 (64bit) or Kali(Linux), should work on other OS's but those are the ones I've tested.
 
 ## Installing My Emacs Config
 
 To install My Emacs Config, follow these steps:
-
-Windows:
+### Windows:
+1. Create a symlink from where emacs expects to find this file to where you've placed it, or move to the correct location.
 ```
 mklink /J C:\Users\<YourName>\AppData\Roaming\.emacs.d C:\path\to\this\repo
 ```
-## Using My Emacs Config
-
-To use My Emacs Config, follow these steps:
-1. Press <Win>+R
-2. Type "C:\Program Files\Emacs\bin\runemacs.exe"
-3. Press enter.
+2. Press `<Win>+R`
+2. Type `"C:\Program Files\Emacs\bin\runemacs.exe"` + RET 
 4. Use-package will start installing things: Go make a cup of tea/coffee
 5. Delete org-brain.elc (in .emacs.d/elpa/org-brain-xxxx/), this fixes a [known issue](https://github.com/Kungsgeten/org-brain/issues/320)
-6. Re-open emacs and your done :)
+6. Done :)
+
+### Linux:
+1. Create a symlink from where emacs expects to find this file to where you've placed it, or move to the correct location.
 ```
+ls -s /path/to/this/repo/.emacs.d ~/.emacs.d
+```
+2. Enter `<Win>` + `"Emacs"` + RET
+3. Use-package will start installing things
+4. When asked about installing packages answer yes(these were included for windows as they can't auto-install)
+5. Delete org-brain.elc (in .emacs.d/elpa/org-brain-xxxx/), this fixes a [known issue](https://github.com/Kungsgeten/org-brain/issues/320)
+6. Done :)
 
 ## Contributors
 
@@ -42,10 +48,6 @@ Thanks all the people who provided the guides howto's and software to make build
 ## Contact
 
 If you want to contact me you can reach me at tobyarowlands@gmail.com.
-
-## Why have you done the same thing twice
-
-Good question, story short I needed to rebuild my config with use-package to allow for auto-installation on multiple machiences and I heard prelude was useful for this as everything was in one directory.  However, after getting most of it up and running it felt sluggish and I was having some issues with keybinds. So I decided to transition back to stock emacs using .gitignore to not version control the programs that will install themself's.
 
 ## License
 <!--- If you're not sure which open license to use see https://choosealicense.com/--->
