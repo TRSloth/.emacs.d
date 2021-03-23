@@ -461,3 +461,33 @@ document. Addtionally, it sorts all acronyms in the list."
             (sort-lines nil (point) (search-forward "\\end{acronym}" nil nil)))
         (user-error "No acronym environment found")))))
 
+
+;;;org-brain config allows for structured thought
+
+;https://github.com/Kungsgeten/org-brain
+(use-package org-brain :ensure t
+  :init
+  (setq org-brain-path "~/entropy/brain")
+  :config
+  (bind-key "C-c b" 'org-brain-prefix-map org-mode-map)
+  (setq org-id-track-globally t)
+  (setq org-id-locations-file "~/.emacs.d/cache/date/org/.org-id-locations")
+  (add-hook 'before-save-hook #'org-brain-ensure-ids-in-buffer)
+  (push '("b" "Brain" plain (function org-brain-goto-end)
+          "* %i%?" :empty-lines 1)
+        org-capture-templates)
+  (setq org-brain-visualize-default-choices 'all)
+  (setq org-brain-title-max-length 12)
+  (setq org-brain-include-file-entries nil
+        org-brain-file-entries-use-title nil))
+
+;;;Polymode allows multiple major modes 
+;https://polymode.github.io/defining-polymodes/
+(use-package polymode
+  :config
+  (add-hook 'org-brain-visualize-mode-hook #'org-brain-polymode)
+(with-eval-after-load "polymode"
+  (define-hostmode org-brain-poly-hostmode
+    :mode 'org-brain-visualize-mode)))
+
+
