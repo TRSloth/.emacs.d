@@ -32,6 +32,16 @@
 (setq version-control t)
 (setq backup-directory-alist  '(("." . "~/.emacs.d/file-backups")))
 (setq initial-major-mode 'org-mode)
+(setq auto-save-list-file-prefix "~/.emacs.d/auto-save-list/.saves-")
+(setq auto-save-visited-mode t)
+(setq delete-old-versions t)
+(setq delete-selection-mode t)
+(setq custom-safe-themes t)
+(setq doc-view-continuous t)
+(setq doc-view-scale-internally nil)
+(setq electric-indent-mode nil)
+(setq image-file-name-extensions
+   '("png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "pbm" "pgm" "ppm" "pnm" "svg" "pdf" "bmp"))
 
 
 ;;;General Global keymaps
@@ -141,6 +151,7 @@
   (setq org-ellipsis "⤵")
   (setq org-image-actual-width '(600))
   (setq org-startup-folded nil)
+  (setq org-hide-block-startup nil)
   (setq org-startup-with-inline-images t))
   )
 
@@ -471,7 +482,7 @@ document. Addtionally, it sorts all acronyms in the list."
   :config
   (bind-key "C-c b" 'org-brain-prefix-map org-mode-map)
   (setq org-id-track-globally t)
-  (setq org-id-locations-file "~/.emacs.d/cache/date/org/.org-id-locations")
+  (setq org-id-locations-file "~/.emacs.d/cache/data/org/.org-id-locations")
   (add-hook 'before-save-hook #'org-brain-ensure-ids-in-buffer)
   (push '("b" "Brain" plain (function org-brain-goto-end)
           "* %i%?" :empty-lines 1)
