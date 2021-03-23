@@ -220,7 +220,6 @@
 (use-package org-roam-bibtex
   :ensure t
   :after org
-  :hook (org-mode-hook . org-roam-bibtex-mode)
   :hook (after-init . org-roam-bibtex-mode)
   :config
   (require 'org-ref)
