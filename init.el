@@ -5,6 +5,7 @@
 
 ;;; use-package install
 ;https://github.com/jwiegley/use-package
+;https://jwiegley.github.io/use-package/keywords/
 (when (not (package-installed-p 'use-package))
   (package-refresh-contents)
   (package-install 'use-package))
@@ -82,7 +83,7 @@
   (setq page-break-lines-mode 1))
 
 
-;;; navigation -currently using ivy
+;;; navigation -using ivy
 
 ;https://github.com/abo-abo/swiper
 (use-package ivy
@@ -96,32 +97,43 @@
 )
   
 ;https://github.com/abo-abo/swiper
-(use-package swiper;-helm ;uncomment helm for helm version
+(use-package swiper
  :ensure t
  :config
  (global-set-key "\C-f" 'swiper))
 
-;;;helm-alternative
-;Advantages: is a buffer(appears where you call it), shows recently used
-;Disadvantages bloated, couldn't figure roam autocomplete
-;; (use-package helm 
-;;   :ensure t
-;;   :config
-;;   (global-set-key (kbd "M-x") #'helm-M-x)
-;;   (global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
-;;   (global-set-key (kbd "C-x C-f") #'helm-find-files)
-;;   )
-
 (use-package counsel
-   :ensure t
-   :config
+  :ensure t
+  :config
   (global-set-key (kbd "M-x") 'counsel-M-x)
-    (global-set-key (kbd "C-x C-f") 'counsel-find-file)
-    (global-set-key (kbd "C-h f") 'counsel-describe-function)
-    (global-set-key (kbd "C-x c a") 'counsel-apropos)
-   (global-set-key (kbd "C-h v") 'counsel-describe-variable)
+  (global-set-key (kbd "C-x C-f") 'counsel-find-file)
+  (global-set-key (kbd "C-h f") 'counsel-describe-function)
+  (global-set-key (kbd "C-x c a") 'counsel-apropos)
+  (global-set-key (kbd "C-h v") 'counsel-describe-variable)
   (global-set-key (kbd "C-c M-f") 'counsel-recentf)
 )
+
+
+;;; navigation -using helm(disabled)
+;Advantages: is a buffer(appears where you call it), shows recently used
+;Disadvantages bloated, couldn't figure roam autocomplete
+(use-package helm
+  :disable 
+  :ensure t
+  :config
+  (global-set-key (kbd "M-x") #'helm-M-x)
+  (global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
+  (global-set-key (kbd "C-x C-f") #'helm-find-files)
+)
+
+;https://github.com/abo-abo/swiper-helm
+(use-package swiper-helm
+  :disabled
+  :ensure t
+  :config
+  (global-set-key "\C-f" 'swiper)
+)
+
 
 ;;; improvements to isearch
 ;;; used when swiper can't be (inside pdf's etc)
