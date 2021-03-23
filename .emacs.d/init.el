@@ -169,6 +169,10 @@
   (setq org-noter-always-create-frame nil)
     (require 'org-noter-pdftools))
 
+;https://github.com/alphapapa/org-rifle
+(use-package helm-org-rifle
+  :ensure t
+  :after org)
 
 ;;; Org-roam config
 
@@ -432,7 +436,7 @@ With a prefix ARG, remove start location."
                   ("\\subsection{%s}" . "\\subsection*{%s}")
                   ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))))
 
-
+
 ; Add acronym from current position https://florian.adamsky.it/2018/03/09/emacs-add-acronyms.html 
 (defun fa/add-latex-acronym (region-beg region-end)
   "This function reads the written out form of an acronym via the
