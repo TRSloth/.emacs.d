@@ -13,6 +13,7 @@
 
 ;;; built-in look and feel options
 (setq-default word-wrap t)
+(setq global-visual-line-mode t)
 (setq-default line-spacing 0)
 (setq x-underline-at-descent-line t)
 (setq-default  tooltip-mode nil)
@@ -20,8 +21,10 @@
 (set-cursor-color "#ffffff")
 (setq blink-cursor-mode nil)
 (setq pop-up-windows nil)
+(setq inhibit-startup-screen t)
 (tool-bar-mode -1)
 (menu-bar-mode 1)
 (toggle-scroll-bar 1)
 (display-time-mode 1)
 (display-battery-mode 1)
+
