@@ -13,7 +13,7 @@
 ;;;load other lisp
 (load "~/.emacs.d/my-paths.el")
 (load "~/.emacs.d/aesthetics.el")
-(load "~/.emacs.d/pastebin.el");Strings I use frequently usually assigned to "C-c a ~" 
+(load "~/.emacs.d/pastebin.el" 'noerror);Strings I use frequently usually assigned to "C-c a ~" 
 
 
 ;;;auto-package-update
