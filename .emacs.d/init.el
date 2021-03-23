@@ -7,9 +7,9 @@
 ;;; Use-Package config and auto-package-update
 
 ;https://github.com/jwiegley/use-package
-(eval-when-compile
-  (require 'use-package))
-(require 'use-package-ensure)
+(when (not (package-installed-p 'use-package))
+  (package-refresh-contents)
+  (package-install 'use-package))
 (setq use-package-always-ensure t);install not already installed packages
 
 
@@ -219,12 +219,32 @@
   :hook (org-mode-hook . org-roam-bibtex-mode)
   :config
   (require 'org-ref)
+  (setq orb-preformat-keywords
+   '(("citekey" . "=key=") "title" "url" "file" "author-or-editor" "keywords"))
+
+(setq orb-templates
+      '(("r" "ref" plain (function org-roam-capture--get-point)
+         ""
+         :file-name "${citekey}"
+         :head "#+TITLE: ${citekey}: ${title}\n#+ROAM_KEY: ${ref}
+#+roam_alias: 
+#+roam_tags: 
+* ${title}
+:PROPERTIES:
+:Custom_ID: ${citekey}
+:URL: ${url}
+:AUTHOR: ${author-or-editor}
+:NOTER_DOCUMENT: ${file}:
+:END:
+- keywords :: ${keywords}
+")))
 :bind (("C-c n c" . orb-insert));make notes on citations
 )
 
 ;https://github.com/jkitchin/org-ref
 (use-package org-ref
   :ensure t
+   :hook (org-mode . org-ref)
   :init
   (setq org-ref-pdf-directory "~/gdrive/Library/")
   (setq org-ref-default-bibliography "~/entropy/roam.bib")
@@ -317,6 +337,9 @@ With a prefix ARG, remove start location."
 (global-set-key (kbd "<C-S-right>")  'buf-move-right)
 )
 
+(use-package dired-open
+  :ensure t)
+
 
 ;;; Company autocomplete
 
@@ -334,8 +357,71 @@ With a prefix ARG, remove start location."
   (global-company-mode))
 
 
+;;;Latex things
+
 (use-package tex
   :defer t
   :ensure auctex
   :config
-  (setq TeX-auto-save t))
+   (setq TeX-macro-global
+   '("c:/texlive/2020/texmf-var/tex/" "c:/texlive/texmf-local/tex/" "c:/texlive/texmf-local/bibtex/bst/" "c:/texlive/2020/texmf-dist/tex/" "c:/texlive/2020/texmf-dist/bibtex/bst/"))
+  (add-hook 'TeX-mode-hook 'TeX-fold-mode)      ; auto-activate TeX-fold-mode
+  (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)  ; auto-activate math mode
+  (setq TeX-PDF-mode t)
+  (setq TeX-auto-save t)
+  (setq TeX-parse-self t)
+  (setq-default TeX-master nil)
+  (setq latex-run-command "pdflatex")
+  (setq org-latex-pdf-process (list "latexmk -shell-escape -bibtex -f -pdf %f")); "If you plan to build PDF files via LaTeX you need to make sure that org-latex-pdf-process is set to process the bibliography (using bibtex or biblatex). Here is one example of how to do that (see ./org-ref.org::*LaTeX export for other alternatives)."  (setq org-latex-pdf-process '("latexmk -shell-escape -bibtex -f -pdf %f"))
+  (add-hook 'LaTeX-mode-hook (lambda ()
+                 (push 
+                  '("Latex_outdir" "%`pdflatex --output-directory=/tmp %(mode)%' %t" 
+                TeX-run-TeX nil (latex-mode doctex-mode) 
+                :help "Run pdflatex with output in /tmp")
+                  TeX-command-list)))
+   (setq org-latex-default-packages-alist
+   '(("AUTO" "inputenc" t
+      ("pdflatex"))
+     ("T1" "fontenc" t
+      ("pdflatex"))
+     ("" "graphicx" t nil)
+     ("" "grffile" t nil)
+     ("" "longtable" nil nil)
+     ("" "wrapfig" t nil)
+     ("" "rotating" nil nil)
+     ("normalem" "ulem" t nil)
+     ("" "amsmath" t nil)
+     ("" "textcomp" t nil)
+     ("" "amssymb" t nil)
+     ("" "capt-of" nil nil)
+     ("" "hyperref" t nil)
+     ("" "comment" t nil)
+     ("" "biblatex" t nil)
+     ("" "acronym" t nil))))
+
+(use-package bibtex-completion
+  :ensure t)
+
+
+(with-eval-after-load 'ox-latex ; add cls files
+   (add-to-list 'org-latex-classes
+                '("mitthesis"
+                  "\\documentclass{mitthesis}"
+                  ("\\chapter{%s}" . "\\chapter*{%s}")
+                  ("\\section{%s}" . "\\section*{%s}")
+                  ("\\subsection{%s}" . "\\subsection*{%s}")
+                  ("\\subsubsection{%s}" . "\\subsubsection*{%s}")))
+   (add-to-list 'org-latex-classes
+                '("tobysanswers"
+                  "\\documentclass{tobysanswers}"
+                  ("\\chapter{%s}" . "\\chapter*{%s}")
+                  ("\\section{%s}" . "\\section*{%s}")
+                  ("\\subsection{%s}" . "\\subsection*{%s}")
+                  ("\\subsubsection{%s}" . "\\subsubsection*{%s}")))
+   (add-to-list 'org-latex-classes
+                '("final_report"
+                  "\\documentclass{final_report}"
+                  ("\\chapter{%s}" . "\\chapter*{%s}")
+                  ("\\section{%s}" . "\\section*{%s}")
+                  ("\\subsection{%s}" . "\\subsection*{%s}")
+                  ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))))
