@@ -1,3 +1,11 @@
+;;;; Customise this for your directory structure
+; Either change to your variables and remove "-example" from the filename or create a symlink with 
+; Windows
+; mklink my-paths.el my-paths-example.el
+; Linux
+; ln -s my-paths-example.el my-paths.el 
+; doing it this way will allow you to compare your version to changes I make using diff on Github desktop
+
 ;;;; Link files in Windows
 (when (string-equal system-type "windows-nt")
   (setenv "HOME" "G:")						; this is where '~' refers to
