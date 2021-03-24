@@ -19,8 +19,8 @@ Then to install the repository, follow these steps:
 ```
 mklink /J C:\Users\<YourName>\AppData\Roaming\.emacs.d C:\path\to\this\repo
 ```
-2. Press `<Win>+R`
-2. Type `"C:\Program Files\Emacs\bin\runemacs.exe"` + RET 
+2. Open the my-paths-example.el file with a text editor and change things to match your filestructure, instructions in the file, see also the aesthetics-example.el
+3. Enter `<Win>+R` + `"C:\Program Files\Emacs\bin\runemacs.exe"` + RET 
 4. Use-package will start installing things: Go make a cup of tea/coffee
 5. Delete `org-brain.elc` (in `.emacs.d/elpa/org-brain-xxxx/`), this fixes a [known issue](https://github.com/Kungsgeten/org-brain/issues/320)
 6. Right-click and select edit on `.emacs.d/win/org-protocols.reg` and check the path is correct then double-click the program to run. 
@@ -31,11 +31,12 @@ mklink /J C:\Users\<YourName>\AppData\Roaming\.emacs.d C:\path\to\this\repo
 ```
 ls -s /path/to/this/repo/.emacs.d ~/.emacs.d
 ```
-2. Enter `<Win>` + `"Emacs"` + RET
-3. Use-package will start installing things
-4. When asked about installing packages answer `yes`(these were included for windows as they can't auto-install)
-5. Delete `org-brain.elc` (in `.emacs.d/elpa/org-brain-xxxx/`), this fixes a [known issue](https://github.com/Kungsgeten/org-brain/issues/320)
-6. Done :)
+2. Open the my-paths-example.el file with a text editor and change things to match your filestructure, instructions in the file, see also the aesthetics-example.el
+3. Enter `<Win>` + `"Emacs"` + RET
+4. Use-package will start installing things: Go make a cup of tea/coffee
+5. When asked about installing packages answer `yes`(these were included for windows as they can't auto-install)
+6. Delete `org-brain.elc` (in `.emacs.d/elpa/org-brain-xxxx/`), this fixes a [known issue](https://github.com/Kungsgeten/org-brain/issues/320)
+7. Done :)
 
 ## Contributors
 
