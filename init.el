@@ -12,8 +12,8 @@
 (setq use-package-always-ensure t);always install not already installed packages
 
 ;;;load other lisp
-(load "~/.emacs.d/my-paths.el")
-(load "~/.emacs.d/aesthetics.el")
+(load "~/.emacs.d/my-paths.el" 'noerror)
+(load "~/.emacs.d/aesthetics.el" 'noerror)
 (load "~/.emacs.d/pastebin.el" 'noerror);Strings I use frequently usually assigned to "C-c a ~" 
 
 
