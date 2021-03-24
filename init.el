@@ -27,7 +27,6 @@
 
 
 ;;;Startup options
-(setq debug-on-error t)
 (set-language-environment "UTF-8")
 (put 'set-goal-column 'disabled nil)
 (setq version-control t)
@@ -158,7 +157,6 @@
   :mode (("\\.org$" . org-mode))
   :ensure t
   :config(progn
-  (setq org-directory "~/entropy/")
   (setq org-hide-leading-stars t)
   (setq org-ellipsis "⤵")
   (setq org-image-actual-width '(600))
@@ -170,8 +168,6 @@
 (use-package org-download
   :ensure t
   :after org
-  :config
-  (setq-default org-download-image-dir "~/gdrive/Library/img/misc/")
 )
 
 ;https://github.com/integral-dw/org-superstar-mode
@@ -210,8 +206,6 @@
   (setq org-roam-graph-viewer nil)
   :hook
   (after-init . org-roam-mode)
-  :custom
-  (org-roam-directory "~/entropy/")
   :bind (:map org-roam-mode-map
               (("C-c n /" . org-roam-find-file)
                ( "C-c n r" . org-roam-buffer-toggle-display))
@@ -291,7 +285,6 @@
   (autoload 'helm-bibtex "helm-bibtex" "" t)
   :config
   (require 'helm)
-  (setq bibtex-completion-bibliography '("~/entropy/roam.bib"))
   (setq bibtex-completion-pdf-symbol "⌘") ;appears if pdf exists
  (setq bibtex-completion-notes-symbol "✎") ;appears if notes exist
   :bind (("C-c h b" . helm-bibtex)
@@ -397,8 +390,6 @@ With a prefix ARG, remove start location."
   :ensure auctex
   :config
   (setq define-key LaTeX-mode-map (kbd "C-c a c") 'fa/add-latex-acronym)
-   (setq TeX-macro-global
-   '("c:/texlive/2020/texmf-var/tex/" "c:/texlive/texmf-local/tex/" "c:/texlive/texmf-local/bibtex/bst/" "c:/texlive/2020/texmf-dist/tex/" "c:/texlive/2020/texmf-dist/bibtex/bst/"))
   (add-hook 'TeX-mode-hook 'TeX-fold-mode)      ; auto-activate TeX-fold-mode
   (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)  ; auto-activate math mode
   (setq TeX-PDF-mode t)
@@ -489,8 +480,6 @@ document. Addtionally, it sorts all acronyms in the list."
 
 ;https://github.com/Kungsgeten/org-brain
 (use-package org-brain :ensure t
-  :init
-  (setq org-brain-path "~/entropy/brain")
   :config
   (bind-key "C-c b" 'org-brain-prefix-map org-mode-map)
   (setq org-id-track-globally t)
