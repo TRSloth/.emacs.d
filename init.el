@@ -169,7 +169,7 @@
 
 (use-package org-download
   :ensure t
-  :hook (dired-mode-hook . org-download-enable)
+  :after org
   :config
   (setq-default org-download-image-dir "~/gdrive/Library/img/misc/")
 )
