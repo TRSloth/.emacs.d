@@ -390,7 +390,6 @@ With a prefix ARG, remove start location."
   :defer t
   :ensure auctex
   :config
-  (setq define-key LaTeX-mode-map (kbd "C-c a c") 'fa/add-latex-acronym)
   (add-hook 'TeX-mode-hook 'TeX-fold-mode)      ; auto-activate TeX-fold-mode
   (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)  ; auto-activate math mode
   (setq TeX-PDF-mode t)
@@ -423,7 +422,10 @@ With a prefix ARG, remove start location."
      ("" "hyperref" t nil)
      ("" "comment" t nil)
      ("" "biblatex" t nil)
-     ("" "acronym" t nil))))
+     ("" "acronym" t nil)))
+  :bind (:map LaTex-mode-map
+              (("C-c a c" . fa/add-latex-acronym)))
+)
 
 (use-package bibtex-completion
   :ensure t)
