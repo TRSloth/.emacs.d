@@ -29,7 +29,9 @@
 ;;;; Link files in Linux
 (when (string-equal system-type "gnu/linux")
   (setenv "HOME" "/home/chaos")			       			; this is where '~' refers to
-  (setq user-emacs-directory "~/.emacs.d/"))
+  (setq user-emacs-directory "~/.emacs.d/")
+    (setq TeX-macro-global "/usr/bin/")
+   )
   
 
 
