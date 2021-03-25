@@ -11,6 +11,21 @@
   (package-refresh-contents)
   (package-install 'use-package))
 (setq use-package-always-ensure t);always install not already installed packages
+
+;;;; Quick Explantation on use-package, I'm not entirely clear on this so it may no be accurate
+; Use-package manages the configuration and loading of packages, it is not a package manager though we can interace with package managers such as the built in package manager to download apps we don't have using ":ensure t", is also allows us to lazy load speading up initialization time
+;;; some of the other commands do as follows
+; commands: defer loading till after a bound command is used
+; bind: defers loading of package until you call a key that is bound to it(see also bind-keymap)
+; mode: load when file loaded contains a matching string(see also magic and interpreter)
+; init: execute code before the package is loaded, this could be setting paths or binding commands to lazy load, happens on startup, keep these simple with as much as possible in config
+; config: execute code after a package loads(if package loading is defered config is too)
+; defer: will defer loading even if not using commands which imply defer, for use when loading from another package 
+; hook: add a function to a package hook(hook appends the word hook to be package itself), eg a package will load a function when it is ready for it
+; custom: similar to config, but allows code execution when customisations are assigned. (see also custom-face)
+; errors in use package will be sent to the warmings buffer
+
+
 
 ;;;load other lisp
 (load "~/.emacs.d/my-paths.el" 'noerror)
