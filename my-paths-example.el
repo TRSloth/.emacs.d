@@ -42,3 +42,5 @@
 (setq org-roam-directory "~/entropy/")	       				; Where you keep your org-roam notes
 (setq org-brain-path "~/entropy/brain")					; Structured org-brain notes
 (setq bibtex-completion-bibliography '("~/entropy/roam.bib"))		; Your main bibleography
+(setq org-ref-pdf-directory "~/gdrive/Library/")
+ (setq org-ref-default-bibliography "~/entropy/roam.bib") 
