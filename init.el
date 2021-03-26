@@ -94,6 +94,7 @@
 ;https://github.com/purcell/page-break-lines
 (use-package page-break-lines
   :ensure t
+  :defer 2
   :init
   (setq page-break-lines-mode 1))
 
@@ -103,29 +104,29 @@
 ;https://github.com/abo-abo/swiper
 (use-package ivy
   :ensure t
+  :init
+  (ivy-mode 1) ; enable ivy at startup
+  :bind(("C-c C-r" . ivy-resume))
   :config
-  (ivy-mode)
  (setq ivy-use-virtual-buffers t)
  (setq enable-recursive-minibuffers t)
  (setq ivy-use-selectable-prompt t)
- (global-set-key (kbd "C-c C-r") 'ivy-resume)
+ 
 )
   
 ;https://github.com/abo-abo/swiper
 (use-package swiper
  :ensure t
- :config
- (global-set-key "\C-f" 'swiper))
+ :bind(("\C-f" . swiper)))
 
 (use-package counsel
   :ensure t
-  :config
-  (global-set-key (kbd "M-x") 'counsel-M-x)
-  (global-set-key (kbd "C-x C-f") 'counsel-find-file)
-  (global-set-key (kbd "C-h f") 'counsel-describe-function)
-  (global-set-key (kbd "C-x c a") 'counsel-apropos)
-  (global-set-key (kbd "C-h v") 'counsel-describe-variable)
-  (global-set-key (kbd "C-c M-f") 'counsel-recentf)
+  :bind(("M-x" . counsel-M-x)
+  ("C-x C-f" . counsel-find-file)
+  ("C-h f" . counsel-describe-function)
+  ("C-x c a" . counsel-apropos)
+  ("C-h v" . counsel-describe-variable)
+  ("C-c M-f" . counsel-recentf))
 )
 
 
@@ -135,18 +136,16 @@
 (use-package helm
   :disabled
   :ensure t
-  :config
-  (global-set-key (kbd "M-x") #'helm-M-x)
-  (global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
-  (global-set-key (kbd "C-x C-f") #'helm-find-files)
+  :bind(("M-x" . helm-M-x)
+  ("C-x r b" . helm-filtered-bookmarks)
+  ("C-x C-f" . helm-find-files))
 )
 
 ;https://github.com/abo-abo/swiper-helm
 (use-package swiper-helm
   :disabled
   :ensure t
-  :config
-  (global-set-key "\C-f" 'swiper)
+  :bind(("\C-f" . swiper))
 )
 
 
@@ -165,13 +164,18 @@
     (ad-enable-advice 'isearch-search 'after 'isearch-no-fail)
     (ad-activate 'isearch-search)))
 
-(define-key isearch-mode-map "\C-f" 'isearch-repeat-forward); remap
+(define-key isearch-mode-map "\C-f" 'isearch-repeat-forward); remap;todo
 
 
 ;;; org-config
 (use-package org
-  :mode (("\\.org$" . org-mode))
   :ensure t
+  :mode (("\\.org$" . org-mode))
+  :bind(
+    (("C-c n l" . org-insert-link-global)
+    ("C-c n /" . org-roam-find-file))
+    :map org-mode-map(
+      ("C-c a c" . fa/add-latex-acronym)))
   :config(progn
   (setq org-hide-leading-stars t)
   (setq org-ellipsis "⤵")
@@ -183,15 +187,18 @@
 
 (use-package org-download
   :ensure t
-  :after org
+  :defer 4
+  :commands (org-download-clipboard org-download-screenshot org-download-yank)
 )
 
 ;https://github.com/integral-dw/org-superstar-mode
 (use-package org-superstar
   :ensure t
   :after org
+  :defer 2
   :init
   (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
+  :config
   (setq org-superstar-headline-bullets-list '(9673 9675 9671 10047))
   )
 
@@ -199,7 +206,6 @@
 (use-package org-noter
   :ensure t
   :after org
-  :hook (org-mode-hook . org-noter)
   :bind(("C-c n o" . org-noter));make notes with place pdf
   :config
   (setq org-noter-always-create-frame nil)
@@ -208,30 +214,32 @@
 ;https://github.com/alphapapa/org-rifle
 (use-package helm-org-rifle
   :ensure t
-  :after org)
+  :defer 3
+  :bind(:map org-mode-map
+    (("C-c h o" . helm-rifle-occur)
+    ("C-c h f" . helm-rifle-occur-files)
+    ("C-c h r" . helm-org-rifle-org-directory))))
+
 
 ;;; Org-roam config
 
 ;https://github.com/org-roam/org-roam
 (use-package org-roam
   :ensure t
-  :init
-  (setq org-roam-db-update-method 'immediate)
-  (setq org-roam-completion-everywhere t)
-  (setq org-roam-db-gc-threshold most-positive-fixnum)
-  (setq org-roam-graph-viewer nil)
-  :hook
-  (after-init . org-roam-mode)
+  :commands(org-roam-find-file org-roam-find-directory)
+  :hook  (after-init . org-roam-mode) ;coundn't figure out a useable deferal
   :bind (:map org-roam-mode-map
-              (("C-c n /" . org-roam-find-file)
-               ( "C-c n r" . org-roam-buffer-toggle-display))
+              (( "C-c n r" . org-roam-buffer-toggle-display))
               :map org-mode-map
               ("C-c n i" . org-roam-insert)
               ("C-c n I" . org-roam-insert-immediate)
               ("C-c n b" . org-roam-switch-to-buffer)
-              ("C-c n d" . org-roam-find-directory)
-              ("C-c a c" . fa/add-latex-acronym)
-              )
+              ("C-c n d" . org-roam-find-directory))
+  :config
+  (setq org-roam-db-update-method 'immediate)
+  (setq org-roam-completion-everywhere t)
+  (setq org-roam-db-gc-threshold most-positive-fixnum)
+  (setq org-roam-graph-viewer nil)
   )
 
 ;https://github.com/org-roam/org-roam-server
@@ -239,7 +247,10 @@
 ;https://github.com/nobiot/Zero-to-Emacs-and-Org-roam/blob/main/90.org-protocol.md
 (use-package org-roam-server
   :ensure t
+  :after org-roam
+  :commands(org-roam-server-mode)
   :config
+  (server-mode 1)
   (setq org-roam-server-host "127.0.0.1"
         org-roam-server-port 8080
         org-roam-server-authenticate nil
@@ -250,7 +261,8 @@
         org-roam-server-network-arrows nil
         org-roam-server-network-label-truncate t
         org-roam-server-network-label-truncate-length 60
-        org-roam-server-network-label-wrap-length 20))
+        org-roam-server-network-label-wrap-length 20)
+)
 
 
 ;;; Bibtex config
@@ -258,8 +270,10 @@
 ;https://github.com/org-roam/org-roam-bibtex
 (use-package org-roam-bibtex
   :ensure t
-  :after org
-  :hook (after-init . org-roam-bibtex-mode)
+  :after org-roam
+;  :hook (org-roam-mode . org-roam-bibtex-mode)
+  :commands (orb-insert)
+  :bind (("C-c n c" . orb-insert));make notes on citations
   :config
   (require 'org-ref)
   (setq orb-preformat-keywords
@@ -281,30 +295,29 @@
 :END:
 - keywords :: ${keywords}
 ")))
-:bind (("C-c n c" . orb-insert));make notes on citations
 )
 
 ;https://github.com/jkitchin/org-ref
 (use-package org-ref
   :ensure t
-   :hook (org-mode-hook . org-ref)
-  :init
   :bind (("C-c c" . org-ref-helm-insert-cite-link))
-  )
+  :init 
+  (require 'helm-bibtex)
+)
 
 ;https://github.com/tmalsburg/helm-bibtex
 (use-package helm-bibtex
   :ensure t
-  :init
-  (autoload 'helm-bibtex "helm-bibtex" "" t)
+;  :init (autoload 'helm-bibtex "helm-bibtex" "" t)
+  :bind (("C-c h b" . helm-bibtex)
+       ("C-c h B" . helm-bibtex-with-local-bibliography)
+       ("C-c h n" . helm-bibtex-with-notes)
+       ("C-c h h" . helm-resume))
   :config
   (require 'helm)
   (setq bibtex-completion-pdf-symbol "⌘") ;appears if pdf exists
- (setq bibtex-completion-notes-symbol "✎") ;appears if notes exist
-  :bind (("C-c h b" . helm-bibtex)
-         ("C-c h B" . helm-bibtex-with-local-bibliography)
-         ("C-c h n" . helm-bibtex-with-notes)
-         ("C-c h h" . helm-resume))
+  (setq bibtex-completion-notes-symbol "✎") ;appears if notes exist
+
 )
 
 
@@ -312,13 +325,13 @@
 (use-package pdf-tools
   :ensure t
   :pin melpa
-  :defer t
+  :defer 5
   :magic ("%PDF" . pdf-view-mode)
   :config
   (pdf-tools-install)
   (setq pdf-annot-activate-created-annotations t)
   (load "~/.emacs.d/pdf-continuos-scroll-mode.el")
-(add-hook 'pdf-view-mode-hook 'pdf-continuous-scroll-mode);this can be installed and auto-updated with quelpa but that took too long to configure last time.
+  :hook (pdf-view-mode .pdf-continuous-scroll-mode);this can be installed and auto-updated with quelpa but that took too long to configure last time.
   :bind (:map pdf-view-mode-map
               (("C-f" . isearch-forward))
 	      ))
@@ -369,12 +382,11 @@ With a prefix ARG, remove start location."
   )
 
 (use-package buffer-move
-  :ensure t
-  :config
-  (global-set-key (kbd "<C-S-up>")     'buf-move-up)
-(global-set-key (kbd "<C-S-down>")   'buf-move-down)
-(global-set-key (kbd "<C-S-left>")   'buf-move-left)
-(global-set-key (kbd "<C-S-right>")  'buf-move-right)
+ :ensure t
+ :bind(("<C-S-up>" . buf-move-up)
+ ("<C-S-down>" . buf-move-down)
+ ("<C-S-left>" . buf-move-left)
+ ("<C-S-right>" . buf-move-right))
 )
 
 (use-package dired-open
@@ -385,6 +397,7 @@ With a prefix ARG, remove start location."
 
 (use-package company
   :ensure t
+  :defer 3
   :config
   (setq company-idle-delay 0.5)
   (setq company-show-numbers t)
@@ -400,8 +413,8 @@ With a prefix ARG, remove start location."
 ;;;Latex things
 
 (use-package tex
-  :defer t
   :ensure auctex
+   :defer t ;not sure what starts it?
   :config
   (add-hook 'TeX-mode-hook 'TeX-fold-mode)      ; auto-activate TeX-fold-mode
   (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)  ; auto-activate math mode
@@ -436,7 +449,7 @@ With a prefix ARG, remove start location."
      ("" "comment" t nil)
      ("" "biblatex" t nil)
      ("" "acronym" t nil)))
-  :bind (:map LaTex-mode-map
+  :bind (:map LaTeX-mode-map
               (("C-c a c" . fa/add-latex-acronym)))
 )
 
@@ -495,9 +508,11 @@ document. Addtionally, it sorts all acronyms in the list."
 ;;;org-brain config allows for structured thought
 
 ;https://github.com/Kungsgeten/org-brain
-(use-package org-brain :ensure t
+(use-package org-brain 
+  :ensure t
+  :bind-keymap (("C-c b" . org-brain-visualize-mode-map))	;check source for mappings
   :config
-  (bind-key "C-c b" 'org-brain-prefix-map org-mode-map)
+  ;(bind-key "C-c b" 'org-brain-prefix-map org-mode-map)
   (setq org-id-track-globally t)
   (setq org-id-locations-file "~/.emacs.d/cache/data/org/.org-id-locations")
   (add-hook 'before-save-hook #'org-brain-ensure-ids-in-buffer)
