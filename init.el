@@ -42,22 +42,28 @@
   (auto-package-update-maybe))
 
 
-;;;Startup options
+;;;; Startup options
 (set-language-environment "UTF-8")
-(put 'set-goal-column 'disabled nil)
-(delete-selection-mode t)	; Overwrite highlighted text
-(setq version-control t)
-(setq backup-directory-alist  '(("." . "~/.emacs.d/file-backups")))
-(setq initial-major-mode 'org-mode)
-(setq auto-save-list-file-prefix "~/.emacs.d/auto-save-list/.saves-")
-(setq auto-save-visited-mode t)
-(setq delete-old-versions t)
-(setq custom-safe-themes t)
-(setq doc-view-continuous t)
-(setq doc-view-scale-internally nil)
-(setq electric-indent-mode nil)
-(setq image-file-name-extensions
-   '("png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "pbm" "pgm" "ppm" "pnm" "svg" "pdf" "bmp"))
+(put 'set-goal-column 'disabled nil)  ; (C-u) C-x C-n 
+;;; Functions/Commands(use 1 or -1)
+(delete-selection-mode 1)	; Overwrite highlighted text
+(global-display-line-numbers-mode 1)
+(column-number-mode 1)
+(auto-save-visited-mode 1)
+(electric-indent-mode -1)
+
+;;; Variables(use t and nil), only 1 setq is required
+(setq delete-old-versions t
+custom-safe-themes t
+version-control t)
+(setq
+ make-backup-files nil
+ auto-save-default nil
+ create-lockfiles nil)
+(setq initial-major-mode 'org-mode
+backup-directory-alist  '(("." . "~/.emacs.d/file-backups"))
+auto-save-list-file-prefix "~/.emacs.d/auto-save-list/.saves-"
+image-file-name-extensions '("png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "pbm" "pgm" "ppm" "pnm" "svg" "pdf" "bmp"))
 
 
 ;;;General Global keymaps
