@@ -78,6 +78,7 @@ image-file-name-extensions '("png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "
 ; Other general maps
 (global-set-key (kbd "C-z") 'undo) ;Emacs default is bound to hide Emacs.
 (global-set-key (kbd "C-c n t") #'delete-file)
+(global-set-key (kbd "C-G") #'abort-recursive-edit)
 
 ; change window size
 (global-set-key (kbd "M-C-<left>") 'shrink-window-horizontally)
@@ -103,6 +104,37 @@ image-file-name-extensions '("png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "
   :defer 2
   :init
   (setq page-break-lines-mode 1))
+
+(use-package dimmer
+  :ensure t
+  :custom (dimmer-fraction 0.1)
+  :config (dimmer-mode))
+
+(use-package which-key
+  :ensure t
+  :config
+  (which-key-mode)
+  (which-key-setup-side-window-bottom)
+  :custom (which-key-idle-delay 1.2))
+
+(use-package flycheck
+  :after org
+  :hook
+  (org-src-mode . disable-flycheck-for-elisp)
+  :custom
+  (flycheck-emacs-lisp-initialize-packages t)
+  (flycheck-display-errors-delay 0.1)
+  :config
+  (global-flycheck-mode)
+  (flycheck-set-indication-mode 'left-margin)
+
+  (defun disable-flycheck-for-elisp ()
+    (setq-local flycheck-disabled-checkers '(emacs-lisp-checkdoc)))
+
+  (add-to-list 'flycheck-checkers 'proselint))
+
+(use-package flycheck-inline
+  :config (global-flycheck-inline-mode))
 
 
 ;;; navigation -using ivy
