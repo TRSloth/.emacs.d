@@ -246,7 +246,9 @@ image-file-name-extensions '("png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "
   :after org
   :bind(("C-c n o" . org-noter));make notes with place pdf
   :config
-  (setq org-noter-always-create-frame nil)
+  (setq doc-view-continuous t
+  doc-view-scale-internally nil
+  org-noter-always-create-frame nil)
     (require 'org-noter-pdftools))
 
 ;https://github.com/alphapapa/org-rifle
