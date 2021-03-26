@@ -28,9 +28,9 @@
 
 
 ;;;load other lisp
-(load "~/.emacs.d/my-paths.el" 'noerror)
+(load "~/.emacs.d/my-paths.el" 'noerror)	; noerror stops an error being thrown if the file is not found
 (load "~/.emacs.d/aesthetics.el" 'noerror)
-(load "~/.emacs.d/pastebin.el" 'noerror);Strings I use frequently usually assigned to "C-c a ~" 
+(load "~/.emacs.d/pastebin.el" 'noerror)	; Strings I use frequently usually assigned to "C-c a ~" 
 
 
 ;;;auto-package-update
