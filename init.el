@@ -45,13 +45,13 @@
 ;;;Startup options
 (set-language-environment "UTF-8")
 (put 'set-goal-column 'disabled nil)
+(delete-selection-mode t)	; Overwrite highlighted text
 (setq version-control t)
 (setq backup-directory-alist  '(("." . "~/.emacs.d/file-backups")))
 (setq initial-major-mode 'org-mode)
 (setq auto-save-list-file-prefix "~/.emacs.d/auto-save-list/.saves-")
 (setq auto-save-visited-mode t)
 (setq delete-old-versions t)
-(setq delete-selection-mode t)
 (setq custom-safe-themes t)
 (setq doc-view-continuous t)
 (setq doc-view-scale-internally nil)
