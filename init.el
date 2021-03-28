@@ -51,6 +51,7 @@
 (column-number-mode 1)
 (auto-save-visited-mode 1)
 (electric-indent-mode -1)
+(use-package pdf-tools
   :ensure t
   :pin melpa
   :defer t)
@@ -371,10 +372,8 @@ image-file-name-extensions '("png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "
 (use-package pdf-tools
   :ensure t
   :pin melpa
-  :defer 5
   :magic ("%PDF" . pdf-view-mode)
   :config
-  (pdf-tools-install)
   (setq pdf-annot-activate-created-annotations t)
   (load "~/.emacs.d/pdf-continuos-scroll-mode.el")
   :hook (pdf-view-mode .pdf-continuous-scroll-mode);this can be installed and auto-updated with quelpa but that took too long to configure last time.
@@ -387,7 +386,7 @@ image-file-name-extensions '("png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "
   :hook (org-mode . org-pdftools-setup-link))
 
 (use-package org-noter-pdftools
-  :after org-noter
+  :after (org-noter org-pdftools)
   :config
   ;; Add a function to ensure precise note is inserted
   (defun org-noter-pdftools-insert-precise-note (&optional toggle-no-questions)
