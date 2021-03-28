@@ -51,6 +51,12 @@
 (column-number-mode 1)
 (auto-save-visited-mode 1)
 (electric-indent-mode -1)
+  :ensure t
+  :pin melpa
+  :defer t)
+(setq pdf-info-epdfinfo-program "~/.emacs.d/win/epdfinfo.exe")
+(pdf-tools-install 1)
+
 
 ;;; Variables(use t and nil), only 1 setq is required
 (setq delete-old-versions t
