@@ -3,7 +3,6 @@
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 
-
 ;;; use-package install
 ;https://github.com/jwiegley/use-package
 ;https://jwiegley.github.io/use-package/keywords/
@@ -33,15 +32,6 @@
 (load "~/.emacs.d/pastebin.el" 'noerror)	; Strings I use frequently usually assigned to "C-c a ~" 
 
 
-;;;auto-package-update
-(use-package auto-package-update
-  :ensure t
-  :config
-  (setq auto-package-update-delete-old-versions t)
-  (setq auto-package-update-hide-results t)
-  (auto-package-update-maybe))
-
-
 ;;;; Startup options
 (set-language-environment "UTF-8")
 (put 'set-goal-column 'disabled nil)  ; (C-u) C-x C-n 
@@ -51,13 +41,6 @@
 (column-number-mode 1)
 (auto-save-visited-mode 1)
 (electric-indent-mode -1)
-(use-package pdf-tools
-  :ensure t
-  :pin melpa
-  :defer t)
-(setq pdf-info-epdfinfo-program "~/.emacs.d/win/epdfinfo.exe")
-(pdf-tools-install 1)
-
 
 ;;; Variables(use t and nil), only 1 setq is required
 (setq delete-old-versions t
@@ -95,35 +78,37 @@ image-file-name-extensions '("png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "
 (global-set-key (kbd "C-C C-s") 'isearch-forward)
 
 
-;;; Files to keep further installs tidy
+;;;; Globally used Minor modes
 
-;https://github.com/emacscollective/no-littering
-(use-package no-littering
-  :ensure t
-  :init
-  (setq no-littering-var-directory (expand-file-name "cache/data/" user-emacs-directory))
-  (setq no-littering-etc-directory (expand-file-name "cache/etc/" user-emacs-directory))
-  (setq custom-file (expand-file-name "custom.el" user-emacs-directory)))
-
-;https://github.com/purcell/page-break-lines
+;;; Page break lines: Show page breaks as lines
+; https://github.com/purcell/page-break-lines
 (use-package page-break-lines
-  :ensure t
-  :defer 2
   :init
-  (setq page-break-lines-mode 1))
+  (setq page-break-lines-mode t))
 
-(use-package dimmer
-  :ensure t
-  :custom (dimmer-fraction 0.1)
-  :config (dimmer-mode))
-
-(use-package which-key
-  :ensure t
+;;; Company autocomplete
+; https://github.com/company-mode/company-mode
+(use-package company
+  :defer 3
   :config
-  (which-key-mode)
-  (which-key-setup-side-window-bottom)
+  (setq company-idle-delay 0.5)
+  (setq company-show-numbers t)
+  (setq company-tooltip-limit 10)
+  (setq company-minimum-prefix-length 2)
+  (setq company-tooltip-align-annotations t)
+  ;; invert the navigation direction if the the completion popup-isearch-match
+  ;; is displayed on top (happens near the bottom of windows)
+  (setq company-tooltip-flip-when-above t)
+  (global-company-mode))
+
+;;; Which key: show avalible key configs from current press
+; https://github.com/justbur/emacs-which-key
+(use-package which-key
+  :config
+  (which-key-mode 1)
   :custom (which-key-idle-delay 1.2))
 
+;;; Flycheck: 
 (use-package flycheck
   :after org
   :hook
@@ -137,35 +122,75 @@ image-file-name-extensions '("png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "
 
   (defun disable-flycheck-for-elisp ()
     (setq-local flycheck-disabled-checkers '(emacs-lisp-checkdoc)))
-
   (add-to-list 'flycheck-checkers 'proselint))
 
 (use-package flycheck-inline
   :config (global-flycheck-inline-mode))
 
+;; ;Toggle window dedicated
+; https://github.com/emacsorphanage/dedicated/blob/master/dedicated.el
+(use-package dedicated
+  :bind (("C-s" . dedicated-mode))
+  )
+
+
+;;;; Globally used packages
+
+
+;;; No-littering: Prevents files being put in /.emacs.d/ and allows for seperate custom.el
+; https://github.com/emacscollective/no-littering
+(use-package no-littering
+  :init
+  (setq no-littering-var-directory (expand-file-name "cache/data/" user-emacs-directory))
+  (setq no-littering-etc-directory (expand-file-name "cache/etc/" user-emacs-directory))
+  (setq custom-file (expand-file-name "custom.el" user-emacs-directory)))
+
+;;; auto-package-update
+; https://github.com/rranelli/auto-package-update.el
+(use-package auto-package-update
+  :config
+  (setq auto-package-update-delete-old-versions t)
+  (setq auto-package-update-hide-results t)
+  (auto-package-update-maybe))
+
+
+;;; Dims inactive buffers
+;https://github.com/gonewest818/dimmer.el
+(use-package dimmer
+  :custom (dimmer-fraction 0.3)
+  :config (dimmer-mode))
+
+;;; Allow easy buffer swapping
+; https://github.com/lukhas/buffer-move
+(use-package buffer-move
+ :bind(("<C-S-up>" . buf-move-up)
+ ("<C-S-down>" . buf-move-down)
+ ("<C-S-left>" . buf-move-left)
+ ("<C-S-right>" . buf-move-right))
+)
+
+
+;;;; Globally callable packages
 
 ;;; navigation -using ivy
 
 ;https://github.com/abo-abo/swiper
 (use-package ivy
-  :ensure t
   :init
   (ivy-mode 1) ; enable ivy at startup
   :bind(("C-c C-r" . ivy-resume))
   :config
- (setq ivy-use-virtual-buffers t)
- (setq enable-recursive-minibuffers t)
- (setq ivy-use-selectable-prompt t)
+  (setq ivy-use-virtual-buffers t)
+  (setq enable-recursive-minibuffers t)
+  (setq ivy-use-selectable-prompt t)
  
 )
   
 ;https://github.com/abo-abo/swiper
 (use-package swiper
- :ensure t
- :bind(("\C-f" . swiper)))
+  :bind(("\C-f" . swiper)))
 
 (use-package counsel
-  :ensure t
   :bind(("M-x" . counsel-M-x)
   ("C-x C-f" . counsel-find-file)
   ("C-h f" . counsel-describe-function)
@@ -180,7 +205,6 @@ image-file-name-extensions '("png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "
 ;Disadvantages bloated, couldn't figure roam autocomplete
 (use-package helm
   :disabled
-  :ensure t
   :bind(("M-x" . helm-M-x)
   ("C-x r b" . helm-filtered-bookmarks)
   ("C-x C-f" . helm-find-files))
@@ -189,15 +213,14 @@ image-file-name-extensions '("png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "
 ;https://github.com/abo-abo/swiper-helm
 (use-package swiper-helm
   :disabled
-  :ensure t
   :bind(("\C-f" . swiper))
 )
 
 
 ;;; improvements to isearch
-;;; used when swiper can't be (inside pdf's etc)
-;Wrap search if command not found
+; used when swiper can't be (inside pdf's etc)
 
+;Wrap search if command not found
 ;Source: https://stackoverflow.com/a/36707038
 (define-key isearch-mode-map [remap isearch-delete-char] 'isearch-del-char)
 
@@ -209,16 +232,17 @@ image-file-name-extensions '("png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "
     (ad-enable-advice 'isearch-search 'after 'isearch-no-fail)
     (ad-activate 'isearch-search)))
 
-(define-key isearch-mode-map "\C-f" 'isearch-repeat-forward); remap;todo
+(define-key isearch-mode-map "\C-f" 'isearch-repeat-forward); remap
 
 
-;;; org-config
+;;;; Major modes
+
+;;; org-mode(Org)
 (use-package org
-  :ensure t
   :mode (("\\.org$" . org-mode))
   :bind(
     (("C-c n l" . org-insert-link-global)
-    ("C-c n /" . org-roam-find-file))
+    ("C-c n /" . org-roam-find-file)) 
     :map org-mode-map(
       ("C-c a c" . fa/add-latex-acronym)))
   :config(progn
@@ -230,239 +254,69 @@ image-file-name-extensions '("png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "
   (setq org-startup-with-inline-images t))
   )
 
-(use-package org-download
-  :ensure t
-  :defer 4
-  :commands (org-download-clipboard org-download-screenshot org-download-yank)
-)
-
-;https://github.com/integral-dw/org-superstar-mode
-(use-package org-superstar
-  :ensure t
-  :after org
-  :defer 2
+;;; pdf-view-mode(PDFView)
+; https://github.com/politza/pdf-tools
+(use-package pdf-tools
+  :pin melpa
+  :magic ("%PDF" . pdf-view-mode);magic modes allow diminishing? 
+;  :mode (("%.pdf" . pdf-view-mode))
   :init
-  (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
+  (setq pdf-info-epdfinfo-program "~/.emacs.d/win/epdfinfo.exe")
+  (pdf-tools-install 1)
   :config
-  (setq org-superstar-headline-bullets-list '(9673 9675 9671 10047))
-  )
+  (setq pdf-annot-activate-created-annotations t)
+  (load "~/.emacs.d/pdf-continuos-scroll-mode.el")
+  :hook (pdf-view-mode . pdf-continuous-scroll-mode);this can be installed and auto-updated with quelpa but that took too long to configure last time.
+  :bind (:map pdf-view-mode-map
+              (("C-f" . isearch-forward))))
 
- ;https://github.com/weirdNox/org-noter
-(use-package org-noter
-  :ensure t
-  :after org
-  :bind(("C-c n o" . org-noter));make notes with place pdf
+;;; dired mode(dired by name)
+(use-package dired-open)
+
+;;;Polymode allows multiple major modes 
+;https://polymode.github.io/defining-polymodes/
+(use-package polymode
   :config
-  (setq doc-view-continuous t
-  doc-view-scale-internally nil
-  org-noter-always-create-frame nil)
-    (require 'org-noter-pdftools))
+  (add-hook 'org-brain-visualize-mode-hook #'org-brain-polymode)
+(with-eval-after-load "polymode"
+  (define-hostmode org-brain-poly-hostmode
+    :mode 'org-brain-visualize-mode)))
 
-;https://github.com/alphapapa/org-rifle
-(use-package helm-org-rifle
-  :ensure t
-  :defer 3
-  :bind(:map org-mode-map
-    (("C-c h o" . helm-rifle-occur)
-    ("C-c h f" . helm-rifle-occur-files)
-    ("C-c h r" . helm-org-rifle-org-directory))))
-
-
-;;; Org-roam config
-
-;https://github.com/org-roam/org-roam
-(use-package org-roam
-  :ensure t
-  :commands(org-roam-find-file org-roam-find-directory)
-  :hook  (after-init . org-roam-mode) ;coundn't figure out a useable deferal
-  :bind (:map org-roam-mode-map
-              (( "C-c n r" . org-roam-buffer-toggle-display))
-              :map org-mode-map
-              ("C-c n i" . org-roam-insert)
-              ("C-c n I" . org-roam-insert-immediate)
-              ("C-c n b" . org-roam-switch-to-buffer)
-              ("C-c n d" . org-roam-find-directory))
+;;;Ivy-bibtex creates a virtual buffer populated with bibtex entries 
+;https://github.com/tmalsburg/helm-bibtex(same as helm)
+(use-package ivy-bibtex
+  :bind (("C-c i b" . ivy-bibtex)
+       ("C-c i B" . ivy-bibtex-with-local-bibliography)
+       ("C-c i n" . ivy-bibtex-with-notes)
+       ("C-c i h" . ivy-resume))
+  :init
+  (require 'ivy)
   :config
-  (setq org-roam-db-update-method 'immediate)
-  (setq org-roam-completion-everywhere t)
-  (setq org-roam-db-gc-threshold most-positive-fixnum)
-  (setq org-roam-graph-viewer nil)
-  )
-
-;https://github.com/org-roam/org-roam-server
-;Install guide
-;https://github.com/nobiot/Zero-to-Emacs-and-Org-roam/blob/main/90.org-protocol.md
-(use-package org-roam-server
-  :ensure t
-  :after org-roam
-  :commands(org-roam-server-mode)
-  :config
-  (server-mode 1)
-  (setq org-roam-server-host "127.0.0.1"
-        org-roam-server-port 8080
-        org-roam-server-authenticate nil
-        org-roam-server-export-inline-images t
-        org-roam-server-serve-files nil
-        org-roam-server-served-file-extensions '("pdf" "mp4" "ogv")
-        org-roam-server-network-poll t
-        org-roam-server-network-arrows nil
-        org-roam-server-network-label-truncate t
-        org-roam-server-network-label-truncate-length 60
-        org-roam-server-network-label-wrap-length 20)
+  (setq bibtex-completion-pdf-symbol "⌘") ;appears if pdf exists
+  (setq bibtex-completion-notes-symbol "✎") ;appears if notes exist
 )
 
-
-;;; Bibtex config
-
-;https://github.com/org-roam/org-roam-bibtex
-(use-package org-roam-bibtex
-  :ensure t
-  :after org-roam
-;  :hook (org-roam-mode . org-roam-bibtex-mode)
-  :commands (orb-insert)
-  :bind (("C-c n c" . orb-insert));make notes on citations
-  :config
-  (require 'org-ref)
-  (setq orb-preformat-keywords
-   '(("citekey" . "=key=") "title" "url" "file" "author-or-editor" "keywords"))
-
-(setq orb-templates
-      '(("r" "ref" plain (function org-roam-capture--get-point)
-         ""
-         :file-name "${citekey}"
-         :head "#+TITLE: ${citekey}: ${title}\n#+ROAM_KEY: ${ref}
-#+roam_alias: 
-#+roam_tags: 
-* ${title}
-:PROPERTIES:
-:Custom_ID: ${citekey}
-:URL: ${url}
-:AUTHOR: ${author-or-editor}
-:NOTER_DOCUMENT: ${file}:
-:END:
-- keywords :: ${keywords}
-")))
-)
-
-;https://github.com/jkitchin/org-ref
-(use-package org-ref
-  :ensure t
-  :bind (("C-c c" . org-ref-helm-insert-cite-link))
-  :init 
-  (require 'helm-bibtex)
-)
-
+;;;Helm-bibtex creates a buffer populate with bibtex entries 
 ;https://github.com/tmalsburg/helm-bibtex
 (use-package helm-bibtex
-  :ensure t
-;  :init (autoload 'helm-bibtex "helm-bibtex" "" t)
+  :disabled
   :bind (("C-c h b" . helm-bibtex)
        ("C-c h B" . helm-bibtex-with-local-bibliography)
        ("C-c h n" . helm-bibtex-with-notes)
        ("C-c h h" . helm-resume))
-  :config
+  :init
   (require 'helm)
+  :config
   (setq bibtex-completion-pdf-symbol "⌘") ;appears if pdf exists
   (setq bibtex-completion-notes-symbol "✎") ;appears if notes exist
-
 )
-
-
-;;; pdf tools
-(use-package pdf-tools
-  :ensure t
-  :pin melpa
-  :magic ("%PDF" . pdf-view-mode)
-  :config
-  (setq pdf-annot-activate-created-annotations t)
-  (load "~/.emacs.d/pdf-continuos-scroll-mode.el")
-  :hook (pdf-view-mode .pdf-continuous-scroll-mode);this can be installed and auto-updated with quelpa but that took too long to configure last time.
-  :bind (:map pdf-view-mode-map
-              (("C-f" . isearch-forward))
-	      ))
-; This is pretty much a copy from the git page
-;https://github.com/fuxialexander/org-pdftools/tree/a5b61bca3f8c91b0859bb0df1a929f9a31a57b99
-(use-package org-pdftools
-  :hook (org-mode . org-pdftools-setup-link))
-
-(use-package org-noter-pdftools
-  :after (org-noter org-pdftools)
-  :config
-  ;; Add a function to ensure precise note is inserted
-  (defun org-noter-pdftools-insert-precise-note (&optional toggle-no-questions)
-    (interactive "P")
-    (org-noter--with-valid-session
-     (let ((org-noter-insert-note-no-questions (if toggle-no-questions
-                                                   (not org-noter-insert-note-no-questions)
-                                                 org-noter-insert-note-no-questions))
-           (org-pdftools-use-isearch-link t)
-           (org-pdftools-use-freestyle-annot t))
-       (org-noter-insert-note (org-noter--get-precise-info)))))
-
-  ;; fix https://github.com/weirdNox/org-noter/pull/93/commits/f8349ae7575e599f375de1be6be2d0d5de4e6cbf
-  (defun org-noter-set-start-location (&optional arg)
-    "When opening a session with this document, go to the current location.
-With a prefix ARG, remove start location."
-    (interactive "P")
-    (org-noter--with-valid-session
-     (let ((inhibit-read-only t)
-           (ast (org-noter--parse-root))
-           (location (org-noter--doc-approx-location (when (called-interactively-p 'any) 'interactive))))
-       (with-current-buffer (org-noter--session-notes-buffer session)
-         (org-with-wide-buffer
-          (goto-char (org-element-property :begin ast))
-          (if arg
-              (org-entry-delete nil org-noter-property-note-location)
-            (org-entry-put nil org-noter-property-note-location
-                           (org-noter--pretty-print-location location))))))))
-  (with-eval-after-load 'pdf-annot
-    (add-hook 'pdf-annot-activate-handler-functions #'org-noter-pdftools-jump-to-note)))
-
-
-;;;Toggle window dedicated
-;https://github.com/emacsorphanage/dedicated/blob/master/dedicated.el
-(use-package dedicated
-  :ensure t
-  :bind (("C-s" . dedicated-mode))
-  )
-
-(use-package buffer-move
- :ensure t
- :bind(("<C-S-up>" . buf-move-up)
- ("<C-S-down>" . buf-move-down)
- ("<C-S-left>" . buf-move-left)
- ("<C-S-right>" . buf-move-right))
-)
-
-(use-package dired-open
-  :ensure t)
-
-
-;;; Company autocomplete
-
-(use-package company
-  :ensure t
-  :defer 3
-  :config
-  (setq company-idle-delay 0.5)
-  (setq company-show-numbers t)
-  (setq company-tooltip-limit 10)
-  (setq company-minimum-prefix-length 2)
-  (setq company-tooltip-align-annotations t)
-  ;; invert the navigation direction if the the completion popup-isearch-match
-  ;; is displayed on top (happens near the bottom of windows)
-  (setq company-tooltip-flip-when-above t)
-  (global-company-mode))
-
-
-;;;Latex things
 
 (use-package tex
   :ensure auctex
-   :defer t ;not sure what starts it?
+  :defer t
+  :hook ((TeX-mode . TeX-fold-mode)
+  (LaTeX-mode . LaTeX-math-mode))
   :config
-  (add-hook 'TeX-mode-hook 'TeX-fold-mode)      ; auto-activate TeX-fold-mode
-  (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)  ; auto-activate math mode
   (setq TeX-PDF-mode t)
   (setq TeX-auto-save t)
   (setq TeX-parse-self t)
@@ -498,10 +352,194 @@ With a prefix ARG, remove start location."
               (("C-c a c" . fa/add-latex-acronym)))
 )
 
-(use-package bibtex-completion
-  :ensure t)
+
+;;;; org-mode-standalone-minor modes
 
 
+(use-package org-download
+  :defer 4
+;  :hook(org-mode . org-download)
+  :commands (org-download-clipboard org-download-screenshot org-download-yank)
+)
+
+;;; Org-superstar: make bullet points look nicer
+;https://github.com/integral-dw/org-superstar-mode
+(use-package org-superstar
+  :after org
+  :defer 2
+  :init
+  (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
+  :config
+  (setq org-superstar-headline-bullets-list '(9673 9675 9671 10047))
+  )
+
+;https://github.com/org-roam/org-roam
+(use-package org-roam
+  :commands(org-roam-find-file org-roam-find-directory)
+  :hook  (after-init . org-roam-mode)
+;  :hook  (org-mode . org-roam-mode);works but has issues on first reload
+  :bind (:map org-roam-mode-map
+              (( "C-c n r" . org-roam-buffer-toggle-display))
+              :map org-mode-map
+              ("C-c n i" . org-roam-insert)
+              ("C-c n I" . org-roam-insert-immediate)
+              ("C-c n b" . org-roam-switch-to-buffer)
+              ("C-c n d" . org-roam-find-directory))
+  :config
+  (setq org-roam-db-update-method 'immediate)
+  (setq org-roam-completion-everywhere t)
+  (setq org-roam-db-gc-threshold most-positive-fixnum)
+  (setq org-roam-graph-viewer nil)
+  )
+
+;;; Org-brain hierarchical thought
+;https://github.com/Kungsgeten/org-brain
+(use-package org-brain 
+  :bind-keymap (("C-c b" . org-brain-visualize-mode-map))	;check source for mappings
+  :config
+  (setq org-id-track-globally t)
+  (setq org-id-locations-file "~/.emacs.d/cache/data/org/.org-id-locations")
+  (add-hook 'before-save-hook #'org-brain-ensure-ids-in-buffer)
+  (push '("b" "Brain" plain (function org-brain-goto-end)
+          "* %i%?" :empty-lines 1)
+        org-capture-templates)
+  (setq org-brain-visualize-default-choices 'all)
+  (setq org-brain-title-max-length 12)
+  (setq org-brain-include-file-entries nil
+        org-brain-file-entries-use-title nil))
+
+;;; 
+; https://github.com/fuxialexander/org-pdftools
+(use-package org-pdftools
+  :hook (org-mode . org-pdftools-setup-link))
+
+
+;;;; org-mode-minor-mode-dependant-modes(except org-roam)
+
+;;; Allows for seeing how many references to a citation of label
+;https://github.com/jkitchin/org-ref
+(use-package org-ref
+  :bind (("C-c c" . org-ref-ivy-insert-cite-link))
+  :init 
+  (require 'ivy-bibtex)
+)
+
+;;; Bibtex completion backend, same for helm and ivy
+;https://melpa.org/#/bibtex-completion
+(use-package bibtex-completion)
+
+
+; https://github.com/fuxialexander/org-pdftools
+(use-package org-noter-pdftools
+;  :after (org-noter org-pdftools)
+  :config
+  ;; Add a function to ensure precise note is inserted
+  (defun org-noter-pdftools-insert-precise-note (&optional toggle-no-questions)
+    (interactive "P")
+    (org-noter--with-valid-session
+     (let ((org-noter-insert-note-no-questions (if toggle-no-questions
+                                                   (not org-noter-insert-note-no-questions)
+                                                 org-noter-insert-note-no-questions))
+           (org-pdftools-use-isearch-link t)
+           (org-pdftools-use-freestyle-annot t))
+       (org-noter-insert-note (org-noter--get-precise-info)))))
+
+  ;; fix https://github.com/weirdNox/org-noter/pull/93/commits/f8349ae7575e599f375de1be6be2d0d5de4e6cbf
+  (defun org-noter-set-start-location (&optional arg)
+    "When opening a session with this document, go to the current location.
+With a prefix ARG, remove start location."
+    (interactive "P")
+    (org-noter--with-valid-session
+     (let ((inhibit-read-only t)
+           (ast (org-noter--parse-root))
+           (location (org-noter--doc-approx-location (when (called-interactively-p 'any) 'interactive))))
+       (with-current-buffer (org-noter--session-notes-buffer session)
+         (org-with-wide-buffer
+          (goto-char (org-element-property :begin ast))
+          (if arg
+              (org-entry-delete nil org-noter-property-note-location)
+            (org-entry-put nil org-noter-property-note-location
+                           (org-noter--pretty-print-location location))))))))
+  (with-eval-after-load 'pdf-annot
+    (add-hook 'pdf-annot-activate-handler-functions #'org-noter-pdftools-jump-to-note)))
+
+ ;https://github.com/weirdNox/org-noter
+(use-package org-noter
+  :after org
+ ; :hook (org-mode . org-noter-notes-mode-hook)
+  :bind(("C-c n o" . org-noter));make notes with place pdf
+  :config
+  ;(setq doc-view-continuous t
+  ;doc-view-scale-internally nil
+  ;org-noter-always-create-frame nil)
+  (require 'org-noter-pdftools))
+
+;https://github.com/alphapapa/org-rifle
+(use-package helm-org-rifle
+  :defer t
+  :init (require 'helm)
+  :bind(:map org-mode-map
+    (("C-c h o" . helm-rifle-occur)
+    ("C-c h f" . helm-rifle-occur-files)
+    ("C-c h r" . helm-org-rifle-org-directory))))
+
+
+;;;; org-roam-dependant-minor-modes
+
+;;; org-roam-server: allows interactive graph, turn on with Org-roam-server-mode
+;https://github.com/org-roam/org-roam-server
+;Install guide
+;https://github.com/nobiot/Zero-to-Emacs-and-Org-roam/blob/main/90.org-protocol.md
+(use-package org-roam-server
+  :after org-roam
+  :commands(org-roam-server-mode)
+  :config
+  (server-mode 1)
+  (setq org-roam-server-host "127.0.0.1"
+        org-roam-server-port 8080
+        org-roam-server-authenticate nil
+        org-roam-server-export-inline-images t
+        org-roam-server-serve-files nil
+        org-roam-server-served-file-extensions '("pdf" "mp4" "ogv")
+        org-roam-server-network-poll t
+        org-roam-server-network-arrows nil
+        org-roam-server-network-label-truncate t
+        org-roam-server-network-label-truncate-length 60
+        org-roam-server-network-label-wrap-length 20)
+)
+
+;https://github.com/org-roam/org-roam-bibtex
+(use-package org-roam-bibtex
+  :after org-roam
+  :hook (org-roam-mode . org-roam-bibtex-mode)
+  :commands (orb-insert)
+  :bind (("C-c n c" . orb-insert));make notes on citations
+  :config
+  (require 'org-ref)
+  (setq orb-preformat-keywords
+   '(("citekey" . "=key=") "title" "url" "file" "author-or-editor" "keywords"))
+
+  (setq orb-templates
+	'(("r" "ref" plain (function org-roam-capture--get-point)
+           ""
+           :file-name "${citekey}"
+           :head "#+TITLE: ${citekey}: ${title}\n#+ROAM_KEY: ${ref}
+#+roam_alias: 
+#+roam_tags: 
+* ${title}
+:PROPERTIES:
+:Custom_ID: ${citekey}
+:URL: ${url}
+:AUTHOR: ${author-or-editor}
+:NOTER_DOCUMENT: ${file}:
+:END:
+- keywords :: ${keywords}
+")))
+)
+
+
+
+;;;; Latex things
 (with-eval-after-load 'ox-latex ; add cls files
    (add-to-list 'org-latex-classes
                 '("mitthesis"
@@ -525,7 +563,6 @@ With a prefix ARG, remove start location."
                   ("\\subsection{%s}" . "\\subsection*{%s}")
                   ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))))
 
-
 ; Add acronym from current position https://florian.adamsky.it/2018/03/09/emacs-add-acronyms.html 
 (defun fa/add-latex-acronym (region-beg region-end)
   "This function reads the written out form of an acronym via the
@@ -548,34 +585,3 @@ document. Addtionally, it sorts all acronyms in the list."
             (beginning-of-line)
             (sort-lines nil (point) (search-forward "\\end{acronym}" nil nil)))
         (user-error "No acronym environment found")))))
-
-
-;;;org-brain config allows for structured thought
-
-;https://github.com/Kungsgeten/org-brain
-(use-package org-brain 
-  :ensure t
-  :bind-keymap (("C-c b" . org-brain-visualize-mode-map))	;check source for mappings
-  :config
-  ;(bind-key "C-c b" 'org-brain-prefix-map org-mode-map)
-  (setq org-id-track-globally t)
-  (setq org-id-locations-file "~/.emacs.d/cache/data/org/.org-id-locations")
-  (add-hook 'before-save-hook #'org-brain-ensure-ids-in-buffer)
-  (push '("b" "Brain" plain (function org-brain-goto-end)
-          "* %i%?" :empty-lines 1)
-        org-capture-templates)
-  (setq org-brain-visualize-default-choices 'all)
-  (setq org-brain-title-max-length 12)
-  (setq org-brain-include-file-entries nil
-        org-brain-file-entries-use-title nil))
-
-;;;Polymode allows multiple major modes 
-;https://polymode.github.io/defining-polymodes/
-(use-package polymode
-  :config
-  (add-hook 'org-brain-visualize-mode-hook #'org-brain-polymode)
-(with-eval-after-load "polymode"
-  (define-hostmode org-brain-poly-hostmode
-    :mode 'org-brain-visualize-mode)))
-
-
