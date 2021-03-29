@@ -485,6 +485,9 @@ With a prefix ARG, remove start location."
 (use-package org-roam-server
   :after org-roam
   :commands(org-roam-server-mode)
+  :init
+(require 'org-protocol)
+(require 'org-roam-protocol)
   :config
   (server-mode 1)
   (setq org-roam-server-host "127.0.0.1"
