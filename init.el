@@ -44,14 +44,12 @@
 
 ;;; Variables(use t and nil), only 1 setq is required
 (setq delete-old-versions t
-custom-safe-themes t
-version-control t)
-(setq
- make-backup-files nil
- auto-save-default nil
+ custom-safe-themes t
+ version-control t
+ make-backup-files t
+ auto-save-default t
  create-lockfiles nil)
-(setq initial-major-mode 'org-mode
-backup-directory-alist  '(("." . "~/.emacs.d/file-backups"))
+(setq backup-directory-alist  '(("." . "~/.emacs.d/file-backups"))
 auto-save-list-file-prefix "~/.emacs.d/auto-save-list/.saves-"
 image-file-name-extensions '("png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "pbm" "pgm" "ppm" "pnm" "svg" "pdf" "bmp"))
 
@@ -286,20 +284,14 @@ image-file-name-extensions '("png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "
 ;https://github.com/tmalsburg/helm-bibtex(same as helm)
 (use-package ivy-bibtex
   :bind (("C-c i b" . ivy-bibtex)
-       ("C-c i B" . ivy-bibtex-with-local-bibliography)
-       ("C-c i n" . ivy-bibtex-with-notes)
-       ("C-c i h" . ivy-resume))
+       ("C-c i B" . ivy-bibtex-with-local-bibliography))
   :init
   (require 'ivy)
-  :config
-  (setq bibtex-completion-pdf-symbol "⌘") ;appears if pdf exists
-  (setq bibtex-completion-notes-symbol "✎") ;appears if notes exist
 )
 
 ;;;Helm-bibtex creates a buffer populate with bibtex entries 
 ;https://github.com/tmalsburg/helm-bibtex
 (use-package helm-bibtex
-  :disabled
   :bind (("C-c h b" . helm-bibtex)
        ("C-c h B" . helm-bibtex-with-local-bibliography)
        ("C-c h n" . helm-bibtex-with-notes)
@@ -377,7 +369,7 @@ image-file-name-extensions '("png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "
 (use-package org-roam
   :commands(org-roam-find-file org-roam-find-directory)
   :hook  (after-init . org-roam-mode)
-;  :hook  (org-mode . org-roam-mode);works but has issues on first reload
+;  :hook  (org-mode . org-roam-mode);works but has issues on first reload see:/issues/1221
   :bind (:map org-roam-mode-map
               (( "C-c n r" . org-roam-buffer-toggle-display))
               :map org-mode-map
@@ -419,9 +411,9 @@ image-file-name-extensions '("png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "
 ;;; Allows for seeing how many references to a citation of label
 ;https://github.com/jkitchin/org-ref
 (use-package org-ref
-  :bind (("C-c c" . org-ref-ivy-insert-cite-link))
+  :bind (("C-c c" . org-ref-helm-insert-cite-link))
   :init 
-  (require 'ivy-bibtex)
+  (require 'helm-bibtex)
 )
 
 ;;; Bibtex completion backend, same for helm and ivy
@@ -469,9 +461,9 @@ With a prefix ARG, remove start location."
  ; :hook (org-mode . org-noter-notes-mode-hook)
   :bind(("C-c n o" . org-noter));make notes with place pdf
   :config
-  ;(setq doc-view-continuous t
-  ;doc-view-scale-internally nil
-  ;org-noter-always-create-frame nil)
+  (setq doc-view-continuous t
+  doc-view-scale-internally nil
+  org-noter-always-create-frame nil)
   (require 'org-noter-pdftools))
 
 ;https://github.com/alphapapa/org-rifle
@@ -511,7 +503,7 @@ With a prefix ARG, remove start location."
 ;https://github.com/org-roam/org-roam-bibtex
 (use-package org-roam-bibtex
   :after org-roam
-  :hook (org-roam-mode . org-roam-bibtex-mode)
+;  :hook (org-roam-mode . org-roam-bibtex-mode)
   :commands (orb-insert)
   :bind (("C-c n c" . orb-insert));make notes on citations
   :config
