@@ -260,7 +260,6 @@ image-file-name-extensions '("png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "
 ;;; pdf-view-mode(PDFView)
 ; https://github.com/politza/pdf-tools
 (use-package pdf-tools
-  :pin melpa
   :magic ("%PDF" . pdf-view-mode);magic modes allow diminishing? 
 ;  :mode (("%.pdf" . pdf-view-mode))
   :init
