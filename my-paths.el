@@ -10,6 +10,7 @@
 (when (string-equal system-type "windows-nt")
   (setenv "HOME" "G:")							; this is where '~' refers to
   (setq user-emacs-directory "~/.emacs.d/")
+(setq pdf-info-epdfinfo-program "~/.emacs.d/win/epdfinfo.exe")
 ; (setq org-roam-graph-executable "~/.emacs.d/win/Graphviz/bin/dot.exe"); allows org-roam-graph, though functionality is eclipsed by org-roam-server-mode so I've removed it
   (setq TeX-macro-global						; where you've downloaded Texlive only required for Latex
    '("c:/texlive/2020/texmf-var/tex/" "c:/texlive/texmf-local/tex/" "c:/texlive/texmf-local/bibtex/bst/" "c:/texlive/2020/texmf-dist/tex/" "c:/texlive/2020/texmf-dist/bibtex/bst/"))

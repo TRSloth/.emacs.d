@@ -266,7 +266,6 @@ image-file-name-extensions '("png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "
   :magic ("%PDF" . pdf-view-mode);magic modes allow diminishing? 
 ;  :mode (("%.pdf" . pdf-view-mode))
   :init
-  (setq pdf-info-epdfinfo-program "~/.emacs.d/win/epdfinfo.exe")
   (pdf-tools-install 1)
   :config
   (setq pdf-annot-activate-created-annotations t)
