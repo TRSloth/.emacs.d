@@ -242,15 +242,22 @@ image-file-name-extensions '("png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "
     (("C-c n l" . org-insert-link-global)
     ("C-c n /" . org-roam-find-file)) 
     :map org-mode-map(
-      ("C-c a c" . fa/add-latex-acronym)))
+      ("C-c a c" . fa/add-latex-acronym)
+      ("C-c t" . org-toggle-all-links)))
   :config(progn
+  (setq org-display-inline-images t)
   (setq org-hide-leading-stars t)
   (setq org-ellipsis "⤵")
   (setq org-image-actual-width '(600))
   (setq org-startup-folded nil)
   (setq org-hide-block-startup nil)
   (setq org-startup-with-inline-images t))
-  )
+  (defun org-toggle-all-links ()
+"run org-toggle inline-images and link-display commands"
+(interactive)
+(org-toggle-inline-images t);command
+(org-toggle-link-display))
+)
 
 ;;; pdf-view-mode(PDFView)
 ; https://github.com/politza/pdf-tools
