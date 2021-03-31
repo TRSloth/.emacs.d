@@ -129,6 +129,10 @@ image-file-name-extensions '("png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "
   :bind (("C-s" . dedicated-mode))
   )
 
+(use-package diminish
+ :config
+ (diminish 'visual-line-mode))
+
 
 ;;;; Globally used packages
 
