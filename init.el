@@ -273,7 +273,8 @@ image-file-name-extensions '("png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "
   :config
   (setq pdf-annot-activate-created-annotations t)
   (pdf-tools-install :no-query :skip-dependencies)
-  :hook (pdf-view-mode . pdf-continuous-scroll-mode);this can be installed and auto-updated with quelpa but that took too long to configure last time.
+  :hook ((pdf-view-mode . pdf-continuous-scroll-mode)
+(pdf-view-mode . (lambda() (display-line-numbers-mode 0))))
   :bind (:map pdf-view-mode-map
               (("C-f" . isearch-forward))))
 
