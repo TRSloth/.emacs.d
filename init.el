@@ -261,12 +261,9 @@ image-file-name-extensions '("png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "
 ; https://github.com/politza/pdf-tools
 (use-package pdf-tools
   :magic ("%PDF" . pdf-view-mode);magic modes allow diminishing? 
-;  :mode (("%.pdf" . pdf-view-mode))
-  :init
-  (pdf-tools-install 1)
   :config
   (setq pdf-annot-activate-created-annotations t)
-  (load "~/.emacs.d/pdf-continuos-scroll-mode.el")
+  (pdf-tools-install :no-query :skip-dependencies)
   :hook (pdf-view-mode . pdf-continuous-scroll-mode);this can be installed and auto-updated with quelpa but that took too long to configure last time.
   :bind (:map pdf-view-mode-map
               (("C-f" . isearch-forward))))
@@ -583,3 +580,4 @@ document. Addtionally, it sorts all acronyms in the list."
             (beginning-of-line)
             (sort-lines nil (point) (search-forward "\\end{acronym}" nil nil)))
         (user-error "No acronym environment found")))))
+(load "~/.emacs.d/pdf-continuos-scroll-mode.el")
