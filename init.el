@@ -37,8 +37,6 @@
 (put 'set-goal-column 'disabled nil)  ; (C-u) C-x C-n 
 ;;; Functions/Commands(use 1 or -1)
 (delete-selection-mode 1)	; Overwrite highlighted text
-(global-display-line-numbers-mode 1)
-(column-number-mode 1)
 (auto-save-visited-mode 1)
 (electric-indent-mode -1)
 
@@ -81,6 +79,7 @@ image-file-name-extensions '("png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "
 ;;; Page break lines: Show page breaks as lines
 ; https://github.com/purcell/page-break-lines
 (use-package page-break-lines
+  :diminish
   :init
   (setq page-break-lines-mode t))
 
@@ -88,6 +87,7 @@ image-file-name-extensions '("png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "
 ; https://github.com/company-mode/company-mode
 (use-package company
   :defer 3
+  :diminish
   :config
   (setq company-idle-delay 0.5)
   (setq company-show-numbers t)
@@ -102,12 +102,14 @@ image-file-name-extensions '("png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "
 ;;; Which key: show avalible key configs from current press
 ; https://github.com/justbur/emacs-which-key
 (use-package which-key
+  :diminish
   :config
   (which-key-mode 1)
   :custom (which-key-idle-delay 1.2))
 
 ;;; Flycheck: 
 (use-package flycheck
+  :diminish
   :after org
   :hook
   (org-src-mode . disable-flycheck-for-elisp)
@@ -130,6 +132,10 @@ image-file-name-extensions '("png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "
 (use-package dedicated
   :bind (("C-s" . dedicated-mode))
   )
+
+(use-package diminish
+ :config
+ (diminish 'visual-line-mode))
 
 
 ;;;; Globally used packages
@@ -155,7 +161,7 @@ image-file-name-extensions '("png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "
 ;;; Dims inactive buffers
 ;https://github.com/gonewest818/dimmer.el
 (use-package dimmer
-  :custom (dimmer-fraction 0.3)
+  :custom (dimmer-fraction 0.2)
   :config (dimmer-mode))
 
 ;;; Allow easy buffer swapping
@@ -174,6 +180,7 @@ image-file-name-extensions '("png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "
 
 ;https://github.com/abo-abo/swiper
 (use-package ivy
+  :diminish
   :init
   (ivy-mode 1) ; enable ivy at startup
   :bind(("C-c C-r" . ivy-resume))
@@ -242,29 +249,32 @@ image-file-name-extensions '("png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "
     (("C-c n l" . org-insert-link-global)
     ("C-c n /" . org-roam-find-file)) 
     :map org-mode-map(
-      ("C-c a c" . fa/add-latex-acronym)))
+      ("C-c a c" . fa/add-latex-acronym)
+      ("C-c t" . org-toggle-all-links)))
   :config(progn
+  (setq org-display-inline-images t)
   (setq org-hide-leading-stars t)
   (setq org-ellipsis "⤵")
   (setq org-image-actual-width '(600))
   (setq org-startup-folded nil)
   (setq org-hide-block-startup nil)
   (setq org-startup-with-inline-images t))
-  )
+  (defun org-toggle-all-links ()
+"run org-toggle inline-images and link-display commands"
+(interactive)
+(org-toggle-inline-images t);command
+(org-toggle-link-display))
+)
 
 ;;; pdf-view-mode(PDFView)
 ; https://github.com/politza/pdf-tools
 (use-package pdf-tools
-  :pin melpa
   :magic ("%PDF" . pdf-view-mode);magic modes allow diminishing? 
-;  :mode (("%.pdf" . pdf-view-mode))
-  :init
-  (setq pdf-info-epdfinfo-program "~/.emacs.d/win/epdfinfo.exe")
-  (pdf-tools-install 1)
   :config
   (setq pdf-annot-activate-created-annotations t)
-  (load "~/.emacs.d/pdf-continuos-scroll-mode.el")
-  :hook (pdf-view-mode . pdf-continuous-scroll-mode);this can be installed and auto-updated with quelpa but that took too long to configure last time.
+  (pdf-tools-install :no-query :skip-dependencies)
+  :hook ((pdf-view-mode . pdf-continuous-scroll-mode)
+(pdf-view-mode . (lambda() (display-line-numbers-mode 0))))
   :bind (:map pdf-view-mode-map
               (("C-f" . isearch-forward))))
 
@@ -580,3 +590,4 @@ document. Addtionally, it sorts all acronyms in the list."
             (beginning-of-line)
             (sort-lines nil (point) (search-forward "\\end{acronym}" nil nil)))
         (user-error "No acronym environment found")))))
+(load "~/.emacs.d/pdf-continuos-scroll-mode.el")

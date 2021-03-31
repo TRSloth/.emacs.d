@@ -9,6 +9,4 @@
 !aesthetics-example.el
 !pdf-continuos-scroll-mode.el
 !*/
-!win/*.exe
-!win/Graphviz/*
-!win/org-protocols.reg
+!win/*
