@@ -161,7 +161,7 @@ image-file-name-extensions '("png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "
 ;;; Dims inactive buffers
 ;https://github.com/gonewest818/dimmer.el
 (use-package dimmer
-  :custom (dimmer-fraction 0.3)
+  :custom (dimmer-fraction 0.2)
   :config (dimmer-mode))
 
 ;;; Allow easy buffer swapping
