@@ -37,8 +37,6 @@
 (put 'set-goal-column 'disabled nil)  ; (C-u) C-x C-n 
 ;;; Functions/Commands(use 1 or -1)
 (delete-selection-mode 1)	; Overwrite highlighted text
-(global-display-line-numbers-mode 1)
-(column-number-mode 1)
 (auto-save-visited-mode 1)
 (electric-indent-mode -1)
 
