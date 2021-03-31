@@ -79,6 +79,7 @@ image-file-name-extensions '("png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "
 ;;; Page break lines: Show page breaks as lines
 ; https://github.com/purcell/page-break-lines
 (use-package page-break-lines
+  :diminish
   :init
   (setq page-break-lines-mode t))
 
@@ -86,6 +87,7 @@ image-file-name-extensions '("png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "
 ; https://github.com/company-mode/company-mode
 (use-package company
   :defer 3
+  :diminish
   :config
   (setq company-idle-delay 0.5)
   (setq company-show-numbers t)
@@ -100,12 +102,14 @@ image-file-name-extensions '("png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "
 ;;; Which key: show avalible key configs from current press
 ; https://github.com/justbur/emacs-which-key
 (use-package which-key
+  :diminish
   :config
   (which-key-mode 1)
   :custom (which-key-idle-delay 1.2))
 
 ;;; Flycheck: 
 (use-package flycheck
+  :diminish
   :after org
   :hook
   (org-src-mode . disable-flycheck-for-elisp)
@@ -176,6 +180,7 @@ image-file-name-extensions '("png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "
 
 ;https://github.com/abo-abo/swiper
 (use-package ivy
+  :diminish
   :init
   (ivy-mode 1) ; enable ivy at startup
   :bind(("C-c C-r" . ivy-resume))
