@@ -28,8 +28,10 @@
 
 ;;;load other lisp
 (setq load-prefer-newer t)				; Load the newest version even if .elc exists will use elc if newer
-(if (not (load "~/.emacs.d/my-paths" 'noerror))		; noerror stops an error being thrown if the file is not found
-  (load "~/.emacs.d/my-paths-example"))			; if non option is found an error is thrown
+(cond ((load "~/.emacs.d/my-paths" 'noerror) t)		; noerror stops an error being thrown if the file is not found
+      ((load "~/.emacs.d/my-paths-example" 'noerror) t)
+      ((string-equal system-type "windows-nt") (warn "my-paths.el or equivalant has not been found, please ensure you have .exe's in the win folder located included elsewhere"))
+      (t (warn "my-paths.el or equivalant has not been found this may cause errors.")))
 (if (not (load "~/.emacs.d/aesthetics" 'noerror))	; aesthetics and pastebin are not essential so no error needed if not provided
   (load "~/.emacs.d/aesthetics-example" 'noerror))
 (if (not (load "~/.emacs.d/pastebin" 'noerror))
