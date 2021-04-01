@@ -27,9 +27,10 @@
 
 
 ;;;load other lisp
-(load "~/.emacs.d/my-paths.el" 'noerror)	; noerror stops an error being thrown if the file is not found
-(load "~/.emacs.d/aesthetics.el" 'noerror)
-(load "~/.emacs.d/pastebin.el" 'noerror)	; Strings I use frequently usually assigned to "C-c a ~" 
+(setq load-prefer-newer t)			; Load the newest version even if .elc exists will use elc if newer
+(load "~/.emacs.d/my-paths" 'noerror)	; noerror stops an error being thrown if the file is not found
+(load "~/.emacs.d/aesthetics" 'noerror)
+(load "~/.emacs.d/pastebin" 'noerror)	; Strings I use frequently usually assigned to "C-c a ~" 
 
 
 ;;;; Startup options
