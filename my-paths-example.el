@@ -25,7 +25,7 @@
      "C:/cygwin64/bin" ";"
      "C:/Program Files/Git/bin" ";"	 				; Git
      (getenv "PATH")))
-  (load "~/.emacs.d/win/win-keys.el"))
+  (load "~/.emacs.d/win/win-keys.el" 'noerror))
 
 
 ;;;; Link files in Linux
