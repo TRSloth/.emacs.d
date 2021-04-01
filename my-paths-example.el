@@ -8,7 +8,7 @@
 
 ;;;; Link files in Windows
 (when (string-equal system-type "windows-nt")
-  (setenv "HOME" "G:")							; this is where '~' refers to
+  (setenv "HOME" "C:/Repos/IndividualProject_2020_Toby-Rowlands")	; this is where '~' refers to
   (setq user-emacs-directory "~/.emacs.d/")
 (setq pdf-info-epdfinfo-program "~/.emacs.d/win/epdfinfo.exe")
 ; (setq org-roam-graph-executable "~/.emacs.d/win/Graphviz/bin/dot.exe"); allows org-roam-graph, though functionality is eclipsed by org-roam-server-mode so I've removed it
