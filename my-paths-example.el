@@ -12,6 +12,7 @@
 (when (string-equal system-type "windows-nt")
   (setenv "HOME" "C:/repo/IndividualProject_2020_Toby-Rowlands"))	; MUST, IF using Windows,
 
+;;;; Link files in Linux
 (when (string-equal system-type "gnu/linux")
   (setenv "HOME" "/home/chaos")			       			; MUST, change if using LINUX to the parent dir of this directory
   (setq TeX-macro-global "/usr/bin/"))					; MAY, set TeX install location
