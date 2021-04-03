@@ -32,10 +32,10 @@
 
 
 ;;;load other lisp
-(if (not (load "~/.emacs.d/aesthetics" 'noerror))	; aesthetics and pastebin are not essential so no error needed if not provided
-  (load "~/.emacs.d/aesthetics-example" 'noerror))
-(if (not (load "~/.emacs.d/pastebin" 'noerror))
-  (load "~/.emacs.d/pastebin-example" 'noerror))
+(if (not (load (concat user-emacs-directory "aesthetics") 'noerror))	; aesthetics and pastebin are not essential so no error needed if not provided
+  (load (concat user-emacs-directory "aesthetics-example") 'noerror))
+(if (not (load (concat user-emacs-directory "pastebin") 'noerror))
+  (load (concat user-emacs-directory "pastebin-example") 'noerror))
 
 
 ;;;; Startup options
@@ -53,8 +53,8 @@
  make-backup-files t
  auto-save-default t
  create-lockfiles nil)
-(setq backup-directory-alist  '(("." . "~/.emacs.d/file-backups"))
-auto-save-list-file-prefix "~/.emacs.d/auto-save-list/.saves-"
+(setq backup-directory-alist  '(("." . (concat user-emacs-directory "/file-backups")))
+auto-save-list-file-prefix (concat user-emacs-directory "/auto-save-list/.saves-")
 image-file-name-extensions '("png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "pbm" "pgm" "ppm" "pnm" "svg" "pdf" "bmp"))
 
 
@@ -406,7 +406,7 @@ image-file-name-extensions '("png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "
   :bind-keymap (("C-c b" . org-brain-visualize-mode-map))	;check source for mappings
   :config
   (setq org-id-track-globally t)
-  (setq org-id-locations-file "~/.emacs.d/cache/data/org/.org-id-locations")
+  (setq org-id-locations-file (concat user-emacs-directory "cache/data/org/.org-id-locations"))
   (add-hook 'before-save-hook #'org-brain-ensure-ids-in-buffer)
   (push '("b" "Brain" plain (function org-brain-goto-end)
           "* %i%?" :empty-lines 1)
@@ -596,4 +596,4 @@ document. Addtionally, it sorts all acronyms in the list."
             (beginning-of-line)
             (sort-lines nil (point) (search-forward "\\end{acronym}" nil nil)))
         (user-error "No acronym environment found")))))
-(load "~/.emacs.d/pdf-continuos-scroll-mode.el")
+(load (concat user-emacs-directory "pdf-continuos-scroll-mode.el"))
