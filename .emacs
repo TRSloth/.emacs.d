@@ -6,6 +6,7 @@
 ;;;; Set user-emacs-directory
 ; This should point to the directory this file is in, where ~ is the "HOME" variable below
 (setq user-emacs-directory "~/dot-emacs/")				; MUST
+(setq user-init-file (concat user-emacs-directory "init.el"))
 
 
 ;;;; Link files in Windows
@@ -54,3 +55,4 @@
 (setq bibtex-completion-bibliography "~/docs/writeup/roam.bib")
 
 
+(load user-init-file)

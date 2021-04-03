@@ -1,9 +1,5 @@
 (setq debug-on-error t)
 (setq load-prefer-newer t)				; Load the newest version even if .elc exists will use elc if newer
-(cond ((load (concat user-emacs-directory "my-paths") 'noerror) t)		; noerror stops an error being thrown if the file is not found
-      ((load (concat user-emacs-directory "my-paths-example") 'noerror) t)
-      ((string-equal system-type "windows-nt") (error "my-paths.el or equivalant has not been found, this is required to load exe's."))
-      (t (warn "my-paths.el or equivalant has not been found this may cause errors.")))
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
