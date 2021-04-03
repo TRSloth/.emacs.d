@@ -36,13 +36,12 @@
    )
   
 
-
-;;;Program specific links 
-(setq default-directory "~/gdrive")					; default when searching
-(setq org-directory "~/entropy/")					; where your org-notes are stored
+;;;; Program specific links 						; SHOULD, set these to the directorys you are using under HOME
+(setq default-directory "~/docs/")					; default when searching
+(setq org-directory "~/docs/")						; where your org-notes are stored
 (setq org-download-image-dir "~/gdrive/Library/img/misc/")		; Where you want images downloaded with org-download stored
-(setq org-roam-directory "~/entropy/")	       				; Where you keep your org-roam notes
-(setq org-brain-path "~/entropy/brain")					; Structured org-brain notes
-(setq bibtex-completion-bibliography '("~/entropy/roam.bib"))		; Your main bibleography
+(setq org-roam-directory "~/docs/education-notes")		       	; Where you keep your org-roam notes
+(setq org-brain-path "~/docs/sd-plan")					; Structured org-brain notes
 (setq org-ref-pdf-directory "~/gdrive/Library/")
- (setq org-ref-default-bibliography "~/entropy/roam.bib") 
+(setq org-ref-default-bibliography "~/docs/writeup/roam.bib") 		; Your main bibleography
+(setq bibtex-completion-bibliography "~/docs/writeup/roam.bib")
