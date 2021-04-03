@@ -1,10 +1,12 @@
 ;;;; Customise this for your directory structure
-; Either change to your variables and remove "-example" from the filename or create a symlink with 
-; Windows
-; mklink my-paths.el my-paths-example.el
-; Linux
-; ln -s my-paths-example.el my-paths.el 
-; doing it this way will allow you to compare your version to changes I make using diff on Github desktop
+; You may edit this file directly or duplicate and remove "-example" to favor your version
+; Suggested changes are commented "MUST" "SHOULD" & "MAY" to help you check their values
+
+
+;;;; Set user-emacs-directory
+; This should point to the directory this file is in, where ~ is the "HOME" variable below
+(setq user-emacs-directory "~/dot-emacs/")				; MUST
+
 
 ;;;; Link files in Windows
 (when (string-equal system-type "windows-nt")
