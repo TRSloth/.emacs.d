@@ -1,18 +1,33 @@
-;;;; Customise this for your directory structure
-; You may edit this file directly or duplicate and remove "-example" to favor your version
+;;;; Customise this file to match your directory structure
+; Place this file in the location emacs expects the system init file to be or symlink to it.
+; Personally I use symlinks to keep everything in the same file.
+;
+;;; Windows 
+;; Expected location(Vista and up):
+; C:/Users/<Username>/AppData/Roaming/
+;; Symlink:
+; mklink C:\Users\<username>\AppData\Roaming\.emacs C:\<path-to-repo>\IndividualProject_2020_Toby-Rowlands\dot-emacs\.emacs
+;
+;;; Linux
+;; Expected location:
+; 
+;; Symlink:
+; ls -s /path/to/this/repo/.emacs ~/.emacs
+;
+;;; Guidance
 ; Suggested changes are commented "MUST" "SHOULD" & "MAY" to help you check their values
 
 
 ;;;; Set user-emacs-directory
 ; This should point to the directory this file is in, where ~ is the "HOME" variable below
-(setq user-emacs-directory "~/dot-emacs/")				; MUST
+(setq user-emacs-directory "~/dot-emacs/")				; SHOULD, if you renamed the repo, set new name here
 
 
-;;;; Link files in Windows
+;;;; Set Home in Windows
 (when (string-equal system-type "windows-nt")
-  (setenv "HOME" "C:/repo/IndividualProject_2020_Toby-Rowlands"))	; MUST, IF using Windows,
+  (setenv "HOME" "C:/repo/IndividualProject_2020_Toby-Rowlands"))	; MUST, IF using Windows, set as path to this folder
 
-;;;; Link files in Linux
+;;;; Set Home in Linux and locate texlive
 (when (string-equal system-type "gnu/linux")
   (setenv "HOME" "/home/chaos")			       			; MUST, change if using LINUX to the parent dir of this directory
   (setq TeX-macro-global "/usr/bin/"))					; MAY, set TeX install location
@@ -54,5 +69,7 @@
 (setq bibtex-completion-bibliography "~/docs/writeup/roam.bib")
 
 
+;;;; Start the user init file (init.el)
 (setq user-init-file (concat user-emacs-directory "init.el"))		
+; Set so emacs doesn't reload this file(.emacs) if you went for the symlink approach
 (load user-init-file)
