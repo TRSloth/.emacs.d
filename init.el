@@ -1,4 +1,4 @@
-(setq debug-on-error t)
+;(setq debug-on-error t)
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
@@ -246,6 +246,14 @@ image-file-name-extensions '("png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "
 
 
 ;;;; Major modes
+
+;;; markdown mode
+; https://github.com/jrblevin/markdown-mode
+(use-package markdown-mode
+  :mode (("\\.md\\'" . markdown-mode)
+	 ("\\.markdown\\'" . markdown-mode)
+	 ("README\\.md\\'" . gfm-mode))
+)
 
 ;;; org-mode(Org)
 (use-package org

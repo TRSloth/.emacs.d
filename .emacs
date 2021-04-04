@@ -26,6 +26,7 @@
 ;;;; Set Home in Windows and non-relative paths
 (when (string-equal system-type "windows-nt")
   (setenv "HOME" "C:/repo/IndividualProject_2020_Toby-Rowlands")	; MUST, IF using Windows, set as path to this folder
+  (setq markdown-command '("pandoc" "--from=markdown" "--to=html5"))	; MAY, if using markdown set the command line arg used
   (setq TeX-macro-global						; MAY add where you've downloaded Texlive, required for Latex
    '("c:/texlive/2020/texmf-var/tex/" "c:/texlive/texmf-local/tex/" "c:/texlive/texmf-local/bibtex/bst/" "c:/texlive/2020/texmf-dist/tex/" "c:/texlive/2020/texmf-dist/bibtex/bst/"))
 ;;; Locate linux functions in windows 
