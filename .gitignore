@@ -4,8 +4,10 @@
 *
 !/.gitignore ;imported pacakges contained gitignores
 !/README.md ;imported packages contained readmes
-!/*.el
+!.emacs
+!init.el
+!my-paths-example.el
+!aesthetics-example.el
+!pdf-continuos-scroll-mode.el
 !*/
 !win/*
-
-custom.el

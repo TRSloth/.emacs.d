@@ -6,6 +6,7 @@ Emacs Config preconfigured for org-roam(including server), org-brain, pdftools a
 
 Before you begin, ensure you have met the following requirements:
 <!--- These are just example requirements. Add, duplicate or remove as required --->
+
 * You have installed the latest version of [Emacs](https://www.gnu.org/software/emacs/)
 * Windows 10 (64bit) or Kali(Linux), should work on other OS's but those are the ones I've tested.
 * (Optional) A [TeX distribution](https://www.latex-project.org/get/), I use [TeXLive](https://www.tug.org/texlive/) as it's cross platform but it's completely upto you. Having a TeX processor allows you to export Org-notes to TeX or PDF while adding typsetting support.
@@ -15,12 +16,19 @@ Before you begin, ensure you have met the following requirements:
 [Clone](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository) or [download](https://github.com/TRSloth/emacs-old/archive/refs/heads/main.zip) this repository
 
 Then to install the repository, follow these steps:
+
 ### Windows:
-1. Create a symlink from where emacs [expects to find](https://superuser.com/questions/137971/where-is-the-emacs-file-located-on-windows) the .emacs.d file to where you've placed it, or move it to the correct location.
+1. Create a symlink from where emacs [expects to find](https://superuser.com/questions/137971/where-is-the-emacs-file-located-on-windows) the .emacs file to where you've placed it, or move it to that expected location.
+
+#### Expected location(Vista and up):
+`C:/Users/<Username>/AppData/Roaming/.emacs`
+
+#### Symlink (run in command prompt):
+
+``` shell
+mklink C:\Users\<username>\AppData\Roaming\.emacs 
 ```
-mklink /J C:\Users\<YourName>\AppData\Roaming\.emacs.d C:\path\to\this\repo
-```
-2. Open the my-paths-example.el file with a text editor and change things to match your filestructure, instructions in the file, see also the aesthetics-example.el
+2. Open the `.emacs` file with a text editor and change things to match your filestructure, things you need to change will are commented  "MUST" "SHOULD" & "MAY", see also the aesthetics-example.el
 3. Enter `<Win>+R` + `"C:\Program Files\Emacs\bin\runemacs.exe"` + RET 
 4. Use-package will start installing things: Go make a cup of tea/coffee
 5. Delete `org-brain.elc` (in `.emacs.d/elpa/org-brain-xxxx/`), this fixes a [known issue](https://github.com/Kungsgeten/org-brain/issues/320)
@@ -28,16 +36,22 @@ mklink /J C:\Users\<YourName>\AppData\Roaming\.emacs.d C:\path\to\this\repo
 7. Done :)
 
 ### Linux:
-1. Create a symlink from where emacs [expects to find](https://www.emacswiki.org/emacs/DotEmacsDotD) this file to where you've placed it, or move itto the correct location.
+
+1. Create a symlink from where emacs [expects to find](https://www.emacswiki.org/emacs/DotEmacsDotD) .emacs to where you've placed it, or move it to the correct location.
+
+#### Expected location:
+
+`/home/<username>/.emacs`
+
+#### Symlink
+```shell
+ls -s /path/to/this/repo/.emacs ~/.emacs
 ```
-ls -s /path/to/this/repo/.emacs.d ~/.emacs.d
-```
-2. Open the my-paths-example.el file with a text editor and change things to match your filestructure, instructions in the file, see also the aesthetics-example.el
+2. Open the `.emacs` file with a text editor and change things to match your filestructure, things you need to change will are commented  "MUST" "SHOULD" & "MAY", see also the aesthetics-example.el
 3. Enter `<Win>` + `"Emacs"` + RET
 4. Use-package will start installing things: Go make a cup of tea/coffee
-5. When asked about installing packages answer `yes`(these were included for windows as they can't auto-install)
-6. Delete `org-brain.elc` (in `.emacs.d/elpa/org-brain-xxxx/`), this fixes a [known issue](https://github.com/Kungsgeten/org-brain/issues/320)
-7. Done :)
+5. Delete `org-brain.elc` (in `.emacs.d/elpa/org-brain-xxxx/`), this fixes a [known issue](https://github.com/Kungsgeten/org-brain/issues/320)
+6. Done :)
 
 ## Contributors
 

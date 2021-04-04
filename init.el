@@ -1,9 +1,4 @@
-(setq debug-on-error t)
-(setq load-prefer-newer t)				; Load the newest version even if .elc exists will use elc if newer
-(cond ((load (concat user-emacs-directory "my-paths") 'noerror) t)		; noerror stops an error being thrown if the file is not found
-      ((load (concat user-emacs-directory "my-paths-example") 'noerror) t)
-      ((string-equal system-type "windows-nt") (error "my-paths.el or equivalant has not been found, this is required to load exe's."))
-      (t (warn "my-paths.el or equivalant has not been found this may cause errors.")))
+;(setq debug-on-error t)
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
@@ -16,13 +11,16 @@
   (package-install 'use-package))
 (setq use-package-always-ensure t);always install not already installed packages
 
-;;;; Quick Explantation on use-package, I'm not entirely clear on this so it may no be accurate
-; Use-package manages the configuration and loading of packages, it is not a package manager though we can interace with package managers such as the built in package manager to download apps we don't have using ":ensure t", is also allows us to lazy load speading up initialization time
-;;; some of the other commands do as follows
+;;;; Quick Explantation on use-package
+; Use-package manages the configuration and loading of packages.
+; It is not a package manager though we can interace with package managers such as the 
+;  built in package manager to download apps we don't have using ensure(set above), 
+;  is also allows us to lazy load speading up initialization time
+;;; common commands brief
 ; commands: defer loading till after a bound command is used
-; bind: defers loading of package until you call a key that is bound to it(see also bind-keymap)
-; mode: load when file loaded contains a matching string(see also magic and interpreter)
-; init: execute code before the package is loaded, this could be setting paths or binding commands to lazy load, happens on startup, keep these simple with as much as possible in config
+; bind: defers loading till you use a key that is bound to it(see also bind-keymap)
+; mode: load when an open file matchs the regex (see also magic and interpreter)
+; init: execute code before the package is loaded, keep these simple with as much as possible to minimise load time
 ; config: execute code after a package loads(if package loading is defered config is too)
 ; defer: will defer loading even if not using commands which imply defer, for use when loading from another package 
 ; hook: add a function to a package hook(hook appends the word hook to be package itself), eg a package will load a function when it is ready for it
@@ -31,7 +29,8 @@
 
 
 
-;;;load other lisp
+;;;load other lisp files
+(setq load-prefer-newer t)						; Load the newest version even if .elc exists will use el if newer
 (if (not (load (concat user-emacs-directory "aesthetics") 'noerror))	; aesthetics and pastebin are not essential so no error needed if not provided
   (load (concat user-emacs-directory "aesthetics-example") 'noerror))
 (if (not (load (concat user-emacs-directory "pastebin") 'noerror))
@@ -151,9 +150,9 @@ image-file-name-extensions '("png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "
 ; https://github.com/emacscollective/no-littering
 (use-package no-littering
   :init
-  (setq no-littering-var-directory (expand-file-name "cache/data/" user-emacs-directory))
-  (setq no-littering-etc-directory (expand-file-name "cache/etc/" user-emacs-directory))
-  (setq custom-file (expand-file-name "custom.el" user-emacs-directory)))
+  (setq no-littering-var-directory (concat user-emacs-directory "cache/data/"))
+  (setq no-littering-etc-directory (concat user-emacs-directory "cache/etc/" ))
+  (setq custom-file (concat user-emacs-directory "cache/custom.el" )))
 
 ;;; auto-package-update
 ; https://github.com/rranelli/auto-package-update.el
@@ -247,6 +246,14 @@ image-file-name-extensions '("png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "
 
 
 ;;;; Major modes
+
+;;; markdown mode
+; https://github.com/jrblevin/markdown-mode
+(use-package markdown-mode
+  :mode (("\\.md\\'" . markdown-mode)
+	 ("\\.markdown\\'" . markdown-mode)
+	 ("README\\.md\\'" . gfm-mode))
+)
 
 ;;; org-mode(Org)
 (use-package org
@@ -552,6 +559,7 @@ With a prefix ARG, remove start location."
 
 ;;;; Latex things
 (with-eval-after-load 'ox-latex ; add cls files
+   (require 'ox-bibtex)
    (add-to-list 'org-latex-classes
                 '("mitthesis"
                   "\\documentclass{mitthesis}"
