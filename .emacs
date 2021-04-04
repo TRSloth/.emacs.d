@@ -78,7 +78,7 @@
 
 
 ;;;; Import Windows functions with relative file names now user-emacs-dir has been checked
-(when (string-equal system-type "windows-nt") t)
+(when (string-equal system-type "gnu/linux") t)
 
 
 ;;;; Start the user init file (init.el)
