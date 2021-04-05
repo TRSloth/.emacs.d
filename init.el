@@ -27,6 +27,22 @@
 ; custom: similar to config, but allows code execution when customisations are assigned. (see also custom-face)
 ; errors in use package will be sent to the warmings buffer
 
+;;; straight.el install
+; https://github.com/raxod502/straight.el
+; ! Requires git
+; Allows installs from github
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+      (bootstrap-version 5))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
 
 
 ;;;load other lisp files
