@@ -622,6 +622,13 @@ document. Addtionally, it sorts all acronyms in the list."
         (user-error "No acronym environment found")))))
 
 
-;;;; Load submodules
-(load (concat user-emacs-directory "subs/pdf-continuous-scroll-mode/pdf-continuous-scroll-mode.el"))
-(load (concat user-emacs-directory "subs/ej-org-roam-mod/org-roam-mod.el"))
+
+(use-package pdf-continuous-scroll-mode
+  :straight (:host github 
+   :repo "dalanicolai/pdf-continuous-scroll-mode.el"))
+
+(use-package org-roam-dir-mode
+  :straight (:host github
+   :repo "trsloth/ej-org-roam-dir-mode"
+   :branch "trsloth-dev"))
+
