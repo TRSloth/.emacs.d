@@ -1,3 +1,6 @@
 [submodule "subs/ej-org-roam-mod"]
 	path = subs/ej-org-roam-mod
 	url = https://github.com/TRSloth/ej-org-roam-mod
+[submodule "subs/pdf-continuous-scroll-mode"]
+	path = subs/pdf-continuous-scroll-mode
+	url = https://github.com/dalanicolai/pdf-continuous-scroll-mode.el
