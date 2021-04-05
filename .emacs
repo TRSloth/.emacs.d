@@ -60,7 +60,7 @@
  default-directory "~/entropy/"					; default when searching
  org-directory "~/entropy/"						; where your org-notes are stored
  org-download-image-dir "~/gdrive/Library/img/misc/"		; Where you want images downloaded with org-download stored
- org-roam-directory "~/entropy/roam"		       	; Where you keep your org-roam notes
+ org-roam-directory "~/entropy"		       	; Where you keep your org-roam notes
  org-brain-path "~/entropy/brain"					; Structured org-brain notes
  org-ref-pdf-directory "~/gdrive/Library/"
  org-ref-default-bibliography "~/entropy/main.bib" 		; Your main bibleography

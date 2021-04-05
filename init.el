@@ -605,3 +605,6 @@ document. Addtionally, it sorts all acronyms in the list."
             (sort-lines nil (point) (search-forward "\\end{acronym}" nil nil)))
         (user-error "No acronym environment found")))))
 (load (concat user-emacs-directory "pdf-continuos-scroll-mode.el"))
+
+;;;; Load submodules
+(load (concat user-emacs-directory "subs/ej-org-roam-mod/org-roam-mod.el"))

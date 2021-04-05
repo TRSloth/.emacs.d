@@ -1,0 +1,3 @@
+[submodule "subs/ej-org-roam-mod"]
+	path = subs/ej-org-roam-mod
+	url = https://github.com/TRSloth/ej-org-roam-mod
