@@ -45,13 +45,17 @@
   (load bootstrap-file nil 'nomessage))
 
 
-;;;load other lisp files
-(setq load-prefer-newer t)						; Load the newest version even if .elc exists will use el if newer
-(if (not (load (concat user-emacs-directory "aesthetics") 'noerror))	; aesthetics and pastebin are not essential so no error needed if not provided
-  (load (concat user-emacs-directory "aesthetics-example") 'noerror))
-(if (not (load (concat user-emacs-directory "pastebin") 'noerror))
-  (load (concat user-emacs-directory "pastebin-example") 'noerror))
+;;;load other files
 
+;;; Import Windows functions with relative file names
+(when (string-equal system-type "windows-nt")
+  (add-to-list 'exec-path (concat user-emacs-directory "win"))	      	; locate required windows files(included)
+  (setq pdf-info-epdfinfo-program (concat user-emacs-directory "win/epdfinfo.exe"))
+)
+
+;;; Load options prioritising user version and warn if not exists 
+(if (not (load (concat user-emacs-directory "my-options") 'noerror))
+  (load (concat user-emacs-directory "options") 'noerror))
 
 ;;;; Startup options
 (set-language-environment "UTF-8")

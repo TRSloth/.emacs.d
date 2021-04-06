@@ -6,7 +6,7 @@
 !/README.md
 !.emacs
 !init.el
-!aesthetics-example.el
+!options.el
 !*/
 !win/*
 straight/*
