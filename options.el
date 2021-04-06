@@ -1,23 +1,27 @@
-;;;; Customise this to your liking
-;;; Trying things out
-; To test a font or theme scroll to after its final bracket and enter "C-x C-e"
-;;; How to usage
+;;;; Usage
+
+;;; How to use
 ; Either change to your variables here or create a copy of the file and rename to my-options to override it 
 ; doing it this way will allow you to compare your version to changes I make using diff on Github desktop
+
+;;; Things you should change
+; Everything in the paths section should be configured for your install all else may be left as is
+
+
 
 
 ;;;; Paths
 
-;;; Program specific paths 						; SHOULD, set these to the directorys you are using under HOME
+;;; Program specific paths 						; SHOULD, set these to the directorys you are using under HOME(set in .emacs)
 ; if you use different file structures on each OS you may wish to add OS-specific pathis in the settings below 
 (setq
- default-directory "~/entropy/"					; default when searching
+ default-directory "~/entropy/"						; default when searching
  org-directory "~/entropy/"						; where your org-notes are stored
- org-download-image-dir "~/gdrive/Library/img/misc/"		; Where you want images downloaded with org-download stored
- org-roam-directory "~/entropy"		       	; Where you keep your org-roam notes
+ org-download-image-dir "~/gdrive/Library/img/misc/"			; Where you want images downloaded with org-download stored
+ org-roam-directory "~/entropy"		       				; Where you keep your org-roam notes
  org-brain-path "~/entropy/brain"					; Structured org-brain notes
  org-ref-pdf-directory "~/gdrive/Library/"
- org-ref-default-bibliography "~/entropy/main.bib" 		; Your main bibleography
+ org-ref-default-bibliography "~/entropy/main.bib" 			; Your main bibleography
  reftex-default-bibliography '("~/entropy/main.bib") 
  bibtex-completion-bibliography '("~/entropy/main.bib")
 )
@@ -29,7 +33,7 @@
 ;; Windows
 (when (string-equal system-type "windows-nt")
   (setq markdown-command '("pandoc" "--from=markdown" "--to=html5"))	; MAY, if using markdown set the command line arg used
-  (setq TeX-macro-global						; MAY add where you've downloaded Texlive, required for Latex
+  (setq TeX-macro-global						; MAY add where you've downloaded a TeX editor, required for Latex
    '("c:/texlive/2020/texmf-var/tex/" "c:/texlive/texmf-local/tex/" "c:/texlive/texmf-local/bibtex/bst/" "c:/texlive/2020/texmf-dist/tex/" "c:/texlive/2020/texmf-dist/bibtex/bst/"))
 ;;; Locate linux functions in windows 
   (setenv "PATH"							; MAY, fill these with your own versions
@@ -56,6 +60,7 @@
 ;;;; Aesthetic options
 
 ;;; Fonts and Themes
+; To test a font or theme scroll to after its final bracket and enter "C-x C-e"
 ;;; Fonts-unset as I don't know what you've got installed
 ;(set-face-attribute 'default nil :font "DejaVu Sans-12")		; Monospaced font, more readable than courier		
 ;(set-face-attribute 'default nil :font "dubai-12")			; My default from https://dubaifont.com/
