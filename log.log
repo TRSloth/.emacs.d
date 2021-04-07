@@ -1,0 +1,2256 @@
+commit 87f365dadfa5d8301ad8f1bb7f7a121111192f7c
+Author: Toby <rowlandsToby1@gmail.com>
+Date:   Sun Mar 21 15:28:32 2021 +0000
+
+    finished org-brain
+
+ README.md                                 |   7 ++++++-
+ elpa/pdf-tools-20200512.1524/epdfinfo.exe | Bin 1621505 -> 0 bytes
+ 2 files changed, 6 insertions(+), 1 deletion(-)
+
+commit f62e1b8193a5e81b4e10018ed9d6cabc9775c516
+Author: Toby <rowlandsToby1@gmail.com>
+Date:   Sat Mar 20 23:21:30 2021 +0000
+
+    ..
+
+ .org-id-locations                                  |   2 +-
+ config/aesthetics.elc                              | Bin 0 -> 1330 bytes
+ config/commands.elc                                | Bin 0 -> 2759 bytes
+ config/keybinds.elc                                | Bin 0 -> 1826 bytes
+ elpa/auctex-13.0.4/style/fancyvrb.elc              | Bin 25017 -> 24937 bytes
+ elpa/auctex-13.0.4/style/ltxtable.elc              | Bin 1746 -> 1735 bytes
+ elpa/auctex-13.0.4/style/subfiles.elc              | Bin 1837 -> 1826 bytes
+ elpa/auctex-13.0.4/tex-jp.elc                      | Bin 35185 -> 0 bytes
+ elpa/auctex-13.0.4/tex.elc                         | Bin 210821 -> 210854 bytes
+ .../bibtex-completion.elc                          | Bin 65262 -> 65249 bytes
+ elpa/company-20210224.2244/company-yasnippet.elc   | Bin 4163 -> 4455 bytes
+ elpa/counsel-20201227.1327/counsel.elc             | Bin 233967 -> 233941 bytes
+ elpa/dash-20201227.2101/dash.elc                   | Bin 107013 -> 107092 bytes
+ .../dired-hacks-utils.elc                          | Bin 9890 -> 9987 bytes
+ .../company-graphviz-dot.elc                       | Bin 0 -> 3428 bytes
+ .../graphviz-dot-mode.elc                          | Bin 29681 -> 29676 bytes
+ elpa/helm-20210223.2045/helm-buffers.elc           | Bin 42839 -> 42841 bytes
+ elpa/helm-20210223.2045/helm-files.elc             | Bin 205037 -> 205040 bytes
+ elpa/helm-20210223.2045/helm-for-files.elc         | Bin 13192 -> 13193 bytes
+ elpa/helm-20210223.2045/helm-locate.elc            | Bin 19474 -> 19479 bytes
+ elpa/helm-20210223.2045/helm-occur.elc             | Bin 28992 -> 28993 bytes
+ elpa/helm-core-20210211.1417/helm-lib.elc          | Bin 57024 -> 57008 bytes
+ elpa/helm-core-20210211.1417/helm.elc              | Bin 263219 -> 263232 bytes
+ .../helm-org-rifle.elc                             | Bin 57853 -> 57837 bytes
+ elpa/ivy-20201218.1222/ivy-overlay.elc             | Bin 3777 -> 3864 bytes
+ elpa/org-9.4.4/org-agenda.elc                      | Bin 389748 -> 389772 bytes
+ elpa/org-9.4.4/org-lint.elc                        | Bin 53451 -> 52483 bytes
+ elpa/org-9.4.4/ox-ascii.elc                        | Bin 67997 -> 67456 bytes
+ elpa/org-9.4.4/ox-beamer.elc                       | Bin 35650 -> 35364 bytes
+ elpa/org-9.4.4/ox-html.elc                         | Bin 132027 -> 131453 bytes
+ elpa/org-9.4.4/ox-icalendar.elc                    | Bin 37939 -> 37649 bytes
+ elpa/org-9.4.4/ox-latex.elc                        | Bin 119991 -> 119018 bytes
+ elpa/org-9.4.4/ox-man.elc                          | Bin 31943 -> 31746 bytes
+ elpa/org-9.4.4/ox-md.elc                           | Bin 24225 -> 23974 bytes
+ elpa/org-9.4.4/ox-odt.elc                          | Bin 134857 -> 133838 bytes
+ elpa/org-9.4.4/ox-org.elc                          | Bin 12651 -> 12538 bytes
+ elpa/org-9.4.4/ox-publish.elc                      | Bin 50234 -> 50177 bytes
+ elpa/org-9.4.4/ox-texinfo.elc                      | Bin 58228 -> 57841 bytes
+ elpa/org-9.4.4/ox.elc                              | Bin 242896 -> 241397 bytes
+ elpa/org-brain-20210108.1512/org-brain.elc         | Bin 137354 -> 139209 bytes
+ elpa/org-download-20210105.1758/org-download.elc   | Bin 21596 -> 21588 bytes
+ elpa/org-download-20210118.958/org-download.elc    | Bin 21628 -> 21620 bytes
+ elpa/org-noter-20191020.1212/org-noter.elc         | Bin 120607 -> 120658 bytes
+ .../org-noter-pdftools.elc                         | Bin 0 -> 31256 bytes
+ elpa/org-pdftools-20210118.1611/org-pdftools.elc   | Bin 0 -> 10970 bytes
+ elpa/org-ref-20210225.1454/org-ref-core.elc        | Bin 115377 -> 115364 bytes
+ elpa/org-ref-20210225.1454/org-ref-glossary.elc    | Bin 17081 -> 17158 bytes
+ elpa/org-ref-20210225.1454/org-ref-helm-bibtex.elc | Bin 21218 -> 21163 bytes
+ elpa/org-roam-20201225.543/org-roam-buffer.elc     | Bin 11168 -> 11240 bytes
+ elpa/org-roam-20201225.543/org-roam-db.elc         | Bin 23275 -> 23278 bytes
+ .../org-roam-server.elc                            | Bin 27922 -> 27956 bytes
+ elpa/quelpa-20210317.1221/quelpa.elc               | Bin 67874 -> 67888 bytes
+ elpa/stream-2.2.5/tests/stream-tests.elc           | Bin 65143 -> 65262 bytes
+ elpa/yasnippet-20200604.246/yasnippet.elc          | Bin 227048 -> 227035 bytes
+ init.elc                                           | Bin 0 -> 22317 bytes
+ 55 files changed, 1 insertion(+), 1 deletion(-)
+
+commit dc37bc88162196ec2a35a7045d97c9c280c46d5a
+Author: Toby <rowlandsToby1@gmail.com>
+Date:   Sat Mar 20 18:18:30 2021 +0000
+
+    created second
+
+ .org-id-locations                                  |    2 +
+ config/aesthetics.el                               |    1 +
+ config/keybinds.el                                 |   11 +-
+ .../buffer-move-autoloads.el                       |   48 +
+ elpa/buffer-move-20160615.1803/buffer-move-pkg.el  |    2 +
+ elpa/buffer-move-20160615.1803/buffer-move.el      |  180 +
+ elpa/buffer-move-20160615.1803/buffer-move.elc     |  Bin 0 -> 3542 bytes
+ .../dired-hacks-utils-autoloads.el                 |   23 +
+ .../dired-hacks-utils-pkg.el                       |    2 +
+ .../dired-hacks-utils.el                           |  275 +
+ .../dired-hacks-utils.elc                          |  Bin 0 -> 9890 bytes
+ .../dired-open-autoloads.el                        |   33 +
+ elpa/dired-open-20180922.1113/dired-open-pkg.el    |    2 +
+ elpa/dired-open-20180922.1113/dired-open.el        |  254 +
+ elpa/dired-open-20180922.1113/dired-open.elc       |  Bin 0 -> 5981 bytes
+ .../helm-org-rifle-autoloads.el                    |   50 +
+ .../helm-org-rifle-pkg.el                          |    2 +
+ .../helm-org-rifle-20200512.2043/helm-org-rifle.el | 1686 ++++
+ .../helm-org-rifle.elc                             |  Bin 0 -> 57853 bytes
+ .../markdown-mode-autoloads.el                     |   54 +
+ .../markdown-mode-pkg.el                           |    2 +
+ elpa/markdown-mode-20210220.1301/markdown-mode.el  | 9824 ++++++++++++++++++++
+ elpa/markdown-mode-20210220.1301/markdown-mode.elc |  Bin 0 -> 332707 bytes
+ .../org-brain-20210108.1512/org-brain-autoloads.el |  338 +
+ elpa/org-brain-20210108.1512/org-brain-pkg.el      |    2 +
+ elpa/org-brain-20210108.1512/org-brain.el          | 3497 +++++++
+ elpa/org-brain-20210108.1512/org-brain.elc         |  Bin 0 -> 137354 bytes
+ .../org-download-autoloads.el                      |   25 +
+ elpa/org-download-20210118.958/org-download-pkg.el |    2 +
+ elpa/org-download-20210118.958/org-download.el     |  720 ++
+ elpa/org-download-20210118.958/org-download.elc    |  Bin 0 -> 21628 bytes
+ .../pdf-continuous-scroll-mode-autoloads.el        |   35 +
+ .../pdf-continuous-scroll-mode-pkg.el              |    2 +
+ .../pdf-continuous-scroll-mode.el                  |  428 +
+ .../pdf-continuous-scroll-mode.elc                 |  Bin 0 -> 14082 bytes
+ .../poly-markdown-autoloads.el                     |   26 +
+ .../poly-markdown-pkg.el                           |    2 +
+ elpa/poly-markdown-20200316.1315/poly-markdown.el  |  167 +
+ elpa/poly-markdown-20200316.1315/poly-markdown.elc |  Bin 0 -> 10152 bytes
+ elpa/poly-org-20200817.756/poly-org-autoloads.el   |   25 +
+ elpa/poly-org-20200817.756/poly-org-pkg.el         |    2 +
+ elpa/poly-org-20200817.756/poly-org.el             |   98 +
+ elpa/poly-org-20200817.756/poly-org.elc            |  Bin 0 -> 4428 bytes
+ elpa/polymode-20200606.1206/poly-lock.el           |  562 ++
+ elpa/polymode-20200606.1206/poly-lock.elc          |  Bin 0 -> 10944 bytes
+ elpa/polymode-20200606.1206/polymode-autoloads.el  |  278 +
+ elpa/polymode-20200606.1206/polymode-base.el       |  122 +
+ elpa/polymode-20200606.1206/polymode-base.elc      |  Bin 0 -> 9056 bytes
+ elpa/polymode-20200606.1206/polymode-classes.el    |  488 +
+ elpa/polymode-20200606.1206/polymode-classes.elc   |  Bin 0 -> 20056 bytes
+ elpa/polymode-20200606.1206/polymode-compat.el     |  390 +
+ elpa/polymode-20200606.1206/polymode-compat.elc    |  Bin 0 -> 8658 bytes
+ elpa/polymode-20200606.1206/polymode-core.el       | 2139 +++++
+ elpa/polymode-20200606.1206/polymode-core.elc      |  Bin 0 -> 53954 bytes
+ elpa/polymode-20200606.1206/polymode-debug.el      |  557 ++
+ elpa/polymode-20200606.1206/polymode-debug.elc     |  Bin 0 -> 20818 bytes
+ elpa/polymode-20200606.1206/polymode-export.el     |  449 +
+ elpa/polymode-20200606.1206/polymode-export.elc    |  Bin 0 -> 18628 bytes
+ elpa/polymode-20200606.1206/polymode-methods.el    |  684 ++
+ elpa/polymode-20200606.1206/polymode-methods.elc   |  Bin 0 -> 18655 bytes
+ elpa/polymode-20200606.1206/polymode-pkg.el        |   12 +
+ elpa/polymode-20200606.1206/polymode-tangle.el     |   35 +
+ elpa/polymode-20200606.1206/polymode-tangle.elc    |  Bin 0 -> 550 bytes
+ elpa/polymode-20200606.1206/polymode-test-utils.el |  464 +
+ .../polymode-20200606.1206/polymode-test-utils.elc |  Bin 0 -> 13836 bytes
+ elpa/polymode-20200606.1206/polymode-weave.el      |  281 +
+ elpa/polymode-20200606.1206/polymode-weave.elc     |  Bin 0 -> 12582 bytes
+ elpa/polymode-20200606.1206/polymode.el            |  688 ++
+ elpa/polymode-20200606.1206/polymode.elc           |  Bin 0 -> 26701 bytes
+ elpa/quelpa-20210317.1221/bootstrap.el             |   24 +
+ elpa/quelpa-20210317.1221/bootstrap.elc            |  Bin 0 -> 771 bytes
+ elpa/quelpa-20210317.1221/quelpa-autoloads.el      |  107 +
+ elpa/quelpa-20210317.1221/quelpa-pkg.el            |   12 +
+ elpa/quelpa-20210317.1221/quelpa.el                | 1974 ++++
+ elpa/quelpa-20210317.1221/quelpa.elc               |  Bin 0 -> 67874 bytes
+ .../quelpa-use-package-autoloads.el                |   23 +
+ .../quelpa-use-package-pkg.el                      |    2 +
+ .../quelpa-use-package.el                          |  110 +
+ .../quelpa-use-package.elc                         |  Bin 0 -> 2391 bytes
+ init.el                                            |  120 +-
+ quelpa/cache                                       |    1 +
+ quelpa/last_upgrade                                |    0
+ 82 files changed, 27327 insertions(+), 15 deletions(-)
+
+commit 54574b9b78238681d78616cb290b6b18f71d849b
+Author: Toby <rowlandsToby1@gmail.com>
+Date:   Thu Mar 18 15:32:47 2021 +0000
+
+    ,,,
+
+ .emacs-buffers                      |   0
+ .emacs.desktop                      |  31 ---
+ .emacs.desktop.lock                 |   1 -
+ .gitignore                          |   2 +
+ config/keybinds.el                  |  23 +--
+ desktops/.emacs-buffers             |   0
+ desktops/.emacs.desktop             |  19 --
+ desktops/IY3501/.emacs-buffers      |   0
+ desktops/IY3501/.emacs.desktop      | 259 -------------------------
+ desktops/IY3821/.emacs-buffers      |   0
+ desktops/IY3821/.emacs.desktop      | 367 ------------------------------------
+ desktops/IY3821/.emacs.desktop.lock |   1 -
+ init.el                             | 103 ++++++++--
+ server/server                       |   2 -
+ 14 files changed, 88 insertions(+), 720 deletions(-)
+
+commit 495b81b7bbc7d35d500b7a22d9df9d17990d04b1
+Author: Toby <rowlandsToby1@gmail.com>
+Date:   Thu Mar 18 13:10:34 2021 +0000
+
+    ...
+
+ .emacs.desktop                                     |    8 +-
+ .emacs.desktop.lock                                |    1 +
+ desktops/.emacs-buffers                            |    0
+ desktops/.emacs.desktop                            |   19 +
+ desktops/IY3501/.emacs.desktop                     |  248 ++-
+ desktops/IY3821/.emacs-buffers                     |    0
+ desktops/IY3821/.emacs.desktop                     |  367 +++++
+ desktops/IY3821/.emacs.desktop.lock                |    1 +
+ elpa/alert-20200303.2118/alert-autoloads.el        |  100 ++
+ elpa/alert-20200303.2118/alert-pkg.el              |    2 +
+ elpa/alert-20200303.2118/alert.el                  | 1176 ++++++++++++++
+ elpa/alert-20200303.2118/alert.elc                 |  Bin 0 -> 42369 bytes
+ elpa/bind-key-20210210.1609/bind-key-autoloads.el  |   84 +
+ elpa/bind-key-20210210.1609/bind-key-pkg.el        |    2 +
+ elpa/bind-key-20210210.1609/bind-key.el            |  492 ++++++
+ elpa/bind-key-20210210.1609/bind-key.elc           |  Bin 0 -> 12131 bytes
+ elpa/countdown-20190626.244/countdown-autoloads.el |   27 +
+ elpa/countdown-20190626.244/countdown-pkg.el       |    2 +
+ elpa/countdown-20190626.244/countdown.el           |  122 ++
+ elpa/countdown-20190626.244/countdown.elc          |  Bin 0 -> 2873 bytes
+ .../egg-timer-20200217.1650/egg-timer-autoloads.el |   22 +
+ elpa/egg-timer-20200217.1650/egg-timer-pkg.el      |    2 +
+ elpa/egg-timer-20200217.1650/egg-timer.el          |   96 ++
+ elpa/egg-timer-20200217.1650/egg-timer.elc         |  Bin 0 -> 1883 bytes
+ elpa/gntp-20141025.250/gntp-autoloads.el           |   28 +
+ elpa/gntp-20141025.250/gntp-pkg.el                 |    2 +
+ elpa/gntp-20141025.250/gntp.el                     |  244 +++
+ elpa/gntp-20141025.250/gntp.elc                    |  Bin 0 -> 6007 bytes
+ elpa/log4e-20200420.745/log4e-autoloads.el         |   33 +
+ elpa/log4e-20200420.745/log4e-pkg.el               |    2 +
+ elpa/log4e-20200420.745/log4e.el                   |  592 +++++++
+ elpa/log4e-20200420.745/log4e.elc                  |  Bin 0 -> 21292 bytes
+ .../org-kindle-autoloads.el                        |   37 +
+ elpa/org-kindle-20200906.944/org-kindle-pkg.el     |    2 +
+ elpa/org-kindle-20200906.944/org-kindle.el         |  210 +++
+ elpa/org-kindle-20200906.944/org-kindle.elc        |  Bin 0 -> 4802 bytes
+ .../org-pomodoro-autoloads.el                      |   43 +
+ .../org-pomodoro-pidgin.el                         |  149 ++
+ .../org-pomodoro-pidgin.elc                        |  Bin 0 -> 3880 bytes
+ .../org-pomodoro-20190530.1445/org-pomodoro-pkg.el |   11 +
+ elpa/org-pomodoro-20190530.1445/org-pomodoro.el    |  655 ++++++++
+ elpa/org-pomodoro-20190530.1445/org-pomodoro.elc   |  Bin 0 -> 21873 bytes
+ elpa/org-pomodoro-20190530.1445/resources/bell.wav |  Bin 0 -> 35850 bytes
+ .../resources/bell_multiple.wav                    |  Bin 0 -> 42762 bytes
+ elpa/org-pomodoro-20190530.1445/resources/tick.wav |  Bin 0 -> 37616 bytes
+ .../assets/bootstrap-toggle.min.css                |   28 +
+ .../assets/bootstrap-toggle.min.js                 |    9 +
+ .../assets/bootstrap.min.css                       |    7 +
+ .../assets/bootstrap.min.js                        |    7 +
+ .../assets/jquery-3.5.0.min.js                     |    2 +
+ elpa/org-roam-server-20210312.1125/assets/org.css  |    1 +
+ .../assets/select2.min.css                         |    1 +
+ .../assets/select2.min.js                          |    2 +
+ .../assets/vis-network.min.js                      |   86 ++
+ elpa/org-roam-server-20210312.1125/index.html      |  991 ++++++++++++
+ .../org-roam-server-autoloads.el                   |   47 +
+ .../org-roam-server-pkg.el                         |   16 +
+ .../org-roam-server.el                             |  650 ++++++++
+ .../org-roam-server.elc                            |  Bin 0 -> 27922 bytes
+ .../simple-httpd-autoloads.el                      |   38 +
+ .../simple-httpd-20191103.1446/simple-httpd-pkg.el |    2 +
+ elpa/simple-httpd-20191103.1446/simple-httpd.el    |  904 +++++++++++
+ elpa/simple-httpd-20191103.1446/simple-httpd.elc   |  Bin 0 -> 26282 bytes
+ elpa/stream-2.2.5/ChangeLog                        |  214 +++
+ elpa/stream-2.2.5/stream-autoloads.el              |   33 +
+ elpa/stream-2.2.5/stream-pkg.el                    |    2 +
+ elpa/stream-2.2.5/stream-x.el                      |  150 ++
+ elpa/stream-2.2.5/stream-x.elc                     |  Bin 0 -> 4635 bytes
+ elpa/stream-2.2.5/stream.el                        |  504 ++++++
+ elpa/stream-2.2.5/stream.elc                       |  Bin 0 -> 17461 bytes
+ elpa/stream-2.2.5/tests/stream-tests.el            |  312 ++++
+ elpa/stream-2.2.5/tests/stream-tests.elc           |  Bin 0 -> 65143 bytes
+ elpa/use-package-20210207.1926/dir                 |   18 +
+ .../use-package-autoloads.el                       |  230 +++
+ .../use-package-bind-key.el                        |  172 +++
+ .../use-package-bind-key.elc                       |  Bin 0 -> 4638 bytes
+ elpa/use-package-20210207.1926/use-package-core.el | 1633 ++++++++++++++++++++
+ .../use-package-20210207.1926/use-package-core.elc |  Bin 0 -> 55873 bytes
+ .../use-package-delight.el                         |   91 ++
+ .../use-package-delight.elc                        |  Bin 0 -> 1852 bytes
+ .../use-package-diminish.el                        |   80 +
+ .../use-package-diminish.elc                       |  Bin 0 -> 1766 bytes
+ .../use-package-ensure.el                          |  214 +++
+ .../use-package-ensure.elc                         |  Bin 0 -> 5395 bytes
+ elpa/use-package-20210207.1926/use-package-jump.el |   79 +
+ .../use-package-20210207.1926/use-package-jump.elc |  Bin 0 -> 1773 bytes
+ elpa/use-package-20210207.1926/use-package-lint.el |   84 +
+ .../use-package-20210207.1926/use-package-lint.elc |  Bin 0 -> 1545 bytes
+ elpa/use-package-20210207.1926/use-package-pkg.el  |   13 +
+ elpa/use-package-20210207.1926/use-package.el      |   54 +
+ elpa/use-package-20210207.1926/use-package.elc     |  Bin 0 -> 718 bytes
+ elpa/use-package-20210207.1926/use-package.info    | 1048 +++++++++++++
+ init.el                                            |   29 +-
+ server/server                                      |    2 +
+ 94 files changed, 12501 insertions(+), 31 deletions(-)
+
+commit 38d7fc92541548e3d9cb7042b2fb2b1f69f4a8e4
+Author: Toby <rowlandsToby1@gmail.com>
+Date:   Thu Mar 18 02:23:33 2021 +0000
+
+    Added graph viewing to org-roam
+
+ .emacs-buffers                                     |    0
+ .emacs.desktop                                     |   31 +
+ addons-win/Graphviz/Uninstall.exe                  |  Bin 0 -> 173133 bytes
+ addons-win/Graphviz/bin/acyclic.exe                |  Bin 0 -> 12800 bytes
+ addons-win/Graphviz/bin/bcomps.exe                 |  Bin 0 -> 16384 bytes
+ addons-win/Graphviz/bin/cairo.dll                  |  Bin 0 -> 1506816 bytes
+ addons-win/Graphviz/bin/ccomps.exe                 |  Bin 0 -> 23040 bytes
+ addons-win/Graphviz/bin/cdt.dll                    |  Bin 0 -> 24576 bytes
+ addons-win/Graphviz/bin/cgraph.dll                 |  Bin 0 -> 74240 bytes
+ addons-win/Graphviz/bin/circo.exe                  |  Bin 0 -> 12288 bytes
+ addons-win/Graphviz/bin/concrt140.dll              |  Bin 0 -> 317216 bytes
+ addons-win/Graphviz/bin/config6                    |  226 ++
+ addons-win/Graphviz/bin/dijkstra.exe               |  Bin 0 -> 16896 bytes
+ addons-win/Graphviz/bin/dot.exe                    |  Bin 0 -> 12288 bytes
+ addons-win/Graphviz/bin/expat.dll                  |  Bin 0 -> 184832 bytes
+ addons-win/Graphviz/bin/fdp.exe                    |  Bin 0 -> 12288 bytes
+ addons-win/Graphviz/bin/fontconfig.dll             |  Bin 0 -> 830976 bytes
+ addons-win/Graphviz/bin/gc.exe                     |  Bin 0 -> 16384 bytes
+ addons-win/Graphviz/bin/getopt.dll                 |  Bin 0 -> 19968 bytes
+ addons-win/Graphviz/bin/glib-2.dll                 |  Bin 0 -> 1374208 bytes
+ addons-win/Graphviz/bin/gml2gv.exe                 |  Bin 0 -> 35328 bytes
+ addons-win/Graphviz/bin/gobject-2.dll              |  Bin 0 -> 276480 bytes
+ addons-win/Graphviz/bin/graphml2gv.exe             |  Bin 0 -> 20992 bytes
+ addons-win/Graphviz/bin/gv2gml.exe                 |  Bin 0 -> 35328 bytes
+ addons-win/Graphviz/bin/gvc.dll                    |  Bin 0 -> 493056 bytes
+ addons-win/Graphviz/bin/gvcolor.exe                |  Bin 0 -> 36352 bytes
+ addons-win/Graphviz/bin/gvgen.exe                  |  Bin 0 -> 24576 bytes
+ addons-win/Graphviz/bin/gvpack.exe                 |  Bin 0 -> 129024 bytes
+ addons-win/Graphviz/bin/gvplugin_core.dll          |  Bin 0 -> 119808 bytes
+ addons-win/Graphviz/bin/gvplugin_dot_layout.dll    |  Bin 0 -> 199680 bytes
+ addons-win/Graphviz/bin/gvplugin_gdiplus.dll       |  Bin 0 -> 31232 bytes
+ addons-win/Graphviz/bin/gvplugin_neato_layout.dll  |  Bin 0 -> 427008 bytes
+ addons-win/Graphviz/bin/gvplugin_pango.dll         |  Bin 0 -> 35328 bytes
+ addons-win/Graphviz/bin/gvpr.exe                   |  Bin 0 -> 324096 bytes
+ addons-win/Graphviz/bin/gxl2gv.exe                 |  Bin 0 -> 34816 bytes
+ addons-win/Graphviz/bin/libharfbuzz-0.dll          |  Bin 0 -> 922112 bytes
+ addons-win/Graphviz/bin/mm2gv.exe                  |  Bin 0 -> 35840 bytes
+ addons-win/Graphviz/bin/msvcp140.dll               |  Bin 0 -> 590096 bytes
+ addons-win/Graphviz/bin/msvcp140_1.dll             |  Bin 0 -> 31528 bytes
+ addons-win/Graphviz/bin/msvcp140_2.dll             |  Bin 0 -> 193312 bytes
+ addons-win/Graphviz/bin/msvcp140_codecvt_ids.dll   |  Bin 0 -> 27424 bytes
+ addons-win/Graphviz/bin/neato.exe                  |  Bin 0 -> 12288 bytes
+ addons-win/Graphviz/bin/nop.exe                    |  Bin 0 -> 12800 bytes
+ addons-win/Graphviz/bin/osage.exe                  |  Bin 0 -> 12288 bytes
+ addons-win/Graphviz/bin/pango-1.dll                |  Bin 0 -> 287744 bytes
+ addons-win/Graphviz/bin/pangocairo-1.dll           |  Bin 0 -> 612864 bytes
+ addons-win/Graphviz/bin/pangoft2-1.dll             |  Bin 0 -> 639488 bytes
+ addons-win/Graphviz/bin/pangowin32-1.dll           |  Bin 0 -> 65536 bytes
+ addons-win/Graphviz/bin/patchwork.exe              |  Bin 0 -> 12288 bytes
+ addons-win/Graphviz/bin/pathplan.dll               |  Bin 0 -> 43008 bytes
+ addons-win/Graphviz/bin/pixman-1.dll               |  Bin 0 -> 578560 bytes
+ addons-win/Graphviz/bin/sccmap.exe                 |  Bin 0 -> 17408 bytes
+ addons-win/Graphviz/bin/sfdp.exe                   |  Bin 0 -> 12288 bytes
+ addons-win/Graphviz/bin/tred.exe                   |  Bin 0 -> 16896 bytes
+ addons-win/Graphviz/bin/twopi.exe                  |  Bin 0 -> 12288 bytes
+ addons-win/Graphviz/bin/unflatten.exe              |  Bin 0 -> 16384 bytes
+ addons-win/Graphviz/bin/vcruntime140.dll           |  Bin 0 -> 101664 bytes
+ addons-win/Graphviz/bin/vcruntime140_1.dll         |  Bin 0 -> 44328 bytes
+ addons-win/Graphviz/bin/xdot.dll                   |  Bin 0 -> 23552 bytes
+ addons-win/Graphviz/include/graphviz/arith.h       |   92 +
+ addons-win/Graphviz/include/graphviz/cdt.h         |  277 ++
+ addons-win/Graphviz/include/graphviz/cgraph.h      |  461 +++
+ addons-win/Graphviz/include/graphviz/color.h       |   49 +
+ addons-win/Graphviz/include/graphviz/geom.h        |   80 +
+ .../Graphviz/include/graphviz/graphviz_version.h   |    9 +
+ addons-win/Graphviz/include/graphviz/gvc.h         |  124 +
+ addons-win/Graphviz/include/graphviz/gvcext.h      |   94 +
+ addons-win/Graphviz/include/graphviz/gvcjob.h      |  374 +++
+ addons-win/Graphviz/include/graphviz/gvcommon.h    |   37 +
+ addons-win/Graphviz/include/graphviz/gvconfig.h    |   27 +
+ addons-win/Graphviz/include/graphviz/gvplugin.h    |   60 +
+ .../Graphviz/include/graphviz/gvplugin_device.h    |   31 +
+ .../Graphviz/include/graphviz/gvplugin_layout.h    |   30 +
+ .../Graphviz/include/graphviz/gvplugin_loadimage.h |   48 +
+ .../Graphviz/include/graphviz/gvplugin_render.h    |   61 +
+ .../include/graphviz/gvplugin_textlayout.h         |   30 +
+ addons-win/Graphviz/include/graphviz/pack.h        |   91 +
+ addons-win/Graphviz/include/graphviz/pathgeom.h    |   49 +
+ addons-win/Graphviz/include/graphviz/pathplan.h    |   49 +
+ addons-win/Graphviz/include/graphviz/textspan.h    |   68 +
+ addons-win/Graphviz/include/graphviz/types.h       |  620 ++++
+ addons-win/Graphviz/include/graphviz/usershape.h   |   66 +
+ addons-win/Graphviz/include/graphviz/xdot.h        |  188 ++
+ addons-win/Graphviz/lib/cdt.lib                    |  Bin 0 -> 5674 bytes
+ addons-win/Graphviz/lib/cgraph.lib                 |  Bin 0 -> 20492 bytes
+ addons-win/Graphviz/lib/gvc.lib                    |  Bin 0 -> 60886 bytes
+ addons-win/Graphviz/lib/gvplugin_core.lib          |  Bin 0 -> 1878 bytes
+ addons-win/Graphviz/lib/gvplugin_dot_layout.lib    |  Bin 0 -> 1974 bytes
+ addons-win/Graphviz/lib/gvplugin_gdiplus.lib       |  Bin 0 -> 1930 bytes
+ addons-win/Graphviz/lib/gvplugin_neato_layout.lib  |  Bin 0 -> 2006 bytes
+ addons-win/Graphviz/lib/gvplugin_pango.lib         |  Bin 0 -> 1898 bytes
+ addons-win/Graphviz/lib/pathplan.lib               |  Bin 0 -> 5602 bytes
+ addons-win/Graphviz/lib/pkgconfig/libcdt.pc        |   10 +
+ addons-win/Graphviz/lib/pkgconfig/libcgraph.pc     |   10 +
+ addons-win/Graphviz/lib/pkgconfig/libgvc.pc        |   12 +
+ addons-win/Graphviz/lib/pkgconfig/libgvpr.pc       |   11 +
+ addons-win/Graphviz/lib/pkgconfig/liblab_gamut.pc  |   10 +
+ addons-win/Graphviz/lib/pkgconfig/libpathplan.pc   |   10 +
+ addons-win/Graphviz/lib/pkgconfig/libxdot.pc       |   10 +
+ addons-win/Graphviz/lib/xdot.lib                   |  Bin 0 -> 3236 bytes
+ addons-win/Graphviz/share/man/man3/acyclic.1       |   62 +
+ addons-win/Graphviz/share/man/man3/bcomps.1        |   76 +
+ addons-win/Graphviz/share/man/man3/ccomps.1        |  130 +
+ addons-win/Graphviz/share/man/man3/cdt.3           |  587 ++++
+ addons-win/Graphviz/share/man/man3/cgraph.3        |  672 ++++
+ addons-win/Graphviz/share/man/man3/dijkstra.1      |   66 +
+ addons-win/Graphviz/share/man/man3/dot.1           |  740 +++++
+ addons-win/Graphviz/share/man/man3/gc.1            |   86 +
+ addons-win/Graphviz/share/man/man3/gml2gv.1        |   82 +
+ addons-win/Graphviz/share/man/man3/graphml2gv.1    |   64 +
+ addons-win/Graphviz/share/man/man3/gvc.3           |   70 +
+ addons-win/Graphviz/share/man/man3/gvcolor.1       |   56 +
+ addons-win/Graphviz/share/man/man3/gvgen.1         |  223 ++
+ addons-win/Graphviz/share/man/man3/gvpack.1        |  131 +
+ addons-win/Graphviz/share/man/man3/gvpr.1          | 1204 +++++++
+ addons-win/Graphviz/share/man/man3/gxl2gv.1        |   92 +
+ addons-win/Graphviz/share/man/man3/mm2gv.1         |   91 +
+ addons-win/Graphviz/share/man/man3/nop.1           |   31 +
+ addons-win/Graphviz/share/man/man3/osage.1         |  459 +++
+ addons-win/Graphviz/share/man/man3/pack.3          |  215 ++
+ addons-win/Graphviz/share/man/man3/patchwork.1     |  465 +++
+ addons-win/Graphviz/share/man/man3/pathplan.3      |  120 +
+ addons-win/Graphviz/share/man/man3/sccmap.1        |   65 +
+ addons-win/Graphviz/share/man/man3/tred.1          |   56 +
+ addons-win/Graphviz/share/man/man3/unflatten.1     |   61 +
+ addons-win/Graphviz/share/man/man3/xdot.3          |  266 ++
+ config/aesthetics.el                               |    8 +-
+ desktops/IY3501/.emacs-buffers                     |    0
+ desktops/IY3501/.emacs.desktop                     |   55 +
+ elpa/company-20210224.2244/company-abbrev.el       |   50 +
+ elpa/company-20210224.2244/company-abbrev.elc      |  Bin 0 -> 1224 bytes
+ elpa/company-20210224.2244/company-autoloads.el    |  384 +++
+ elpa/company-20210224.2244/company-bbdb.el         |   63 +
+ elpa/company-20210224.2244/company-bbdb.elc        |  Bin 0 -> 1798 bytes
+ elpa/company-20210224.2244/company-capf.el         |  208 ++
+ elpa/company-20210224.2244/company-capf.elc        |  Bin 0 -> 4948 bytes
+ elpa/company-20210224.2244/company-clang.el        |  400 +++
+ elpa/company-20210224.2244/company-clang.elc       |  Bin 0 -> 15241 bytes
+ elpa/company-20210224.2244/company-cmake.el        |  207 ++
+ elpa/company-20210224.2244/company-cmake.elc       |  Bin 0 -> 6111 bytes
+ elpa/company-20210224.2244/company-css.el          |  446 +++
+ elpa/company-20210224.2244/company-css.elc         |  Bin 0 -> 16988 bytes
+ elpa/company-20210224.2244/company-dabbrev-code.el |  104 +
+ .../company-20210224.2244/company-dabbrev-code.elc |  Bin 0 -> 3713 bytes
+ elpa/company-20210224.2244/company-dabbrev.el      |  206 ++
+ elpa/company-20210224.2244/company-dabbrev.elc     |  Bin 0 -> 7078 bytes
+ elpa/company-20210224.2244/company-elisp.el        |  226 ++
+ elpa/company-20210224.2244/company-elisp.elc       |  Bin 0 -> 6669 bytes
+ elpa/company-20210224.2244/company-etags.el        |  108 +
+ elpa/company-20210224.2244/company-etags.elc       |  Bin 0 -> 3148 bytes
+ elpa/company-20210224.2244/company-files.el        |  151 +
+ elpa/company-20210224.2244/company-files.elc       |  Bin 0 -> 4492 bytes
+ elpa/company-20210224.2244/company-gtags.el        |  152 +
+ elpa/company-20210224.2244/company-gtags.elc       |  Bin 0 -> 5242 bytes
+ elpa/company-20210224.2244/company-ispell.el       |   82 +
+ elpa/company-20210224.2244/company-ispell.elc      |  Bin 0 -> 2012 bytes
+ elpa/company-20210224.2244/company-keywords.el     |  314 ++
+ elpa/company-20210224.2244/company-keywords.elc    |  Bin 0 -> 18583 bytes
+ elpa/company-20210224.2244/company-nxml.el         |  143 +
+ elpa/company-20210224.2244/company-nxml.elc        |  Bin 0 -> 4470 bytes
+ elpa/company-20210224.2244/company-oddmuse.el      |   57 +
+ elpa/company-20210224.2244/company-oddmuse.elc     |  Bin 0 -> 1569 bytes
+ elpa/company-20210224.2244/company-pkg.el          |   12 +
+ elpa/company-20210224.2244/company-semantic.el     |  168 +
+ elpa/company-20210224.2244/company-semantic.elc    |  Bin 0 -> 5208 bytes
+ elpa/company-20210224.2244/company-template.el     |  272 ++
+ elpa/company-20210224.2244/company-template.elc    |  Bin 0 -> 8444 bytes
+ elpa/company-20210224.2244/company-tempo.el        |   71 +
+ elpa/company-20210224.2244/company-tempo.elc       |  Bin 0 -> 2255 bytes
+ elpa/company-20210224.2244/company-tng.el          |  181 ++
+ elpa/company-20210224.2244/company-tng.elc         |  Bin 0 -> 4588 bytes
+ elpa/company-20210224.2244/company-yasnippet.el    |  177 ++
+ elpa/company-20210224.2244/company-yasnippet.elc   |  Bin 0 -> 4163 bytes
+ elpa/company-20210224.2244/company.el              | 3357 ++++++++++++++++++++
+ elpa/company-20210224.2244/company.elc             |  Bin 0 -> 111191 bytes
+ .../company-auctex-autoloads.el                    |   51 +
+ .../company-auctex-pkg.el                          |    2 +
+ .../company-auctex-20200529.1835/company-auctex.el |  336 ++
+ .../company-auctex.elc                             |  Bin 0 -> 10950 bytes
+ .../company-bibtex-autoloads.el                    |   33 +
+ .../company-bibtex-pkg.el                          |    2 +
+ elpa/company-bibtex-20171105.644/company-bibtex.el |  192 ++
+ .../company-bibtex-20171105.644/company-bibtex.elc |  Bin 0 -> 4582 bytes
+ elpa/desktop+-20170107.2132/desktop+-autoloads.el  |   66 +
+ elpa/desktop+-20170107.2132/desktop+-pkg.el        |    2 +
+ elpa/desktop+-20170107.2132/desktop+.el            |  400 +++
+ elpa/desktop+-20170107.2132/desktop+.elc           |  Bin 0 -> 11943 bytes
+ .../company-graphviz-dot.el                        |  108 +
+ .../graphviz-dot-mode-autoloads.el                 |   80 +
+ .../graphviz-dot-mode-pkg.el                       |   10 +
+ .../graphviz-dot-mode.el                           |  843 +++++
+ .../graphviz-dot-mode.elc                          |  Bin 0 -> 29681 bytes
+ init.el                                            |   24 +-
+ 193 files changed, 19257 insertions(+), 9 deletions(-)
+
+commit 93af6c510d368577a33fa113d6bc1bc9d32db138
+Author: Toby <rowlandsToby1@gmail.com>
+Date:   Wed Mar 17 15:18:01 2021 +0000
+
+    Made separate aesthetics file
+
+ config/aesthetics.el | 32 ++++++++++++++++++++++++++
+ config/commands.el   |  2 ++
+ init.el              | 63 +++++++++++-----------------------------------------
+ 3 files changed, 47 insertions(+), 50 deletions(-)
+
+commit 604d8a3c2ecceb4b7f44f45feb6e112bf2bcdbd8
+Author: Toby <rowlandsToby1@gmail.com>
+Date:   Wed Mar 17 00:41:22 2021 +0000
+
+    Update init.el
+
+ init.el | 9 ++++-----
+ 1 file changed, 4 insertions(+), 5 deletions(-)
+
+commit 108058b1a5327d304040a41154504be0a0881492
+Author: Toby <rowlandsToby1@gmail.com>
+Date:   Wed Mar 17 00:25:19 2021 +0000
+
+    Update init.el
+
+ init.el | 19 +++----------------
+ 1 file changed, 3 insertions(+), 16 deletions(-)
+
+commit 57c0bdeb7ff892eaf48e860d8d7a54147e0c41a6
+Author: Toby <rowlandsToby1@gmail.com>
+Date:   Wed Mar 17 00:18:13 2021 +0000
+
+    Update init.el
+
+ init.el | 47 ++++++++++++++++-------------------------------
+ 1 file changed, 16 insertions(+), 31 deletions(-)
+
+commit 643225ae3756d4509442c1304674d44b936cecd5
+Author: Toby <rowlandsToby1@gmail.com>
+Date:   Wed Mar 17 00:09:39 2021 +0000
+
+    Update init.el
+
+ init.el | 20 --------------------
+ 1 file changed, 20 deletions(-)
+
+commit 83826e8b0b1d861b486ebb5f70958218e4107e12
+Author: Toby <rowlandsToby1@gmail.com>
+Date:   Wed Mar 17 00:05:30 2021 +0000
+
+    Update init.el
+
+ init.el | 63 ++++++++++++++++++++++++++++++++++++++++++++++-----------------
+ 1 file changed, 46 insertions(+), 17 deletions(-)
+
+commit d6b43aa07f2178874e44fecc09fef19391ea1df1
+Author: Toby <rowlandsToby1@gmail.com>
+Date:   Tue Mar 16 23:54:38 2021 +0000
+
+    Cleaning up
+
+ .gitignore                              |   1 +
+ addons-win/{diff-bin => }/cmp.exe       | Bin
+ addons-win/{diff-bin => }/diff.exe      | Bin
+ addons-win/{diff-bin => }/diff3.exe     | Bin
+ addons-win/{diff-bin => }/libiconv2.dll | Bin
+ addons-win/{diff-bin => }/libintl3.dll  | Bin
+ addons-win/{diff-bin => }/sdiff.exe     | Bin
+ config/commands.el                      |   5 +-
+ init.el                                 |  82 ++++++++++-----------
+ lisp/org-bullets/org-bullets.el         | 126 --------------------------------
+ 10 files changed, 46 insertions(+), 168 deletions(-)
+
+commit 4a835275d615236e6a21d0e4f3ced6ab3672205d
+Author: Toby <rowlandsToby1@gmail.com>
+Date:   Tue Mar 16 13:39:31 2021 +0000
+
+    Update init.el
+
+ init.el | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit bd7b045c0e908eafbfb0fff28e0ba27d995b39cb
+Author: Toby <rowlandsToby1@gmail.com>
+Date:   Tue Mar 16 13:27:07 2021 +0000
+
+    Update init.el
+
+ init.el | 9 ++++-----
+ 1 file changed, 4 insertions(+), 5 deletions(-)
+
+commit c39661c7868bfaa92338a2d31f50045dc2d7fae8
+Author: Toby <rowlandsToby1@gmail.com>
+Date:   Tue Mar 16 10:29:51 2021 +0000
+
+    Changes to linux version
+
+ .gitignore                           |    2 +
+ elpa/archives/gnu/archive-contents   | 2711 -------------------
+ elpa/archives/melpa/archive-contents | 4881 ----------------------------------
+ init.el                              |    8 +-
+ 4 files changed, 6 insertions(+), 7596 deletions(-)
+
+commit ebc5fd799c62392518dfa4296b8b65263da1aafa
+Author: Toby <rowlandsToby1@gmail.com>
+Date:   Mon Mar 15 21:43:54 2021 +0000
+
+    Changed Library referencing method
+    
+    Makes it easier to tell where a cited file can be found. Though it does break existing citations.
+
+ init.el | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
+
+commit 471dd8dbbbde282c4fe86e7a28cd671ff981cdb0
+Author: Toby <rowlandsToby1@gmail.com>
+Date:   Mon Mar 15 15:23:12 2021 +0000
+
+    Changed counsel-recentf keybind
+    
+    Finally maybe coming to the point of atomic commits, still need to do a few init refactors though.
+
+ .gitignore         | 1 +
+ config/keybinds.el | 2 +-
+ 2 files changed, 2 insertions(+), 1 deletion(-)
+
+commit d21c5fd07a08c5a016da2993a2d9a70fe49b7109
+Author: Toby <rowlandsToby1@gmail.com>
+Date:   Sun Mar 14 02:33:44 2021 +0000
+
+    Refactor
+
+ .gitignore                                       |   1 +
+ config/commands.el                               |  75 ++++
+ config/keybinds.el                               |  73 ++++
+ elpa/archives/melpa/archive-contents             |  34 +-
+ elpa/olivetti-20201029.922/olivetti-autoloads.el |  35 --
+ elpa/olivetti-20201029.922/olivetti-pkg.el       |   2 -
+ elpa/olivetti-20201029.922/olivetti.el           | 447 -----------------------
+ elpa/olivetti-20201029.922/olivetti.elc          | Bin 11836 -> 0 bytes
+ init.el                                          | 292 ++-------------
+ 9 files changed, 199 insertions(+), 760 deletions(-)
+
+commit 7bc46a7f8b86068bf1cb7a9f01650cfbcead67bf
+Author: Toby <rowlandsToby1@gmail.com>
+Date:   Sat Mar 13 23:02:19 2021 +0000
+
+    Changed EOL characters
+    
+    M^ creating issues with git diff, opening on GitHub in browser changes EOL character, then removed a colon so git would let me commit.
+
+ init.el | 450 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 449 insertions(+), 1 deletion(-)
+
+commit 6ee577041f26afa307a15d57ea4f49bb6fecce5f
+Author: Toby <rowlandsToby1@gmail.com>
+Date:   Sat Mar 13 20:34:35 2021 +0000
+
+    Customisations
+    
+    Changed Swiper to default search and improved noter functions
+
+ init.el | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 964ad78d2a82ea604cb03df14fd871a025c26311
+Author: Toby <rowlandsToby1@gmail.com>
+Date:   Sat Mar 13 17:25:47 2021 +0000
+
+    Added Pdf-tools
+    
+    Compiled and added epdfinfo.exe
+
+ elpa/archives/melpa/archive-contents               |  70 ++++++++++-----------
+ elpa/org-pdftools-20210118.1611/epdfinfo.exe       | Bin 0 -> 1620993 bytes
+ .../build/server/epdfinfo.exe                      | Bin 0 -> 1621505 bytes
+ elpa/pdf-tools-20200512.1524/epdfinfo.exe          | Bin 0 -> 1621505 bytes
+ elpa/pdf-tools-20200512.1524/libbrotlicommon.dll   | Bin 0 -> 143395 bytes
+ elpa/pdf-tools-20200512.1524/libbrotlidec.dll      | Bin 0 -> 52874 bytes
+ elpa/pdf-tools-20200512.1524/libbz2-1.dll          | Bin 0 -> 99146 bytes
+ elpa/pdf-tools-20200512.1524/libcairo-2.dll        | Bin 0 -> 1093667 bytes
+ elpa/pdf-tools-20200512.1524/libcrypto-1_1-x64.dll | Bin 0 -> 2789703 bytes
+ elpa/pdf-tools-20200512.1524/libcurl-4.dll         | Bin 0 -> 678512 bytes
+ elpa/pdf-tools-20200512.1524/libdeflate.dll        | Bin 0 -> 57954 bytes
+ elpa/pdf-tools-20200512.1524/libexpat-1.dll        | Bin 0 -> 193832 bytes
+ elpa/pdf-tools-20200512.1524/libffi-7.dll          | Bin 0 -> 30354 bytes
+ elpa/pdf-tools-20200512.1524/libfontconfig-1.dll   | Bin 0 -> 314046 bytes
+ elpa/pdf-tools-20200512.1524/libfreetype-6.dll     | Bin 0 -> 723628 bytes
+ elpa/pdf-tools-20200512.1524/libgcc_s_seh-1.dll    | Bin 0 -> 81585 bytes
+ elpa/pdf-tools-20200512.1524/libgio-2.0-0.dll      | Bin 0 -> 1586848 bytes
+ elpa/pdf-tools-20200512.1524/libglib-2.0-0.dll     | Bin 0 -> 1291076 bytes
+ elpa/pdf-tools-20200512.1524/libgmodule-2.0-0.dll  | Bin 0 -> 23678 bytes
+ elpa/pdf-tools-20200512.1524/libgobject-2.0-0.dll  | Bin 0 -> 312692 bytes
+ elpa/pdf-tools-20200512.1524/libgraphite2.dll      | Bin 0 -> 154163 bytes
+ elpa/pdf-tools-20200512.1524/libharfbuzz-0.dll     | Bin 0 -> 1009284 bytes
+ elpa/pdf-tools-20200512.1524/libiconv-2.dll        | Bin 0 -> 1058528 bytes
+ elpa/pdf-tools-20200512.1524/libidn2-0.dll         | Bin 0 -> 161792 bytes
+ elpa/pdf-tools-20200512.1524/libintl-8.dll         | Bin 0 -> 133659 bytes
+ elpa/pdf-tools-20200512.1524/libjpeg-8.dll         | Bin 0 -> 698765 bytes
+ elpa/pdf-tools-20200512.1524/liblcms2-2.dll        | Bin 0 -> 404191 bytes
+ elpa/pdf-tools-20200512.1524/liblzma-5.dll         | Bin 0 -> 153747 bytes
+ elpa/pdf-tools-20200512.1524/libnghttp2-14.dll     | Bin 0 -> 175190 bytes
+ elpa/pdf-tools-20200512.1524/libnspr4.dll          | Bin 0 -> 309760 bytes
+ elpa/pdf-tools-20200512.1524/libopenjp2-7.dll      | Bin 0 -> 388625 bytes
+ elpa/pdf-tools-20200512.1524/libpcre-1.dll         | Bin 0 -> 281183 bytes
+ elpa/pdf-tools-20200512.1524/libpixman-1-0.dll     | Bin 0 -> 684803 bytes
+ elpa/pdf-tools-20200512.1524/libplc4.dll           | Bin 0 -> 26624 bytes
+ elpa/pdf-tools-20200512.1524/libplds4.dll          | Bin 0 -> 21504 bytes
+ elpa/pdf-tools-20200512.1524/libpng16-16.dll       | Bin 0 -> 231911 bytes
+ elpa/pdf-tools-20200512.1524/libpoppler-105.dll    | Bin 0 -> 2872188 bytes
+ elpa/pdf-tools-20200512.1524/libpoppler-glib-8.dll | Bin 0 -> 368721 bytes
+ elpa/pdf-tools-20200512.1524/libpsl-5.dll          | Bin 0 -> 97342 bytes
+ elpa/pdf-tools-20200512.1524/libssh2-1.dll         | Bin 0 -> 264418 bytes
+ elpa/pdf-tools-20200512.1524/libssl-1_1-x64.dll    | Bin 0 -> 579824 bytes
+ elpa/pdf-tools-20200512.1524/libstdc++-6.dll       | Bin 0 -> 1752711 bytes
+ elpa/pdf-tools-20200512.1524/libtiff-5.dll         | Bin 0 -> 527391 bytes
+ elpa/pdf-tools-20200512.1524/libunistring-2.dll    | Bin 0 -> 1764972 bytes
+ elpa/pdf-tools-20200512.1524/libwebp-7.dll         | Bin 0 -> 447631 bytes
+ elpa/pdf-tools-20200512.1524/libwinpthread-1.dll   | Bin 0 -> 58539 bytes
+ elpa/pdf-tools-20200512.1524/libzstd.dll           | Bin 0 -> 800138 bytes
+ elpa/pdf-tools-20200512.1524/nss3.dll              | Bin 0 -> 1299456 bytes
+ elpa/pdf-tools-20200512.1524/nssutil3.dll          | Bin 0 -> 159232 bytes
+ elpa/pdf-tools-20200512.1524/smime3.dll            | Bin 0 -> 170496 bytes
+ elpa/pdf-tools-20200512.1524/zlib1.dll             | Bin 0 -> 116428 bytes
+ init.el                                            |   2 +-
+ 52 files changed, 36 insertions(+), 36 deletions(-)
+
+commit fcc94b07084dc6adf26c01508d80ac9d799affc0
+Author: Toby <rowlandsToby1@gmail.com>
+Date:   Sat Mar 13 16:13:08 2021 +0000
+
+    more changes
+
+ elpa/archives/gnu/archive-contents   |  94 +++++++----
+ elpa/archives/melpa/archive-contents | 311 ++++++++++++++++++-----------------
+ init.el                              |   2 +-
+ 3 files changed, 223 insertions(+), 184 deletions(-)
+
+commit 70baba3be82f5ba15c3ae334ec135d0c869c7c30
+Author: Toby <rowlandsToby1@gmail.com>
+Date:   Wed Mar 10 01:22:00 2021 +0000
+
+    Update init.el
+
+ init.el | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit b01aef6d099835bedebbd39396cd1cc5d041e04c
+Author: Toby <rowlandsToby1@gmail.com>
+Date:   Sun Mar 7 22:43:53 2021 +0000
+
+    Lots of Changes
+    
+    Now supporting LaTeX , Bibleographys with emacs etc
+
+ .gitignore                                         |     1 +
+ elpa/archives/gnu/archive-contents                 |     2 +-
+ elpa/archives/melpa/archive-contents               |   190 +-
+ elpa/auctex-13.0.4/.elpaignore                     |    14 +
+ elpa/auctex-13.0.4/COPYING                         |   674 +
+ elpa/auctex-13.0.4/ChangeLog-preview               |  1905 ++
+ elpa/auctex-13.0.4/ChangeLog-preview.1             |  3736 +++
+ elpa/auctex-13.0.4/ChangeLog.1                     | 25323 +++++++++++++++++++
+ elpa/auctex-13.0.4/GNUmakefile                     |    93 +
+ elpa/auctex-13.0.4/README                          |   238 +
+ elpa/auctex-13.0.4/RELEASE                         |   143 +
+ elpa/auctex-13.0.4/auctex-autoloads.el             |   408 +
+ elpa/auctex-13.0.4/auctex-pkg.el                   |     2 +
+ elpa/auctex-13.0.4/auctex.el                       |    45 +
+ elpa/auctex-13.0.4/auctex.elc                      |   Bin 0 -> 550 bytes
+ elpa/auctex-13.0.4/auctex.info                     |  9198 +++++++
+ elpa/auctex-13.0.4/bib-cite.el                     |  2446 ++
+ elpa/auctex-13.0.4/bib-cite.elc                    |   Bin 0 -> 48352 bytes
+ elpa/auctex-13.0.4/circ.tex                        |   479 +
+ elpa/auctex-13.0.4/context-en.el                   |   226 +
+ elpa/auctex-13.0.4/context-en.elc                  |   Bin 0 -> 6807 bytes
+ elpa/auctex-13.0.4/context-nl.el                   |   202 +
+ elpa/auctex-13.0.4/context-nl.elc                  |   Bin 0 -> 6510 bytes
+ elpa/auctex-13.0.4/context.el                      |  1833 ++
+ elpa/auctex-13.0.4/context.elc                     |   Bin 0 -> 52486 bytes
+ elpa/auctex-13.0.4/dir                             |    25 +
+ elpa/auctex-13.0.4/doc/auctex.texi                 |  5912 +++++
+ elpa/auctex-13.0.4/doc/changes.texi                |  1559 ++
+ elpa/auctex-13.0.4/doc/copying.texi                |    48 +
+ elpa/auctex-13.0.4/doc/faq.texi                    |   138 +
+ elpa/auctex-13.0.4/doc/fdl.texi                    |   506 +
+ elpa/auctex-13.0.4/doc/history.texi                |  1918 ++
+ elpa/auctex-13.0.4/doc/install.texi                |   571 +
+ elpa/auctex-13.0.4/doc/intro.texi                  |   106 +
+ elpa/auctex-13.0.4/doc/macros.texi                 |    89 +
+ elpa/auctex-13.0.4/doc/preview-dtxdoc.pl           |   156 +
+ elpa/auctex-13.0.4/doc/preview-faq.texi            |   303 +
+ elpa/auctex-13.0.4/doc/preview-latex.texi          |   847 +
+ elpa/auctex-13.0.4/doc/preview-problems.texi       |   195 +
+ elpa/auctex-13.0.4/doc/preview-readme.texi         |   228 +
+ elpa/auctex-13.0.4/doc/preview-todo.texi           |   118 +
+ elpa/auctex-13.0.4/doc/quickstart.texi             |   326 +
+ elpa/auctex-13.0.4/doc/tex-ref.tex                 |   681 +
+ elpa/auctex-13.0.4/doc/todo.texi                   |   300 +
+ elpa/auctex-13.0.4/doc/wininstall.texi             |   357 +
+ elpa/auctex-13.0.4/etc/auctex-logo.tex             |    27 +
+ elpa/auctex-13.0.4/font-latex.el                   |  2294 ++
+ elpa/auctex-13.0.4/font-latex.elc                  |   Bin 0 -> 63499 bytes
+ elpa/auctex-13.0.4/images/amstex.xpm               |   207 +
+ elpa/auctex-13.0.4/images/bibtex.xpm               |    82 +
+ elpa/auctex-13.0.4/images/dropdown.xpm             |    30 +
+ elpa/auctex-13.0.4/images/dvipdf.xpm               |    65 +
+ elpa/auctex-13.0.4/images/dvips.xpm                |    89 +
+ elpa/auctex-13.0.4/images/error.xpm                |    35 +
+ elpa/auctex-13.0.4/images/exec.xpm                 |    68 +
+ elpa/auctex-13.0.4/images/execbibtex.xpm           |   127 +
+ elpa/auctex-13.0.4/images/execdvips.xpm            |    52 +
+ elpa/auctex-13.0.4/images/execerror.xpm            |    49 +
+ elpa/auctex-13.0.4/images/execpdftex.xpm           |   205 +
+ elpa/auctex-13.0.4/images/exectex.xpm              |   203 +
+ elpa/auctex-13.0.4/images/execviewdvi.xpm          |    46 +
+ elpa/auctex-13.0.4/images/execviewpdf.xpm          |    42 +
+ elpa/auctex-13.0.4/images/execviewps.xpm           |    42 +
+ elpa/auctex-13.0.4/images/gv.xpm                   |   158 +
+ elpa/auctex-13.0.4/images/jumpdvi.xpm              |    74 +
+ elpa/auctex-13.0.4/images/ltx-symb-turn-off.xpm    |    47 +
+ elpa/auctex-13.0.4/images/ltx-symb-turn-on.xpm     |    46 +
+ elpa/auctex-13.0.4/images/pdftex.xpm               |   206 +
+ elpa/auctex-13.0.4/images/prverr16.xpm             |    31 +
+ elpa/auctex-13.0.4/images/prverr20.xpm             |    35 +
+ elpa/auctex-13.0.4/images/prverr24.xbm             |     9 +
+ elpa/auctex-13.0.4/images/prverr24.xpm             |    39 +
+ elpa/auctex-13.0.4/images/prvtex-cap-up.xpm        |    48 +
+ elpa/auctex-13.0.4/images/prvtex12.xbm             |     6 +
+ elpa/auctex-13.0.4/images/prvtex12.xpm             |    32 +
+ elpa/auctex-13.0.4/images/prvtex16.xbm             |     7 +
+ elpa/auctex-13.0.4/images/prvtex16.xpm             |    36 +
+ elpa/auctex-13.0.4/images/prvtex20.xpm             |    40 +
+ elpa/auctex-13.0.4/images/prvtex24.xbm             |    10 +
+ elpa/auctex-13.0.4/images/prvtex24.xpm             |    37 +
+ elpa/auctex-13.0.4/images/prvwrk12.xpm             |    32 +
+ elpa/auctex-13.0.4/images/prvwrk14.xpm             |    34 +
+ elpa/auctex-13.0.4/images/prvwrk16.xpm             |    36 +
+ elpa/auctex-13.0.4/images/prvwrk20.xpm             |    40 +
+ elpa/auctex-13.0.4/images/prvwrk24.xbm             |    12 +
+ elpa/auctex-13.0.4/images/prvwrk24.xpm             |    44 +
+ elpa/auctex-13.0.4/images/pspdf.xpm                |    83 +
+ elpa/auctex-13.0.4/images/sep.xpm                  |    29 +
+ elpa/auctex-13.0.4/images/spell.xpm                |    64 +
+ elpa/auctex-13.0.4/images/tex.xpm                  |   260 +
+ elpa/auctex-13.0.4/images/view.xpm                 |    31 +
+ elpa/auctex-13.0.4/images/viewdvi.xpm              |    58 +
+ elpa/auctex-13.0.4/images/viewpdf.xpm              |    54 +
+ elpa/auctex-13.0.4/images/viewps.xpm               |    54 +
+ elpa/auctex-13.0.4/latex-flymake.el                |   104 +
+ elpa/auctex-13.0.4/latex-flymake.elc               |   Bin 0 -> 1961 bytes
+ elpa/auctex-13.0.4/latex.el                        |  7013 +++++
+ elpa/auctex-13.0.4/latex.elc                       |   Bin 0 -> 216422 bytes
+ elpa/auctex-13.0.4/latex/README                    |    64 +
+ elpa/auctex-13.0.4/latex/bootstrap.ins             |     4 +
+ elpa/auctex-13.0.4/latex/prauctex.cfg              |    48 +
+ elpa/auctex-13.0.4/latex/prauctex.def              |    61 +
+ elpa/auctex-13.0.4/latex/prcounters.def            |    38 +
+ elpa/auctex-13.0.4/latex/preview.dtx               |  1877 ++
+ elpa/auctex-13.0.4/latex/preview.sty               |   392 +
+ elpa/auctex-13.0.4/latex/prfootnotes.def           |    28 +
+ elpa/auctex-13.0.4/latex/prlyx.def                 |    32 +
+ elpa/auctex-13.0.4/latex/prshowbox.def             |    32 +
+ elpa/auctex-13.0.4/latex/prshowlabels.def          |    67 +
+ elpa/auctex-13.0.4/latex/prtightpage.def           |   146 +
+ elpa/auctex-13.0.4/latex/prtracingall.def          |    30 +
+ elpa/auctex-13.0.4/multi-prompt.el                 |   222 +
+ elpa/auctex-13.0.4/multi-prompt.elc                |   Bin 0 -> 5029 bytes
+ elpa/auctex-13.0.4/plain-tex.el                    |   337 +
+ elpa/auctex-13.0.4/plain-tex.elc                   |   Bin 0 -> 9795 bytes
+ elpa/auctex-13.0.4/preview-latex.info              |  2576 ++
+ elpa/auctex-13.0.4/preview.el                      |  4266 ++++
+ elpa/auctex-13.0.4/preview.elc                     |   Bin 0 -> 125657 bytes
+ elpa/auctex-13.0.4/style/.nosearch                 |     1 +
+ elpa/auctex-13.0.4/style/Alegreya.el               |   106 +
+ elpa/auctex-13.0.4/style/Alegreya.elc              |   Bin 0 -> 1965 bytes
+ elpa/auctex-13.0.4/style/AlegreyaSans.el           |   118 +
+ elpa/auctex-13.0.4/style/AlegreyaSans.elc          |   Bin 0 -> 2387 bytes
+ elpa/auctex-13.0.4/style/AnonymousPro.el           |    92 +
+ elpa/auctex-13.0.4/style/AnonymousPro.elc          |   Bin 0 -> 1472 bytes
+ elpa/auctex-13.0.4/style/CJK.el                    |    97 +
+ elpa/auctex-13.0.4/style/CJK.elc                   |   Bin 0 -> 2083 bytes
+ elpa/auctex-13.0.4/style/CJKutf8.el                |    41 +
+ elpa/auctex-13.0.4/style/CJKutf8.elc               |   Bin 0 -> 557 bytes
+ elpa/auctex-13.0.4/style/FiraMono.el               |    78 +
+ elpa/auctex-13.0.4/style/FiraMono.elc              |   Bin 0 -> 1228 bytes
+ elpa/auctex-13.0.4/style/FiraSans.el               |   110 +
+ elpa/auctex-13.0.4/style/FiraSans.elc              |   Bin 0 -> 1779 bytes
+ elpa/auctex-13.0.4/style/MinionPro.el              |    76 +
+ elpa/auctex-13.0.4/style/MinionPro.elc             |   Bin 0 -> 1331 bytes
+ elpa/auctex-13.0.4/style/MyriadPro.el              |   102 +
+ elpa/auctex-13.0.4/style/MyriadPro.elc             |   Bin 0 -> 1688 bytes
+ elpa/auctex-13.0.4/style/XCharter.el               |    97 +
+ elpa/auctex-13.0.4/style/XCharter.elc              |   Bin 0 -> 1505 bytes
+ elpa/auctex-13.0.4/style/acro.el                   |   300 +
+ elpa/auctex-13.0.4/style/acro.elc                  |   Bin 0 -> 10255 bytes
+ elpa/auctex-13.0.4/style/acronym.el                |   185 +
+ elpa/auctex-13.0.4/style/acronym.elc               |   Bin 0 -> 6559 bytes
+ elpa/auctex-13.0.4/style/afterpage.el              |    46 +
+ elpa/auctex-13.0.4/style/afterpage.elc             |   Bin 0 -> 677 bytes
+ elpa/auctex-13.0.4/style/algorithm.el              |    83 +
+ elpa/auctex-13.0.4/style/algorithm.elc             |   Bin 0 -> 1470 bytes
+ elpa/auctex-13.0.4/style/algpseudocode.el          |    76 +
+ elpa/auctex-13.0.4/style/algpseudocode.elc         |   Bin 0 -> 1271 bytes
+ elpa/auctex-13.0.4/style/alltt.el                  |    57 +
+ elpa/auctex-13.0.4/style/alltt.elc                 |   Bin 0 -> 965 bytes
+ elpa/auctex-13.0.4/style/alphanum.el               |   105 +
+ elpa/auctex-13.0.4/style/alphanum.elc              |   Bin 0 -> 1541 bytes
+ elpa/auctex-13.0.4/style/amsart.el                 |    16 +
+ elpa/auctex-13.0.4/style/amsart.elc                |   Bin 0 -> 640 bytes
+ elpa/auctex-13.0.4/style/amsbook.el                |    15 +
+ elpa/auctex-13.0.4/style/amsbook.elc               |   Bin 0 -> 641 bytes
+ elpa/auctex-13.0.4/style/amsbsy.el                 |    21 +
+ elpa/auctex-13.0.4/style/amsbsy.elc                |   Bin 0 -> 710 bytes
+ elpa/auctex-13.0.4/style/amsfonts.el               |    61 +
+ elpa/auctex-13.0.4/style/amsfonts.elc              |   Bin 0 -> 905 bytes
+ elpa/auctex-13.0.4/style/amsmath.el                |   258 +
+ elpa/auctex-13.0.4/style/amsmath.elc               |   Bin 0 -> 7483 bytes
+ elpa/auctex-13.0.4/style/amsopn.el                 |    56 +
+ elpa/auctex-13.0.4/style/amsopn.elc                |   Bin 0 -> 1084 bytes
+ elpa/auctex-13.0.4/style/amssymb.el                |   253 +
+ elpa/auctex-13.0.4/style/amssymb.elc               |   Bin 0 -> 4573 bytes
+ elpa/auctex-13.0.4/style/amstex.el                 |    63 +
+ elpa/auctex-13.0.4/style/amstex.elc                |   Bin 0 -> 937 bytes
+ elpa/auctex-13.0.4/style/amstext.el                |    20 +
+ elpa/auctex-13.0.4/style/amstext.elc               |   Bin 0 -> 678 bytes
+ elpa/auctex-13.0.4/style/amsthm.el                 |   201 +
+ elpa/auctex-13.0.4/style/amsthm.elc                |   Bin 0 -> 7992 bytes
+ elpa/auctex-13.0.4/style/appendix.el               |    79 +
+ elpa/auctex-13.0.4/style/appendix.elc              |   Bin 0 -> 1373 bytes
+ elpa/auctex-13.0.4/style/arabxetex.el              |   126 +
+ elpa/auctex-13.0.4/style/arabxetex.elc             |   Bin 0 -> 2027 bytes
+ elpa/auctex-13.0.4/style/array.el                  |   111 +
+ elpa/auctex-13.0.4/style/array.elc                 |   Bin 0 -> 3950 bytes
+ elpa/auctex-13.0.4/style/article.el                |    24 +
+ elpa/auctex-13.0.4/style/article.elc               |   Bin 0 -> 1134 bytes
+ elpa/auctex-13.0.4/style/attachfile.el             |   127 +
+ elpa/auctex-13.0.4/style/attachfile.elc            |   Bin 0 -> 2153 bytes
+ elpa/auctex-13.0.4/style/australian.el             |    42 +
+ elpa/auctex-13.0.4/style/australian.elc            |   Bin 0 -> 564 bytes
+ elpa/auctex-13.0.4/style/austrian.el               |    42 +
+ elpa/auctex-13.0.4/style/austrian.elc              |   Bin 0 -> 561 bytes
+ elpa/auctex-13.0.4/style/babel.el                  |   430 +
+ elpa/auctex-13.0.4/style/babel.elc                 |   Bin 0 -> 12546 bytes
+ elpa/auctex-13.0.4/style/baskervaldx.el            |    88 +
+ elpa/auctex-13.0.4/style/baskervaldx.elc           |   Bin 0 -> 1364 bytes
+ elpa/auctex-13.0.4/style/beamer.el                 |   377 +
+ elpa/auctex-13.0.4/style/beamer.elc                |   Bin 0 -> 11670 bytes
+ elpa/auctex-13.0.4/style/beamerarticle.el          |    35 +
+ elpa/auctex-13.0.4/style/beamerarticle.elc         |   Bin 0 -> 554 bytes
+ elpa/auctex-13.0.4/style/beamerswitch.el           |    35 +
+ elpa/auctex-13.0.4/style/beamerswitch.elc          |   Bin 0 -> 553 bytes
+ elpa/auctex-13.0.4/style/biblatex.el               |   646 +
+ elpa/auctex-13.0.4/style/biblatex.elc              |   Bin 0 -> 21005 bytes
+ elpa/auctex-13.0.4/style/bicaption.el              |   206 +
+ elpa/auctex-13.0.4/style/bicaption.elc             |   Bin 0 -> 5012 bytes
+ elpa/auctex-13.0.4/style/bidi.el                   |   200 +
+ elpa/auctex-13.0.4/style/bidi.elc                  |   Bin 0 -> 3755 bytes
+ elpa/auctex-13.0.4/style/bidibeamer.el             |    42 +
+ elpa/auctex-13.0.4/style/bidibeamer.elc            |   Bin 0 -> 563 bytes
+ elpa/auctex-13.0.4/style/bigdelim.el               |    55 +
+ elpa/auctex-13.0.4/style/bigdelim.elc              |   Bin 0 -> 1147 bytes
+ elpa/auctex-13.0.4/style/bigstrut.el               |    68 +
+ elpa/auctex-13.0.4/style/bigstrut.elc              |   Bin 0 -> 1248 bytes
+ elpa/auctex-13.0.4/style/bm.el                     |    62 +
+ elpa/auctex-13.0.4/style/bm.elc                    |   Bin 0 -> 1127 bytes
+ elpa/auctex-13.0.4/style/book.el                   |    24 +
+ elpa/auctex-13.0.4/style/book.elc                  |   Bin 0 -> 1115 bytes
+ elpa/auctex-13.0.4/style/booktabs.el               |    86 +
+ elpa/auctex-13.0.4/style/booktabs.elc              |   Bin 0 -> 1607 bytes
+ elpa/auctex-13.0.4/style/breqn.el                  |   141 +
+ elpa/auctex-13.0.4/style/breqn.elc                 |   Bin 0 -> 2818 bytes
+ elpa/auctex-13.0.4/style/bulgarian.el              |    63 +
+ elpa/auctex-13.0.4/style/bulgarian.elc             |   Bin 0 -> 1148 bytes
+ elpa/auctex-13.0.4/style/canadian.el               |    42 +
+ elpa/auctex-13.0.4/style/canadian.elc              |   Bin 0 -> 562 bytes
+ elpa/auctex-13.0.4/style/captcont.el               |    54 +
+ elpa/auctex-13.0.4/style/captcont.elc              |   Bin 0 -> 886 bytes
+ elpa/auctex-13.0.4/style/caption.el                |   480 +
+ elpa/auctex-13.0.4/style/caption.elc               |   Bin 0 -> 14329 bytes
+ elpa/auctex-13.0.4/style/changelog.el              |   163 +
+ elpa/auctex-13.0.4/style/changelog.elc             |   Bin 0 -> 3349 bytes
+ elpa/auctex-13.0.4/style/cleveref.el               |   205 +
+ elpa/auctex-13.0.4/style/cleveref.elc              |   Bin 0 -> 5611 bytes
+ elpa/auctex-13.0.4/style/color.el                  |   312 +
+ elpa/auctex-13.0.4/style/color.elc                 |   Bin 0 -> 9328 bytes
+ elpa/auctex-13.0.4/style/colortbl.el               |   100 +
+ elpa/auctex-13.0.4/style/colortbl.elc              |   Bin 0 -> 1831 bytes
+ elpa/auctex-13.0.4/style/commath.el                |   109 +
+ elpa/auctex-13.0.4/style/commath.elc               |   Bin 0 -> 2432 bytes
+ elpa/auctex-13.0.4/style/comment.el                |    81 +
+ elpa/auctex-13.0.4/style/comment.elc               |   Bin 0 -> 1362 bytes
+ elpa/auctex-13.0.4/style/csquotes.el               |   391 +
+ elpa/auctex-13.0.4/style/csquotes.elc              |   Bin 0 -> 10145 bytes
+ elpa/auctex-13.0.4/style/currvita.el               |    97 +
+ elpa/auctex-13.0.4/style/currvita.elc              |   Bin 0 -> 1822 bytes
+ elpa/auctex-13.0.4/style/czech.el                  |    11 +
+ elpa/auctex-13.0.4/style/czech.elc                 |   Bin 0 -> 658 bytes
+ elpa/auctex-13.0.4/style/danish.el                 |    26 +
+ elpa/auctex-13.0.4/style/danish.elc                |   Bin 0 -> 818 bytes
+ elpa/auctex-13.0.4/style/dashundergaps.el          |   106 +
+ elpa/auctex-13.0.4/style/dashundergaps.elc         |   Bin 0 -> 2295 bytes
+ elpa/auctex-13.0.4/style/dcolumn.el                |    51 +
+ elpa/auctex-13.0.4/style/dcolumn.elc               |   Bin 0 -> 731 bytes
+ elpa/auctex-13.0.4/style/dinbrief.el               |   280 +
+ elpa/auctex-13.0.4/style/dinbrief.elc              |   Bin 0 -> 6146 bytes
+ elpa/auctex-13.0.4/style/dk-bib.el                 |    64 +
+ elpa/auctex-13.0.4/style/dk-bib.elc                |   Bin 0 -> 1180 bytes
+ elpa/auctex-13.0.4/style/dk.el                     |    13 +
+ elpa/auctex-13.0.4/style/dk.elc                    |   Bin 0 -> 557 bytes
+ elpa/auctex-13.0.4/style/doc.el                    |   196 +
+ elpa/auctex-13.0.4/style/doc.elc                   |   Bin 0 -> 4413 bytes
+ elpa/auctex-13.0.4/style/dutch.el                  |    13 +
+ elpa/auctex-13.0.4/style/dutch.elc                 |   Bin 0 -> 560 bytes
+ elpa/auctex-13.0.4/style/emp.el                    |    85 +
+ elpa/auctex-13.0.4/style/emp.elc                   |   Bin 0 -> 1856 bytes
+ elpa/auctex-13.0.4/style/empheq.el                 |   493 +
+ elpa/auctex-13.0.4/style/empheq.elc                |   Bin 0 -> 14928 bytes
+ elpa/auctex-13.0.4/style/english.el                |    15 +
+ elpa/auctex-13.0.4/style/english.elc               |   Bin 0 -> 612 bytes
+ elpa/auctex-13.0.4/style/enumitem.el               |   506 +
+ elpa/auctex-13.0.4/style/enumitem.elc              |   Bin 0 -> 17783 bytes
+ elpa/auctex-13.0.4/style/environ.el                |   143 +
+ elpa/auctex-13.0.4/style/environ.elc               |   Bin 0 -> 2832 bytes
+ elpa/auctex-13.0.4/style/epigraph.el               |   106 +
+ elpa/auctex-13.0.4/style/epigraph.elc              |   Bin 0 -> 1776 bytes
+ elpa/auctex-13.0.4/style/epsf.el                   |    40 +
+ elpa/auctex-13.0.4/style/epsf.elc                  |   Bin 0 -> 1373 bytes
+ elpa/auctex-13.0.4/style/erewhon.el                |    98 +
+ elpa/auctex-13.0.4/style/erewhon.elc               |   Bin 0 -> 1571 bytes
+ elpa/auctex-13.0.4/style/eso-pic.el                |    90 +
+ elpa/auctex-13.0.4/style/eso-pic.elc               |   Bin 0 -> 1755 bytes
+ elpa/auctex-13.0.4/style/everysel.el               |    47 +
+ elpa/auctex-13.0.4/style/everysel.elc              |   Bin 0 -> 701 bytes
+ elpa/auctex-13.0.4/style/exam.el                   |   404 +
+ elpa/auctex-13.0.4/style/exam.elc                  |   Bin 0 -> 10600 bytes
+ elpa/auctex-13.0.4/style/exercise.el               |    66 +
+ elpa/auctex-13.0.4/style/exercise.elc              |   Bin 0 -> 1204 bytes
+ elpa/auctex-13.0.4/style/expl3.el                  |    63 +
+ elpa/auctex-13.0.4/style/expl3.elc                 |   Bin 0 -> 1235 bytes
+ elpa/auctex-13.0.4/style/extramarks.el             |    72 +
+ elpa/auctex-13.0.4/style/extramarks.elc            |   Bin 0 -> 1089 bytes
+ elpa/auctex-13.0.4/style/fancyhdr.el               |   178 +
+ elpa/auctex-13.0.4/style/fancyhdr.elc              |   Bin 0 -> 3249 bytes
+ elpa/auctex-13.0.4/style/fancynum.el               |    49 +
+ elpa/auctex-13.0.4/style/fancynum.elc              |   Bin 0 -> 780 bytes
+ elpa/auctex-13.0.4/style/fancyref.el               |   136 +
+ elpa/auctex-13.0.4/style/fancyref.elc              |   Bin 0 -> 2960 bytes
+ elpa/auctex-13.0.4/style/fancyvrb.el               |   732 +
+ elpa/auctex-13.0.4/style/fancyvrb.elc              |   Bin 0 -> 25017 bytes
+ elpa/auctex-13.0.4/style/fbb.el                    |    88 +
+ elpa/auctex-13.0.4/style/fbb.elc                   |   Bin 0 -> 1335 bytes
+ elpa/auctex-13.0.4/style/fbox.el                   |    58 +
+ elpa/auctex-13.0.4/style/fbox.elc                  |   Bin 0 -> 932 bytes
+ elpa/auctex-13.0.4/style/filecontents.el           |    64 +
+ elpa/auctex-13.0.4/style/filecontents.elc          |   Bin 0 -> 1213 bytes
+ elpa/auctex-13.0.4/style/flashcards.el             |    69 +
+ elpa/auctex-13.0.4/style/flashcards.elc            |   Bin 0 -> 1224 bytes
+ elpa/auctex-13.0.4/style/floatrow.el               |   747 +
+ elpa/auctex-13.0.4/style/floatrow.elc              |   Bin 0 -> 25065 bytes
+ elpa/auctex-13.0.4/style/foils.el                  |    68 +
+ elpa/auctex-13.0.4/style/foils.elc                 |   Bin 0 -> 1584 bytes
+ elpa/auctex-13.0.4/style/fontaxes.el               |   116 +
+ elpa/auctex-13.0.4/style/fontaxes.elc              |   Bin 0 -> 1893 bytes
+ elpa/auctex-13.0.4/style/fontenc.el                |    54 +
+ elpa/auctex-13.0.4/style/fontenc.elc               |   Bin 0 -> 868 bytes
+ elpa/auctex-13.0.4/style/fontspec.el               |   415 +
+ elpa/auctex-13.0.4/style/fontspec.elc              |   Bin 0 -> 11934 bytes
+ elpa/auctex-13.0.4/style/footmisc.el               |    80 +
+ elpa/auctex-13.0.4/style/footmisc.elc              |   Bin 0 -> 1584 bytes
+ elpa/auctex-13.0.4/style/framed.el                 |    55 +
+ elpa/auctex-13.0.4/style/framed.elc                |   Bin 0 -> 812 bytes
+ elpa/auctex-13.0.4/style/francais.el               |    44 +
+ elpa/auctex-13.0.4/style/francais.elc              |   Bin 0 -> 562 bytes
+ elpa/auctex-13.0.4/style/french.el                 |    51 +
+ elpa/auctex-13.0.4/style/french.elc                |   Bin 0 -> 678 bytes
+ elpa/auctex-13.0.4/style/frenchb.el                |    81 +
+ elpa/auctex-13.0.4/style/frenchb.elc               |   Bin 0 -> 1108 bytes
+ elpa/auctex-13.0.4/style/fvextra.el                |   198 +
+ elpa/auctex-13.0.4/style/fvextra.elc               |   Bin 0 -> 3991 bytes
+ elpa/auctex-13.0.4/style/geometry.el               |   159 +
+ elpa/auctex-13.0.4/style/geometry.elc              |   Bin 0 -> 6558 bytes
+ elpa/auctex-13.0.4/style/german.el                 |    62 +
+ elpa/auctex-13.0.4/style/german.elc                |   Bin 0 -> 1420 bytes
+ elpa/auctex-13.0.4/style/gloss-italian.el          |    79 +
+ elpa/auctex-13.0.4/style/gloss-italian.elc         |   Bin 0 -> 1456 bytes
+ elpa/auctex-13.0.4/style/graphics.el               |    20 +
+ elpa/auctex-13.0.4/style/graphics.elc              |   Bin 0 -> 657 bytes
+ elpa/auctex-13.0.4/style/graphicx.el               |   328 +
+ elpa/auctex-13.0.4/style/graphicx.elc              |   Bin 0 -> 8339 bytes
+ elpa/auctex-13.0.4/style/harvard.el                |   133 +
+ elpa/auctex-13.0.4/style/harvard.elc               |   Bin 0 -> 3753 bytes
+ elpa/auctex-13.0.4/style/hologo.el                 |   240 +
+ elpa/auctex-13.0.4/style/hologo.elc                |   Bin 0 -> 4381 bytes
+ elpa/auctex-13.0.4/style/hyperref.el               |   338 +
+ elpa/auctex-13.0.4/style/hyperref.elc              |   Bin 0 -> 8136 bytes
+ elpa/auctex-13.0.4/style/icelandic.el              |    62 +
+ elpa/auctex-13.0.4/style/icelandic.elc             |   Bin 0 -> 1148 bytes
+ elpa/auctex-13.0.4/style/ifluatex.el               |    73 +
+ elpa/auctex-13.0.4/style/ifluatex.elc              |   Bin 0 -> 1297 bytes
+ elpa/auctex-13.0.4/style/imakeidx.el               |   103 +
+ elpa/auctex-13.0.4/style/imakeidx.elc              |   Bin 0 -> 2206 bytes
+ elpa/auctex-13.0.4/style/index.el                  |    87 +
+ elpa/auctex-13.0.4/style/index.elc                 |   Bin 0 -> 1602 bytes
+ elpa/auctex-13.0.4/style/inputenc.el               |    89 +
+ elpa/auctex-13.0.4/style/inputenc.elc              |   Bin 0 -> 1512 bytes
+ elpa/auctex-13.0.4/style/italian.el                |    67 +
+ elpa/auctex-13.0.4/style/italian.elc               |   Bin 0 -> 900 bytes
+ elpa/auctex-13.0.4/style/j-article.el              |    14 +
+ elpa/auctex-13.0.4/style/j-article.elc             |   Bin 0 -> 586 bytes
+ elpa/auctex-13.0.4/style/j-book.el                 |    14 +
+ elpa/auctex-13.0.4/style/j-book.elc                |   Bin 0 -> 580 bytes
+ elpa/auctex-13.0.4/style/j-report.el               |    14 +
+ elpa/auctex-13.0.4/style/j-report.elc              |   Bin 0 -> 585 bytes
+ elpa/auctex-13.0.4/style/jarticle.el               |    26 +
+ elpa/auctex-13.0.4/style/jarticle.elc              |   Bin 0 -> 1195 bytes
+ elpa/auctex-13.0.4/style/jbook.el                  |    25 +
+ elpa/auctex-13.0.4/style/jbook.elc                 |   Bin 0 -> 1176 bytes
+ elpa/auctex-13.0.4/style/jreport.el                |    26 +
+ elpa/auctex-13.0.4/style/jreport.elc               |   Bin 0 -> 1229 bytes
+ elpa/auctex-13.0.4/style/jsarticle.el              |    30 +
+ elpa/auctex-13.0.4/style/jsarticle.elc             |   Bin 0 -> 1474 bytes
+ elpa/auctex-13.0.4/style/jsbook.el                 |    34 +
+ elpa/auctex-13.0.4/style/jsbook.elc                |   Bin 0 -> 1607 bytes
+ elpa/auctex-13.0.4/style/jsreport.el               |    59 +
+ elpa/auctex-13.0.4/style/jsreport.elc              |   Bin 0 -> 1511 bytes
+ elpa/auctex-13.0.4/style/jura.el                   |    42 +
+ elpa/auctex-13.0.4/style/jura.elc                  |   Bin 0 -> 559 bytes
+ elpa/auctex-13.0.4/style/jurabib.el                |   644 +
+ elpa/auctex-13.0.4/style/jurabib.elc               |   Bin 0 -> 14160 bytes
+ elpa/auctex-13.0.4/style/kantlipsum.el             |    48 +
+ elpa/auctex-13.0.4/style/kantlipsum.elc            |   Bin 0 -> 877 bytes
+ elpa/auctex-13.0.4/style/kpfonts.el                |   610 +
+ elpa/auctex-13.0.4/style/kpfonts.elc               |   Bin 0 -> 21151 bytes
+ elpa/auctex-13.0.4/style/latexinfo.el              |   185 +
+ elpa/auctex-13.0.4/style/latexinfo.elc             |   Bin 0 -> 4269 bytes
+ elpa/auctex-13.0.4/style/letter.el                 |   196 +
+ elpa/auctex-13.0.4/style/letter.elc                |   Bin 0 -> 3664 bytes
+ elpa/auctex-13.0.4/style/lettrine.el               |    98 +
+ elpa/auctex-13.0.4/style/lettrine.elc              |   Bin 0 -> 1721 bytes
+ elpa/auctex-13.0.4/style/lipsum.el                 |    48 +
+ elpa/auctex-13.0.4/style/lipsum.elc                |   Bin 0 -> 840 bytes
+ elpa/auctex-13.0.4/style/listings.el               |   471 +
+ elpa/auctex-13.0.4/style/listings.elc              |   Bin 0 -> 11911 bytes
+ elpa/auctex-13.0.4/style/longtable.el              |   143 +
+ elpa/auctex-13.0.4/style/longtable.elc             |   Bin 0 -> 2809 bytes
+ elpa/auctex-13.0.4/style/lscape.el                 |    48 +
+ elpa/auctex-13.0.4/style/lscape.elc                |   Bin 0 -> 735 bytes
+ elpa/auctex-13.0.4/style/ltablex.el                |    51 +
+ elpa/auctex-13.0.4/style/ltablex.elc               |   Bin 0 -> 755 bytes
+ elpa/auctex-13.0.4/style/ltugboat.el               |   295 +
+ elpa/auctex-13.0.4/style/ltugboat.elc              |   Bin 0 -> 5289 bytes
+ elpa/auctex-13.0.4/style/ltx-base.el               |    88 +
+ elpa/auctex-13.0.4/style/ltx-base.elc              |   Bin 0 -> 2150 bytes
+ elpa/auctex-13.0.4/style/ltxdoc.el                 |    43 +
+ elpa/auctex-13.0.4/style/ltxdoc.elc                |   Bin 0 -> 580 bytes
+ elpa/auctex-13.0.4/style/ltxguide.el               |   124 +
+ elpa/auctex-13.0.4/style/ltxguide.elc              |   Bin 0 -> 2065 bytes
+ elpa/auctex-13.0.4/style/ltxtable.el               |    95 +
+ elpa/auctex-13.0.4/style/ltxtable.elc              |   Bin 0 -> 1746 bytes
+ elpa/auctex-13.0.4/style/luacode.el                |    71 +
+ elpa/auctex-13.0.4/style/luacode.elc               |   Bin 0 -> 1150 bytes
+ elpa/auctex-13.0.4/style/luatextra.el              |    46 +
+ elpa/auctex-13.0.4/style/luatextra.elc             |   Bin 0 -> 712 bytes
+ elpa/auctex-13.0.4/style/makeidx.el                |    52 +
+ elpa/auctex-13.0.4/style/makeidx.elc               |   Bin 0 -> 838 bytes
+ elpa/auctex-13.0.4/style/marginnote.el             |    71 +
+ elpa/auctex-13.0.4/style/marginnote.elc            |   Bin 0 -> 1125 bytes
+ elpa/auctex-13.0.4/style/mathtools.el              |   492 +
+ elpa/auctex-13.0.4/style/mathtools.elc             |   Bin 0 -> 18528 bytes
+ elpa/auctex-13.0.4/style/mdframed.el               |   429 +
+ elpa/auctex-13.0.4/style/mdframed.elc              |   Bin 0 -> 14039 bytes
+ elpa/auctex-13.0.4/style/mdsymbol.el               |   102 +
+ elpa/auctex-13.0.4/style/mdsymbol.elc              |   Bin 0 -> 1812 bytes
+ elpa/auctex-13.0.4/style/mdwlist.el                |    72 +
+ elpa/auctex-13.0.4/style/mdwlist.elc               |   Bin 0 -> 1401 bytes
+ elpa/auctex-13.0.4/style/memoir.el                 |    88 +
+ elpa/auctex-13.0.4/style/memoir.elc                |   Bin 0 -> 2020 bytes
+ elpa/auctex-13.0.4/style/menukeys.el               |   547 +
+ elpa/auctex-13.0.4/style/menukeys.elc              |   Bin 0 -> 19001 bytes
+ elpa/auctex-13.0.4/style/metalogo.el               |    92 +
+ elpa/auctex-13.0.4/style/metalogo.elc              |   Bin 0 -> 1567 bytes
+ elpa/auctex-13.0.4/style/mflogo.el                 |    61 +
+ elpa/auctex-13.0.4/style/mflogo.elc                |   Bin 0 -> 928 bytes
+ elpa/auctex-13.0.4/style/minted.el                 |   486 +
+ elpa/auctex-13.0.4/style/minted.elc                |   Bin 0 -> 13628 bytes
+ elpa/auctex-13.0.4/style/mn2e.el                   |   183 +
+ elpa/auctex-13.0.4/style/mn2e.elc                  |   Bin 0 -> 2989 bytes
+ elpa/auctex-13.0.4/style/mnras.el                  |   184 +
+ elpa/auctex-13.0.4/style/mnras.elc                 |   Bin 0 -> 2735 bytes
+ elpa/auctex-13.0.4/style/moodle.el                 |   221 +
+ elpa/auctex-13.0.4/style/moodle.elc                |   Bin 0 -> 4842 bytes
+ elpa/auctex-13.0.4/style/multicol.el               |    66 +
+ elpa/auctex-13.0.4/style/multicol.elc              |   Bin 0 -> 1319 bytes
+ elpa/auctex-13.0.4/style/multido.el                |    54 +
+ elpa/auctex-13.0.4/style/multido.elc               |   Bin 0 -> 916 bytes
+ elpa/auctex-13.0.4/style/multind.el                |    66 +
+ elpa/auctex-13.0.4/style/multind.elc               |   Bin 0 -> 1201 bytes
+ elpa/auctex-13.0.4/style/multirow.el               |    86 +
+ elpa/auctex-13.0.4/style/multirow.elc              |   Bin 0 -> 1416 bytes
+ elpa/auctex-13.0.4/style/multitoc.el               |    50 +
+ elpa/auctex-13.0.4/style/multitoc.elc              |   Bin 0 -> 785 bytes
+ elpa/auctex-13.0.4/style/nameref.el                |    64 +
+ elpa/auctex-13.0.4/style/nameref.elc               |   Bin 0 -> 1041 bytes
+ elpa/auctex-13.0.4/style/natbib.el                 |   199 +
+ elpa/auctex-13.0.4/style/natbib.elc                |   Bin 0 -> 3851 bytes
+ elpa/auctex-13.0.4/style/naustrian.el              |    42 +
+ elpa/auctex-13.0.4/style/naustrian.elc             |   Bin 0 -> 563 bytes
+ elpa/auctex-13.0.4/style/newfloat.el               |   223 +
+ elpa/auctex-13.0.4/style/newfloat.elc              |   Bin 0 -> 7221 bytes
+ elpa/auctex-13.0.4/style/newpxmath.el              |    76 +
+ elpa/auctex-13.0.4/style/newpxmath.elc             |   Bin 0 -> 1154 bytes
+ elpa/auctex-13.0.4/style/newpxtext.el              |    88 +
+ elpa/auctex-13.0.4/style/newpxtext.elc             |   Bin 0 -> 1464 bytes
+ elpa/auctex-13.0.4/style/newtxmath.el              |    86 +
+ elpa/auctex-13.0.4/style/newtxmath.elc             |   Bin 0 -> 1268 bytes
+ elpa/auctex-13.0.4/style/newtxsf.el                |    59 +
+ elpa/auctex-13.0.4/style/newtxsf.elc               |   Bin 0 -> 830 bytes
+ elpa/auctex-13.0.4/style/newtxtext.el              |    87 +
+ elpa/auctex-13.0.4/style/newtxtext.elc             |   Bin 0 -> 1426 bytes
+ elpa/auctex-13.0.4/style/newtxttt.el               |    69 +
+ elpa/auctex-13.0.4/style/newtxttt.elc              |   Bin 0 -> 1042 bytes
+ elpa/auctex-13.0.4/style/newzealand.el             |    42 +
+ elpa/auctex-13.0.4/style/newzealand.elc            |   Bin 0 -> 564 bytes
+ elpa/auctex-13.0.4/style/ngerman.el                |    62 +
+ elpa/auctex-13.0.4/style/ngerman.elc               |   Bin 0 -> 1422 bytes
+ elpa/auctex-13.0.4/style/nicefrac.el               |    54 +
+ elpa/auctex-13.0.4/style/nicefrac.elc              |   Bin 0 -> 905 bytes
+ elpa/auctex-13.0.4/style/nomencl.el                |    78 +
+ elpa/auctex-13.0.4/style/nomencl.elc               |   Bin 0 -> 1467 bytes
+ elpa/auctex-13.0.4/style/ntheorem.el               |   443 +
+ elpa/auctex-13.0.4/style/ntheorem.elc              |   Bin 0 -> 15673 bytes
+ elpa/auctex-13.0.4/style/ocg-p.el                  |   196 +
+ elpa/auctex-13.0.4/style/ocg-p.elc                 |   Bin 0 -> 5834 bytes
+ elpa/auctex-13.0.4/style/ocgx.el                   |    75 +
+ elpa/auctex-13.0.4/style/ocgx.elc                  |   Bin 0 -> 1287 bytes
+ elpa/auctex-13.0.4/style/overpic.el                |   124 +
+ elpa/auctex-13.0.4/style/overpic.elc               |   Bin 0 -> 2362 bytes
+ elpa/auctex-13.0.4/style/paracol.el                |   294 +
+ elpa/auctex-13.0.4/style/paracol.elc               |   Bin 0 -> 4928 bytes
+ elpa/auctex-13.0.4/style/paralist.el               |   115 +
+ elpa/auctex-13.0.4/style/paralist.elc              |   Bin 0 -> 2636 bytes
+ elpa/auctex-13.0.4/style/pdflscape.el              |    46 +
+ elpa/auctex-13.0.4/style/pdflscape.elc             |   Bin 0 -> 667 bytes
+ elpa/auctex-13.0.4/style/pdfpages.el               |   143 +
+ elpa/auctex-13.0.4/style/pdfpages.elc              |   Bin 0 -> 2666 bytes
+ elpa/auctex-13.0.4/style/pdfsync.el                |    92 +
+ elpa/auctex-13.0.4/style/pdfsync.elc               |   Bin 0 -> 1650 bytes
+ elpa/auctex-13.0.4/style/placeins.el               |    45 +
+ elpa/auctex-13.0.4/style/placeins.elc              |   Bin 0 -> 693 bytes
+ elpa/auctex-13.0.4/style/plext.el                  |    81 +
+ elpa/auctex-13.0.4/style/plext.elc                 |   Bin 0 -> 1502 bytes
+ elpa/auctex-13.0.4/style/plfonts.el                |    34 +
+ elpa/auctex-13.0.4/style/plfonts.elc               |   Bin 0 -> 1085 bytes
+ elpa/auctex-13.0.4/style/plhb.el                   |    34 +
+ elpa/auctex-13.0.4/style/plhb.elc                  |   Bin 0 -> 1070 bytes
+ elpa/auctex-13.0.4/style/polish.el                 |    56 +
+ elpa/auctex-13.0.4/style/polish.elc                |   Bin 0 -> 1097 bytes
+ elpa/auctex-13.0.4/style/polski.el                 |    63 +
+ elpa/auctex-13.0.4/style/polski.elc                |   Bin 0 -> 947 bytes
+ elpa/auctex-13.0.4/style/polyglossia.el            |   369 +
+ elpa/auctex-13.0.4/style/polyglossia.elc           |   Bin 0 -> 12076 bytes
+ elpa/auctex-13.0.4/style/preview.el                |   112 +
+ elpa/auctex-13.0.4/style/preview.elc               |   Bin 0 -> 2099 bytes
+ elpa/auctex-13.0.4/style/prosper.el                |   190 +
+ elpa/auctex-13.0.4/style/prosper.elc               |   Bin 0 -> 4058 bytes
+ elpa/auctex-13.0.4/style/psfig.el                  |    83 +
+ elpa/auctex-13.0.4/style/psfig.elc                 |   Bin 0 -> 2200 bytes
+ elpa/auctex-13.0.4/style/pst-grad.el               |    73 +
+ elpa/auctex-13.0.4/style/pst-grad.elc              |   Bin 0 -> 1197 bytes
+ elpa/auctex-13.0.4/style/pst-node.el               |   207 +
+ elpa/auctex-13.0.4/style/pst-node.elc              |   Bin 0 -> 7369 bytes
+ elpa/auctex-13.0.4/style/pst-plot.el               |   150 +
+ elpa/auctex-13.0.4/style/pst-plot.elc              |   Bin 0 -> 3711 bytes
+ elpa/auctex-13.0.4/style/pst-slpe.el               |    74 +
+ elpa/auctex-13.0.4/style/pst-slpe.elc              |   Bin 0 -> 1218 bytes
+ elpa/auctex-13.0.4/style/pstricks.el               |   881 +
+ elpa/auctex-13.0.4/style/pstricks.elc              |   Bin 0 -> 25866 bytes
+ elpa/auctex-13.0.4/style/pythontex.el              |   568 +
+ elpa/auctex-13.0.4/style/pythontex.elc             |   Bin 0 -> 17152 bytes
+ elpa/auctex-13.0.4/style/ragged2e.el               |    82 +
+ elpa/auctex-13.0.4/style/ragged2e.elc              |   Bin 0 -> 1613 bytes
+ elpa/auctex-13.0.4/style/relsize.el                |    76 +
+ elpa/auctex-13.0.4/style/relsize.elc               |   Bin 0 -> 1233 bytes
+ elpa/auctex-13.0.4/style/report.el                 |    25 +
+ elpa/auctex-13.0.4/style/report.elc                |   Bin 0 -> 1168 bytes
+ elpa/auctex-13.0.4/style/revtex4-2.el              |   263 +
+ elpa/auctex-13.0.4/style/revtex4-2.elc             |   Bin 0 -> 4962 bytes
+ elpa/auctex-13.0.4/style/ruby.el                   |    52 +
+ elpa/auctex-13.0.4/style/ruby.elc                  |   Bin 0 -> 766 bytes
+ elpa/auctex-13.0.4/style/scholax.el                |   106 +
+ elpa/auctex-13.0.4/style/scholax.elc               |   Bin 0 -> 1622 bytes
+ elpa/auctex-13.0.4/style/scrartcl.el               |    30 +
+ elpa/auctex-13.0.4/style/scrartcl.elc              |   Bin 0 -> 675 bytes
+ elpa/auctex-13.0.4/style/scrbase.el                |   228 +
+ elpa/auctex-13.0.4/style/scrbase.elc               |   Bin 0 -> 5916 bytes
+ elpa/auctex-13.0.4/style/scrbook.el                |    71 +
+ elpa/auctex-13.0.4/style/scrbook.elc               |   Bin 0 -> 1312 bytes
+ elpa/auctex-13.0.4/style/scrlttr2.el               |   249 +
+ elpa/auctex-13.0.4/style/scrlttr2.elc              |   Bin 0 -> 6080 bytes
+ elpa/auctex-13.0.4/style/scrpage2.el               |   135 +
+ elpa/auctex-13.0.4/style/scrpage2.elc              |   Bin 0 -> 3755 bytes
+ elpa/auctex-13.0.4/style/scrreprt.el               |    73 +
+ elpa/auctex-13.0.4/style/scrreprt.elc              |   Bin 0 -> 1360 bytes
+ elpa/auctex-13.0.4/style/setspace.el               |    70 +
+ elpa/auctex-13.0.4/style/setspace.elc              |   Bin 0 -> 1256 bytes
+ elpa/auctex-13.0.4/style/shortvrb.el               |    73 +
+ elpa/auctex-13.0.4/style/shortvrb.elc              |   Bin 0 -> 872 bytes
+ elpa/auctex-13.0.4/style/siunitx.el                |   637 +
+ elpa/auctex-13.0.4/style/siunitx.elc               |   Bin 0 -> 15779 bytes
+ elpa/auctex-13.0.4/style/slides.el                 |    54 +
+ elpa/auctex-13.0.4/style/slides.elc                |   Bin 0 -> 1021 bytes
+ elpa/auctex-13.0.4/style/slovak.el                 |    19 +
+ elpa/auctex-13.0.4/style/slovak.elc                |   Bin 0 -> 766 bytes
+ elpa/auctex-13.0.4/style/sourcecodepro.el          |    88 +
+ elpa/auctex-13.0.4/style/sourcecodepro.elc         |   Bin 0 -> 1576 bytes
+ elpa/auctex-13.0.4/style/splitidx.el               |   315 +
+ elpa/auctex-13.0.4/style/splitidx.elc              |   Bin 0 -> 6832 bytes
+ elpa/auctex-13.0.4/style/subcaption.el             |   198 +
+ elpa/auctex-13.0.4/style/subcaption.elc            |   Bin 0 -> 4836 bytes
+ elpa/auctex-13.0.4/style/subfigure.el              |    87 +
+ elpa/auctex-13.0.4/style/subfigure.elc             |   Bin 0 -> 1745 bytes
+ elpa/auctex-13.0.4/style/subfiles.el               |   107 +
+ elpa/auctex-13.0.4/style/subfiles.elc              |   Bin 0 -> 1837 bytes
+ elpa/auctex-13.0.4/style/swedish.el                |    18 +
+ elpa/auctex-13.0.4/style/swedish.elc               |   Bin 0 -> 721 bytes
+ elpa/auctex-13.0.4/style/tabularx.el               |    73 +
+ elpa/auctex-13.0.4/style/tabularx.elc              |   Bin 0 -> 1134 bytes
+ elpa/auctex-13.0.4/style/tabulary.el               |    70 +
+ elpa/auctex-13.0.4/style/tabulary.elc              |   Bin 0 -> 1114 bytes
+ elpa/auctex-13.0.4/style/tarticle.el               |    45 +
+ elpa/auctex-13.0.4/style/tarticle.elc              |   Bin 0 -> 721 bytes
+ elpa/auctex-13.0.4/style/tbook.el                  |    45 +
+ elpa/auctex-13.0.4/style/tbook.elc                 |   Bin 0 -> 703 bytes
+ elpa/auctex-13.0.4/style/tcolorbox.el              |   705 +
+ elpa/auctex-13.0.4/style/tcolorbox.elc             |   Bin 0 -> 19514 bytes
+ elpa/auctex-13.0.4/style/tcolorboxlib-raster.el    |   203 +
+ elpa/auctex-13.0.4/style/tcolorboxlib-raster.elc   |   Bin 0 -> 4330 bytes
+ elpa/auctex-13.0.4/style/tex-live.el               |   176 +
+ elpa/auctex-13.0.4/style/tex-live.elc              |   Bin 0 -> 3115 bytes
+ elpa/auctex-13.0.4/style/textcomp.el               |    41 +
+ elpa/auctex-13.0.4/style/textcomp.elc              |   Bin 0 -> 577 bytes
+ elpa/auctex-13.0.4/style/textpos.el                |   126 +
+ elpa/auctex-13.0.4/style/textpos.elc               |   Bin 0 -> 2911 bytes
+ elpa/auctex-13.0.4/style/theorem.el                |   180 +
+ elpa/auctex-13.0.4/style/theorem.elc               |   Bin 0 -> 5857 bytes
+ elpa/auctex-13.0.4/style/thm-restate.el            |   120 +
+ elpa/auctex-13.0.4/style/thm-restate.elc           |   Bin 0 -> 3986 bytes
+ elpa/auctex-13.0.4/style/thmtools.el               |   313 +
+ elpa/auctex-13.0.4/style/thmtools.elc              |   Bin 0 -> 11879 bytes
+ elpa/auctex-13.0.4/style/tikz.el                   |   286 +
+ elpa/auctex-13.0.4/style/tikz.elc                  |   Bin 0 -> 9005 bytes
+ elpa/auctex-13.0.4/style/titleps.el                |   241 +
+ elpa/auctex-13.0.4/style/titleps.elc               |   Bin 0 -> 4926 bytes
+ elpa/auctex-13.0.4/style/titlesec.el               |   265 +
+ elpa/auctex-13.0.4/style/titlesec.elc              |   Bin 0 -> 5332 bytes
+ elpa/auctex-13.0.4/style/titletoc.el               |   198 +
+ elpa/auctex-13.0.4/style/titletoc.elc              |   Bin 0 -> 5838 bytes
+ elpa/auctex-13.0.4/style/transparent.el            |    60 +
+ elpa/auctex-13.0.4/style/transparent.elc           |   Bin 0 -> 998 bytes
+ elpa/auctex-13.0.4/style/treport.el                |    45 +
+ elpa/auctex-13.0.4/style/treport.elc               |   Bin 0 -> 715 bytes
+ elpa/auctex-13.0.4/style/ulem.el                   |   114 +
+ elpa/auctex-13.0.4/style/ulem.elc                  |   Bin 0 -> 2532 bytes
+ elpa/auctex-13.0.4/style/unicode-math.el           |    82 +
+ elpa/auctex-13.0.4/style/unicode-math.elc          |   Bin 0 -> 1999 bytes
+ elpa/auctex-13.0.4/style/units.el                  |    57 +
+ elpa/auctex-13.0.4/style/units.elc                 |   Bin 0 -> 968 bytes
+ elpa/auctex-13.0.4/style/url.el                    |   112 +
+ elpa/auctex-13.0.4/style/url.elc                   |   Bin 0 -> 2095 bytes
+ elpa/auctex-13.0.4/style/varioref.el               |   112 +
+ elpa/auctex-13.0.4/style/varioref.elc              |   Bin 0 -> 2609 bytes
+ elpa/auctex-13.0.4/style/verbatim.el               |    65 +
+ elpa/auctex-13.0.4/style/verbatim.elc              |   Bin 0 -> 1061 bytes
+ elpa/auctex-13.0.4/style/virtex.el                 |    86 +
+ elpa/auctex-13.0.4/style/virtex.elc                |   Bin 0 -> 5518 bytes
+ elpa/auctex-13.0.4/style/vwcol.el                  |    79 +
+ elpa/auctex-13.0.4/style/vwcol.elc                 |   Bin 0 -> 1404 bytes
+ elpa/auctex-13.0.4/style/wrapfig.el                |   121 +
+ elpa/auctex-13.0.4/style/wrapfig.elc               |   Bin 0 -> 2471 bytes
+ elpa/auctex-13.0.4/style/xcolor.el                 |   649 +
+ elpa/auctex-13.0.4/style/xcolor.elc                |   Bin 0 -> 22166 bytes
+ elpa/auctex-13.0.4/style/xkcdcolors.el             |  1007 +
+ elpa/auctex-13.0.4/style/xkcdcolors.elc            |   Bin 0 -> 16426 bytes
+ elpa/auctex-13.0.4/style/xltabular.el              |   133 +
+ elpa/auctex-13.0.4/style/xltabular.elc             |   Bin 0 -> 2755 bytes
+ elpa/auctex-13.0.4/style/xparse.el                 |   311 +
+ elpa/auctex-13.0.4/style/xparse.elc                |   Bin 0 -> 9966 bytes
+ elpa/auctex-13.0.4/style/xspace.el                 |    60 +
+ elpa/auctex-13.0.4/style/xspace.elc                |   Bin 0 -> 921 bytes
+ elpa/auctex-13.0.4/style/zlmtt.el                  |    65 +
+ elpa/auctex-13.0.4/style/zlmtt.elc                 |   Bin 0 -> 944 bytes
+ elpa/auctex-13.0.4/tex-bar.el                      |   516 +
+ elpa/auctex-13.0.4/tex-bar.elc                     |   Bin 0 -> 13340 bytes
+ elpa/auctex-13.0.4/tex-buf.el                      |  3881 +++
+ elpa/auctex-13.0.4/tex-buf.elc                     |   Bin 0 -> 117720 bytes
+ elpa/auctex-13.0.4/tex-fold.el                     |   956 +
+ elpa/auctex-13.0.4/tex-fold.elc                    |   Bin 0 -> 29237 bytes
+ elpa/auctex-13.0.4/tex-font.el                     |   178 +
+ elpa/auctex-13.0.4/tex-font.elc                    |   Bin 0 -> 3303 bytes
+ elpa/auctex-13.0.4/tex-info.el                     |   883 +
+ elpa/auctex-13.0.4/tex-info.elc                    |   Bin 0 -> 27081 bytes
+ elpa/auctex-13.0.4/tex-ispell.el                   |   433 +
+ elpa/auctex-13.0.4/tex-ispell.elc                  |   Bin 0 -> 4746 bytes
+ elpa/auctex-13.0.4/tex-jp.el                       |   920 +
+ elpa/auctex-13.0.4/tex-jp.elc                      |   Bin 0 -> 35185 bytes
+ elpa/auctex-13.0.4/tex-mik.el                      |    62 +
+ elpa/auctex-13.0.4/tex-mik.elc                     |   Bin 0 -> 801 bytes
+ elpa/auctex-13.0.4/tex-site.el                     |   182 +
+ elpa/auctex-13.0.4/tex-site.elc                    |   Bin 0 -> 4290 bytes
+ elpa/auctex-13.0.4/tex-style.el                    |   437 +
+ elpa/auctex-13.0.4/tex-style.elc                   |   Bin 0 -> 11439 bytes
+ elpa/auctex-13.0.4/tex-wizard.el                   |   111 +
+ elpa/auctex-13.0.4/tex-wizard.elc                  |   Bin 0 -> 2851 bytes
+ elpa/auctex-13.0.4/tex.el                          |  6672 +++++
+ elpa/auctex-13.0.4/tex.elc                         |   Bin 0 -> 210821 bytes
+ elpa/auctex-13.0.4/texmathp.el                     |   438 +
+ elpa/auctex-13.0.4/texmathp.elc                    |   Bin 0 -> 10321 bytes
+ elpa/auctex-13.0.4/toolbar-x.el                    |  1667 ++
+ elpa/auctex-13.0.4/toolbar-x.elc                   |   Bin 0 -> 44015 bytes
+ elpa/biblio-20200416.1407/biblio-arxiv.el          |   147 +
+ elpa/biblio-20200416.1407/biblio-arxiv.elc         |   Bin 0 -> 4790 bytes
+ elpa/biblio-20200416.1407/biblio-autoloads.el      |   177 +
+ elpa/biblio-20200416.1407/biblio-crossref.el       |   113 +
+ elpa/biblio-20200416.1407/biblio-crossref.elc      |   Bin 0 -> 4090 bytes
+ elpa/biblio-20200416.1407/biblio-dblp.el           |    95 +
+ elpa/biblio-20200416.1407/biblio-dblp.elc          |   Bin 0 -> 2970 bytes
+ elpa/biblio-20200416.1407/biblio-dissemin.el       |   157 +
+ elpa/biblio-20200416.1407/biblio-dissemin.elc      |   Bin 0 -> 5507 bytes
+ elpa/biblio-20200416.1407/biblio-doi.el            |   124 +
+ elpa/biblio-20200416.1407/biblio-doi.elc           |   Bin 0 -> 4301 bytes
+ elpa/biblio-20200416.1407/biblio-download.el       |    58 +
+ elpa/biblio-20200416.1407/biblio-download.elc      |   Bin 0 -> 1584 bytes
+ elpa/biblio-20200416.1407/biblio-hal.el            |   106 +
+ elpa/biblio-20200416.1407/biblio-hal.elc           |   Bin 0 -> 3176 bytes
+ elpa/biblio-20200416.1407/biblio-ieee.el           |   103 +
+ elpa/biblio-20200416.1407/biblio-ieee.elc          |   Bin 0 -> 3329 bytes
+ elpa/biblio-20200416.1407/biblio-pkg.el            |    13 +
+ elpa/biblio-20200416.1407/biblio.el                |    97 +
+ elpa/biblio-20200416.1407/biblio.elc               |   Bin 0 -> 694 bytes
+ .../biblio-core-autoloads.el                       |    31 +
+ elpa/biblio-core-20200416.307/biblio-core-pkg.el   |     2 +
+ elpa/biblio-core-20200416.307/biblio-core.el       |   889 +
+ elpa/biblio-core-20200416.307/biblio-core.elc      |   Bin 0 -> 36204 bytes
+ .../bibtex-completion-autoloads.el                 |    47 +
+ .../bibtex-completion-pkg.el                       |     2 +
+ .../bibtex-completion.el                           |  1619 ++
+ .../bibtex-completion.elc                          |   Bin 0 -> 65262 bytes
+ elpa/helm-20210223.2045/.dir-locals.el             |     6 +
+ elpa/helm-20210223.2045/emacs-helm.sh              |   249 +
+ elpa/helm-20210223.2045/helm-adaptive.el           |   280 +
+ elpa/helm-20210223.2045/helm-adaptive.elc          |   Bin 0 -> 8748 bytes
+ elpa/helm-20210223.2045/helm-autoloads.el          |  1047 +
+ elpa/helm-20210223.2045/helm-bookmark.el           |   746 +
+ elpa/helm-20210223.2045/helm-bookmark.elc          |   Bin 0 -> 28375 bytes
+ elpa/helm-20210223.2045/helm-buffers.el            |  1193 +
+ elpa/helm-20210223.2045/helm-buffers.elc           |   Bin 0 -> 42839 bytes
+ elpa/helm-20210223.2045/helm-color.el              |   170 +
+ elpa/helm-20210223.2045/helm-color.elc             |   Bin 0 -> 5764 bytes
+ elpa/helm-20210223.2045/helm-comint.el             |   236 +
+ elpa/helm-20210223.2045/helm-comint.elc            |   Bin 0 -> 8201 bytes
+ elpa/helm-20210223.2045/helm-command.el            |   360 +
+ elpa/helm-20210223.2045/helm-command.elc           |   Bin 0 -> 12320 bytes
+ elpa/helm-20210223.2045/helm-config.el             |    40 +
+ elpa/helm-20210223.2045/helm-config.elc            |   Bin 0 -> 504 bytes
+ elpa/helm-20210223.2045/helm-dabbrev.el            |   402 +
+ elpa/helm-20210223.2045/helm-dabbrev.elc           |   Bin 0 -> 16491 bytes
+ elpa/helm-20210223.2045/helm-easymenu.el           |    90 +
+ elpa/helm-20210223.2045/helm-easymenu.elc          |   Bin 0 -> 2352 bytes
+ elpa/helm-20210223.2045/helm-elisp-package.el      |   491 +
+ elpa/helm-20210223.2045/helm-elisp-package.elc     |   Bin 0 -> 19238 bytes
+ elpa/helm-20210223.2045/helm-elisp.el              |   977 +
+ elpa/helm-20210223.2045/helm-elisp.elc             |   Bin 0 -> 35869 bytes
+ elpa/helm-20210223.2045/helm-epa.el                |   231 +
+ elpa/helm-20210223.2045/helm-epa.elc               |   Bin 0 -> 10774 bytes
+ elpa/helm-20210223.2045/helm-eshell.el             |   501 +
+ elpa/helm-20210223.2045/helm-eshell.elc            |   Bin 0 -> 16638 bytes
+ elpa/helm-20210223.2045/helm-eval.el               |   208 +
+ elpa/helm-20210223.2045/helm-eval.elc              |   Bin 0 -> 6371 bytes
+ elpa/helm-20210223.2045/helm-external.el           |   217 +
+ elpa/helm-20210223.2045/helm-external.elc          |   Bin 0 -> 6538 bytes
+ elpa/helm-20210223.2045/helm-fd.el                 |   132 +
+ elpa/helm-20210223.2045/helm-fd.elc                |   Bin 0 -> 5788 bytes
+ elpa/helm-20210223.2045/helm-files.el              |  5703 +++++
+ elpa/helm-20210223.2045/helm-files.elc             |   Bin 0 -> 205037 bytes
+ elpa/helm-20210223.2045/helm-find.el               |   176 +
+ elpa/helm-20210223.2045/helm-find.elc              |   Bin 0 -> 5216 bytes
+ elpa/helm-20210223.2045/helm-font.el               |   339 +
+ elpa/helm-20210223.2045/helm-font.elc              |   Bin 0 -> 11078 bytes
+ elpa/helm-20210223.2045/helm-for-files.el          |   309 +
+ elpa/helm-20210223.2045/helm-for-files.elc         |   Bin 0 -> 13192 bytes
+ elpa/helm-20210223.2045/helm-global-bindings.el    |   128 +
+ elpa/helm-20210223.2045/helm-global-bindings.elc   |   Bin 0 -> 3544 bytes
+ elpa/helm-20210223.2045/helm-grep.el               |  1730 ++
+ elpa/helm-20210223.2045/helm-grep.elc              |   Bin 0 -> 60050 bytes
+ elpa/helm-20210223.2045/helm-help.el               |  2353 ++
+ elpa/helm-20210223.2045/helm-help.elc              |   Bin 0 -> 91204 bytes
+ elpa/helm-20210223.2045/helm-id-utils.el           |   131 +
+ elpa/helm-20210223.2045/helm-id-utils.elc          |   Bin 0 -> 5266 bytes
+ elpa/helm-20210223.2045/helm-imenu.el              |   386 +
+ elpa/helm-20210223.2045/helm-imenu.elc             |   Bin 0 -> 12569 bytes
+ elpa/helm-20210223.2045/helm-info.el               |   274 +
+ elpa/helm-20210223.2045/helm-info.elc              |   Bin 0 -> 9403 bytes
+ elpa/helm-20210223.2045/helm-locate.el             |   482 +
+ elpa/helm-20210223.2045/helm-locate.elc            |   Bin 0 -> 19474 bytes
+ elpa/helm-20210223.2045/helm-man.el                |   120 +
+ elpa/helm-20210223.2045/helm-man.elc               |   Bin 0 -> 2839 bytes
+ elpa/helm-20210223.2045/helm-misc.el               |   337 +
+ elpa/helm-20210223.2045/helm-misc.elc              |   Bin 0 -> 8944 bytes
+ elpa/helm-20210223.2045/helm-mode.el               |  2078 ++
+ elpa/helm-20210223.2045/helm-mode.elc              |   Bin 0 -> 61347 bytes
+ elpa/helm-20210223.2045/helm-net.el                |   439 +
+ elpa/helm-20210223.2045/helm-net.elc               |   Bin 0 -> 14481 bytes
+ elpa/helm-20210223.2045/helm-occur.el              |   792 +
+ elpa/helm-20210223.2045/helm-occur.elc             |   Bin 0 -> 28992 bytes
+ elpa/helm-20210223.2045/helm-pkg.el                |    13 +
+ elpa/helm-20210223.2045/helm-regexp.el             |   138 +
+ elpa/helm-20210223.2045/helm-regexp.elc            |   Bin 0 -> 3741 bytes
+ elpa/helm-20210223.2045/helm-ring.el               |   609 +
+ elpa/helm-20210223.2045/helm-ring.elc              |   Bin 0 -> 18746 bytes
+ elpa/helm-20210223.2045/helm-semantic.el           |   238 +
+ elpa/helm-20210223.2045/helm-semantic.elc          |   Bin 0 -> 8051 bytes
+ elpa/helm-20210223.2045/helm-shell.el              |    44 +
+ elpa/helm-20210223.2045/helm-shell.elc             |   Bin 0 -> 725 bytes
+ elpa/helm-20210223.2045/helm-sys.el                |   462 +
+ elpa/helm-20210223.2045/helm-sys.elc               |   Bin 0 -> 16425 bytes
+ elpa/helm-20210223.2045/helm-tags.el               |   352 +
+ elpa/helm-20210223.2045/helm-tags.elc              |   Bin 0 -> 11685 bytes
+ elpa/helm-20210223.2045/helm-types.el              |   339 +
+ elpa/helm-20210223.2045/helm-types.elc             |   Bin 0 -> 19596 bytes
+ elpa/helm-20210223.2045/helm-utils.el              |  1156 +
+ elpa/helm-20210223.2045/helm-utils.elc             |   Bin 0 -> 38392 bytes
+ elpa/helm-20210223.2045/helm-x-files.el            |   133 +
+ elpa/helm-20210223.2045/helm-x-files.elc           |   Bin 0 -> 6403 bytes
+ .../helm-bibtex-autoloads.el                       |    54 +
+ elpa/helm-bibtex-20201214.2111/helm-bibtex-pkg.el  |     2 +
+ elpa/helm-bibtex-20201214.2111/helm-bibtex.el      |   281 +
+ elpa/helm-bibtex-20201214.2111/helm-bibtex.elc     |   Bin 0 -> 8610 bytes
+ .../helm-core-20210211.1417/helm-core-autoloads.el |   260 +
+ elpa/helm-core-20210211.1417/helm-core-pkg.el      |     7 +
+ elpa/helm-core-20210211.1417/helm-lib.el           |  1767 ++
+ elpa/helm-core-20210211.1417/helm-lib.elc          |   Bin 0 -> 57024 bytes
+ elpa/helm-core-20210211.1417/helm-multi-match.el   |   377 +
+ elpa/helm-core-20210211.1417/helm-multi-match.elc  |   Bin 0 -> 14504 bytes
+ elpa/helm-core-20210211.1417/helm-source.el        |  1224 +
+ elpa/helm-core-20210211.1417/helm-source.elc       |   Bin 0 -> 46412 bytes
+ elpa/helm-core-20210211.1417/helm.el               |  7485 ++++++
+ elpa/helm-core-20210211.1417/helm.elc              |   Bin 0 -> 263219 bytes
+ elpa/htmlize-20200816.746/htmlize-autoloads.el     |    82 +
+ elpa/htmlize-20200816.746/htmlize-pkg.el           |     2 +
+ elpa/htmlize-20200816.746/htmlize.el               |  1884 ++
+ elpa/htmlize-20200816.746/htmlize.elc              |   Bin 0 -> 60217 bytes
+ elpa/hydra-20201115.1055/hydra-autoloads.el        |    99 +
+ elpa/hydra-20201115.1055/hydra-examples.el         |   393 +
+ elpa/hydra-20201115.1055/hydra-ox.el               |   127 +
+ elpa/hydra-20201115.1055/hydra-ox.elc              |   Bin 0 -> 40907 bytes
+ elpa/hydra-20201115.1055/hydra-pkg.el              |    13 +
+ elpa/hydra-20201115.1055/hydra.el                  |  1571 ++
+ elpa/hydra-20201115.1055/hydra.elc                 |   Bin 0 -> 45081 bytes
+ .../ivy-bibtex-autoloads.el                        |    50 +
+ elpa/ivy-bibtex-20201014.803/ivy-bibtex-pkg.el     |     2 +
+ elpa/ivy-bibtex-20201014.803/ivy-bibtex.el         |   210 +
+ elpa/ivy-bibtex-20201014.803/ivy-bibtex.elc        |   Bin 0 -> 5948 bytes
+ .../key-chord-20201222.2030/key-chord-autoloads.el |    88 +
+ elpa/key-chord-20201222.2030/key-chord-pkg.el      |     2 +
+ elpa/key-chord-20201222.2030/key-chord.el          |   218 +
+ elpa/key-chord-20201222.2030/key-chord.elc         |   Bin 0 -> 8010 bytes
+ .../latex-preview-pane-autoloads.el                |    55 +
+ .../latex-preview-pane-pkg.el                      |    10 +
+ .../latex-preview-pane.el                          |   469 +
+ .../latex-preview-pane.elc                         |   Bin 0 -> 13096 bytes
+ .../message-latex-preview-pane-welcome.txt         |    44 +
+ .../message-no-preview-yet.txt                     |    34 +
+ elpa/lv-20200507.1518/lv-autoloads.el              |    22 +
+ elpa/lv-20200507.1518/lv-pkg.el                    |     2 +
+ elpa/lv-20200507.1518/lv.el                        |   150 +
+ elpa/lv-20200507.1518/lv.elc                       |   Bin 0 -> 3792 bytes
+ elpa/org-9.4.4/.dir-locals.el                      |    20 +
+ elpa/org-9.4.4/CONTRIBUTE                          |    86 +
+ elpa/org-9.4.4/COPYING                             |   674 +
+ elpa/org-9.4.4/Makefile                            |    93 +
+ elpa/org-9.4.4/README                              |    40 +
+ elpa/org-9.4.4/README_ELPA                         |    41 +
+ elpa/org-9.4.4/dir                                 |    19 +
+ elpa/org-9.4.4/doc/.aspell.org.conf                |    81 +
+ elpa/org-9.4.4/doc/.nosearch                       |     1 +
+ elpa/org-9.4.4/doc/Documentation_Standards.org     |   171 +
+ elpa/org-9.4.4/doc/Makefile                        |    95 +
+ elpa/org-9.4.4/doc/dir                             |    19 +
+ elpa/org-9.4.4/doc/doc-setup.org                   |    36 +
+ elpa/org-9.4.4/doc/fdl.org                         |   490 +
+ elpa/org-9.4.4/doc/htmlxref.cnf                    |     2 +
+ elpa/org-9.4.4/doc/org-guide.org                   |  2654 ++
+ elpa/org-9.4.4/doc/org-manual.org                  | 21903 ++++++++++++++++
+ elpa/org-9.4.4/doc/org-version.inc                 |     3 +
+ elpa/org-9.4.4/doc/org.texi                        | 23148 +++++++++++++++++
+ elpa/org-9.4.4/doc/orgcard.tex                     |   691 +
+ elpa/org-9.4.4/doc/orgguide.texi                   |  2689 ++
+ elpa/org-9.4.4/doc/pdflayout.sty                   |    44 +
+ elpa/org-9.4.4/doc/texinfo.tex                     | 10145 ++++++++
+ elpa/org-9.4.4/etc/Makefile                        |    31 +
+ elpa/org-9.4.4/etc/ORG-NEWS                        |  5756 +++++
+ .../org-9.4.4/etc/styles/OrgOdtContentTemplate.xml |   275 +
+ elpa/org-9.4.4/etc/styles/OrgOdtStyles.xml         |   861 +
+ elpa/org-9.4.4/etc/styles/README                   |    36 +
+ elpa/org-9.4.4/local.mk                            |    56 +
+ elpa/org-9.4.4/ob-C.el                             |   473 +
+ elpa/org-9.4.4/ob-C.elc                            |   Bin 0 -> 14078 bytes
+ elpa/org-9.4.4/ob-J.el                             |   189 +
+ elpa/org-9.4.4/ob-J.elc                            |   Bin 0 -> 5561 bytes
+ elpa/org-9.4.4/ob-R.el                             |   470 +
+ elpa/org-9.4.4/ob-R.elc                            |   Bin 0 -> 16198 bytes
+ elpa/org-9.4.4/ob-abc.el                           |    90 +
+ elpa/org-9.4.4/ob-abc.elc                          |   Bin 0 -> 2438 bytes
+ elpa/org-9.4.4/ob-asymptote.el                     |   137 +
+ elpa/org-9.4.4/ob-asymptote.elc                    |   Bin 0 -> 3759 bytes
+ elpa/org-9.4.4/ob-awk.el                           |   109 +
+ elpa/org-9.4.4/ob-awk.elc                          |   Bin 0 -> 3156 bytes
+ elpa/org-9.4.4/ob-calc.el                          |   108 +
+ elpa/org-9.4.4/ob-calc.elc                         |   Bin 0 -> 2396 bytes
+ elpa/org-9.4.4/ob-clojure.el                       |   253 +
+ elpa/org-9.4.4/ob-clojure.elc                      |   Bin 0 -> 8037 bytes
+ elpa/org-9.4.4/ob-comint.el                        |   154 +
+ elpa/org-9.4.4/ob-comint.elc                       |   Bin 0 -> 5268 bytes
+ elpa/org-9.4.4/ob-coq.el                           |    80 +
+ elpa/org-9.4.4/ob-coq.elc                          |   Bin 0 -> 2297 bytes
+ elpa/org-9.4.4/ob-core.el                          |  3234 +++
+ elpa/org-9.4.4/ob-core.elc                         |   Bin 0 -> 103601 bytes
+ elpa/org-9.4.4/ob-css.el                           |    46 +
+ elpa/org-9.4.4/ob-css.elc                          |   Bin 0 -> 888 bytes
+ elpa/org-9.4.4/ob-ditaa.el                         |   122 +
+ elpa/org-9.4.4/ob-ditaa.elc                        |   Bin 0 -> 3094 bytes
+ elpa/org-9.4.4/ob-dot.el                           |    90 +
+ elpa/org-9.4.4/ob-dot.elc                          |   Bin 0 -> 2118 bytes
+ elpa/org-9.4.4/ob-ebnf.el                          |    81 +
+ elpa/org-9.4.4/ob-ebnf.elc                         |   Bin 0 -> 1456 bytes
+ elpa/org-9.4.4/ob-emacs-lisp.el                    |   110 +
+ elpa/org-9.4.4/ob-emacs-lisp.elc                   |   Bin 0 -> 3134 bytes
+ elpa/org-9.4.4/ob-eshell.el                        |   109 +
+ elpa/org-9.4.4/ob-eshell.elc                       |   Bin 0 -> 3123 bytes
+ elpa/org-9.4.4/ob-eval.el                          |   147 +
+ elpa/org-9.4.4/ob-eval.elc                         |   Bin 0 -> 3345 bytes
+ elpa/org-9.4.4/ob-exp.el                           |   412 +
+ elpa/org-9.4.4/ob-exp.elc                          |   Bin 0 -> 11079 bytes
+ elpa/org-9.4.4/ob-forth.el                         |    88 +
+ elpa/org-9.4.4/ob-forth.elc                        |   Bin 0 -> 2030 bytes
+ elpa/org-9.4.4/ob-fortran.el                       |   168 +
+ elpa/org-9.4.4/ob-fortran.elc                      |   Bin 0 -> 5357 bytes
+ elpa/org-9.4.4/ob-gnuplot.el                       |   281 +
+ elpa/org-9.4.4/ob-gnuplot.elc                      |   Bin 0 -> 8596 bytes
+ elpa/org-9.4.4/ob-groovy.el                        |   112 +
+ elpa/org-9.4.4/ob-groovy.elc                       |   Bin 0 -> 3765 bytes
+ elpa/org-9.4.4/ob-haskell.el                       |   280 +
+ elpa/org-9.4.4/ob-haskell.elc                      |   Bin 0 -> 10807 bytes
+ elpa/org-9.4.4/ob-hledger.el                       |    69 +
+ elpa/org-9.4.4/ob-hledger.elc                      |   Bin 0 -> 1841 bytes
+ elpa/org-9.4.4/ob-io.el                            |   105 +
+ elpa/org-9.4.4/ob-io.elc                           |   Bin 0 -> 3274 bytes
+ elpa/org-9.4.4/ob-java.el                          |    84 +
+ elpa/org-9.4.4/ob-java.elc                         |   Bin 0 -> 2759 bytes
+ elpa/org-9.4.4/ob-js.el                            |   204 +
+ elpa/org-9.4.4/ob-js.elc                           |   Bin 0 -> 6823 bytes
+ elpa/org-9.4.4/ob-latex.el                         |   230 +
+ elpa/org-9.4.4/ob-latex.elc                        |   Bin 0 -> 6292 bytes
+ elpa/org-9.4.4/ob-ledger.el                        |    68 +
+ elpa/org-9.4.4/ob-ledger.elc                       |   Bin 0 -> 1756 bytes
+ elpa/org-9.4.4/ob-lilypond.el                      |   418 +
+ elpa/org-9.4.4/ob-lilypond.elc                     |   Bin 0 -> 14349 bytes
+ elpa/org-9.4.4/ob-lisp.el                          |   125 +
+ elpa/org-9.4.4/ob-lisp.elc                         |   Bin 0 -> 3708 bytes
+ elpa/org-9.4.4/ob-lob.el                           |   164 +
+ elpa/org-9.4.4/ob-lob.elc                          |   Bin 0 -> 5087 bytes
+ elpa/org-9.4.4/ob-lua.el                           |   401 +
+ elpa/org-9.4.4/ob-lua.elc                          |   Bin 0 -> 13257 bytes
+ elpa/org-9.4.4/ob-makefile.el                      |    46 +
+ elpa/org-9.4.4/ob-makefile.elc                     |   Bin 0 -> 920 bytes
+ elpa/org-9.4.4/ob-matlab.el                        |    45 +
+ elpa/org-9.4.4/ob-matlab.elc                       |   Bin 0 -> 500 bytes
+ elpa/org-9.4.4/ob-maxima.el                        |   128 +
+ elpa/org-9.4.4/ob-maxima.elc                       |   Bin 0 -> 3817 bytes
+ elpa/org-9.4.4/ob-mscgen.el                        |    81 +
+ elpa/org-9.4.4/ob-mscgen.elc                       |   Bin 0 -> 1353 bytes
+ elpa/org-9.4.4/ob-ocaml.el                         |   169 +
+ elpa/org-9.4.4/ob-ocaml.elc                        |   Bin 0 -> 5726 bytes
+ elpa/org-9.4.4/ob-octave.el                        |   264 +
+ elpa/org-9.4.4/ob-octave.elc                       |   Bin 0 -> 9920 bytes
+ elpa/org-9.4.4/ob-org.el                           |    70 +
+ elpa/org-9.4.4/ob-org.elc                          |   Bin 0 -> 1710 bytes
+ elpa/org-9.4.4/ob-perl.el                          |   155 +
+ elpa/org-9.4.4/ob-perl.elc                         |   Bin 0 -> 4648 bytes
+ elpa/org-9.4.4/ob-picolisp.el                      |   185 +
+ elpa/org-9.4.4/ob-picolisp.elc                     |   Bin 0 -> 4628 bytes
+ elpa/org-9.4.4/ob-plantuml.el                      |   156 +
+ elpa/org-9.4.4/ob-plantuml.elc                     |   Bin 0 -> 4957 bytes
+ elpa/org-9.4.4/ob-processing.el                    |   195 +
+ elpa/org-9.4.4/ob-processing.elc                   |   Bin 0 -> 4685 bytes
+ elpa/org-9.4.4/ob-python.el                        |   393 +
+ elpa/org-9.4.4/ob-python.elc                       |   Bin 0 -> 13694 bytes
+ elpa/org-9.4.4/ob-ref.el                           |   246 +
+ elpa/org-9.4.4/ob-ref.elc                          |   Bin 0 -> 6028 bytes
+ elpa/org-9.4.4/ob-ruby.el                          |   279 +
+ elpa/org-9.4.4/ob-ruby.elc                         |   Bin 0 -> 10061 bytes
+ elpa/org-9.4.4/ob-sass.el                          |    68 +
+ elpa/org-9.4.4/ob-sass.elc                         |   Bin 0 -> 1537 bytes
+ elpa/org-9.4.4/ob-scheme.el                        |   241 +
+ elpa/org-9.4.4/ob-scheme.elc                       |   Bin 0 -> 6714 bytes
+ elpa/org-9.4.4/ob-screen.el                        |   142 +
+ elpa/org-9.4.4/ob-screen.elc                       |   Bin 0 -> 4415 bytes
+ elpa/org-9.4.4/ob-sed.el                           |   106 +
+ elpa/org-9.4.4/ob-sed.elc                          |   Bin 0 -> 2762 bytes
+ elpa/org-9.4.4/ob-shell.el                         |   309 +
+ elpa/org-9.4.4/ob-shell.elc                        |   Bin 0 -> 11876 bytes
+ elpa/org-9.4.4/ob-shen.el                          |    79 +
+ elpa/org-9.4.4/ob-shen.elc                         |   Bin 0 -> 1997 bytes
+ elpa/org-9.4.4/ob-sql.el                           |   376 +
+ elpa/org-9.4.4/ob-sql.elc                          |   Bin 0 -> 10360 bytes
+ elpa/org-9.4.4/ob-sqlite.el                        |   156 +
+ elpa/org-9.4.4/ob-sqlite.elc                       |   Bin 0 -> 4578 bytes
+ elpa/org-9.4.4/ob-stan.el                          |    86 +
+ elpa/org-9.4.4/ob-stan.elc                         |   Bin 0 -> 2305 bytes
+ elpa/org-9.4.4/ob-table.el                         |   151 +
+ elpa/org-9.4.4/ob-table.elc                        |   Bin 0 -> 3419 bytes
+ elpa/org-9.4.4/ob-tangle.el                        |   590 +
+ elpa/org-9.4.4/ob-tangle.elc                       |   Bin 0 -> 18404 bytes
+ elpa/org-9.4.4/ob-vala.el                          |   116 +
+ elpa/org-9.4.4/ob-vala.elc                         |   Bin 0 -> 3108 bytes
+ elpa/org-9.4.4/ob.el                               |    43 +
+ elpa/org-9.4.4/ob.elc                              |   Bin 0 -> 692 bytes
+ elpa/org-9.4.4/ol-bbdb.el                          |   546 +
+ elpa/org-9.4.4/ol-bbdb.elc                         |   Bin 0 -> 12625 bytes
+ elpa/org-9.4.4/ol-bibtex.el                        |   766 +
+ elpa/org-9.4.4/ol-bibtex.elc                       |   Bin 0 -> 26144 bytes
+ elpa/org-9.4.4/ol-docview.el                       |   103 +
+ elpa/org-9.4.4/ol-docview.elc                      |   Bin 0 -> 2099 bytes
+ elpa/org-9.4.4/ol-eshell.el                        |    68 +
+ elpa/org-9.4.4/ol-eshell.elc                       |   Bin 0 -> 1545 bytes
+ elpa/org-9.4.4/ol-eww.el                           |   181 +
+ elpa/org-9.4.4/ol-eww.elc                          |   Bin 0 -> 3343 bytes
+ elpa/org-9.4.4/ol-gnus.el                          |   272 +
+ elpa/org-9.4.4/ol-gnus.elc                         |   Bin 0 -> 8342 bytes
+ elpa/org-9.4.4/ol-info.el                          |   148 +
+ elpa/org-9.4.4/ol-info.elc                         |   Bin 0 -> 4350 bytes
+ elpa/org-9.4.4/ol-irc.el                           |   269 +
+ elpa/org-9.4.4/ol-irc.elc                          |   Bin 0 -> 6010 bytes
+ elpa/org-9.4.4/ol-mhe.el                           |   219 +
+ elpa/org-9.4.4/ol-mhe.elc                          |   Bin 0 -> 5447 bytes
+ elpa/org-9.4.4/ol-rmail.el                         |   117 +
+ elpa/org-9.4.4/ol-rmail.elc                        |   Bin 0 -> 2672 bytes
+ elpa/org-9.4.4/ol-w3m.el                           |   184 +
+ elpa/org-9.4.4/ol-w3m.elc                          |   Bin 0 -> 3914 bytes
+ elpa/org-9.4.4/ol.el                               |  2020 ++
+ elpa/org-9.4.4/ol.elc                              |   Bin 0 -> 59712 bytes
+ elpa/org-9.4.4/org-agenda.el                       | 10754 ++++++++
+ elpa/org-9.4.4/org-agenda.elc                      |   Bin 0 -> 389748 bytes
+ elpa/org-9.4.4/org-archive.el                      |   639 +
+ elpa/org-9.4.4/org-archive.elc                     |   Bin 0 -> 18853 bytes
+ elpa/org-9.4.4/org-attach-git.el                   |   119 +
+ elpa/org-9.4.4/org-attach-git.elc                  |   Bin 0 -> 3752 bytes
+ elpa/org-9.4.4/org-attach.el                       |   758 +
+ elpa/org-9.4.4/org-attach.elc                      |   Bin 0 -> 26103 bytes
+ elpa/org-9.4.4/org-autoloads.el                    |  1157 +
+ elpa/org-9.4.4/org-capture.el                      |  1950 ++
+ elpa/org-9.4.4/org-capture.elc                     |   Bin 0 -> 61861 bytes
+ elpa/org-9.4.4/org-clock.el                        |  3116 +++
+ elpa/org-9.4.4/org-clock.elc                       |   Bin 0 -> 95728 bytes
+ elpa/org-9.4.4/org-colview.el                      |  1734 ++
+ elpa/org-9.4.4/org-colview.elc                     |   Bin 0 -> 56958 bytes
+ elpa/org-9.4.4/org-compat.el                       |  1215 +
+ elpa/org-9.4.4/org-compat.elc                      |   Bin 0 -> 46240 bytes
+ elpa/org-9.4.4/org-crypt.el                        |   318 +
+ elpa/org-9.4.4/org-crypt.elc                       |   Bin 0 -> 7397 bytes
+ elpa/org-9.4.4/org-ctags.el                        |   534 +
+ elpa/org-9.4.4/org-ctags.elc                       |   Bin 0 -> 12118 bytes
+ elpa/org-9.4.4/org-datetree.el                     |   270 +
+ elpa/org-9.4.4/org-datetree.elc                    |   Bin 0 -> 8441 bytes
+ elpa/org-9.4.4/org-duration.el                     |   456 +
+ elpa/org-9.4.4/org-duration.elc                    |   Bin 0 -> 12133 bytes
+ elpa/org-9.4.4/org-element.el                      |  6089 +++++
+ elpa/org-9.4.4/org-element.elc                     |   Bin 0 -> 176499 bytes
+ elpa/org-9.4.4/org-entities.el                     |   600 +
+ elpa/org-9.4.4/org-entities.elc                    |   Bin 0 -> 27372 bytes
+ elpa/org-9.4.4/org-faces.el                        |   682 +
+ elpa/org-9.4.4/org-faces.elc                       |   Bin 0 -> 25208 bytes
+ elpa/org-9.4.4/org-feed.el                         |   719 +
+ elpa/org-9.4.4/org-feed.elc                        |   Bin 0 -> 19722 bytes
+ elpa/org-9.4.4/org-footnote.el                     |  1014 +
+ elpa/org-9.4.4/org-footnote.elc                    |   Bin 0 -> 29038 bytes
+ elpa/org-9.4.4/org-goto.el                         |   292 +
+ elpa/org-9.4.4/org-goto.elc                        |   Bin 0 -> 9352 bytes
+ elpa/org-9.4.4/org-habit.el                        |   470 +
+ elpa/org-9.4.4/org-habit.elc                       |   Bin 0 -> 13930 bytes
+ elpa/org-9.4.4/org-id.el                           |   729 +
+ elpa/org-9.4.4/org-id.elc                          |   Bin 0 -> 21987 bytes
+ elpa/org-9.4.4/org-indent.el                       |   429 +
+ elpa/org-9.4.4/org-indent.elc                      |   Bin 0 -> 15436 bytes
+ elpa/org-9.4.4/org-inlinetask.el                   |   348 +
+ elpa/org-9.4.4/org-inlinetask.elc                  |   Bin 0 -> 8812 bytes
+ elpa/org-9.4.4/org-keys.el                         |   934 +
+ elpa/org-9.4.4/org-keys.elc                        |   Bin 0 -> 27212 bytes
+ elpa/org-9.4.4/org-lint.el                         |  1287 +
+ elpa/org-9.4.4/org-lint.elc                        |   Bin 0 -> 53451 bytes
+ elpa/org-9.4.4/org-list.el                         |  3589 +++
+ elpa/org-9.4.4/org-list.elc                        |   Bin 0 -> 94368 bytes
+ elpa/org-9.4.4/org-loaddefs.el                     |  4730 ++++
+ elpa/org-9.4.4/org-macro.el                        |   398 +
+ elpa/org-9.4.4/org-macro.elc                       |   Bin 0 -> 10823 bytes
+ elpa/org-9.4.4/org-macs.el                         |  1276 +
+ elpa/org-9.4.4/org-macs.elc                        |   Bin 0 -> 42432 bytes
+ elpa/org-9.4.4/org-mobile.el                       |  1141 +
+ elpa/org-9.4.4/org-mobile.elc                      |   Bin 0 -> 37327 bytes
+ elpa/org-9.4.4/org-mouse.el                        |  1102 +
+ elpa/org-9.4.4/org-mouse.elc                       |   Bin 0 -> 32475 bytes
+ elpa/org-9.4.4/org-num.el                          |   476 +
+ elpa/org-9.4.4/org-num.elc                         |   Bin 0 -> 13213 bytes
+ elpa/org-9.4.4/org-pcomplete.el                    |   451 +
+ elpa/org-9.4.4/org-pcomplete.elc                   |   Bin 0 -> 13143 bytes
+ elpa/org-9.4.4/org-pkg.el                          |     2 +
+ elpa/org-9.4.4/org-plot.el                         |   348 +
+ elpa/org-9.4.4/org-plot.elc                        |   Bin 0 -> 9983 bytes
+ elpa/org-9.4.4/org-protocol.el                     |   738 +
+ elpa/org-9.4.4/org-protocol.elc                    |   Bin 0 -> 21058 bytes
+ elpa/org-9.4.4/org-refile.el                       |   742 +
+ elpa/org-9.4.4/org-refile.elc                      |   Bin 0 -> 23336 bytes
+ elpa/org-9.4.4/org-src.el                          |  1261 +
+ elpa/org-9.4.4/org-src.elc                         |   Bin 0 -> 41179 bytes
+ elpa/org-9.4.4/org-table.el                        |  6347 +++++
+ elpa/org-9.4.4/org-table.elc                       |   Bin 0 -> 207838 bytes
+ elpa/org-9.4.4/org-tempo.el                        |   188 +
+ elpa/org-9.4.4/org-tempo.elc                       |   Bin 0 -> 5027 bytes
+ elpa/org-9.4.4/org-timer.el                        |   493 +
+ elpa/org-9.4.4/org-timer.elc                       |   Bin 0 -> 14329 bytes
+ elpa/org-9.4.4/org-version.el                      |    24 +
+ elpa/org-9.4.4/org.el                              | 21217 ++++++++++++++++
+ elpa/org-9.4.4/org.elc                             |   Bin 0 -> 712654 bytes
+ elpa/org-9.4.4/org.info                            | 23261 +++++++++++++++++
+ elpa/org-9.4.4/orgguide.info                       |  2642 ++
+ elpa/org-9.4.4/ox-ascii.el                         |  2202 ++
+ elpa/org-9.4.4/ox-ascii.elc                        |   Bin 0 -> 67997 bytes
+ elpa/org-9.4.4/ox-beamer.el                        |  1157 +
+ elpa/org-9.4.4/ox-beamer.elc                       |   Bin 0 -> 35650 bytes
+ elpa/org-9.4.4/ox-html.el                          |  3882 +++
+ elpa/org-9.4.4/ox-html.elc                         |   Bin 0 -> 132027 bytes
+ elpa/org-9.4.4/ox-icalendar.el                     |  1025 +
+ elpa/org-9.4.4/ox-icalendar.elc                    |   Bin 0 -> 37939 bytes
+ elpa/org-9.4.4/ox-latex.el                         |  3755 +++
+ elpa/org-9.4.4/ox-latex.elc                        |   Bin 0 -> 119991 bytes
+ elpa/org-9.4.4/ox-man.el                           |  1141 +
+ elpa/org-9.4.4/ox-man.elc                          |   Bin 0 -> 31943 bytes
+ elpa/org-9.4.4/ox-md.el                            |   750 +
+ elpa/org-9.4.4/ox-md.elc                           |   Bin 0 -> 24225 bytes
+ elpa/org-9.4.4/ox-odt.el                           |  4339 ++++
+ elpa/org-9.4.4/ox-odt.elc                          |   Bin 0 -> 134857 bytes
+ elpa/org-9.4.4/ox-org.el                           |   356 +
+ elpa/org-9.4.4/ox-org.elc                          |   Bin 0 -> 12651 bytes
+ elpa/org-9.4.4/ox-publish.el                       |  1380 +
+ elpa/org-9.4.4/ox-publish.elc                      |   Bin 0 -> 50234 bytes
+ elpa/org-9.4.4/ox-texinfo.el                       |  1720 ++
+ elpa/org-9.4.4/ox-texinfo.elc                      |   Bin 0 -> 58228 bytes
+ elpa/org-9.4.4/ox.el                               |  6939 +++++
+ elpa/org-9.4.4/ox.elc                              |   Bin 0 -> 242896 bytes
+ elpa/org-9.4.4/request-assign-future.txt           |    44 +
+ .../org-noter-20191020.1212/org-noter-autoloads.el |    65 +
+ elpa/org-noter-20191020.1212/org-noter-pkg.el      |     2 +
+ elpa/org-noter-20191020.1212/org-noter.el          |  2296 ++
+ elpa/org-noter-20191020.1212/org-noter.elc         |   Bin 0 -> 120607 bytes
+ .../org-noter-pdftools-autoloads.el                |    23 +
+ .../org-noter-pdftools-pkg.el                      |     2 +
+ .../org-noter-pdftools.el                          |   701 +
+ .../org-pdftools-autoloads.el                      |    47 +
+ .../org-pdftools-20210118.1611/org-pdftools-pkg.el |     2 +
+ elpa/org-pdftools-20210118.1611/org-pdftools.el    |   415 +
+ .../citeproc/csl/acs-nano.csl                      |   214 +
+ .../citeproc/csl/author-year.el                    |    92 +
+ .../citeproc/csl/author-year.elc                   |   Bin 0 -> 2236 bytes
+ .../citeproc/csl/unsrt-footnote.el                 |    86 +
+ .../citeproc/csl/unsrt-footnote.elc                |   Bin 0 -> 2064 bytes
+ .../citeproc/csl/unsrt-paren.el                    |   107 +
+ .../citeproc/csl/unsrt-paren.elc                   |   Bin 0 -> 2613 bytes
+ elpa/org-ref-20210225.1454/citeproc/csl/unsrt.el   |   111 +
+ elpa/org-ref-20210225.1454/citeproc/csl/unsrt.elc  |   Bin 0 -> 2738 bytes
+ .../citeproc/readme-author-year.org                |    92 +
+ .../citeproc/readme-unsrt.org                      |    93 +
+ elpa/org-ref-20210225.1454/citeproc/readme.bib     |   203 +
+ elpa/org-ref-20210225.1454/citeproc/readme.org     |  1676 ++
+ elpa/org-ref-20210225.1454/doi-utils.el            |  1571 ++
+ elpa/org-ref-20210225.1454/doi-utils.elc           |   Bin 0 -> 46091 bytes
+ elpa/org-ref-20210225.1454/nist-webbook.el         |    42 +
+ elpa/org-ref-20210225.1454/nist-webbook.elc        |   Bin 0 -> 1196 bytes
+ elpa/org-ref-20210225.1454/org-ref-arxiv.el        |   282 +
+ elpa/org-ref-20210225.1454/org-ref-arxiv.elc       |   Bin 0 -> 7170 bytes
+ elpa/org-ref-20210225.1454/org-ref-autoloads.el    |   952 +
+ elpa/org-ref-20210225.1454/org-ref-bibtex.el       |  1380 +
+ elpa/org-ref-20210225.1454/org-ref-bibtex.elc      |   Bin 0 -> 135741 bytes
+ elpa/org-ref-20210225.1454/org-ref-citeproc.el     |   919 +
+ elpa/org-ref-20210225.1454/org-ref-citeproc.elc    |   Bin 0 -> 20547 bytes
+ elpa/org-ref-20210225.1454/org-ref-core.el         |  4289 ++++
+ elpa/org-ref-20210225.1454/org-ref-core.elc        |   Bin 0 -> 115377 bytes
+ elpa/org-ref-20210225.1454/org-ref-glossary.el     |   765 +
+ elpa/org-ref-20210225.1454/org-ref-glossary.elc    |   Bin 0 -> 17081 bytes
+ elpa/org-ref-20210225.1454/org-ref-helm-bibtex.el  |   750 +
+ elpa/org-ref-20210225.1454/org-ref-helm-bibtex.elc |   Bin 0 -> 21218 bytes
+ elpa/org-ref-20210225.1454/org-ref-helm-cite.el    |   771 +
+ elpa/org-ref-20210225.1454/org-ref-helm-cite.elc   |   Bin 0 -> 19560 bytes
+ elpa/org-ref-20210225.1454/org-ref-helm.el         |   473 +
+ elpa/org-ref-20210225.1454/org-ref-helm.elc        |   Bin 0 -> 12919 bytes
+ elpa/org-ref-20210225.1454/org-ref-isbn.el         |   197 +
+ elpa/org-ref-20210225.1454/org-ref-isbn.elc        |   Bin 0 -> 5268 bytes
+ elpa/org-ref-20210225.1454/org-ref-ivy-cite.el     |   561 +
+ elpa/org-ref-20210225.1454/org-ref-ivy-cite.elc    |   Bin 0 -> 46281 bytes
+ elpa/org-ref-20210225.1454/org-ref-ivy.el          |    35 +
+ elpa/org-ref-20210225.1454/org-ref-ivy.elc         |   Bin 0 -> 562 bytes
+ elpa/org-ref-20210225.1454/org-ref-latex.el        |   147 +
+ elpa/org-ref-20210225.1454/org-ref-latex.elc       |   Bin 0 -> 3550 bytes
+ elpa/org-ref-20210225.1454/org-ref-pdf.el          |   290 +
+ elpa/org-ref-20210225.1454/org-ref-pdf.elc         |   Bin 0 -> 6922 bytes
+ elpa/org-ref-20210225.1454/org-ref-pgk.el          |    16 +
+ elpa/org-ref-20210225.1454/org-ref-pkg.el          |    22 +
+ elpa/org-ref-20210225.1454/org-ref-pubmed.el       |   292 +
+ elpa/org-ref-20210225.1454/org-ref-pubmed.elc      |   Bin 0 -> 6769 bytes
+ elpa/org-ref-20210225.1454/org-ref-reftex.el       |   274 +
+ elpa/org-ref-20210225.1454/org-ref-reftex.elc      |   Bin 0 -> 5648 bytes
+ elpa/org-ref-20210225.1454/org-ref-sci-id.el       |    54 +
+ elpa/org-ref-20210225.1454/org-ref-sci-id.elc      |   Bin 0 -> 1144 bytes
+ elpa/org-ref-20210225.1454/org-ref-scifinder.el    |    35 +
+ elpa/org-ref-20210225.1454/org-ref-scifinder.elc   |   Bin 0 -> 678 bytes
+ elpa/org-ref-20210225.1454/org-ref-scopus.el       |   222 +
+ elpa/org-ref-20210225.1454/org-ref-scopus.elc      |   Bin 0 -> 17066 bytes
+ elpa/org-ref-20210225.1454/org-ref-url-utils.el    |   408 +
+ elpa/org-ref-20210225.1454/org-ref-url-utils.elc   |   Bin 0 -> 9820 bytes
+ elpa/org-ref-20210225.1454/org-ref-utils.el        |  1398 +
+ elpa/org-ref-20210225.1454/org-ref-utils.elc       |   Bin 0 -> 43137 bytes
+ elpa/org-ref-20210225.1454/org-ref-worldcat.el     |    20 +
+ elpa/org-ref-20210225.1454/org-ref-worldcat.elc    |   Bin 0 -> 631 bytes
+ elpa/org-ref-20210225.1454/org-ref-wos.el          |   107 +
+ elpa/org-ref-20210225.1454/org-ref-wos.elc         |   Bin 0 -> 3071 bytes
+ elpa/org-ref-20210225.1454/org-ref.bib             |   332 +
+ elpa/org-ref-20210225.1454/org-ref.el              |    45 +
+ elpa/org-ref-20210225.1454/org-ref.elc             |   Bin 0 -> 522 bytes
+ elpa/org-ref-20210225.1454/org-ref.org             |  1038 +
+ elpa/org-ref-20210225.1454/x2bib.el                |   143 +
+ elpa/org-ref-20210225.1454/x2bib.elc               |   Bin 0 -> 2159 bytes
+ elpa/org-roam-bibtex-20210302.805/orb-anystyle.el  |   396 +
+ elpa/org-roam-bibtex-20210302.805/orb-anystyle.elc |   Bin 0 -> 11162 bytes
+ elpa/org-roam-bibtex-20210302.805/orb-compat.el    |    48 +
+ elpa/org-roam-bibtex-20210302.805/orb-compat.elc   |   Bin 0 -> 1286 bytes
+ elpa/org-roam-bibtex-20210302.805/orb-core.el      |   491 +
+ elpa/org-roam-bibtex-20210302.805/orb-core.elc     |   Bin 0 -> 12136 bytes
+ elpa/org-roam-bibtex-20210302.805/orb-helm.el      |   100 +
+ elpa/org-roam-bibtex-20210302.805/orb-helm.elc     |   Bin 0 -> 2610 bytes
+ elpa/org-roam-bibtex-20210302.805/orb-ivy.el       |    99 +
+ elpa/org-roam-bibtex-20210302.805/orb-ivy.elc      |   Bin 0 -> 2428 bytes
+ .../orb-pdf-scrapper.el                            |  1778 ++
+ .../orb-pdf-scrapper.elc                           |   Bin 0 -> 57136 bytes
+ elpa/org-roam-bibtex-20210302.805/orb-utils.el     |   290 +
+ elpa/org-roam-bibtex-20210302.805/orb-utils.elc    |   Bin 0 -> 7202 bytes
+ .../org-roam-bibtex-autoloads.el                   |   324 +
+ .../org-roam-bibtex-pkg.el                         |    15 +
+ .../org-roam-bibtex.el                             |  1261 +
+ .../org-roam-bibtex.elc                            |   Bin 0 -> 39605 bytes
+ elpa/parsebib-20210108.1525/parsebib-autoloads.el  |    22 +
+ elpa/parsebib-20210108.1525/parsebib-pkg.el        |     2 +
+ elpa/parsebib-20210108.1525/parsebib.el            |   676 +
+ elpa/parsebib-20210108.1525/parsebib.elc           |   Bin 0 -> 23784 bytes
+ elpa/pdf-tools-20200512.1524/README                |   381 +
+ elpa/pdf-tools-20200512.1524/build/Makefile        |    97 +
+ .../build/server/.gitignore                        |    25 +
+ .../build/server/Makefile.am                       |    44 +
+ .../pdf-tools-20200512.1524/build/server/autobuild |   545 +
+ .../build/server/autogen.sh                        |     5 +
+ .../build/server/configure.ac                      |   113 +
+ .../build/server/epdfinfo.c                        |  3718 +++
+ .../build/server/epdfinfo.h                        |   252 +
+ .../build/server/m4/ax_check_compile_flag.m4       |    74 +
+ .../build/server/poppler-hack.cc                   |   122 +
+ .../build/server/poppler-versions                  |    12 +
+ .../build/server/synctex_parser.c                  |  8924 +++++++
+ .../build/server/synctex_parser.h                  |   429 +
+ .../build/server/synctex_parser_advanced.h         |   554 +
+ .../build/server/synctex_parser_local.h            |     3 +
+ .../build/server/synctex_parser_readme.txt         |   204 +
+ .../build/server/synctex_parser_utils.c            |   570 +
+ .../build/server/synctex_parser_utils.h            |   163 +
+ .../build/server/synctex_parser_version.txt        |     1 +
+ .../build/server/synctex_version.h                 |    59 +
+ .../build/server/test/docker/.gitignore            |     2 +
+ .../build/server/test/docker/lib/run-tests         |     9 +
+ .../build/server/test/docker/lib/yes-or-enter      |     9 +
+ .../server/test/docker/templates/Dockerfile.in     |     4 +
+ .../test/docker/templates/arch.Dockerfile.in       |     6 +
+ .../test/docker/templates/centos-7.Dockerfile.in   |     3 +
+ .../test/docker/templates/debian-8.Dockerfile.in   |     4 +
+ .../test/docker/templates/debian-9.Dockerfile.in   |     4 +
+ .../test/docker/templates/fedora-24.Dockerfile.in  |     5 +
+ .../test/docker/templates/fedora-25.Dockerfile.in  |     5 +
+ .../test/docker/templates/fedora-26.Dockerfile.in  |     5 +
+ .../test/docker/templates/gentoo.Dockerfile.in     |     5 +
+ .../test/docker/templates/ubuntu-14.Dockerfile.in  |     4 +
+ .../test/docker/templates/ubuntu-16.Dockerfile.in  |     4 +
+ .../test/docker/templates/ubuntu-17.Dockerfile.in  |     4 +
+ elpa/pdf-tools-20200512.1524/pdf-annot.el          |  1790 ++
+ elpa/pdf-tools-20200512.1524/pdf-annot.elc         |   Bin 0 -> 65074 bytes
+ elpa/pdf-tools-20200512.1524/pdf-cache.el          |   456 +
+ elpa/pdf-tools-20200512.1524/pdf-cache.elc         |   Bin 0 -> 15823 bytes
+ elpa/pdf-tools-20200512.1524/pdf-dev.el            |    85 +
+ elpa/pdf-tools-20200512.1524/pdf-dev.elc           |   Bin 0 -> 3445 bytes
+ elpa/pdf-tools-20200512.1524/pdf-history.el        |   170 +
+ elpa/pdf-tools-20200512.1524/pdf-history.elc       |   Bin 0 -> 5705 bytes
+ elpa/pdf-tools-20200512.1524/pdf-info.el           |  1744 ++
+ elpa/pdf-tools-20200512.1524/pdf-info.elc          |   Bin 0 -> 50318 bytes
+ elpa/pdf-tools-20200512.1524/pdf-isearch.el        |   831 +
+ elpa/pdf-tools-20200512.1524/pdf-isearch.elc       |   Bin 0 -> 25777 bytes
+ elpa/pdf-tools-20200512.1524/pdf-links.el          |   376 +
+ elpa/pdf-tools-20200512.1524/pdf-links.elc         |   Bin 0 -> 12742 bytes
+ elpa/pdf-tools-20200512.1524/pdf-loader.el         |    80 +
+ elpa/pdf-tools-20200512.1524/pdf-loader.elc        |   Bin 0 -> 2066 bytes
+ elpa/pdf-tools-20200512.1524/pdf-misc.el           |   287 +
+ elpa/pdf-tools-20200512.1524/pdf-misc.elc          |   Bin 0 -> 15045 bytes
+ elpa/pdf-tools-20200512.1524/pdf-occur.el          |   827 +
+ elpa/pdf-tools-20200512.1524/pdf-occur.elc         |   Bin 0 -> 30522 bytes
+ elpa/pdf-tools-20200512.1524/pdf-outline.el        |   598 +
+ elpa/pdf-tools-20200512.1524/pdf-outline.elc       |   Bin 0 -> 22009 bytes
+ elpa/pdf-tools-20200512.1524/pdf-sync.el           |   781 +
+ elpa/pdf-tools-20200512.1524/pdf-sync.elc          |   Bin 0 -> 23956 bytes
+ .../pdf-tools-20200512.1524/pdf-tools-autoloads.el |   495 +
+ elpa/pdf-tools-20200512.1524/pdf-tools-pkg.el      |    13 +
+ elpa/pdf-tools-20200512.1524/pdf-tools.el          |   525 +
+ elpa/pdf-tools-20200512.1524/pdf-tools.elc         |   Bin 0 -> 13995 bytes
+ elpa/pdf-tools-20200512.1524/pdf-util.el           |  1346 +
+ elpa/pdf-tools-20200512.1524/pdf-util.elc          |   Bin 0 -> 37126 bytes
+ elpa/pdf-tools-20200512.1524/pdf-view.el           |  1676 ++
+ elpa/pdf-tools-20200512.1524/pdf-view.elc          |   Bin 0 -> 59066 bytes
+ elpa/pdf-tools-20200512.1524/pdf-virtual.el        |  1038 +
+ elpa/pdf-tools-20200512.1524/pdf-virtual.elc       |   Bin 0 -> 84156 bytes
+ elpa/popup-20210108.1821/popup-autoloads.el        |    22 +
+ elpa/popup-20210108.1821/popup-pkg.el              |     2 +
+ elpa/popup-20210108.1821/popup.el                  |  1437 ++
+ elpa/popup-20210108.1821/popup.elc                 |   Bin 0 -> 75541 bytes
+ elpa/tablist-20200427.2205/tablist-autoloads.el    |    51 +
+ elpa/tablist-20200427.2205/tablist-filter.el       |   464 +
+ elpa/tablist-20200427.2205/tablist-filter.elc      |   Bin 0 -> 13158 bytes
+ elpa/tablist-20200427.2205/tablist-pkg.el          |    11 +
+ elpa/tablist-20200427.2205/tablist.el              |  1945 ++
+ elpa/tablist-20200427.2205/tablist.elc             |   Bin 0 -> 62693 bytes
+ elpa/yasnippet-20200604.246/yasnippet-autoloads.el |    68 +
+ elpa/yasnippet-20200604.246/yasnippet-pkg.el       |     2 +
+ elpa/yasnippet-20200604.246/yasnippet.el           |  5311 ++++
+ elpa/yasnippet-20200604.246/yasnippet.elc          |   Bin 0 -> 227048 bytes
+ init.el                                            |     2 +-
+ 1293 files changed, 480360 insertions(+), 94 deletions(-)
+
+commit 2084f8c388be4c1fc89d177ca461f0b0219d5591
+Author: Toby <rowlandsToby1@gmail.com>
+Date:   Fri Mar 5 22:32:30 2021 +0000
+
+    Switched org-bullets for org-superstar
+    
+    Superstar is tracked in melpa so I guess that's good?
+
+ .gitignore                                         |    1 +
+ elpa/archives/gnu/archive-contents                 |  123 +-
+ elpa/archives/melpa/archive-contents               | 1431 ++++++++++----------
+ .../org-superstar-autoloads.el                     |   42 +
+ .../org-superstar-pkg.el                           |    2 +
+ elpa/org-superstar-20210216.1925/org-superstar.el  |  913 +++++++++++++
+ elpa/org-superstar-20210216.1925/org-superstar.elc |  Bin 0 -> 30818 bytes
+ init.el                                            |    2 +-
+ lisp/org-bullets/org-bullets.el                    |    2 +-
+ 9 files changed, 1789 insertions(+), 727 deletions(-)
+
+commit c5ff841460a60adceac5505feff7b7a59cf2f594
+Author: Toby <rowlandsToby1@gmail.com>
+Date:   Thu Mar 4 13:27:09 2021 +0000
+
+    Configured backup directory
+    
+    Backups now save in a separate directory to working files.
+
+ .gitignore | 3 ++-
+ init.el    | 2 +-
+ 2 files changed, 3 insertions(+), 2 deletions(-)
+
+commit 526096f4265734868e135056cbae3fb6d0e97ab0
+Author: Toby <rowlandsToby1@gmail.com>
+Date:   Thu Mar 4 12:29:01 2021 +0000
+
+    Removing gitnored files
+    
+    Removing instance specific files from repo.
+
+ bookmarks       |  10 ----------
+ bookmarks.emacs |  10 ----------
+ org-roam.db     | Bin 528384 -> 0 bytes
+ recentf         |  32 --------------------------------
+ recentf~        |  32 --------------------------------
+ 5 files changed, 84 deletions(-)
+
+commit a3381327dc4380cec9d6ac20362e821618b93591
+Author: Toby <rowlandsToby1@gmail.com>
+Date:   Thu Mar 4 12:20:52 2021 +0000
+
+    Update .gitignore
+    
+    Removed instance specific files.
+
+ .gitignore | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+commit 9d7277f6f9d582d624f41a16a140653e66a197f3
+Author: Toby <rowlandsToby1@gmail.com>
+Date:   Thu Mar 4 12:15:40 2021 +0000
+
+    Backup post move
+    
+    Couple of changes to make init more dynamic, changed bullets to work better with font choice and updated paths in readme
+
+ README.md                       |   4 ++--
+ bookmarks                       |   4 ++--
+ init.el                         |   2 +-
+ lisp/org-bullets/org-bullets.el |   4 ++--
+ org-roam.db                     | Bin 167936 -> 528384 bytes
+ recentf                         |   4 ++--
+ recentf~                        |  32 ++++++++++++++++++++++++++++++++
+ 7 files changed, 41 insertions(+), 9 deletions(-)
+
+commit c8d49e7bb20f7ff926a85c903ea7777771893048
+Author: Toby <rowlandsToby1@gmail.com>
+Date:   Wed Jan 27 11:38:59 2021 +0000
+
+    Adding all data
+    
+    Adding my config to folder.
+
+ .gitignore                                         |   18 +-
+ README.md                                          |    7 +
+ addons-win/diff-bin/cmp.exe                        |  Bin 0 -> 57344 bytes
+ addons-win/diff-bin/diff.exe                       |  Bin 0 -> 150528 bytes
+ addons-win/diff-bin/diff3.exe                      |  Bin 0 -> 59392 bytes
+ addons-win/diff-bin/libiconv2.dll                  |  Bin 0 -> 898048 bytes
+ addons-win/diff-bin/libintl3.dll                   |  Bin 0 -> 92672 bytes
+ addons-win/diff-bin/sdiff.exe                      |  Bin 0 -> 61952 bytes
+ addons-win/sqlite3.exe                             |  Bin 0 -> 987136 bytes
+ bookmarks                                          |   10 +
+ bookmarks.emacs                                    |   10 +
+ elpa/archives/gnu/archive-contents                 | 2618 ++++++++
+ elpa/archives/melpa/archive-contents               | 4823 ++++++++++++++
+ elpa/async-20200809.501/async-autoloads.el         |  184 +
+ elpa/async-20200809.501/async-bytecomp.el          |  204 +
+ elpa/async-20200809.501/async-bytecomp.elc         |  Bin 0 -> 7630 bytes
+ elpa/async-20200809.501/async-pkg.el               |   12 +
+ elpa/async-20200809.501/async.el                   |  408 ++
+ elpa/async-20200809.501/async.elc                  |  Bin 0 -> 11497 bytes
+ elpa/async-20200809.501/dired-async.el             |  408 ++
+ elpa/async-20200809.501/dired-async.elc            |  Bin 0 -> 14478 bytes
+ elpa/async-20200809.501/smtpmail-async.el          |   73 +
+ elpa/async-20200809.501/smtpmail-async.elc         |  Bin 0 -> 1587 bytes
+ elpa/counsel-20201227.1327/counsel-autoloads.el    |  518 ++
+ elpa/counsel-20201227.1327/counsel-pkg.el          |    2 +
+ elpa/counsel-20201227.1327/counsel.el              | 6969 ++++++++++++++++++++
+ elpa/counsel-20201227.1327/counsel.elc             |  Bin 0 -> 233967 bytes
+ elpa/dash-20201227.2101/dash-autoloads.el          |   70 +
+ elpa/dash-20201227.2101/dash-pkg.el                |    9 +
+ elpa/dash-20201227.2101/dash.el                    | 2919 ++++++++
+ elpa/dash-20201227.2101/dash.elc                   |  Bin 0 -> 107013 bytes
+ elpa/dash-20201227.2101/dash.info                  | 3417 ++++++++++
+ elpa/dash-20201227.2101/dir                        |   18 +
+ elpa/emacsql-20200714.28/README.md                 |  409 ++
+ elpa/emacsql-20200714.28/emacsql-autoloads.el      |   40 +
+ elpa/emacsql-20200714.28/emacsql-compiler.el       |  531 ++
+ elpa/emacsql-20200714.28/emacsql-compiler.elc      |  Bin 0 -> 25850 bytes
+ elpa/emacsql-20200714.28/emacsql-pkg.el            |   10 +
+ elpa/emacsql-20200714.28/emacsql.el                |  416 ++
+ elpa/emacsql-20200714.28/emacsql.elc               |  Bin 0 -> 16114 bytes
+ .../emacsql-sqlite3-autoloads.el                   |   23 +
+ .../emacsql-sqlite3-pkg.el                         |    2 +
+ .../emacsql-sqlite3.el                             |  254 +
+ .../emacsql-sqlite3.elc                            |  Bin 0 -> 7568 bytes
+ elpa/f-20191110.1357/f-autoloads.el                |   22 +
+ elpa/f-20191110.1357/f-pkg.el                      |    2 +
+ elpa/f-20191110.1357/f.el                          |  625 ++
+ elpa/f-20191110.1357/f.elc                         |  Bin 0 -> 20542 bytes
+ elpa/ivy-20201218.1222/colir.el                    |  124 +
+ elpa/ivy-20201218.1222/colir.elc                   |  Bin 0 -> 3433 bytes
+ elpa/ivy-20201218.1222/dir                         |   18 +
+ elpa/ivy-20201218.1222/elpa.el                     |    6 +
+ elpa/ivy-20201218.1222/elpa.elc                    |  Bin 0 -> 648 bytes
+ elpa/ivy-20201218.1222/ivy-autoloads.el            |  166 +
+ elpa/ivy-20201218.1222/ivy-faces.el                |  138 +
+ elpa/ivy-20201218.1222/ivy-faces.elc               |  Bin 0 -> 4143 bytes
+ elpa/ivy-20201218.1222/ivy-help.org                |  138 +
+ elpa/ivy-20201218.1222/ivy-overlay.el              |  155 +
+ elpa/ivy-20201218.1222/ivy-overlay.elc             |  Bin 0 -> 3777 bytes
+ elpa/ivy-20201218.1222/ivy-pkg.el                  |   12 +
+ elpa/ivy-20201218.1222/ivy.el                      | 5293 +++++++++++++++
+ elpa/ivy-20201218.1222/ivy.elc                     |  Bin 0 -> 202748 bytes
+ elpa/ivy-20201218.1222/ivy.info                    | 1966 ++++++
+ .../modus-operandi-theme-autoloads.el              |   25 +
+ .../modus-operandi-theme-pkg.el                    |    2 +
+ .../modus-operandi-theme.el                        | 4270 ++++++++++++
+ .../modus-operandi-theme.elc                       |  Bin 0 -> 190554 bytes
+ .../modus-vivendi-theme-autoloads.el               |   25 +
+ .../modus-vivendi-theme-pkg.el                     |    2 +
+ .../modus-vivendi-theme.el                         | 4270 ++++++++++++
+ .../modus-vivendi-theme.elc                        |  Bin 0 -> 190437 bytes
+ elpa/olivetti-20201029.922/olivetti-autoloads.el   |   35 +
+ elpa/olivetti-20201029.922/olivetti-pkg.el         |    2 +
+ elpa/olivetti-20201029.922/olivetti.el             |  447 ++
+ elpa/olivetti-20201029.922/olivetti.elc            |  Bin 0 -> 11836 bytes
+ .../org-download-autoloads.el                      |   25 +
+ .../org-download-20210105.1758/org-download-pkg.el |    2 +
+ elpa/org-download-20210105.1758/org-download.el    |  720 ++
+ elpa/org-download-20210105.1758/org-download.elc   |  Bin 0 -> 21596 bytes
+ elpa/org-roam-20201225.543/dir                     |   18 +
+ elpa/org-roam-20201225.543/org-roam-autoloads.el   |  265 +
+ elpa/org-roam-20201225.543/org-roam-buffer.el      |  340 +
+ elpa/org-roam-20201225.543/org-roam-buffer.elc     |  Bin 0 -> 11168 bytes
+ elpa/org-roam-20201225.543/org-roam-capture.el     |  622 ++
+ elpa/org-roam-20201225.543/org-roam-capture.elc    |  Bin 0 -> 20069 bytes
+ elpa/org-roam-20201225.543/org-roam-compat.el      |  112 +
+ elpa/org-roam-20201225.543/org-roam-compat.elc     |  Bin 0 -> 4275 bytes
+ elpa/org-roam-20201225.543/org-roam-completion.el  |  117 +
+ elpa/org-roam-20201225.543/org-roam-completion.elc |  Bin 0 -> 3050 bytes
+ elpa/org-roam-20201225.543/org-roam-dailies.el     |  342 +
+ elpa/org-roam-20201225.543/org-roam-dailies.elc    |  Bin 0 -> 11314 bytes
+ elpa/org-roam-20201225.543/org-roam-db.el          |  633 ++
+ elpa/org-roam-20201225.543/org-roam-db.elc         |  Bin 0 -> 23275 bytes
+ elpa/org-roam-20201225.543/org-roam-dev.el         |   46 +
+ elpa/org-roam-20201225.543/org-roam-dev.elc        |  Bin 0 -> 2103 bytes
+ elpa/org-roam-20201225.543/org-roam-doctor.el      |  318 +
+ elpa/org-roam-20201225.543/org-roam-doctor.elc     |  Bin 0 -> 15274 bytes
+ elpa/org-roam-20201225.543/org-roam-faces.el       |   77 +
+ elpa/org-roam-20201225.543/org-roam-faces.elc      |  Bin 0 -> 1490 bytes
+ elpa/org-roam-20201225.543/org-roam-graph.el       |  309 +
+ elpa/org-roam-20201225.543/org-roam-graph.elc      |  Bin 0 -> 10212 bytes
+ elpa/org-roam-20201225.543/org-roam-link.el        |  323 +
+ elpa/org-roam-20201225.543/org-roam-link.elc       |  Bin 0 -> 10472 bytes
+ elpa/org-roam-20201225.543/org-roam-macs.el        |  125 +
+ elpa/org-roam-20201225.543/org-roam-macs.elc       |  Bin 0 -> 3159 bytes
+ elpa/org-roam-20201225.543/org-roam-pkg.el         |   18 +
+ elpa/org-roam-20201225.543/org-roam-protocol.el    |  111 +
+ elpa/org-roam-20201225.543/org-roam-protocol.elc   |  Bin 0 -> 2887 bytes
+ elpa/org-roam-20201225.543/org-roam.el             | 1888 ++++++
+ elpa/org-roam-20201225.543/org-roam.elc            |  Bin 0 -> 71784 bytes
+ elpa/org-roam-20201225.543/org-roam.info           | 2350 +++++++
+ elpa/s-20180406.808/s-autoloads.el                 |   22 +
+ elpa/s-20180406.808/s-pkg.el                       |    2 +
+ elpa/s-20180406.808/s.el                           |  748 +++
+ elpa/s-20180406.808/s.elc                          |  Bin 0 -> 28540 bytes
+ elpa/swiper-20201208.1419/swiper-autoloads.el      |   58 +
+ elpa/swiper-20201208.1419/swiper-pkg.el            |    2 +
+ elpa/swiper-20201208.1419/swiper.el                | 1721 +++++
+ elpa/swiper-20201208.1419/swiper.elc               |  Bin 0 -> 51269 bytes
+ init.el                                            |    1 +
+ lisp/org-bullets/org-bullets.el                    |  126 +
+ org-roam.db                                        |  Bin 0 -> 167936 bytes
+ recentf                                            |   32 +
+ 123 files changed, 53581 insertions(+), 17 deletions(-)
+
+commit 078160bc50530427afd329104f5a32f2307f73a9
+Author: Toby <rowlandsToby1@gmail.com>
+Date:   Wed Jan 27 11:32:34 2021 +0000
+
+    Initial commit
+
+ .gitattributes |  2 ++
+ .gitignore     | 18 ++++++++++++++++++
+ README.md      |  2 ++
+ 3 files changed, 22 insertions(+)
