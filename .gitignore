@@ -4,6 +4,7 @@
 *
 !/.gitignore
 !/README.md
+!/LICENSE.md
 !.emacs
 !init.el
 !options.el
