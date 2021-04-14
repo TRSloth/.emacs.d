@@ -5,10 +5,10 @@ Emacs Config preconfigured for org-roam(including server), org-brain, pdftools a
 ## Prerequisites
 
 Before you begin, ensure you have met the following requirements:
-<!--- These are just example requirements. Add, duplicate or remove as required --->
 
 * You have installed the latest version of [Emacs](https://www.gnu.org/software/emacs/)
-* Windows 10 (64bit) or Kali(Linux), should work on other OS's but those are the ones I've tested.
+* [Windows 10](https://www.microsoft.com/en-gb/software-download/windows10) (64bit) or [Kali](https://www.kali.org/)(Linux), should work on other OS's but those are the ones I've tested.
+* (Reccomended) [Msys2](https://www.msys2.org/) which I believe is a compatiblity layer, though if I'm honest I'm not entirely sure.
 * (Optional) A [TeX distribution](https://www.latex-project.org/get/), I use [TeXLive](https://www.tug.org/texlive/) as it's cross platform but it's completely upto you. Having a TeX processor allows you to export Org-notes to TeX or PDF while adding typsetting support.
 
 ## Installing My Emacs Config
