@@ -9,7 +9,6 @@
 
 
 
-
 ;;;; Paths
 
 ;;; Program specific paths 						; SHOULD, set these to the directorys you are using under HOME(set in .emacs)
@@ -32,7 +31,9 @@
 
 ;; Windows
 (when (string-equal system-type "windows-nt")
-  (setq markdown-command '("pandoc" "--from=markdown" "--to=html5"))	; MAY, if using markdown set the command line arg used
+  (setq markdown-command '("pandoc" "--from=markdown" "--to=html5"))	; MAY, if using markdown set the command line arg use
+  (add-to-list 'exec-path "C:/msys64/usr/bin/aspell.exe")
+  (setq ispell-program-name "C:/msys64/usr/bin/aspell.exe")
   (setq TeX-macro-global						; MAY add where you've downloaded a TeX editor, required for Latex
    '("c:/texlive/2020/texmf-var/tex/" "c:/texlive/texmf-local/tex/" "c:/texlive/texmf-local/bibtex/bst/" "c:/texlive/2020/texmf-dist/tex/" "c:/texlive/2020/texmf-dist/bibtex/bst/"))
 ;;; Locate linux functions in windows 
@@ -61,16 +62,23 @@
 
 ;;; Fonts and Themes
 ; To test a font or theme scroll to after its final bracket and enter "C-x C-e"
-;;; Fonts-unset as I don't know what you've got installed
-;(set-face-attribute 'default nil :font "DejaVu Sans-12")		; Monospaced font, more readable than courier		
-;(set-face-attribute 'default nil :font "dubai-12")			; My default from https://dubaifont.com/
-;(set-face-attribute 'default nil  :font "courier-12")			; Monospaced font usually Pre-installed
 ;;; Theme installation
-(use-package modus-operandi-theme :ensure t  :defer t)
-(use-package modus-vivendi-theme :ensure t :defer t)
+(use-package modus-operandi-theme :defer t)
+(use-package modus-vivendi-theme :defer t)
+(use-package melancholy-theme :defer t)
+(use-package zenburn-theme :defer t)
 ;(load-theme 'modus-operandi t)						; light theme
-(load-theme 'modus-vivendi t)						; dark theme
+;(load-theme 'modus-vivendi t)						; dark themes
+;(load-theme 'melancholy t)
+(load-theme 'zenburn t)
 ;(dolist (theme custom-enabled-themes)  (disable-theme theme))		; disable current theme
+;
+;; Fonts-unset as I don't know what you've got installed
+;(set-face-attribute 'default nil :font "Lexend Exa-10")    ; Open Font with scientifically improved reading comprehension
+                                                            ; Learn more  https://github.com/ThomasJockin/lexend
+;(set-face-attribute 'default nil :font "DejaVu Sans-12")		; Monospaced font, more readable than courier		
+;(set-face-attribute 'default nil :font "dubai-10")			    ; My default from https://dubaifont.com/
+;(set-face-attribute 'default nil  :font "courier-12")			; Monospaced font usually Pre-installed
 
 
 ;;; built-in look and feel options
@@ -91,6 +99,10 @@
 (toggle-scroll-bar -1)
 (display-time-mode 1)
 (display-battery-mode 1)
+(setq persistent-scratch-file t)
+;;; disable error sounds
+;(setq ring-bell-function 'ignore)
+;(setq visible-bell t)
 
 ;;;; End Aesthetics
 
@@ -106,3 +118,63 @@
 (global-set-key (kbd "C-c a t") "#+roam_tags: ")
 
 
+;;; Alternatives for Windows keys
+(when (string-equal system-type "windows-nt")
+  (global-unset-key (kbd "C-\\")) ;unset an easy key to use with windows ctrl methods
+  (global-set-key (kbd "C-\\ \\") 'toggle-input-method) ;give key a similar bind in case its still needed
+  (global-set-key (kbd "C-\\ w") 'kill-this-buffer) ; "C-w" is copy, so we've added shift
+  (global-set-key (kbd "M-<f4>") 'save-buffers-kill-terminal) ; usually tied to C-x C-c
+; Copy paste versions
+  (global-set-key (kbd "C-\\ v") 'clipboard-yank)
+  (global-set-key (kbd "C-\\ c") 'kill-ring-save)
+  (global-set-key (kbd "C-\\ x") 'kill-region)
+)
+
+;;;General Global keymaps
+
+; Copy paste remaps
+(global-set-key "\C-v" 'clipboard-yank)
+(global-set-key "\M-v" 'yank-pop)
+(global-set-key "\C-w" 'kill-ring-save)
+(global-set-key "\M-w" 'kill-region)
+
+; Other general maps
+(global-set-key (kbd "C-z") 'undo) ;Emacs default is bound to hide Emacs.
+(global-set-key (kbd "C-c n t") #'delete-file)
+(global-set-key (kbd "C-G") #'abort-recursive-edit)
+
+; change window size
+(global-set-key (kbd "M-C-<left>") 'shrink-window-horizontally)
+(global-set-key (kbd "M-C-<right>") 'enlarge-window-horizontally)
+(global-set-key (kbd "M-C-<down>") 'shrink-window)
+(global-set-key (kbd "M-C-<up>") 'enlarge-window)
+(global-set-key (kbd "C-C C-s") 'isearch-forward)
+
+
+;;; Add latex class files
+(with-eval-after-load 'ox-latex ; add cls files
+   (add-to-list 'org-latex-classes
+                '("mitthesis"
+                  "\\documentclass{mitthesis}"
+                  ("\\chapter{%s}" . "\\chapter*{%s}")
+                  ("\\section{%s}" . "\\section*{%s}")
+                  ("\\subsection{%s}" . "\\subsection*{%s}")
+                  ("\\subsubsection{%s}" . "\\subsubsection*{%s}")))
+   (add-to-list 'org-latex-classes
+                '("tobysanswers"
+                  "\\documentclass{tobysanswers}"
+                  ("\\chapter{%s}" . "\\chapter*{%s}")
+                  ("\\section{%s}" . "\\section*{%s}")
+                  ("\\subsection{%s}" . "\\subsection*{%s}")
+                  ("\\subsubsection{%s}" . "\\subsubsection*{%s}")))
+   (add-to-list 'org-latex-classes
+                '("final_report"
+                  "\\documentclass{final_report}"
+                  ("\\chapter{%s}" . "\\chapter*{%s}")
+                  ("\\section{%s}" . "\\section*{%s}")
+                  ("\\subsection{%s}" . "\\subsection*{%s}")
+                  ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))))
+
+;;; Local options
+(set-language-environment "UTF-8")
+(setq ispell-local-dictionary "english")

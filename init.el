@@ -26,6 +26,17 @@
 ; hook: add a function to a package hook(hook appends the word hook to be package itself), eg a package will load a function when it is ready for it
 ; custom: similar to config, but allows code execution when customisations are assigned. (see also custom-face)
 ; errors in use package will be sent to the warmings buffer
+
+
+;;; No-littering: Prevents files being put in /.emacs.d/ and allows for seperate custom.el
+; https://github.com/emacscollective/no-littering
+(use-package no-littering
+  :init
+  (setq no-littering-var-directory (concat user-emacs-directory "cache/data/")
+  no-littering-etc-directory (concat user-emacs-directory "cache/etc/" )
+  custom-file (concat user-emacs-directory "cache/custom.el" )))
+
+
 
 ;;; straight.el install
 ; https://github.com/raxod502/straight.el
@@ -54,8 +65,10 @@
 )
 
 ;;; Load options prioritising user version and warn if not exists 
-(if (not (load (concat user-emacs-directory "my-options") 'noerror))
-  (load (concat user-emacs-directory "options") 'noerror))
+(cond ((load (concat user-emacs-directory "my-options") 'noerror) t)
+      ((load (concat user-emacs-directory "options") 'noerror) 
+       (load(concat user-emacs-directory "options-overwrite") 'noerror)); overwrite options, allows me to use the options file but also set my own options
+      (t (error  "my-options.el or equivalant has not been found, this please create or copy this file to your emacs directory.")))
 
 ;;;; Startup options
 (set-language-environment "UTF-8")
@@ -72,31 +85,9 @@
  make-backup-files t
  auto-save-default t
  create-lockfiles nil)
-(setq backup-directory-alist  '(("." . (concat user-emacs-directory "/file-backups")))
-auto-save-list-file-prefix (concat user-emacs-directory "/auto-save-list/.saves-")
+(setq backup-directory-alist  `(("." . ,(concat user-emacs-directory "cache/file-backups")))
+auto-save-list-file-prefix (concat user-emacs-directory "cache/auto-save-list/.saves-")
 image-file-name-extensions '("png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "pbm" "pgm" "ppm" "pnm" "svg" "pdf" "bmp"))
-
-
-;;;General Global keymaps
-
-; Copy paste remaps
-(global-set-key "\C-v" 'clipboard-yank)
-(global-set-key "\M-v" 'yank-pop)
-(global-set-key "\C-w" 'kill-ring-save)
-(global-set-key "\M-w" 'kill-region)
-(global-set-key "\C-c k" #'cua-mode)
-
-; Other general maps
-(global-set-key (kbd "C-z") 'undo) ;Emacs default is bound to hide Emacs.
-(global-set-key (kbd "C-c n t") #'delete-file)
-(global-set-key (kbd "C-G") #'abort-recursive-edit)
-
-; change window size
-(global-set-key (kbd "M-C-<left>") 'shrink-window-horizontally)
-(global-set-key (kbd "M-C-<right>") 'enlarge-window-horizontally)
-(global-set-key (kbd "M-C-<down>") 'shrink-window)
-(global-set-key (kbd "M-C-<up>") 'enlarge-window)
-(global-set-key (kbd "C-C C-s") 'isearch-forward)
 
 
 ;;;; Globally used Minor modes
@@ -164,15 +155,6 @@ image-file-name-extensions '("png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "
 
 
 ;;;; Globally used packages
-
-
-;;; No-littering: Prevents files being put in /.emacs.d/ and allows for seperate custom.el
-; https://github.com/emacscollective/no-littering
-(use-package no-littering
-  :init
-  (setq no-littering-var-directory (concat user-emacs-directory "cache/data/"))
-  (setq no-littering-etc-directory (concat user-emacs-directory "cache/etc/" ))
-  (setq custom-file (concat user-emacs-directory "cache/custom.el" )))
 
 ;;; auto-package-update
 ; https://github.com/rranelli/auto-package-update.el
@@ -317,9 +299,9 @@ image-file-name-extensions '("png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "
 ;;;Polymode allows multiple major modes 
 ;https://polymode.github.io/defining-polymodes/
 (use-package polymode
+  :hook (org-brain-visualize-mode . org-brain-polymode)
   :config
-  (add-hook 'org-brain-visualize-mode-hook #'org-brain-polymode)
-(with-eval-after-load "polymode"
+  (with-eval-after-load "polymode"
   (define-hostmode org-brain-poly-hostmode
     :mode 'org-brain-visualize-mode)))
 
@@ -346,39 +328,22 @@ image-file-name-extensions '("png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "
   (setq bibtex-completion-notes-symbol "✎") ;appears if notes exist
 )
 
-(use-package tex
-  :ensure auctex
-  :defer t
-  :hook ((TeX-mode . TeX-fold-mode)
-  (LaTeX-mode . LaTeX-math-mode))
+(use-package auctex
+  :mode("\\.tex\\'" . TeX-mode)
   :config
-  (setq TeX-PDF-mode t)
-  (setq TeX-auto-save t)
-  (setq TeX-parse-self t)
-  (setq-default TeX-master nil)
-  (setq latex-run-command "pdflatex")
-  (setq org-latex-pdf-process (list "latexmk -shell-escape -bibtex -f -pdf %f")); "If you plan to build PDF files via LaTeX you need to make sure that org-latex-pdf-process is set to process the bibliography (using bibtex or biblatex). Here is one example of how to do that (see ./org-ref.org::*LaTeX export for other alternatives)."  (setq org-latex-pdf-process '("latexmk -shell-escape -bibtex -f -pdf %f"))
-  (add-hook 'LaTeX-mode-hook (lambda ()
-                 (push 
-                  '("Latex_outdir" "%`pdflatex --output-directory=/tmp %(mode)%' %t" 
-                TeX-run-TeX nil (latex-mode doctex-mode) 
-                :help "Run pdflatex with output in /tmp")
-                  TeX-command-list)))
+  (setq latex-run-command "pdflatex"
+  TeX-PDF-mode t
+  TeX-parse-self t
+  TeX-master nil)
+(setq org-latex-pdf-process (list "latexmk -shell-escape -bibtex -f -pdf %f"))
+;(setq org-latex-pdf-process (list  "latexmk -pdflatex='lualatex -shell-escape -interaction nonstopmode' -pdf -f  %f"))
+  ;(setq org-latex-pdf-process (list "latexmk -shell-escape -biber -f -pdf %f"))
+  ;(setq org-latex-logfiles-extensions (quote ("lof" "lot" "tex~" "aux" "idx" "log" "out" "toc" "nav" "snm" "vrb" "dvi" "fdb_latexmk" "blg" "brf" "fls" "entoc" "ps" "spl" "bbl")))
    (setq org-latex-default-packages-alist
-   '(("AUTO" "inputenc" t
-      ("pdflatex"))
-     ("T1" "fontenc" t
-      ("pdflatex"))
+   '(
+     ;("T1" "fontenc" t ("pdflatex"))
+     ("AUTO" "inputenc" t("pdflatex"))
      ("" "graphicx" t nil)
-     ("" "grffile" t nil)
-     ("" "longtable" nil nil)
-     ("" "wrapfig" t nil)
-     ("" "rotating" nil nil)
-     ("normalem" "ulem" t nil)
-     ("" "amsmath" t nil)
-     ("" "textcomp" t nil)
-     ("" "amssymb" t nil)
-     ("" "capt-of" nil nil)
      ("" "hyperref" t nil)
      ("" "comment" t nil)
      ("" "biblatex" t nil)
@@ -393,20 +358,16 @@ image-file-name-extensions '("png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "
 
 (use-package org-download
   :defer 4
-;  :hook(org-mode . org-download)
   :commands (org-download-clipboard org-download-screenshot org-download-yank)
 )
 
 ;;; Org-superstar: make bullet points look nicer
 ;https://github.com/integral-dw/org-superstar-mode
 (use-package org-superstar
-  :after org
-  :defer 2
-  :init
-  (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
+  :hook (org-mode . (lambda () (org-superstar-mode 1)))
   :config
   (setq org-superstar-headline-bullets-list '(9673 9675 9671 10047))
-  )
+)
 
 ;https://github.com/org-roam/org-roam
 (use-package org-roam
@@ -454,6 +415,7 @@ image-file-name-extensions '("png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "
 ;;; Allows for seeing how many references to a citation of label
 ;https://github.com/jkitchin/org-ref
 (use-package org-ref
+  :defer 3
   :bind (("C-c c" . org-ref-helm-insert-cite-link))
   :init 
   (require 'helm-bibtex)
@@ -501,7 +463,7 @@ With a prefix ARG, remove start location."
  ;https://github.com/weirdNox/org-noter
 (use-package org-noter
   :after org
- ; :hook (org-mode . org-noter-notes-mode-hook)
+  ;:hook (org-mode . org-noter-notes-mode-hook)
   :bind(("C-c n o" . org-noter));make notes with place pdf
   :config
   (setq doc-view-continuous t
@@ -511,7 +473,6 @@ With a prefix ARG, remove start location."
 
 ;https://github.com/alphapapa/org-rifle
 (use-package helm-org-rifle
-  :defer t
   :init (require 'helm)
   :bind(:map org-mode-map
     (("C-c h o" . helm-rifle-occur)
@@ -578,29 +539,6 @@ With a prefix ARG, remove start location."
 
 
 ;;;; Latex things
-(with-eval-after-load 'ox-latex ; add cls files
-   (require 'ox-bibtex)
-   (add-to-list 'org-latex-classes
-                '("mitthesis"
-                  "\\documentclass{mitthesis}"
-                  ("\\chapter{%s}" . "\\chapter*{%s}")
-                  ("\\section{%s}" . "\\section*{%s}")
-                  ("\\subsection{%s}" . "\\subsection*{%s}")
-                  ("\\subsubsection{%s}" . "\\subsubsection*{%s}")))
-   (add-to-list 'org-latex-classes
-                '("tobysanswers"
-                  "\\documentclass{tobysanswers}"
-                  ("\\chapter{%s}" . "\\chapter*{%s}")
-                  ("\\section{%s}" . "\\section*{%s}")
-                  ("\\subsection{%s}" . "\\subsection*{%s}")
-                  ("\\subsubsection{%s}" . "\\subsubsection*{%s}")))
-   (add-to-list 'org-latex-classes
-                '("final_report"
-                  "\\documentclass{final_report}"
-                  ("\\chapter{%s}" . "\\chapter*{%s}")
-                  ("\\section{%s}" . "\\section*{%s}")
-                  ("\\subsection{%s}" . "\\subsection*{%s}")
-                  ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))))
 
 ; Add acronym from current position https://florian.adamsky.it/2018/03/09/emacs-add-acronyms.html 
 (defun fa/add-latex-acronym (region-beg region-end)
@@ -633,6 +571,21 @@ document. Addtionally, it sorts all acronyms in the list."
 
 (use-package org-roam-dir-mode
   :straight (:host github
-   :repo "trsloth/ej-org-roam-dir-mode"
-   :branch "trsloth-dev"))
+   :repo "tagd/ej-org-roam-dir-mode"))
+
+(require 'org-ref)
+
+(setq bibtex-completion-bibliography "~/docs/writeup/main.bib"
+      bibtex-completion-library-path "~/Library")
+
+;; open pdf with system pdf viewer (works on mac)
+(setq bibtex-completion-pdf-open-function
+  (lambda (fpath)
+    (start-process "open" "*open*" "open" fpath)))
+(setq org-latex-pdf-process (list "latexmk -shell-escape -bibtex -f -pdf %f"))
+
+
 
+;;; Overwrite options set earlier in init if they exist, for use when the end user want's to make a small change but doesn't with to edit init.
+; Means user can run a compiled init file while still being able to make changes
+(load (concat user-emacs-directory "init-overwrite") 'noerror)
