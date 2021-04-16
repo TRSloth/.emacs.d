@@ -35,7 +35,7 @@
 
 ;;;; Set Home path
 (let ((os system-type)) 
-  (cond ((eql os 'windows-nt) (setenv "HOME" "C:"))	; CHANGEME, IF using Windows, set as path to parent dir of this folder
+  (cond ((eql os 'windows-nt) (setenv "HOME" "C:/repo/IndividualProject_2020_Toby-Rowlands"))	; CHANGEME, IF using Windows, set as path to parent dir of this folder
         ((eql os 'gnu/linux) (setenv "HOME" "/home/chaos"))					; CHANGEME, IF using LINUX to the path of parent dir of this directory
   )
 )

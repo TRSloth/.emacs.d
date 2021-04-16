@@ -8,6 +8,7 @@
 !.emacs
 !init.el
 !options.el
+!options-overwrite.el
 !*/
 !win/*
 straight/*
