@@ -35,7 +35,7 @@
 
 ;;;; Set Home path
 (let ((os system-type)) 
-  (cond ((eql os 'windows-nt) (setenv "HOME" "G:/"))	; CHANGEME, IF using Windows, set as path to parent dir of this folder
+  (cond ((eql os 'windows-nt) (setenv "HOME" "C:"))	; CHANGEME, IF using Windows, set as path to parent dir of this folder
         ((eql os 'gnu/linux) (setenv "HOME" "/home/chaos"))					; CHANGEME, IF using LINUX to the path of parent dir of this directory
   )
 )
@@ -48,8 +48,10 @@
 
 ;;; Set init file name
 ; Set so emacs doesn't reload this file(.emacs) if you went for the symlink approach
-(setq user-init-file (concat user-emacs-directory "init"))		
+(setq user-init-file (concat user-emacs-directory "init"))
+(setq package-user-dir (concat user-emacs-directory "elpa/"))	
 
 ;;; Load init file
 (setq load-prefer-newer t)				;prefer the newest version of the file (.el or .elc)
+;(load )
 (load user-init-file)

@@ -575,8 +575,8 @@ document. Addtionally, it sorts all acronyms in the list."
 
 (require 'org-ref)
 
-(setq bibtex-completion-bibliography "~/docs/writeup/main.bib"
-      bibtex-completion-library-path "~/Library")
+(setq bibtex-completion-bibliography "~/entropy/main.bib"
+      bibtex-completion-library-path "~/gdrive/Library")
 
 ;; open pdf with system pdf viewer (works on mac)
 (setq bibtex-completion-pdf-open-function
