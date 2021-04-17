@@ -53,5 +53,4 @@
 
 ;;; Load init file
 (setq load-prefer-newer t)				;prefer the newest version of the file (.el or .elc)
-;(load )
 (load user-init-file)

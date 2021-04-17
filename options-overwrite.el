@@ -10,4 +10,5 @@
  org-ref-default-bibliography "~/docs/writeup/main.bib" 		; Your main bibleography
  reftex-default-bibliography `("~/docs/writeup/main.bib") 
  bibtex-completion-bibliography `("~/docs/writeup/main.bib")
+ bibtex-completion-library-path "~/docs/Library"
 )
