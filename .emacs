@@ -7,7 +7,8 @@
 ; C:/Users/<Username>/AppData/Roaming/
 ;; Symlink:
 ; mklink C:\Users\<username>\AppData\Roaming\.emacs C:\<path-to-repo>\IndividualProject_2020_Toby-Rowlands\dot-emacs\.emacs
-;
+; mklink C:\msys64\home\TobyR\.emacs C:\repo\dot-emacs\.emacs
+; mklink C:\Users\TobyR\AppData\Roaming\.emacs C:\repo\dot-emacs\.emacs
 ;;; Linux
 ;; Expected location:
 ; 
@@ -35,7 +36,7 @@
 
 ;;;; Set Home path
 (let ((os system-type)) 
-  (cond ((eql os 'windows-nt) (setenv "HOME" "C:/repo/IndividualProject_2020_Toby-Rowlands"))	; CHANGEME, IF using Windows, set as path to parent dir of this folder
+  (cond ((eql os 'windows-nt) (setenv "HOME" "C:/repo"))	; CHANGEME, IF using Windows, set as path to parent dir of this folder
         ((eql os 'gnu/linux) (setenv "HOME" "/home/chaos"))					; CHANGEME, IF using LINUX to the path of parent dir of this directory
   )
 )
