@@ -1,3 +1,4 @@
+
 # My Emacs Config
 
 Emacs Config preconfigured for org-roam(including server), org-brain, pdftools and a range of bibleography and note-taking tools.
@@ -45,7 +46,7 @@ mklink C:\Users\<username>\AppData\Roaming\.emacs
 
 #### Symlink
 ```shell
-ls -s /path/to/this/repo/.emacs ~/.emacs
+ln -s /path/to/this/repo/.emacs ~/.emacs
 ```
 2. Open the `.emacs` file with a text editor and change things to match your filestructure, things you need to change will are commented  "MUST" "SHOULD" & "MAY", see also the aesthetics-example.el
 3. Enter `<Win>` + `"Emacs"` + RET

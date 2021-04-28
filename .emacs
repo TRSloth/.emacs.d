@@ -12,7 +12,7 @@
 ;; Expected location:
 ; 
 ;; Symlink:
-; ls -s /path/to/this/repo/.emacs ~/.emacs
+; ln -s /path/to/this/repo/.emacs ~/.emacs
 ;
 ;;; Guidance
 ; Suggested changes are commented "CHANGEME", other suggested changes may be found in options.el
