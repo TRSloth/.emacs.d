@@ -573,18 +573,6 @@ document. Addtionally, it sorts all acronyms in the list."
   :straight (:host github
    :repo "tagd/ej-org-roam-dir-mode"))
 
-(require 'org-ref)
-
-(setq bibtex-completion-bibliography "~/entropy/main.bib"
-      bibtex-completion-library-path "~/gdrive/Library")
-
-;; open pdf with system pdf viewer (works on mac)
-(setq bibtex-completion-pdf-open-function
-  (lambda (fpath)
-    (start-process "open" "*open*" "open" fpath)))
-(setq org-latex-pdf-process (list "latexmk -shell-escape -bibtex -f -pdf %f"))
-
-
 
 ;;; Overwrite options set earlier in init if they exist, for use when the end user want's to make a small change but doesn't with to edit init.
 ; Means user can run a compiled init file while still being able to make changes
