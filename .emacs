@@ -6,13 +6,13 @@
 ;; Expected location(Vista and up):
 ; C:/Users/<Username>/AppData/Roaming/
 ;; Symlink:
-; mklink C:\Users\<username>\AppData\Roaming\.emacs C:\<path-to-repo>\IndividualProject_2020_Toby-Rowlands\dot-emacs\.emacs
+; mklink C:\Users\<username>\AppData\Roaming\.emacs <path-to-repo>\dot-emacs\.emacs
 ;
 ;;; Linux
 ;; Expected location:
 ; 
 ;; Symlink:
-; ln -s /path/to/this/repo/.emacs ~/.emacs
+; ln -s <path-to-repo>/dot-emacs/.emacs ~/.emacs
 ;
 ;;; Guidance
 ; Suggested changes are commented "CHANGEME", other suggested changes may be found in options.el
